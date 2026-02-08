@@ -19,7 +19,7 @@ const Example = () => (
 
 const products = Object.values(PRODUCTS);
 const nodes = products.map(it => (
-  <AnalyticsView Id={it.Id} Name={it.Name} />
+  <AnalyticsView key={it.Id} Id={it.Id} Name={it.Name} />
 ))
 
 const App = () => {
