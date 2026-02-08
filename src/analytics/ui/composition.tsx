@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
-import { Text } from 'ink';
-import { useContextAnalytics } from './context';
-import { getBalance } from '../../api';
+import { Fragment } from "react";
+import { Text } from "ink";
+import { useContextAnalytics } from "./context";
+import { getBalance, getBestSellOffer } from "../../api";
 
 const Header = () => {
   const context = useContextAnalytics();
@@ -16,7 +16,7 @@ const Header = () => {
       {Name} ({Avg}) / Min: ({Min}) Max: ({Max})
     </Text>
   );
-}
+};
 
 const Balance = () => {
   const context = useContextAnalytics();
@@ -25,14 +25,65 @@ const Balance = () => {
   }
 
   const { Orders } = context;
-  const { BuyOrdersCount, SellOrdersCount, BuyAmountCount, SellAmountCount } = getBalance(Orders)
+  const { BuyOrdersCount, SellOrdersCount, BuyAmountCount, SellAmountCount } =
+    getBalance(Orders);
 
   return (
     <Fragment>
-      <Text>Buy  (Count): {BuyOrdersCount}</Text>
+      <Text>Buy (Count): {BuyOrdersCount}</Text>
       <Text>Buy (Amount): {BuyAmountCount}</Text>
+      <BestOfferSell
+        SellOrdersCount={SellOrdersCount}
+        SellAmountCount={SellAmountCount}
+      />
     </Fragment>
-  )
-}
+  );
+};
 
-export {Header, Balance}
+const BestOfferSell = (props: {
+  SellOrdersCount: number;
+  SellAmountCount: number;
+}) => {
+  const context = useContextAnalytics();
+  if (context.IsLoading) {
+    return <Text>Loading...</Text>;
+  }
+
+  const { Orders } = context;
+  const { SellOrdersCount, SellAmountCount } = props;
+
+  const bestOfferSell = getBestSellOffer(Orders);
+
+  if (bestOfferSell.StatusCode === 201) {
+    const { PriceMarketCount, Amount } = bestOfferSell;
+    return (
+      <Fragment>
+        <Text>
+          Sell (Count): {SellOrdersCount} / [Price Market: {PriceMarketCount} |
+          Amount: {Amount}]
+        </Text>
+        <Text>Sell (Amount): {SellAmountCount}</Text>
+      </Fragment>
+    );
+  } else if (bestOfferSell.StatusCode === 205) {
+    const { BestSellOffer, Amount } = bestOfferSell;
+    return (
+      <Fragment>
+        <Text>Sell (Count): {SellOrdersCount}</Text>
+        <Text>
+          Sell (Amount): {SellAmountCount} / [Best Price: {BestSellOffer} |
+          Amount: {Amount}]
+        </Text>
+      </Fragment>
+    );
+  } else {
+    return (
+      <Fragment>
+        <Text>Sell (Count): {SellOrdersCount}</Text>
+        <Text>Sell (Amount): {SellAmountCount}</Text>
+      </Fragment>
+    );
+  }
+};
+
+export { Header, Balance };
