@@ -1,5 +1,4 @@
 import {render, Text, Static} from 'ink';
-import { AnalyticsProvider } from './src/analytics/ui/context';
 import { AnalyticsView } from './src/analytics/ui';
 import { PRODUCTS } from './src/server';
 
@@ -20,9 +19,7 @@ const Example = () => (
 
 const products = Object.values(PRODUCTS);
 const nodes = products.map(it => (
-  <AnalyticsProvider Id={it.Id} Name={it.Name}>
-    <AnalyticsView />
-  </AnalyticsProvider>
+  <AnalyticsView Id={it.Id} Name={it.Name} />
 ))
 
 const App = () => {
