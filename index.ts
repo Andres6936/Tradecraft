@@ -67,10 +67,9 @@ const getOrders = async (productId: number) => {
 
   const result = await stream.json();
   return result.orders;
-}
+};
 
 const getBalance = (orders: any[]) => {
-
   const buyOrders = orders.filter((it) => it.side === "buy");
   const sellOrders = orders.filter((it) => it.side === "sell");
 
@@ -88,6 +87,36 @@ const getBalance = (orders: any[]) => {
   };
 };
 
+const getBestSellOffer = (orders: any[]) => {
+  const sellOrders = orders.filter((it) => it.side === "sell");
+  if (sellOrders.length === 0) {
+    return {
+      StatusCode: 404,
+      Message: "No sell orders found",
+    } as const;
+  }
+
+  const priceMarketCount = sellOrders.filter((it) => !it.price);
+
+  if (priceMarketCount.length > 0) {
+    return {
+      StatusCode: 201,
+      PriceMarketCount: priceMarketCount.length,
+      Amount: priceMarketCount.reduce(
+        (acc, order) => acc + order.qty,
+        0,
+      ),
+    } as const;
+  }
+
+  const bestSellOffer = sellOrders.sort((a, b) => a.price - b.price).at(0);
+  return {
+    StatusCode: 205,
+    BestSellOffer: bestSellOffer.price,
+    Amount: bestSellOffer.qty,
+  } as const;
+};
+
 const products = Object.values(PRODUCTS);
 for (const product of products) {
   console.log("-----------");
@@ -98,21 +127,33 @@ for (const product of products) {
   ]);
 
   const balance = getBalance(orders);
+  const bestOfferSell = getBestSellOffer(orders);
 
   const { Avg, Min, Max } = ranges;
   console.log(`${product.Name} (${Avg}) / Min: (${Min}) Max: (${Max}) `);
 
-  const {
-    BuyOrdersCount,
-    SellOrdersCount,
-    BuyAmountCount,
-    SellAmountCount,
-  } = balance;
+  const { BuyOrdersCount, SellOrdersCount, BuyAmountCount, SellAmountCount } =
+    balance;
 
   console.log(`Buy (Count): ${BuyOrdersCount}`);
   console.log(`Buy (Amount): ${BuyAmountCount}`);
-  console.log(`Sell (Count): ${SellOrdersCount}`);
-  console.log(`Sell (Amount): ${SellAmountCount}`);
+
+  if (bestOfferSell.StatusCode === 201) {
+    const { PriceMarketCount, Amount } = bestOfferSell;
+    console.log(
+      `Sell (Count): ${SellOrdersCount} / [Price Market: ${PriceMarketCount} | Amount: ${Amount}]`,
+    );
+    console.log(`Sell (Amount): ${SellAmountCount}`);
+  } else if (bestOfferSell.StatusCode === 205) {
+    const { BestSellOffer, Amount } = bestOfferSell;
+    console.log(`Sell (Count): ${SellOrdersCount}`);
+    console.log(
+      `Sell (Amount): ${SellAmountCount} / [Best Price: ${BestSellOffer} | Amount: ${Amount}]`,
+    );
+  } else {
+    console.log(`Sell (Count): ${SellOrdersCount}`);
+    console.log(`Sell (Amount): ${SellAmountCount}`);
+  }
 
   await Bun.sleep(777);
 }
