@@ -7,11 +7,11 @@ const AnalyticsView = () => {
     return <Text>Loading...</Text>;
   }
 
-  const { Id, Name, Avg, Min, Max } = context;
+  const { Id, Name, Avg, Min, Max, Orders } = context;
 
   return (
     <Text>
-      {Name} ({Id}): Avg: {Avg}, Min: {Min}, Max: {Max}
+      {Name} ({Avg}) / Min: ({Min}) Max: ({Max})
     </Text>
   );
 }

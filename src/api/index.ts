@@ -62,8 +62,40 @@ const getBalance = (orders: any[]) => {
   };
 };
 
+const getBestSellOffer = (orders: any[]) => {
+  const sellOrders = orders.filter((it) => it.side === "sell");
+  if (sellOrders.length === 0) {
+    return {
+      StatusCode: 404,
+      Message: "No sell orders found",
+    } as const;
+  }
+
+  const priceMarketCount = sellOrders.filter((it) => !it.price);
+
+  if (priceMarketCount.length > 0) {
+    return {
+      StatusCode: 201,
+      PriceMarketCount: priceMarketCount.length,
+      Amount: priceMarketCount.reduce(
+        (acc, order) => acc + order.qty,
+        0,
+      ),
+    } as const;
+  }
+
+  const bestSellOffer = sellOrders.sort((a, b) => a.price - b.price).at(0);
+  return {
+    StatusCode: 205,
+    BestSellOffer: bestSellOffer.price,
+    Amount: bestSellOffer.qty,
+  } as const;
+};
+
+
 export {
   getPriceRange,
   getOrders,
   getBalance,
+  getBestSellOffer,
 };

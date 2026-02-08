@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getPriceRange } from "../../api";
+import { getOrders, getPriceRange } from "../../api";
 import { useQuery } from "./hooks";
 
 type ContextAnalyticsProps =
@@ -15,6 +15,7 @@ type ContextAnalyticsProps =
       Avg: number;
       Min: string;
       Max: string;
+      Orders: any[];
     };
 
 const ContextAnalytics = React.createContext<ContextAnalyticsProps | null>(
@@ -31,20 +32,24 @@ const AnalyticsProvider = ({
   ...props
 }: React.PropsWithChildren<ProductType>) => {
   const { isLoading, data } = useQuery(async () => {
-    return await getPriceRange(props.Id);
+    return await Promise.all([getPriceRange(props.Id), getOrders(props.Id)]);
   });
 
   if (isLoading || !data) {
     return (
-      <ContextAnalytics.Provider value={{
-        IsLoading: true,
-        Id: props.Id,
-        Name: props.Name,
-      }}>
+      <ContextAnalytics.Provider
+        value={{
+          IsLoading: true,
+          Id: props.Id,
+          Name: props.Name,
+        }}
+      >
         {children}
       </ContextAnalytics.Provider>
-    )
+    );
   }
+
+  const [ranges, orders] = data;
 
   return (
     <ContextAnalytics.Provider
@@ -52,9 +57,10 @@ const AnalyticsProvider = ({
         IsLoading: false,
         Id: props.Id,
         Name: props.Name,
-        Avg: data.Avg,
-        Min: data.Min,
-        Max: data.Max,
+        Avg: ranges.Avg,
+        Min: ranges.Min,
+        Max: ranges.Max,
+        Orders: orders,
       }}
     >
       {children}
