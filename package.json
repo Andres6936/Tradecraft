@@ -1,7 +1,9 @@
 {
   "name": "tradecraft",
-  "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "show": "bun run index.ts"
+  },
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
