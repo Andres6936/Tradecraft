@@ -1,4 +1,6 @@
-import {render, Text} from 'ink';
+import {render, Text, Static} from 'ink';
+import { AnalyticsProvider } from './src/analytics/ui/context';
+import { AnalyticsView } from './src/analytics/ui';
 
 const Example = () => (
 	<>
@@ -15,4 +17,12 @@ const Example = () => (
 	</>
 );
 
-render(<Example />);
+const App = () => {
+  return (
+    <AnalyticsProvider Id={25} Name={'Butter'}>
+      <AnalyticsView />
+    </AnalyticsProvider>
+  )
+}
+
+render(<App />, {concurrent: true});
