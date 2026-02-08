@@ -53,7 +53,7 @@ const getRangePrices = async (productId: number) => {
   };
 };
 
-const getBalance = async (productId: number) => {
+const getOrders = async (productId: number) => {
   const stream = await fetch(
     `https://playtradecraft.com/api/state?orderFilterProductId=${productId}`,
     {
@@ -66,7 +66,10 @@ const getBalance = async (productId: number) => {
   );
 
   const result = await stream.json();
-  const orders = result.orders;
+  return result.orders;
+}
+
+const getBalance = (orders: any[]) => {
 
   const buyOrders = orders.filter((it) => it.side === "buy");
   const sellOrders = orders.filter((it) => it.side === "sell");
@@ -89,10 +92,12 @@ const products = Object.values(PRODUCTS);
 for (const product of products) {
   console.log("-----------");
 
-  const [ranges, balances] = await Promise.all([
+  const [ranges, orders] = await Promise.all([
     getRangePrices(product.Id),
-    getBalance(product.Id),
+    getOrders(product.Id),
   ]);
+
+  const balance = getBalance(orders);
 
   const { Avg, Min, Max } = ranges;
   console.log(`${product.Name} (${Avg}) / Min: (${Min}) Max: (${Max}) `);
@@ -102,7 +107,7 @@ for (const product of products) {
     SellOrdersCount,
     BuyAmountCount,
     SellAmountCount,
-  } = balances;
+  } = balance;
 
   console.log(`Buy (Count): ${BuyOrdersCount}`);
   console.log(`Buy (Amount): ${BuyAmountCount}`);
