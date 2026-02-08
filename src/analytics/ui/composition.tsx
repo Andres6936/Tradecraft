@@ -67,7 +67,7 @@ const BestOfferSell = (props: {
     return (
       <Fragment>
         <Text>
-          Sell (Count): {SellOrdersCount} /
+          Sell (Count): {SellOrdersCount} / {' '}
           <Text bold color="green">
             [Market: {PriceMarketCount} | Amount: {Amount}]
           </Text>
@@ -81,7 +81,7 @@ const BestOfferSell = (props: {
       <Fragment>
         <Text>Sell (Count): {SellOrdersCount}</Text>
         <Text>
-          Sell (Amount): {SellAmountCount} /
+          Sell (Amount): {SellAmountCount} / {' '}
           <Text>
             [Limit: {BestSellOffer} | Amount: {Amount}]
           </Text>
