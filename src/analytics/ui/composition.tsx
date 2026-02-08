@@ -1,7 +1,15 @@
-import { Fragment } from "react";
-import { Text } from "ink";
+import React, { Fragment } from "react";
+import { Box, Text } from "ink";
 import { useContextAnalytics } from "./context";
 import { getBalance, getBestSellOffer } from "../../api";
+
+const Root = ({children}: React.PropsWithChildren<{}>) => {
+  return (
+    <Box flexDirection='column' paddingBottom={1}>
+      {children}
+    </Box>
+  )
+}
 
 const Header = () => {
   const context = useContextAnalytics();
@@ -12,7 +20,7 @@ const Header = () => {
   const { Name, Avg, Min, Max } = context;
 
   return (
-    <Text>
+    <Text color='cyan'>
       {Name} ({Avg}) / Min: ({Min}) Max: ({Max})
     </Text>
   );
@@ -30,8 +38,8 @@ const Balance = () => {
 
   return (
     <Fragment>
-      <Text>Buy (Count): {BuyOrdersCount}</Text>
-      <Text>Buy (Amount): {BuyAmountCount}</Text>
+      <Text color='red'>Buy (Count): {BuyOrdersCount}</Text>
+      <Text color='red'>Buy (Amount): {BuyAmountCount}</Text>
       <BestOfferSell
         SellOrdersCount={SellOrdersCount}
         SellAmountCount={SellAmountCount}
@@ -86,4 +94,4 @@ const BestOfferSell = (props: {
   }
 };
 
-export { Header, Balance };
+export { Root, Header, Balance };
