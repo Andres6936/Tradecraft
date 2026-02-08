@@ -3,13 +3,13 @@ import { Box, Text } from "ink";
 import { useContextAnalytics } from "./context";
 import { getBalance, getBestSellOffer } from "../../api";
 
-const Root = ({children}: React.PropsWithChildren<{}>) => {
+const Root = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <Box flexDirection='column' paddingBottom={1}>
+    <Box flexDirection="column" paddingBottom={1}>
       {children}
     </Box>
-  )
-}
+  );
+};
 
 const Header = () => {
   const context = useContextAnalytics();
@@ -20,7 +20,7 @@ const Header = () => {
   const { Name, Avg, Min, Max } = context;
 
   return (
-    <Text color='cyan'>
+    <Text color="cyan">
       {Name} ({Avg}) / Min: ({Min}) Max: ({Max})
     </Text>
   );
@@ -38,8 +38,8 @@ const Balance = () => {
 
   return (
     <Fragment>
-      <Text color='red'>Buy (Count): {BuyOrdersCount}</Text>
-      <Text color='red'>Buy (Amount): {BuyAmountCount}</Text>
+      <Text color="red">Buy (Count): {BuyOrdersCount}</Text>
+      <Text color="red">Buy (Amount): {BuyAmountCount}</Text>
       <BestOfferSell
         SellOrdersCount={SellOrdersCount}
         SellAmountCount={SellAmountCount}
@@ -67,8 +67,10 @@ const BestOfferSell = (props: {
     return (
       <Fragment>
         <Text>
-          Sell (Count): {SellOrdersCount} / [Price Market: {PriceMarketCount} |
-          Amount: {Amount}]
+          Sell (Count): {SellOrdersCount} /
+          <Text bold color="green">
+            [Price Market: {PriceMarketCount} | Amount: {Amount}]
+          </Text>
         </Text>
         <Text>Sell (Amount): {SellAmountCount}</Text>
       </Fragment>
@@ -79,8 +81,10 @@ const BestOfferSell = (props: {
       <Fragment>
         <Text>Sell (Count): {SellOrdersCount}</Text>
         <Text>
-          Sell (Amount): {SellAmountCount} / [Best Price: {BestSellOffer} |
-          Amount: {Amount}]
+          Sell (Amount): {SellAmountCount} /
+          <Text bold color="green">
+            [Best Price: {BestSellOffer} | Amount: {Amount}]
+          </Text>
         </Text>
       </Fragment>
     );
