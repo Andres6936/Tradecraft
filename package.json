@@ -2,7 +2,7 @@
   "name": "tradecraft",
   "type": "module",
   "scripts": {
-    "show": "bun run index.ts"
+    "analytics": "bun run cli.tsx"
   },
   "private": true,
   "devDependencies": {
