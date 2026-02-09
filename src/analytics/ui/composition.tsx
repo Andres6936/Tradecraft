@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <Text color="cyan">
-      {Name} ({Avg}) / Min: ({Min}) Max: ({Max})
+      {Name} (${Avg}) / Min: (${Min}) Max: (${Max})
     </Text>
   );
 };
@@ -82,8 +82,8 @@ const BestOfferSell = (props: {
         <Text>Sell (Count): {SellOrdersCount}</Text>
         <Text>
           Sell (Amount): {SellAmountCount} / {' '}
-          <Text>
-            [Limit: {BestSellOffer} | Amount: {Amount}]
+          <Text color="#663399">
+            [Limit: ${BestSellOffer} | Amount: {Amount}]
           </Text>
         </Text>
       </Fragment>
