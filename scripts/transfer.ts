@@ -2,7 +2,7 @@ import { transferWarehouse } from "../src/api";
 import { QuestionIsFactoryInspectTransfer } from "../src/server";
 
 const Cookies = process.env.COOKIES || "";
-const regions = [1];
+const regions = [4];
 
 for (const regionId of regions) {
   console.log(`Processing region: ${regionId}`);

@@ -146,6 +146,46 @@ const FactoryInspectTransfer = {
     Tolerance: 25,
     // Value in percentage of offset used for transfer
     Offset: 5,
+  },
+  Trout: {
+    Key: "trout",
+    Kind: "farm",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 95,
+    // Value in percentage of offset used for transfer
+    Offset: 2,
+  },
+  Corn: {
+    Key: "corn",
+    Kind: "farm",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
+  },
+  Tree: {
+    Key: "tree",
+    Kind: "farm",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
+  },
+  Grape: {
+    Key: "grape",
+    Kind: "farm",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
+  },
+  Wine: {
+    Key: "wine",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
   }
 } as const;
 
