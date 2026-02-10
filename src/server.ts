@@ -80,31 +80,41 @@ const FactoryInspectTransfer = {
     Kind: "factory",
     // Value in percentage of max tolerance of storage
     Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
   },
   Flour: {
     Key: "flour",
     Kind: "factory",
     // Value in percentage of max tolerance of storage
     Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
   },
   Orange: {
     Key: "orange",
     Kind: "farm",
     // Value in percentage of max tolerance of storage
     Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
   },
   Cherry: {
     Key: "cherry",
     Kind: "farm",
     // Value in percentage of max tolerance of storage
     Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
   },
   Sheep: {
     Key: "sheep",
     Kind: "farm",
     // Value in percentage of max tolerance of storage
     Tolerance: 99,
-  }
+    // Value in percentage of offset used for transfer
+    Offset: 0.5,
+  },
 } as const;
 
 type FactoryType =

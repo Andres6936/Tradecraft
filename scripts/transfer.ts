@@ -2,7 +2,7 @@ import { transferWarehouse } from "../src/api";
 import { QuestionIsFactoryInspectTransfer } from "../src/server";
 
 const Cookies = process.env.COOKIES || "";
-const regions = [1, 2, 3, 4, 5, 6];
+const regions = [1];
 
 for (const regionId of regions) {
   console.log(`Processing region: ${regionId}`);
@@ -29,7 +29,7 @@ for (const regionId of regions) {
     if (isFactoryInspect) {
       if (percentage > factory.Tolerance) {
         const percentageExceed = percentage - factory.Tolerance;
-        const amount = Math.floor((percentageExceed / 100) * capacity);
+        const amount = Math.floor(((percentageExceed + factory.Offset) / 100) * capacity);
         if (amount < 1) continue;
 
         console.log(`Tolerance exceeded by ${percentageExceed.toFixed(1)}%, moving ${amount} products`);
