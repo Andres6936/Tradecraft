@@ -115,6 +115,38 @@ const FactoryInspectTransfer = {
     // Value in percentage of offset used for transfer
     Offset: 0.5,
   },
+  Yarn: {
+    Key: "cotton_yarn",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
+  },
+  Fabric: {
+    Key: "cotton_fabric",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
+  },
+  Pants: {
+    Key: "pants",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
+  },
+  Shirt: {
+    Key: "shirt",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
+  }
 } as const;
 
 type FactoryType =
