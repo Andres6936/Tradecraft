@@ -1,3 +1,5 @@
+import { QuestionIsFactoryInspectTransfer } from "../src/server";
+
 const transfer = async (args: {
   regionId: number,
   x: number,
@@ -21,32 +23,6 @@ const transfer = async (args: {
   if (response.ok && stream.ok === true) return;
   console.error("Error transferring item", stream);
 };
-
-const FactoryInspectTransfer = {
-  Bread: {
-    Key: "bread",
-    Kind: "factory",
-    // Value in percentage of max tolerance of storage
-    Tolerance: 25,
-  },
-  Flour: {
-    Key: "flour",
-    Kind: "factory",
-    // Value in percentage of max tolerance of storage
-    Tolerance: 25,
-  }
-} as const
-
-type FactoryType = typeof FactoryInspectTransfer[keyof typeof FactoryInspectTransfer];
-
-const FactoryInspectTransferList = Object.values(FactoryInspectTransfer);
-
-const QuestionIsFactoryInspectTransfer = (args: {key: string, kind: string}): [FactoryType, true] | [undefined, false]  => {
-  const factory = FactoryInspectTransferList.find((factory) => factory.Kind === args.kind && factory.Key === args.key);
-  // Tuple: [Factory coincidence, Is factory to inspect]
-  if (factory) return [factory, true];
-  return [undefined, false];
-}
 
 const Cookies = process.env.COOKIES || "";
 

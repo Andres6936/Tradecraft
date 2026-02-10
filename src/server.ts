@@ -8,7 +8,7 @@ type ProductType = {
   Id: number;
   Name: string;
   Order: number;
-  Priority: typeof Priority[keyof typeof Priority];
+  Priority: (typeof Priority)[keyof typeof Priority];
 };
 
 const ProductsAnalytics = {
@@ -71,10 +71,47 @@ const ProductsAnalytics = {
     Name: "Butter",
     Order: 36,
     Priority: Priority.Low,
-  }
+  },
 } as const satisfies Record<string, ProductType>;
 
+const FactoryInspectTransfer = {
+  Bread: {
+    Key: "bread",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+  },
+  Flour: {
+    Key: "flour",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+  },
+} as const;
 
-export { Priority, ProductsAnalytics };
+type FactoryType =
+  (typeof FactoryInspectTransfer)[keyof typeof FactoryInspectTransfer];
 
-export type { ProductType };
+const FactoryInspectTransferList = Object.values(FactoryInspectTransfer);
+
+const QuestionIsFactoryInspectTransfer = (args: {
+  key: string;
+  kind: string;
+}): [FactoryType, true] | [undefined, false] => {
+  const factory = FactoryInspectTransferList.find(
+    (factory) => factory.Kind === args.kind && factory.Key === args.key,
+  );
+  // Tuple: [Factory coincidence, Is factory to inspect]
+  if (factory) return [factory, true];
+  return [undefined, false];
+};
+
+export {
+  Priority,
+  ProductsAnalytics,
+  FactoryInspectTransfer,
+  FactoryInspectTransferList,
+  QuestionIsFactoryInspectTransfer,
+};
+
+export type { ProductType, FactoryType };
