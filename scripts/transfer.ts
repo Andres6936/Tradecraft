@@ -27,7 +27,13 @@ const FactoryInspectTransfer = {
     Key: "bread",
     Kind: "factory",
     // Value in percentage of max tolerance of storage
-    Tolerance: 75,
+    Tolerance: 25,
+  },
+  Flour: {
+    Key: "flour",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
   }
 } as const
 
