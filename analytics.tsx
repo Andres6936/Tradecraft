@@ -1,4 +1,4 @@
-import {render, Text, Static} from 'ink';
+import {render} from 'ink';
 import { AnalyticsView } from './src/analytics/ui';
 import { ProductsAnalytics } from './src/server';
 
