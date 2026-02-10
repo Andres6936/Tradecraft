@@ -87,6 +87,18 @@ const FactoryInspectTransfer = {
     // Value in percentage of max tolerance of storage
     Tolerance: 25,
   },
+  Orange: {
+    Key: "orange",
+    Kind: "farm",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+  },
+  Cherry: {
+    Key: "cherry",
+    Kind: "farm",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+  }
 } as const;
 
 type FactoryType =
