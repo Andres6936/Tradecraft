@@ -91,10 +91,32 @@ const getBestSellOffer = (orders: any[]) => {
   } as const;
 };
 
+const transferWarehouse = async (args: {
+  regionId: number,
+  x: number,
+  y: number,
+  id: number,
+  amount: number,
+}) => {
+  const response = await fetch("https://playtradecraft.com/api/transfer-to-main", {
+    method: "POST",
+    body: JSON.stringify(args),
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: Cookies,
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+    },
+  });
+  const stream = await response.json();
+  if (response.ok && stream.ok === true) return;
+  console.error("Error transferring item", stream);
+};
 
 export {
   getPriceRange,
   getOrders,
   getBalance,
   getBestSellOffer,
+  transferWarehouse,
 };
