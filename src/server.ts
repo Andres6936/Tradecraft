@@ -28,13 +28,13 @@ const PRODUCTS = {
     Id: 48,
     Name: "Lumber",
     Order: 320,
-    Priority: Priority.High,
+    Priority: Priority.Medium,
   },
   Circuit: {
     Id: 92,
     Name: "Circuit",
     Order: 232,
-    Priority: Priority.High,
+    Priority: Priority.Medium,
   },
   Furniture: {
     Id: 49,
@@ -46,13 +46,13 @@ const PRODUCTS = {
     Id: 47,
     Name: "Log",
     Order: 152,
-    Priority: Priority.High,
+    Priority: Priority.Medium,
   },
   Beeswax: {
     Id: 55,
     Name: "Beeswax",
     Order: 111,
-    Priority: Priority.High,
+    Priority: Priority.Medium,
   },
   Shoes: {
     Id: 111,
@@ -71,13 +71,7 @@ const PRODUCTS = {
     Name: "Butter",
     Order: 36,
     Priority: Priority.Low,
-  },
-  Sneakers: {
-    Id: 113,
-    Name: "Sneakers",
-    Order: 20,
-    Priority: Priority.Low,
-  },
+  }
 } as const satisfies Record<string, ProductType>;
 
 
