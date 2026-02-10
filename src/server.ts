@@ -1,8 +1,15 @@
 const Priority = {
-  High: "High",
-  Medium: "Medium",
-  Low: "Low",
+  High: 1,
+  Medium: 500,
+  Low: 1000,
 } as const;
+
+type ProductType = {
+  Id: number;
+  Name: string;
+  Order: number;
+  Priority: typeof Priority[keyof typeof Priority];
+};
 
 const PRODUCTS = {
   Computer: {
@@ -71,6 +78,9 @@ const PRODUCTS = {
     Order: 20,
     Priority: Priority.Low,
   },
-} as const;
+} as const satisfies Record<string, ProductType>;
+
 
 export { Priority, PRODUCTS };
+
+export type { ProductType };
