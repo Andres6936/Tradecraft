@@ -1,20 +1,11 @@
-import { exec } from "child_process";
-const execPromise = require("util").promisify(exec);
+import { $ } from "bun";
 
-/* MAC PLAY COMMAND */
-const macPlayCommand = (path: string, volume: number, rate: number) =>
-  `afplay \"${path}\" -v ${volume} -r ${rate}`;
-
-/* WINDOW PLAY COMMANDS */
 const createMediaPlayer = `$player = New-Object System.Media.SoundPlayer;`;
 const loadAudioFile = (path: string) => `$player.SoundLocation = '${path}';`;
-const playAudio = `$player.Play();`;
-const stopAudio = `Start-Sleep 1; Start-Sleep -s $player.NaturalDuration.TimeSpan.TotalSeconds;Exit;`;
+const playAudio = `$player.PlaySync();`;
 
-const windowPlayCommand = (path: string, volume: number) =>
-  `powershell -c ${createMediaPlayer} ${loadAudioFile(
-    path,
-  )} $player.Volume = ${volume}; ${playAudio} ${stopAudio}`;
+const getPlayCommand = (path: string, volume: number) =>
+  `${createMediaPlayer} ${loadAudioFile(path)} ${playAudio}`;
 
 /**
  * Plays an audio file on Mac or Windows
@@ -28,16 +19,10 @@ const windowPlayCommand = (path: string, volume: number) =>
  * @throws Will throw an error if audio playback fails.
  */
 const play = async (path: string, volume: number = 1, rate: number = 1) => {
-  const volumeAdjustedByOS =
-    process.platform === "darwin" ? Math.min(2, volume * 2) : volume;
-
-  const playCommand =
-    process.platform === "darwin"
-      ? macPlayCommand(path, volumeAdjustedByOS, rate)
-      : windowPlayCommand(path, volumeAdjustedByOS);
+  const playCommand = getPlayCommand(path, volume);
 
   try {
-    await execPromise(playCommand, { windowsHide: true });
+    await $`powershell -c ${playCommand}`;
   } catch (err) {
     throw err;
   }
