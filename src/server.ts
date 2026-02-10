@@ -11,7 +11,7 @@ type ProductType = {
   Priority: typeof Priority[keyof typeof Priority];
 };
 
-const PRODUCTS = {
+const ProductsAnalytics = {
   Computer: {
     Id: 93,
     Name: "Computer",
@@ -75,6 +75,6 @@ const PRODUCTS = {
 } as const satisfies Record<string, ProductType>;
 
 
-export { Priority, PRODUCTS };
+export { Priority, ProductsAnalytics };
 
 export type { ProductType };
