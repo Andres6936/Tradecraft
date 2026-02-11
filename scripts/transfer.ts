@@ -40,10 +40,10 @@ for (const regionId of regions) {
           id: tile.id,
           amount,
         });
+          await Bun.sleep(777);
       }
     }
 
-    await Bun.sleep(777);
     console.log("----------")
   }
   await Bun.sleep(777);
