@@ -28,10 +28,15 @@ const padded = (value: number | string, padLength: number) =>
 //   );
 // }
 
-const Item = ({children, length}: React.PropsWithChildren<{length: number}>) => {
+type PropsItem = {
+  length: number,
+  color: string,
+}
+
+const Item = ({children, ...props}: React.PropsWithChildren<PropsItem>) => {
   return (
-    <Box justifyContent="flex-end" width={length}>
-      <Text wrap='truncate'>{ children}</Text>
+    <Box justifyContent="flex-end" width={props.length}>
+      <Text color={props.color} wrap='truncate'>{ children}</Text>
     </Box>
   )
 }
@@ -41,49 +46,57 @@ const Columns = [
     Key: 'productName',
     Header: 'Product',
     Type: 'string',
-    Length: 17
+    Length: 17,
+    Color: 'black',
   },
   {
     Key: 'buyQty',
     Header: 'Buy Qty',
     Type: 'number',
-    Length: 10
+    Length: 10,
+    Color: 'black'
   },
   {
     Key: 'buyAmount',
     Header: '$ Buy',
     Type: 'number',
-    Length: 10
+    Length: 10,
+    Color: 'black'
   },
   {
     Key: 'citySellQty',
     Header: 'City Sell',
     Type: 'number',
-    Length: 10
+    Length: 10,
+    Color: '#663399'
   },
   {
     Key: 'citySellAmount',
     Header: '$ City',
     Type: 'number',
-    Length: 10
+    Length: 10,
+    Color: '#663399'
   },
   {
     Key: 'sellQty',
     Header: 'Total Sale',
     Type: 'number',
-    Length: 12
+    Length: 12,
+    Color: 'green'
   },
   {
     Key: 'sellAmount',
     Header: '$ Total',
     Type: 'number',
-    Length: 12
+    Length: 12,
+    Color: 'green'
   },
   {
     Key: 'profit',
     Header: 'Profit',
     Type: 'number',
-    Length: 12
+    Length: 12,
+    Color: 'green'
   }
 ]
 
@@ -91,7 +104,7 @@ const Header = () => {
   return (
     <Box>
       {Columns.map((column) => (
-        <Item key={column.Key} length={column.Length}>
+        <Item key={column.Key} length={column.Length} color={column.Color}>
           {column.Header}
         </Item>
       ))}
@@ -107,7 +120,7 @@ const Table = () => {
       {records.map((record) => (
         <Box key={record.id}>
           {Columns.map((column) => (
-            <Item key={column.Key} length={column.Length}>
+            <Item key={column.Key} length={column.Length} color={column.Color}>
               {column.Type === 'number' ? Number(record[column.Key]).toFixed(0) : record[column.Key]}
             </Item>
           ))}
