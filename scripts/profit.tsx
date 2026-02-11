@@ -51,8 +51,12 @@ const shortNumber = (value: number) => {
     result = `${(absValue / 1000000).toFixed(1)}M`;
   } else if (absValue >= 1000) {
     result = `${(absValue / 1000).toFixed(1)}K`;
-  } else {
+  } else if (absValue >= 1) {
     result = absValue.toFixed(0);
+  } else if (absValue === 0) {
+    result = "0";
+  }  else {
+    result = absValue.toFixed(1);
   }
 
   return isNegative ? `-${result}` : result;
