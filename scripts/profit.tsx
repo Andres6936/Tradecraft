@@ -172,7 +172,7 @@ const Table = () => {
       <Header />
 
       {records.map((record) => (
-        <Box key={record.id}>
+        <Box key={record.productName}>
           {Columns.map((column) => (
             <Item key={column.Key} length={column.Length} color={column.Color}>
               {column.Type === "number"
