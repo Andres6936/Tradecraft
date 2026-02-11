@@ -43,6 +43,25 @@ const Item = ({ children, ...props }: React.PropsWithChildren<PropsItem>) => {
   );
 };
 
+// Function that short the number to show a variant with a suffix
+// Example: Values with more of three digits 1.000 short to 1K, 1.000.000 to 1M
+const shortNumber = (value: number) => {
+  const isNegative = value < 0;
+  const absValue = Math.abs(value);
+
+  let result: string;
+
+  if (absValue >= 1000000) {
+    result = `${(absValue / 1000000).toFixed(1)}M`;
+  } else if (absValue >= 1000) {
+    result = `${(absValue / 1000).toFixed(1)}K`;
+  } else {
+    result = absValue.toFixed(0);
+  }
+
+  return isNegative ? `-${result}` : result;
+}
+
 const Columns = [
   {
     Key: "productName",
@@ -129,7 +148,7 @@ const Table = () => {
           {Columns.map((column) => (
             <Item key={column.Key} length={column.Length} color={column.Color}>
               {column.Type === "number"
-                ? Number(record[column.Key]).toFixed(0)
+                ? shortNumber(record[column.Key])
                 : record[column.Key]}
             </Item>
           ))}
