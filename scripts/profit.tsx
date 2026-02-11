@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import {render, Box, Text } from "ink";
+import { render, Box, Text } from "ink";
 
 const Cookies = process.env.COOKIES || "";
 
@@ -29,80 +29,87 @@ const padded = (value: number | string, padLength: number) =>
 // }
 
 type PropsItem = {
-  length: number,
-  color: string,
-}
+  length: number;
+  color: string;
+};
 
-const Item = ({children, ...props}: React.PropsWithChildren<PropsItem>) => {
+const Item = ({ children, ...props }: React.PropsWithChildren<PropsItem>) => {
   return (
     <Box justifyContent="flex-end" width={props.length}>
-      <Text color={props.color} wrap='truncate'>{ children}</Text>
+      <Text color={props.color} wrap="truncate">
+        {children}
+      </Text>
     </Box>
-  )
-}
+  );
+};
 
 const Columns = [
   {
-    Key: 'productName',
-    Header: 'Product',
-    Type: 'string',
+    Key: "productName",
+    Header: "Product",
+    Type: "string",
     Length: 17,
-    Color: 'black',
+    Color: "black",
   },
   {
-    Key: 'buyQty',
-    Header: 'Buy Qty',
-    Type: 'number',
+    Key: "buyQty",
+    Header: "Buy Qty",
+    Type: "number",
     Length: 10,
-    Color: 'black'
+    Color: "black",
   },
   {
-    Key: 'buyAmount',
-    Header: '$ Buy',
-    Type: 'number',
+    Key: "buyAmount",
+    Header: "$ Buy",
+    Type: "number",
     Length: 10,
-    Color: 'black'
+    Color: "black",
   },
   {
-    Key: 'citySellQty',
-    Header: 'City Sell',
-    Type: 'number',
+    Key: "citySellQty",
+    Header: "City Sell",
+    Type: "number",
     Length: 10,
-    Color: '#663399'
+    Color: "#663399",
   },
   {
-    Key: 'citySellAmount',
-    Header: '$ City',
-    Type: 'number',
+    Key: "citySellAmount",
+    Header: "$ City",
+    Type: "number",
     Length: 10,
-    Color: '#663399'
+    Color: "#663399",
   },
   {
-    Key: 'sellQty',
-    Header: 'Total Sale',
-    Type: 'number',
+    Key: "sellQty",
+    Header: "Total Sale",
+    Type: "number",
     Length: 12,
-    Color: 'green'
+    Color: "green",
   },
   {
-    Key: 'sellAmount',
-    Header: '$ Total',
-    Type: 'number',
+    Key: "sellAmount",
+    Header: "$ Total",
+    Type: "number",
     Length: 12,
-    Color: 'green'
+    Color: "green",
   },
   {
-    Key: 'profit',
-    Header: 'Profit',
-    Type: 'number',
+    Key: "profit",
+    Header: "Profit",
+    Type: "number",
     Length: 12,
-    Color: 'green'
-  }
-]
+    Color: "green",
+  },
+];
 
 const Header = () => {
   return (
-    <Box>
+    <Box
+      borderStyle="classic"
+      borderBottom
+      borderRight={false}
+      borderLeft={false}
+    >
       {Columns.map((column) => (
         <Item key={column.Key} length={column.Length} color={column.Color}>
           {column.Header}
@@ -121,7 +128,9 @@ const Table = () => {
         <Box key={record.id}>
           {Columns.map((column) => (
             <Item key={column.Key} length={column.Length} color={column.Color}>
-              {column.Type === 'number' ? Number(record[column.Key]).toFixed(0) : record[column.Key]}
+              {column.Type === "number"
+                ? Number(record[column.Key]).toFixed(0)
+                : record[column.Key]}
             </Item>
           ))}
         </Box>
@@ -130,4 +139,4 @@ const Table = () => {
   );
 };
 
-render(<Table/>)
+render(<Table />);
