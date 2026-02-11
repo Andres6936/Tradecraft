@@ -15,9 +15,11 @@ const stream = await fetch(`https://playtradecraft.com/api/product-daily-pnl`, {
 const result = await stream.json();
 const records = result.records.map(it => ({
   ...it,
+  AverageMarketPrice: it.sellAmount / (it.sellQty || 1),
+  AverageCityPrice: it.citySellAmount / (it.citySellQty || 1),
   TotalSaleAmount: it.sellQty + it.citySellQty,
   TotalSaleMoney: it.sellAmount + it.citySellAmount,
-}));
+})).sort((a, b) => b.profit - a.profit);
 
 const padded = (value: number | string, padLength: number) =>
   String(value).padStart(padLength, " ");
@@ -93,6 +95,13 @@ const Columns = [
     Color: "blue",
   },
   {
+    Key: "AverageMarketPrice",
+    Header: "Avg. Market",
+    Type: "number",
+    Length: 12,
+    Color: "#FF7518",
+  },
+  {
     Key: "citySellQty",
     Header: "City Sell",
     Type: "number",
@@ -105,6 +114,13 @@ const Columns = [
     Type: "number",
     Length: 10,
     Color: "#663399",
+  },
+  {
+    Key: "AverageCityPrice",
+    Header: "Avg. City",
+    Type: "number",
+    Length: 10,
+    Color: "#FF1DCE",
   },
   {
     Key: "TotalSaleAmount",
