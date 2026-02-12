@@ -60,15 +60,17 @@ for (const product of ProductsTradeList) {
 
     // Get the amount of buy amount of orders
     const buyAmount = marketOrders.reduce((acc, order) => acc + order.qty, 0);
+    // Determine the amount of inventory to sell
+    const sellAmount = Math.min(productInventoryAmount - KeepMinInventory, buyAmount);
 
     console.log(`Found ${marketOrders.length} market orders with a total of ${buyAmount} units to market price`);
-    console.log(`Selling ${buyAmount} units at ${range.Max} price`);
+    console.log(`Selling ${Math.floor(sellAmount)} units at ${range.Max} price`);
 
     await sendOrder({
       orderType: 'limit',
       side: 'sell',
       productId: Id,
-      qty: Math.floor(buyAmount),
+      qty: Math.floor(sellAmount),
       price: +range.Max,
       regionId: 1,
       npcAllow: true,
@@ -77,5 +79,6 @@ for (const product of ProductsTradeList) {
     console.log(`No inventory of ${Key} to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
   }
 
+  console.log("----------------")
   await Bun.sleep(777);
 }
