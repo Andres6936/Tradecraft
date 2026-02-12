@@ -2,7 +2,9 @@
   "name": "tradecraft",
   "type": "module",
   "scripts": {
-    "analytics": "bun run analytics.tsx"
+    "analytics": "bun run cli/analytics.tsx",
+    "transfer": "bun run cli/transfer.ts",
+    "profit": "bun run cli/profit.tsx"
   },
   "private": true,
   "devDependencies": {
