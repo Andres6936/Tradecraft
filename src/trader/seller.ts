@@ -33,8 +33,8 @@ const sellIf = async (product: ProductTradeType, args: {
     // Determine the amount of inventory to sell
     const sellAmount = Math.min(productInventoryAmount - KeepMinInventory, buyAmount);
 
-    console.log(`Found ${marketOrders.length} market orders with a total of ${buyAmount} units to market price`);
-    console.log(`Selling ${Math.floor(sellAmount)} units at ${range.Max} price`);
+    console.log(`Found ${marketOrders.length} market orders with a total of ${buyAmount} units to max. price ${range.Max}`);
+    console.log(`Selling ${Math.floor(sellAmount)} units at ${range.Max} price, expected profit ${Math.floor(sellAmount * (+range.Max))}`);
 
     await sendOrder({
       orderType: 'limit',
