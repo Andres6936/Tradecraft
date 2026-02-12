@@ -6,6 +6,31 @@ const ProductsTrade = {
     Id: 69,
     KeepMinInventory: 1000,
   },
+  Shoes: {
+    Key: "shoes",
+    Id: 111,
+    KeepMinInventory: 500,
+  },
+  Shirt: {
+    Key: "shirt",
+    Id: 44,
+    KeepMinInventory: 0,
+  },
+  Pants: {
+    Key: "pants",
+    Id: 45,
+    KeepMinInventory: 0,
+  },
+  Log: {
+    Key: "log",
+    Id: 47,
+    KeepMinInventory: 150,
+  },
+  Butter: {
+    Key: "butter",
+    Id: 25,
+    KeepMinInventory: 150,
+  }
 };
 
 const ProductsTradeList = Object.values(ProductsTrade);
@@ -18,7 +43,7 @@ for (const product of ProductsTradeList) {
   const productInventoryAmount = Inventory[Key];
   if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {
     // Implement logic to sell products to best offer
-    console.log(`Inventory of ${productInventoryAmount - KeepMinInventory} ${Key}s`);
+    console.log(`Inventory of ${productInventoryAmount - KeepMinInventory} ${Key}`);
     const range = await getPriceRange(Id, {
       withPrecision: 2
     });
@@ -51,4 +76,6 @@ for (const product of ProductsTradeList) {
   } else {
     console.log(`No inventory of ${Key} to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
   }
+
+  await Bun.sleep(777);
 }
