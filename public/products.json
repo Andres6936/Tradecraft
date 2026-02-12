@@ -1,0 +1,6846 @@
+[
+  {
+    "_id": "68fcc354d5dd5fe76435e3ef",
+    "id": 88,
+    "key": "apple",
+    "name": "Apple",
+    "unit": "kg(s)",
+    "basePrice": 0.95,
+    "seasonality": 0.03,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/apple.png",
+    "npcOrderTargetUSD": 2.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0.25,
+    "carbonPerUnit": 0.01,
+    "xpOnSet": 7,
+    "setupCost": 34000,
+    "name_en": "Apple",
+    "name_tr": "Elma",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 14000,
+    "volumeFactor": 0.0015,
+    "averagePrice": 0.750248908724475,
+    "name_de": "Apfel",
+    "name_es": "Manzana",
+    "name_fr": "Pomme",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Maçã",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fd0ab5d5dd5fe76435e411",
+    "id": 99,
+    "key": "apple_juice",
+    "name": "Apple Juice",
+    "unit": "L(s)",
+    "basePrice": 2.6,
+    "seasonality": 0.03,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/apple-juice.png",
+    "npcOrderTargetUSD": 2.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "xpOnSet": 5,
+    "setupCost": 0,
+    "name_en": "Apple Juice",
+    "name_tr": "Elma Suyu",
+    "unit_en": "L(s)",
+    "unit_tr": "lt",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 5000,
+    "volumeFactor": 0.001,
+    "averagePrice": 3.2972,
+    "name_de": "Apfelsaft",
+    "name_es": "Jugo de manzana",
+    "name_fr": "Jus de pomme",
+    "unit_de": "L",
+    "unit_es": "L",
+    "unit_fr": "L",
+    "name_pt": "Suco de maçã",
+    "unit_pt": "L",
+    "byproductOf": [
+      "fruit_concentrate"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624b7",
+    "id": 4,
+    "key": "barley",
+    "name": "Barley",
+    "unit": "kg(s)",
+    "basePrice": 0.6,
+    "seasonality": 0.06,
+    "setupCost": 12000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/barley.png",
+    "npcOrderTargetUSD": 0.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 4,
+    "productionPerTick": 0.17,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "seed_barley",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_barley",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "6956873b9274f0d806d31982"
+        }
+      ]
+    },
+    "name_en": "Barley",
+    "name_tr": "Arpa",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 15000,
+    "volumeFactor": 0.0016,
+    "averagePrice": 0.446,
+    "name_de": "Gerste",
+    "name_es": "Cebada",
+    "name_fr": "Orge",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cevada",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624c3",
+    "id": 13,
+    "key": "seed_barley",
+    "name": "Barley Seed",
+    "unit": "kg(s)",
+    "basePrice": 0.1,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.11,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Barley Seed",
+    "name_tr": "Arpa Tohumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 15000,
+    "volumeFactor": 0.0016,
+    "averagePrice": 0.11,
+    "name_de": "Gerstensaat",
+    "name_es": "Semilla de cebada",
+    "name_fr": "Graine d'orge",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de cevada",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "barley"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f6",
+    "id": 55,
+    "key": "beeswax",
+    "name": "Beeswax",
+    "unit": "kg(s)",
+    "basePrice": 80,
+    "seasonality": 0.03,
+    "setupCost": 250,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/beeswax.png",
+    "npcOrderTargetUSD": 90,
+    "npcQtyMin": 1,
+    "npcQtyMax": 4,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Beeswax",
+    "name_tr": "Balmumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 3000,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "volumeFactor": 0.0008,
+    "averagePrice": 100.6415,
+    "name_de": "Bienenwachs",
+    "name_es": "Cera de abeja",
+    "name_fr": "Cire d'abeille",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cera de abelha",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "honey"
+    ]
+  },
+  {
+    "_id": "6904bbb696e0ac214b05cedd",
+    "id": 104,
+    "key": "depot_big",
+    "name": "Big Storage Depot",
+    "name_tr": "Büyük Depo",
+    "name_en": "Big Storage Depot",
+    "unit": "piece",
+    "unit_tr": "adet",
+    "unit_en": "piece",
+    "basePrice": 0,
+    "seasonality": 0,
+    "setupCost": 30000,
+    "producerKind": "depot",
+    "iconUrl": "/img/products/warehouse.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 1000,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 7,
+    "maxStoragePerTile": 300000,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "volumeFactor": 1,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 0,
+    "name_de": "Großes Lagerdepot",
+    "name_es": "Depósito grande",
+    "name_fr": "Grand dépôt de stockage",
+    "unit_de": "Stück",
+    "unit_es": "pieza",
+    "unit_fr": "pièce",
+    "name_pt": "Depósito grande",
+    "unit_pt": "peça"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62506",
+    "id": 71,
+    "key": "bottle",
+    "name": "Bottle",
+    "unit": "piece(s)",
+    "basePrice": 0.26,
+    "seasonality": 0.01,
+    "setupCost": 262000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/bottle.png",
+    "npcOrderTargetUSD": 0.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 12,
+    "productionPerTick": 7,
+    "carbonPerUnit": 0.05,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "plastic",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glass",
+          "qtyPerUnit": 0.01,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Bottle",
+    "name_tr": "Şişe",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 240000,
+    "volumeFactor": 0.0004,
+    "averagePrice": 0.325,
+    "name_de": "Flasche",
+    "name_es": "Botella",
+    "name_fr": "Bouteille",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Garrafa",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624bd",
+    "id": 7,
+    "key": "bread",
+    "name": "Bread",
+    "unit": "piece(s)",
+    "basePrice": 1.3,
+    "seasonality": 0.06,
+    "setupCost": 112000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/baguette.png",
+    "npcOrderTargetUSD": 0.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 11,
+    "productionPerTick": 1,
+    "carbonPerUnit": 0.05,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "flour",
+          "qtyPerUnit": 0.23,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Bread",
+    "name_tr": "Ekmek",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 18000,
+    "volumeFactor": 0.006,
+    "averagePrice": 1.2847643782062002,
+    "name_de": "Brot",
+    "name_es": "Pan",
+    "name_fr": "Pain",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Pão",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ce",
+    "id": 21,
+    "key": "whole_chicken",
+    "name": "Broiler",
+    "unit": "kg(s)",
+    "basePrice": 6.6,
+    "seasonality": 0.03,
+    "setupCost": 218000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/roast-chicken.png",
+    "npcOrderTargetUSD": 6,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.23,
+    "carbonPerUnit": 0.04,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "chicken",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Broiler",
+    "name_tr": "Piliç",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 7800,
+    "volumeFactor": 0.0012,
+    "averagePrice": 4.95,
+    "name_de": "Masthähnchen",
+    "name_es": "Pollo de engorde",
+    "name_fr": "Poulet de chair",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Frango inteiro",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624d3",
+    "id": 25,
+    "key": "butter",
+    "name": "Butter",
+    "unit": "kg(s)",
+    "basePrice": 30.5,
+    "seasonality": 0.06,
+    "setupCost": 242000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/butter.png",
+    "npcOrderTargetUSD": 32,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.058,
+    "carbonPerUnit": 0.05,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "milk",
+          "qtyPerUnit": 14,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Butter",
+    "name_tr": "Tereyağı",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 2000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 34.10825464899302,
+    "name_de": "Butter",
+    "name_es": "Mantequilla",
+    "name_fr": "Beurre",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Manteiga",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f3",
+    "id": 53,
+    "key": "cardboard",
+    "name": "Cardboard",
+    "unit": "kg(s)",
+    "basePrice": 16,
+    "setupCost": 230000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/cardboard.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.1,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "tree",
+          "qtyPerUnit": 0.1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glue",
+          "qtyPerUnit": 0.1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Cardboard",
+    "name_tr": "Karton",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 12000,
+    "volumeFactor": 0.007,
+    "averagePrice": 15.353421237623966,
+    "name_de": "Pappe",
+    "name_es": "Cartón",
+    "name_fr": "Carton",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cartão",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "690b2b056143cd40b95cc7b0",
+    "id": 105,
+    "key": "caviar",
+    "name": "Caviar",
+    "name_tr": "Havyar",
+    "name_en": "Caviar",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 20,
+    "seasonality": 0,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/caviar.png",
+    "npcOrderTargetUSD": 21,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "maxStoragePerTile": 2500,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.001,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 17.24312318448172,
+    "name_de": "Kaviar",
+    "name_es": "Caviar",
+    "name_fr": "Caviar",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Caviar",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "trout"
+    ]
+  },
+  {
+    "_id": "68fc9700d5dd5fe76435e3de",
+    "id": 84,
+    "key": "cement",
+    "name": "Cement",
+    "unit": "piece(s)",
+    "basePrice": 9,
+    "seasonality": 0.03,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/cement.png",
+    "npcOrderTargetUSD": 15,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.25,
+    "productionPerTick": 0.24,
+    "carbonPerUnit": 0.4,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "sand",
+          "qtyPerUnit": 0.045,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "coal",
+          "qtyPerUnit": 2.5,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "xpOnSet": 13,
+    "setupCost": 311000,
+    "name_en": "Cement",
+    "name_tr": "Çimento",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "maxStoragePerTile": 8000,
+    "volumeFactor": 0.035,
+    "averagePrice": 9.503950378246595,
+    "name_de": "Zement",
+    "name_es": "Cemento",
+    "name_fr": "Ciment",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Cimento",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62512",
+    "id": 82,
+    "key": "cheddar",
+    "name": "Cheddar Cheese",
+    "unit": "kg(s)",
+    "basePrice": 10,
+    "seasonality": 0.03,
+    "setupCost": 201000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/cheddar.png",
+    "npcOrderTargetUSD": 120,
+    "npcQtyMin": 1,
+    "npcQtyMax": 4,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 12,
+    "productionPerTick": 0.07,
+    "carbonPerUnit": 0.06,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "milk",
+          "qtyPerUnit": 6,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Cheddar Cheese",
+    "name_tr": "Cheddar Peyniri",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 2250,
+    "volumeFactor": 0.0011,
+    "averagePrice": 12.145500452550253,
+    "name_de": "Cheddar-Käse",
+    "name_es": "Queso cheddar",
+    "name_fr": "Fromage cheddar",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Queijo cheddar",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62511",
+    "id": 81,
+    "key": "cheese",
+    "name": "Cheese",
+    "unit": "kg(s)",
+    "basePrice": 8.5,
+    "seasonality": 0.03,
+    "setupCost": 208000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/cheese.png",
+    "npcOrderTargetUSD": 7,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 12,
+    "productionPerTick": 0.17,
+    "carbonPerUnit": 0.05,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "milk",
+          "qtyPerUnit": 6,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Cheese",
+    "name_tr": "Peynir",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 3000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 6.38,
+    "name_de": "Käse",
+    "name_es": "Queso",
+    "name_fr": "Fromage",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Queijo",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fcd12cd5dd5fe76435e3f5",
+    "id": 90,
+    "key": "cherry",
+    "name": "Cherry",
+    "unit": "kg(s)",
+    "basePrice": 3.5,
+    "seasonality": 0.03,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/cherry.png",
+    "npcOrderTargetUSD": 4.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0.08,
+    "carbonPerUnit": 0.01,
+    "xpOnSet": 7,
+    "setupCost": 40000,
+    "name_en": "Cherry",
+    "name_tr": "Kiraz",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 5000,
+    "volumeFactor": 0.0018,
+    "averagePrice": 2.59,
+    "name_de": "Kirsche",
+    "name_es": "Cereza",
+    "name_fr": "Cerise",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cereja",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624cc",
+    "id": 20,
+    "key": "chicken",
+    "name": "Chicken",
+    "unit": "piece(s)",
+    "basePrice": 4.5,
+    "seasonality": 0.04,
+    "setupCost": 39000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/chicken.png",
+    "npcOrderTargetUSD": 15,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0.05,
+    "carbonPerUnit": 0.03,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "wheat",
+          "qtyPerUnit": 0.003,
+          "qtyMultByOwnerCount": true
+        },
+        {
+          "key": "barley",
+          "qtyPerUnit": 0.003,
+          "qtyMultByOwnerCount": true
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "egg",
+          "qtyPerUnit": 0.01,
+          "qtyMultByOwnerCount": true,
+          "_id": "694e3fa5a3b0570a33ff13fc"
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.001,
+          "qtyMultByOwnerCount": true,
+          "_id": "694e3fa5a3b0570a33ff13fd"
+        }
+      ]
+    },
+    "name_en": "Chicken",
+    "name_tr": "Tavuk",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 1500,
+    "volumeFactor": 0.005,
+    "averagePrice": 3.5562508950219605,
+    "name_de": "Huhn",
+    "name_es": "Pollo",
+    "name_fr": "Poulet",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Frango",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624d6",
+    "id": 28,
+    "key": "chocolate",
+    "name": "Chocolate",
+    "unit": "piece(s)",
+    "basePrice": 0.45,
+    "seasonality": 0.03,
+    "setupCost": 227000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/chocolate-bar.png",
+    "npcOrderTargetUSD": 0.7,
+    "npcQtyMin": 2,
+    "npcQtyMax": 20,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 3.6,
+    "carbonPerUnit": 0.04,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "cocoa",
+          "qtyPerUnit": 0.015,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "milk",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sugar",
+          "qtyPerUnit": 0.0015,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Chocolate",
+    "name_tr": "Çikolata",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 70000,
+    "volumeFactor": 0.0003,
+    "averagePrice": 0.4363537131309644,
+    "name_de": "Schokolade",
+    "name_es": "Chocolate",
+    "name_fr": "Chocolat",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Chocolate",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68fcd73fd5dd5fe76435e3f9",
+    "id": 92,
+    "key": "circuit",
+    "name": "Circuit",
+    "unit": "piece(s)",
+    "basePrice": 250,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/circuit.png",
+    "npcOrderTargetUSD": 260,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "productionPerTick": 0.011,
+    "carbonPerUnit": 0.5,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "microchip",
+          "qtyPerUnit": 2,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "copper",
+          "qtyPerUnit": 0.3,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "copper_wire",
+          "qtyPerUnit": 0.3,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "gold",
+          "qtyPerUnit": 0.008,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "xpOnSet": 13,
+    "setupCost": 360000,
+    "name_en": "Circuit",
+    "name_tr": "Elektronik Devre",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "npcQtyJitter": 0.1,
+    "maxStoragePerTile": 500,
+    "volumeFactor": 0.0005,
+    "averagePrice": 236.10489122786169,
+    "name_de": "Schaltkreis",
+    "name_es": "Circuito",
+    "name_fr": "Circuit",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Circuito",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624fc",
+    "id": 61,
+    "key": "coal",
+    "name": "Coal",
+    "unit": "kg(s)",
+    "basePrice": 1.2,
+    "seasonality": 0.02,
+    "setupCost": 345000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/coal.png",
+    "npcOrderTargetUSD": 20,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 13,
+    "productionPerTick": 1.6,
+    "carbonPerUnit": 0.08,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "name_en": "Coal",
+    "name_tr": "Kömür",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 55000,
+    "volumeFactor": 0.0015,
+    "averagePrice": 0.8547,
+    "name_de": "Kohle",
+    "name_es": "Carbón",
+    "name_fr": "Charbon",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Carvão",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624d4",
+    "id": 26,
+    "key": "cocoa",
+    "name": "Cocoa",
+    "unit": "kg(s)",
+    "basePrice": 6.91,
+    "seasonality": 0.03,
+    "setupCost": 90000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/cocoa.png",
+    "npcOrderTargetUSD": 8,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 9,
+    "productionPerTick": 0.09,
+    "carbonPerUnit": 0.02,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Cocoa",
+    "name_tr": "Kakao",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 7000,
+    "volumeFactor": 0.0017,
+    "averagePrice": 7.700000000000002,
+    "name_de": "Kakao",
+    "name_es": "Cacao",
+    "name_fr": "Cacao",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cacau",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fcdf43d5dd5fe76435e400",
+    "id": 93,
+    "key": "computer",
+    "name": "Computer",
+    "unit": "piece(s)",
+    "basePrice": 750,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/computer.png",
+    "npcOrderTargetUSD": 1100,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "productionPerTick": 0.0025,
+    "carbonPerUnit": 0.5,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "circuit",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "microchip",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "copper",
+          "qtyPerUnit": 0.5,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "copper_wire",
+          "qtyPerUnit": 0.4,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "plastic",
+          "qtyPerUnit": 0.8,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lithium_battery",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "xpOnSet": 14,
+    "setupCost": 432000,
+    "name_en": "Computer",
+    "name_tr": "Bilgisayar",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "npcQtyJitter": 0.1,
+    "maxStoragePerTile": 250,
+    "volumeFactor": 0.035,
+    "averagePrice": 890.0119072813226,
+    "name_de": "Computer",
+    "name_es": "Computadora",
+    "name_fr": "Ordinateur",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Computador",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62503",
+    "id": 68,
+    "key": "copper",
+    "name": "Copper",
+    "unit": "kg(s)",
+    "basePrice": 9.52,
+    "seasonality": 0.015,
+    "setupCost": 384000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/copper.png",
+    "npcOrderTargetUSD": 45,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 13,
+    "productionPerTick": 0.25,
+    "carbonPerUnit": 0.12,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Copper",
+    "name_tr": "Bakır",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 8000,
+    "volumeFactor": 0.0012,
+    "averagePrice": 8.410665478769483,
+    "name_de": "Kupfer",
+    "name_es": "Cobre",
+    "name_fr": "Cuivre",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cobre",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fcd735d5dd5fe76435e3f7",
+    "id": 91,
+    "key": "copper_wire",
+    "name": "Copper Wire",
+    "unit": "spool(s)",
+    "basePrice": 13,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/wire.png",
+    "npcOrderTargetUSD": 15,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "productionPerTick": 0.15,
+    "carbonPerUnit": 0.5,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "copper",
+          "qtyPerUnit": 0.6,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "xpOnSet": 12,
+    "setupCost": 215000,
+    "name_en": "Copper Wire",
+    "name_tr": "Bakır Tel",
+    "unit_en": "spool(s)",
+    "unit_tr": "bobin",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "npcQtyJitter": 0.1,
+    "maxStoragePerTile": 3000,
+    "volumeFactor": 0.05,
+    "averagePrice": 10.073262526907044,
+    "name_de": "Kupferdraht",
+    "name_es": "Cable de cobre",
+    "name_fr": "Fil de cuivre",
+    "unit_de": "Spule(n)",
+    "unit_es": "carrete(s)",
+    "unit_fr": "bobine(s)",
+    "name_pt": "Fio de cobre",
+    "unit_pt": "bobina(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ba",
+    "id": 6,
+    "key": "corn",
+    "name": "Corn",
+    "unit": "kg(s)",
+    "basePrice": 0.6,
+    "seasonality": 0.04,
+    "setupCost": 35000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/corn.png",
+    "npcOrderTargetUSD": 0.8,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 6,
+    "productionPerTick": 0.4,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "seed_corn",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_corn",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "695788b503aeb68cdc282396"
+        },
+        {
+          "key": "corn_silage",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false,
+          "_id": "695788b503aeb68cdc282397"
+        }
+      ]
+    },
+    "name_en": "Corn",
+    "name_tr": "Mısır",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 13500,
+    "volumeFactor": 0.0014,
+    "averagePrice": 0.6706893973238144,
+    "name_de": "Mais",
+    "name_es": "Maíz",
+    "name_fr": "Maïs",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Milho",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe6250c",
+    "id": 76,
+    "key": "corn_chips",
+    "name": "Corn Chips",
+    "unit": "pack(s)",
+    "basePrice": 2.5,
+    "seasonality": 0.04,
+    "setupCost": 252000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/corn_chips.png",
+    "npcOrderTargetUSD": 3,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.3,
+    "xpOnSet": 12,
+    "productionPerTick": 0.7,
+    "carbonPerUnit": 0.06,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "corn",
+          "qtyPerUnit": 0.22,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sunflower_oil",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "plastic",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Corn Chips",
+    "name_tr": "Mısır Cipsi",
+    "unit_en": "pack(s)",
+    "unit_tr": "paket",
+    "maxStoragePerTile": 24000,
+    "volumeFactor": 0.005,
+    "averagePrice": 2.447798994250541,
+    "name_de": "Maischips",
+    "name_es": "Nachos",
+    "name_fr": "Chips de maïs",
+    "unit_de": "Packung(en)",
+    "unit_es": "paquete(s)",
+    "unit_fr": "paquet(s)",
+    "name_pt": "Nachos",
+    "unit_pt": "pacote(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624c4",
+    "id": 14,
+    "key": "seed_corn",
+    "name": "Corn Seed",
+    "unit": "kg(s)",
+    "basePrice": 0.1,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.11,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Corn Seed",
+    "name_tr": "Mısır Tohumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 16000,
+    "volumeFactor": 0.0015,
+    "averagePrice": 0.10000000000000002,
+    "name_de": "Maissaat",
+    "name_es": "Semilla de maíz",
+    "name_fr": "Graine de maïs",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de milho",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "corn"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624df",
+    "id": 35,
+    "key": "corn_silage",
+    "name": "Corn Silage",
+    "unit": "kg(s)",
+    "basePrice": 0.05,
+    "seasonality": 0.03,
+    "setupCost": 250,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/hay-bales.png",
+    "npcOrderTargetUSD": 0.06,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Corn Silage",
+    "name_tr": "Mısır Silajı",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 12000,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "volumeFactor": 0.0017,
+    "averagePrice": 0.0644,
+    "name_de": "Maissilage",
+    "name_es": "Ensilaje de maíz",
+    "name_fr": "Ensilage de maïs",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Silagem de milho",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "corn"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624e5",
+    "id": 40,
+    "key": "cotton",
+    "name": "Cotton",
+    "unit": "kg(s)",
+    "basePrice": 6,
+    "seasonality": 0.04,
+    "setupCost": 52000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/cotton.png",
+    "npcOrderTargetUSD": 1.9,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 7,
+    "productionPerTick": 0.06,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "cotton_seed",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "cotton_seed",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "695788d603aeb68cdc282e5c"
+        }
+      ]
+    },
+    "name_en": "Cotton",
+    "name_tr": "Pamuk",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 2000,
+    "volumeFactor": 0.005,
+    "averagePrice": 7.193268209106327,
+    "name_de": "Baumwolle",
+    "name_es": "Algodón",
+    "name_fr": "Coton",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Algodão",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624e4",
+    "id": 39,
+    "key": "cotton_seed",
+    "name": "Cotton Seed",
+    "unit": "kg(s)",
+    "basePrice": 0.05,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.06,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Cotton Seed",
+    "name_tr": "Pamuk Tohumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 9000,
+    "volumeFactor": 0.0016,
+    "averagePrice": 0.060000000000000005,
+    "name_de": "Baumwollsaat",
+    "name_es": "Semilla de algodón",
+    "name_fr": "Graine de coton",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de algodão",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "cotton"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624c7",
+    "id": 17,
+    "key": "cow",
+    "name": "Cow",
+    "unit": "piece(s)",
+    "basePrice": 1150,
+    "seasonality": 0.04,
+    "setupCost": 83000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/cow.png",
+    "npcOrderTargetUSD": 1600,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 9,
+    "productionPerTick": 0.0005,
+    "carbonPerUnit": 0.3,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "straw",
+          "qtyPerUnit": 0.005,
+          "qtyMultByOwnerCount": true
+        },
+        {
+          "key": "corn_silage",
+          "qtyPerUnit": 0.003,
+          "qtyMultByOwnerCount": true
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "milk",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": true,
+          "_id": "695789d203aeb68cdc289706"
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.025,
+          "qtyMultByOwnerCount": true,
+          "_id": "695789d203aeb68cdc289707"
+        },
+        {
+          "key": "leather",
+          "qtyPerUnit": 0.0003,
+          "qtyMultByOwnerCount": true,
+          "_id": "695789d203aeb68cdc289708"
+        }
+      ]
+    },
+    "name_en": "Cow",
+    "name_tr": "İnek",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 80,
+    "volumeFactor": 3,
+    "averagePrice": 1541.4132,
+    "name_de": "Kuh",
+    "name_es": "Vaca",
+    "name_fr": "Vache",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Vaca",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624b6",
+    "id": 3,
+    "key": "crude",
+    "name": "Crude Oil",
+    "unit": "barrel(s)",
+    "basePrice": 65,
+    "seasonality": 0.04,
+    "setupCost": 468000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/liquid-drop.png",
+    "npcOrderTargetUSD": 66,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 14,
+    "productionPerTick": 0.033,
+    "carbonPerUnit": 0.25,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Crude Oil",
+    "name_tr": "Ham Petrol",
+    "unit_en": "barrel(s)",
+    "unit_tr": "varil",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 1000,
+    "volumeFactor": 0.165,
+    "averagePrice": 53.56036560097833,
+    "name_de": "Rohöl",
+    "name_es": "Petróleo crudo",
+    "name_fr": "Pétrole brut",
+    "unit_de": "Fass/Fässer",
+    "unit_es": "barril(es)",
+    "unit_fr": "baril(s)",
+    "name_pt": "Petróleo bruto",
+    "unit_pt": "barril(is)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624cb",
+    "id": 19,
+    "key": "egg",
+    "name": "Egg",
+    "unit": "piece(s)",
+    "basePrice": 0.2,
+    "seasonality": 0.03,
+    "setupCost": 250,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/egg.png",
+    "npcOrderTargetUSD": 0.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 30,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.01,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Egg",
+    "name_tr": "Yumurta",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 5000,
+    "volumeFactor": 0.0002,
+    "averagePrice": 0.18006256568990756,
+    "name_de": "Ei",
+    "name_es": "Huevo",
+    "name_fr": "Œuf",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Ovo",
+    "unit_pt": "peça(s)",
+    "byproductOf": [
+      "chicken"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624e8",
+    "id": 42,
+    "key": "cotton_fabric",
+    "name": "Fabric",
+    "unit": "meter(s)",
+    "basePrice": 6.5,
+    "seasonality": 0.02,
+    "setupCost": 215000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/cotton-fabric.png",
+    "npcOrderTargetUSD": 7,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.22,
+    "carbonPerUnit": 0.04,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "cotton_yarn",
+          "qtyPerUnit": 0.6,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Fabric",
+    "name_tr": "Kumaş",
+    "unit_en": "meter(s)",
+    "unit_tr": "metre",
+    "maxStoragePerTile": 8000,
+    "volumeFactor": 0.015,
+    "averagePrice": 4.875,
+    "name_de": "Stoff",
+    "name_es": "Tela",
+    "name_fr": "Tissu",
+    "unit_de": "Meter",
+    "unit_es": "metro(s)",
+    "unit_fr": "mètre(s)",
+    "name_pt": "Tecido",
+    "unit_pt": "metro(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62510",
+    "id": 80,
+    "key": "fastfood",
+    "name": "Fast Food",
+    "unit": "piece(s)",
+    "basePrice": 0,
+    "seasonality": 0,
+    "setupCost": 140000,
+    "producerKind": "city",
+    "iconUrl": "/img/products/fastfood.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 11,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "hamburger",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "french_fries",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "soft_drink",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fried_chicken",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Fast Food",
+    "name_tr": "Fastfood",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 100,
+    "volumeFactor": 1,
+    "averagePrice": 0,
+    "name_de": "Fastfood",
+    "name_es": "Comida rápida",
+    "name_fr": "Restauration rapide",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Fast food",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624c2",
+    "id": 12,
+    "key": "fertilizer",
+    "name": "Fertilizer",
+    "unit": "kg(s)",
+    "basePrice": 0.95,
+    "seasonality": 0.02,
+    "setupCost": 250,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/fertilizer.png",
+    "npcOrderTargetUSD": 0.55,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.1,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Fertilizer",
+    "name_tr": "Gübre",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 10000,
+    "volumeFactor": 0.0012,
+    "averagePrice": 0.9921821586090918,
+    "name_de": "Dünger",
+    "name_es": "Fertilizante",
+    "name_fr": "Engrais",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Fertilizante",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "cow",
+      "chicken",
+      "sheep"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624b9",
+    "id": 5,
+    "key": "flour",
+    "name": "Flour",
+    "unit": "kg(s)",
+    "basePrice": 3.5,
+    "seasonality": 0.06,
+    "setupCost": 252000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/wheat-flour.png",
+    "npcOrderTargetUSD": 2,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.6,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "wheat",
+          "qtyPerUnit": 1.1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "barley",
+          "qtyPerUnit": 1.1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "corn",
+          "qtyPerUnit": 1.1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Flour",
+    "name_tr": "Un",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 20000,
+    "volumeFactor": 0.0019,
+    "averagePrice": 3.556095170167812,
+    "name_de": "Mehl",
+    "name_es": "Harina",
+    "name_fr": "Farine",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Farinha",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe6250d",
+    "id": 77,
+    "key": "french_fries",
+    "name": "French Fries",
+    "unit": "pack(s)",
+    "basePrice": 2,
+    "seasonality": 0.04,
+    "setupCost": 230000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/french_fries.png",
+    "npcOrderTargetUSD": 2.5,
+    "npcQtyMin": 3,
+    "npcQtyMax": 15,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 12,
+    "productionPerTick": 0.8,
+    "carbonPerUnit": 0.06,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "potato",
+          "qtyPerUnit": 0.3,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sunflower_oil",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "plastic",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "French Fries",
+    "name_tr": "Patates Kızartması",
+    "unit_en": "pack(s)",
+    "unit_tr": "paket",
+    "maxStoragePerTile": 27000,
+    "volumeFactor": 0.001,
+    "averagePrice": 1.594421684211339,
+    "name_de": "Pommes Frites",
+    "name_es": "Papas fritas",
+    "name_fr": "Frites",
+    "unit_de": "Packung(en)",
+    "unit_es": "paquete(s)",
+    "unit_fr": "paquet(s)",
+    "name_pt": "Batata frita palito",
+    "unit_pt": "pacote(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe6250e",
+    "id": 78,
+    "key": "fried_chicken",
+    "name": "Fried Chicken",
+    "unit": "piece(s)",
+    "basePrice": 4,
+    "seasonality": 0.03,
+    "setupCost": 230000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/fried_chicken.png",
+    "npcOrderTargetUSD": 8,
+    "npcQtyMin": 1,
+    "npcQtyMax": 15,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 12,
+    "productionPerTick": 0.42,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "whole_chicken",
+          "qtyPerUnit": 0.25,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sunflower_oil",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cardboard",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Fried Chicken",
+    "name_tr": "Kızarmış Tavuk",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 14000,
+    "volumeFactor": 0.01,
+    "averagePrice": 4.03648003017054,
+    "name_de": "Brathähnchen",
+    "name_es": "Pollo frito",
+    "name_fr": "Poulet frit",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Frango frito",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68fd0aa2d5dd5fe76435e40d",
+    "id": 97,
+    "key": "fruit_concentrate",
+    "name": "Fruit Concentrate",
+    "unit": "L(s)",
+    "basePrice": 8,
+    "seasonality": 0.03,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/fruit_concentrate.png",
+    "npcOrderTargetUSD": 5.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.25,
+    "productionPerTick": 0.18,
+    "carbonPerUnit": 0.04,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "apple",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "orange",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lemon",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "apple_juice",
+          "qtyPerUnit": 0.1,
+          "qtyMultByOwnerCount": false,
+          "_id": "693ba3ce21607558264ed09f"
+        },
+        {
+          "key": "orange_juice",
+          "qtyPerUnit": 0.1,
+          "qtyMultByOwnerCount": false,
+          "_id": "693ba3ce21607558264ed0a0"
+        },
+        {
+          "key": "lemonade",
+          "qtyPerUnit": 0.1,
+          "qtyMultByOwnerCount": false,
+          "_id": "693ba3ce21607558264ed0a1"
+        }
+      ]
+    },
+    "xpOnSet": 5,
+    "setupCost": 208000,
+    "name_en": "Fruit Concentrate",
+    "name_tr": "Konsantre Meyve Suyu",
+    "unit_en": "L(s)",
+    "unit_tr": "lt",
+    "maxStoragePerTile": 4000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 10,
+    "name_de": "Fruchtkonzentrat",
+    "name_es": "Concentrado de frutas",
+    "name_fr": "Concentré de fruits",
+    "unit_de": "L",
+    "unit_es": "L",
+    "unit_fr": "L",
+    "name_pt": "Concentrado de frutas",
+    "unit_pt": "L"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ef",
+    "id": 49,
+    "key": "furniture",
+    "name": "Furniture",
+    "unit": "piece(s)",
+    "basePrice": 180,
+    "seasonality": 0.03,
+    "setupCost": 260000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/furniture.png",
+    "npcOrderTargetUSD": 210,
+    "npcQtyMin": 1,
+    "npcQtyMax": 2,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.01,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "lumber",
+          "qtyPerUnit": 0.2,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "iron_profile",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cotton_fabric",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glue",
+          "qtyPerUnit": 0.1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "nail",
+          "qtyPerUnit": 0.01,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Furniture",
+    "name_tr": "Mobilya",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 340,
+    "volumeFactor": 4,
+    "averagePrice": 233.8452,
+    "name_de": "Möbel",
+    "name_es": "Mueble",
+    "name_fr": "Meuble",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Móvel",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624fb",
+    "id": 60,
+    "key": "glass",
+    "name": "Glass",
+    "unit": "m²",
+    "basePrice": 4.5,
+    "seasonality": 0.01,
+    "setupCost": 214000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/glass.png",
+    "npcOrderTargetUSD": 3,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 12,
+    "productionPerTick": 0.4,
+    "carbonPerUnit": 0.03,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "silica_sand",
+          "qtyPerUnit": 0.27,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Glass",
+    "name_tr": "Cam",
+    "unit_en": "m²",
+    "unit_tr": "m²",
+    "maxStoragePerTile": 8000,
+    "volumeFactor": 0.0075,
+    "averagePrice": 4.079707219771762,
+    "name_de": "Glas",
+    "name_es": "Vidrio",
+    "name_fr": "Verre",
+    "unit_de": "m²",
+    "unit_es": "m²",
+    "unit_fr": "m²",
+    "name_pt": "Vidro",
+    "unit_pt": "m²"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f2",
+    "id": 52,
+    "key": "glue",
+    "name": "Glue",
+    "unit": "kg(s)",
+    "basePrice": 15,
+    "setupCost": 237000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/glue.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.13,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "starch",
+          "qtyPerUnit": 0.8,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Glue",
+    "name_tr": "Tutkal",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 4400,
+    "volumeFactor": 0.001,
+    "averagePrice": 12.274525487788232,
+    "name_de": "Kleber",
+    "name_es": "Pegamento",
+    "name_fr": "Colle",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cola",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624be",
+    "id": 8,
+    "key": "gold",
+    "name": "Gold",
+    "unit": "ounce(s)",
+    "basePrice": 1950,
+    "seasonality": 0.03,
+    "setupCost": 394000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/gold-nugget.png",
+    "npcOrderTargetUSD": 3020,
+    "npcQtyMin": 0.5,
+    "npcQtyMax": 2,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 13,
+    "productionPerTick": 0.0014,
+    "carbonPerUnit": 0.21,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Gold",
+    "name_tr": "Altın",
+    "unit_en": "ounce(s)",
+    "unit_tr": "ons",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 1200,
+    "volumeFactor": 0.005,
+    "averagePrice": 2260.137845044643,
+    "name_de": "Gold",
+    "name_es": "Oro",
+    "name_fr": "Or",
+    "unit_de": "Unze(n)",
+    "unit_es": "onza(s)",
+    "unit_fr": "once(s)",
+    "name_pt": "Ouro",
+    "unit_pt": "onça(s)"
+  },
+  {
+    "_id": "690b31e66143cd40b967a5b7",
+    "id": 107,
+    "key": "grape",
+    "name": "Grape",
+    "name_tr": "Üzüm",
+    "name_en": "Grape",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 2.5,
+    "seasonality": 0.03,
+    "setupCost": 26000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/grape.png",
+    "npcOrderTargetUSD": 3,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "maxStoragePerTile": 2400,
+    "productionPerTick": 0.07,
+    "carbonPerUnit": 0.01,
+    "volumeFactor": 0.0017,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 1.9332625693485237,
+    "name_de": "Traube",
+    "name_es": "Uva",
+    "name_fr": "Raisin",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Uva",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624fd",
+    "id": 62,
+    "key": "graphite",
+    "name": "Graphite",
+    "unit": "kg(s)",
+    "basePrice": 18,
+    "seasonality": 0.01,
+    "setupCost": 363000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/graphite.png",
+    "npcOrderTargetUSD": 40,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 13,
+    "productionPerTick": 0.11,
+    "carbonPerUnit": 0.02,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Graphite",
+    "name_tr": "Grafit",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 3000,
+    "volumeFactor": 0.0005,
+    "averagePrice": 12.5782,
+    "name_de": "Graphit",
+    "name_es": "Grafito",
+    "name_fr": "Graphite",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Grafite",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "690f532dcba96462a08336df",
+    "id": 117,
+    "key": "green_bean_seed",
+    "name": "Green Bean Seed",
+    "name_tr": "Taze Fasulye Tohumu",
+    "name_en": "Green Bean Seed",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 1.2,
+    "seasonality": 0,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 1.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "maxStoragePerTile": 1000,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.0025,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 1.0599999999999998,
+    "name_de": "Grüne-Bohnen-Saat",
+    "name_es": "Semilla de judías",
+    "name_fr": "Graine de haricots verts",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de feijão verde",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "green_beans"
+    ]
+  },
+  {
+    "_id": "690f52accba96462a0821c6e",
+    "id": 116,
+    "key": "green_beans",
+    "name": "Green Beans",
+    "name_tr": "Taze Fasulye",
+    "name_en": "Green Beans",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 1.5,
+    "seasonality": 0.13,
+    "setupCost": 24000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/green_beans.png",
+    "npcOrderTargetUSD": 1.7,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "maxStoragePerTile": 3800,
+    "productionPerTick": 0.11,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.0025,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "green_bean_seed",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "green_bean_seed",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "6957896303aeb68cdc2867c4"
+        }
+      ]
+    },
+    "averagePrice": 1.289785059164559,
+    "name_de": "Grüne Bohnen",
+    "name_es": "Judías verdes",
+    "name_fr": "Haricots verts",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Feijão verde",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe6250f",
+    "id": 79,
+    "key": "hamburger",
+    "name": "Hamburger",
+    "unit": "piece(s)",
+    "basePrice": 5,
+    "seasonality": 0.03,
+    "setupCost": 216000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/hamburger.png",
+    "npcOrderTargetUSD": 5,
+    "npcQtyMin": 3,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 12,
+    "productionPerTick": 0.4,
+    "carbonPerUnit": 0.07,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "bread",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "beef",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sunflower_oil",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "paper",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lettuce",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cheddar",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "tomato",
+          "qtyPerUnit": 0.01,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Hamburger",
+    "name_tr": "Hamburger",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 11000,
+    "volumeFactor": 0.0007,
+    "averagePrice": 4.016080093837678,
+    "name_de": "Hamburger",
+    "name_es": "Hamburguesa",
+    "name_fr": "Hamburger",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Hambúrguer",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68fcf249d5dd5fe76435e40b",
+    "id": 96,
+    "key": "hardware_store",
+    "name": "Hardware Store",
+    "unit": "piece(s)",
+    "basePrice": 0,
+    "seasonality": 0,
+    "producerKind": "city",
+    "iconUrl": "/img/products/hardware_store.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "iron_profile",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "log",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lumber",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "furniture",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glue",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cardboard",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "beeswax",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "nail",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glass",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lithium_battery",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "microchip",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "plastic",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cement",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "copper_wire",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "circuit",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "steel",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cotton_yarn",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "xpOnSet": 12,
+    "setupCost": 145000,
+    "name_en": "Hardware Store",
+    "name_tr": "Donanım Mağazası",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "maxStoragePerTile": 100,
+    "volumeFactor": 1,
+    "averagePrice": 0,
+    "name_de": "Baumarkt",
+    "name_es": "Ferretería",
+    "name_fr": "Quincaillerie",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Loja de ferragens",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f4",
+    "id": 54,
+    "key": "honey",
+    "name": "Honey",
+    "unit": "kg(s)",
+    "basePrice": 6.5,
+    "seasonality": 0.04,
+    "setupCost": 56000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/honey.png",
+    "npcOrderTargetUSD": 70,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 7,
+    "productionPerTick": 0.06,
+    "carbonPerUnit": 0,
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "beeswax",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false,
+          "_id": "6957872d03aeb68cdc2780cd"
+        }
+      ]
+    },
+    "name_en": "Honey",
+    "name_tr": "Bal",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 2000,
+    "volumeFactor": 0.0008,
+    "averagePrice": 8.125,
+    "name_de": "Honig",
+    "name_es": "Miel",
+    "name_fr": "Miel",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Mel",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624b5",
+    "id": 2,
+    "key": "iron",
+    "name": "Iron Ore",
+    "unit": "ton(s)",
+    "basePrice": 285,
+    "seasonality": 0.03,
+    "setupCost": 492000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/ore.png",
+    "npcOrderTargetUSD": 106,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 14,
+    "productionPerTick": 0.007,
+    "carbonPerUnit": 0.2,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Iron Ore",
+    "name_tr": "Demir Cevheri",
+    "unit_en": "ton(s)",
+    "unit_tr": "ton",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 12000,
+    "volumeFactor": 0.45,
+    "averagePrice": 212.9346,
+    "name_de": "Eisenerz",
+    "name_es": "Mineral de hierro",
+    "name_fr": "Minerai de fer",
+    "unit_de": "Tonne(n)",
+    "unit_es": "tonelada(s)",
+    "unit_fr": "tonne(s)",
+    "name_pt": "Minério de ferro",
+    "unit_pt": "tonelada(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624bf",
+    "id": 9,
+    "key": "iron_profile",
+    "name": "Iron Profile",
+    "unit": "kg(s)",
+    "basePrice": 4.27,
+    "seasonality": 0.06,
+    "setupCost": 215000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/beam.png",
+    "npcOrderTargetUSD": 0.95,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.35,
+    "carbonPerUnit": 0.15,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "iron",
+          "qtyPerUnit": 0.003,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Iron Profile",
+    "name_tr": "Demir Profil",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 10000,
+    "volumeFactor": 0.0001,
+    "averagePrice": 5.3375,
+    "name_de": "Eisenprofil",
+    "name_es": "Perfil de hierro",
+    "name_fr": "Profilé en fer",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Perfil de ferro",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "690b3f5f6143cd40b97d36e5",
+    "id": 110,
+    "key": "leather",
+    "name": "Leather",
+    "name_tr": "Deri",
+    "name_en": "Leather",
+    "unit": "m²",
+    "unit_tr": "m²",
+    "unit_en": "m²",
+    "basePrice": 33,
+    "seasonality": 0,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/leather.png",
+    "npcOrderTargetUSD": 35,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "maxStoragePerTile": 2500,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.003,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 24.994346564414073,
+    "name_de": "Leder",
+    "name_es": "Cuero",
+    "name_fr": "Cuir",
+    "unit_de": "m²",
+    "unit_es": "m²",
+    "unit_fr": "m²",
+    "name_pt": "Couro",
+    "unit_pt": "m²",
+    "byproductOf": [
+      "cow",
+      "sheep"
+    ]
+  },
+  {
+    "_id": "68fcc47bd5dd5fe76435e3f1",
+    "id": 89,
+    "key": "lemon",
+    "name": "Lemon",
+    "unit": "kg(s)",
+    "basePrice": 2.9,
+    "seasonality": 0.03,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/lemon.png",
+    "npcOrderTargetUSD": 3.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0.13,
+    "carbonPerUnit": 0.01,
+    "xpOnSet": 7,
+    "setupCost": 55000,
+    "name_en": "Lemon",
+    "name_tr": "Limon",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 4450,
+    "volumeFactor": 0.0016,
+    "averagePrice": 2.1281,
+    "name_de": "Zitrone",
+    "name_es": "Limón",
+    "name_fr": "Citron",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Limão",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fd0abdd5dd5fe76435e413",
+    "id": 100,
+    "key": "lemonade",
+    "name": "Lemonade",
+    "unit": "L(s)",
+    "basePrice": 2,
+    "seasonality": 0.03,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/lemonade.png",
+    "npcOrderTargetUSD": 2.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "xpOnSet": 5,
+    "setupCost": 0,
+    "name_en": "Lemonade",
+    "name_tr": "Limonata",
+    "unit_en": "L(s)",
+    "unit_tr": "lt",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "maxStoragePerTile": 5500,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "volumeFactor": 0.0011,
+    "averagePrice": 2.4958267676059673,
+    "name_de": "Limonade",
+    "name_es": "Limonada",
+    "name_fr": "Limonade",
+    "unit_de": "L",
+    "unit_es": "L",
+    "unit_fr": "L",
+    "name_pt": "Limonada",
+    "unit_pt": "L",
+    "byproductOf": [
+      "fruit_concentrate"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624dd",
+    "id": 34,
+    "key": "lettuce",
+    "name": "Lettuce",
+    "unit": "piece(s)",
+    "basePrice": 3.5,
+    "seasonality": 0.04,
+    "setupCost": 15500,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/lettuce.png",
+    "npcOrderTargetUSD": 4,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0.03,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "seed_lettuce",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_lettuce",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "6957888e03aeb68cdc2816dc"
+        }
+      ]
+    },
+    "name_en": "Lettuce",
+    "name_tr": "Marul",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 1000,
+    "volumeFactor": 0.01,
+    "averagePrice": 3.4785422718624193,
+    "name_de": "Salat",
+    "name_es": "Lechuga",
+    "name_fr": "Laitue",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Alface",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624dc",
+    "id": 33,
+    "key": "seed_lettuce",
+    "name": "Lettuce Seed",
+    "unit": "kg(s)",
+    "basePrice": 0.05,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.06,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Lettuce Seed",
+    "name_tr": "Marul Tohumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 3500,
+    "volumeFactor": 0.0018,
+    "averagePrice": 0.04999999999999999,
+    "name_de": "Salatsaat",
+    "name_es": "Semilla de lechuga",
+    "name_fr": "Graine de laitue",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de alface",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "lettuce"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62501",
+    "id": 66,
+    "key": "lithium",
+    "name": "Lithium",
+    "unit": "kg(s)",
+    "basePrice": 20,
+    "seasonality": 0.01,
+    "setupCost": 375000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/lithium.png",
+    "npcOrderTargetUSD": 80,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 13,
+    "productionPerTick": 0.13,
+    "carbonPerUnit": 0.18,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Lithium",
+    "name_tr": "Lityum",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 4400,
+    "volumeFactor": 0.0025,
+    "averagePrice": 16.434553380303026,
+    "name_de": "Lithium",
+    "name_es": "Litio",
+    "name_fr": "Lithium",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Lítio",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62500",
+    "id": 65,
+    "key": "lithium_battery",
+    "name": "Lithium Battery",
+    "unit": "piece(s)",
+    "basePrice": 15,
+    "setupCost": 367000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/lithium-battery.png",
+    "npcOrderTargetUSD": 17,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 13,
+    "productionPerTick": 0.17,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "lithium",
+          "qtyPerUnit": 0.12,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "graphite",
+          "qtyPerUnit": 0.15,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "nickel",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Lithium Battery",
+    "name_tr": "Lityum Pil",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 5500,
+    "volumeFactor": 0.0008,
+    "averagePrice": 10.712,
+    "name_de": "Lithiumbatterie",
+    "name_es": "Batería de litio",
+    "name_fr": "Batterie au lithium",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Bateria de lítio",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ed",
+    "id": 47,
+    "key": "log",
+    "name": "Log",
+    "unit": "m³",
+    "basePrice": 120,
+    "seasonality": 0.01,
+    "setupCost": 276000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/log.png",
+    "npcOrderTargetUSD": 140,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.017,
+    "carbonPerUnit": 0.02,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "tree",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Log",
+    "name_tr": "Tomruk",
+    "unit_en": "m³",
+    "unit_tr": "m³",
+    "maxStoragePerTile": 500,
+    "volumeFactor": 1.2,
+    "averagePrice": 160.1566,
+    "name_de": "Baumstamm",
+    "name_es": "Tronco",
+    "name_fr": "Tronc",
+    "unit_de": "m³",
+    "unit_es": "m³",
+    "unit_fr": "m³",
+    "name_pt": "Tronco",
+    "unit_pt": "m³"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ee",
+    "id": 48,
+    "key": "lumber",
+    "name": "Lumber",
+    "unit": "m³",
+    "basePrice": 250,
+    "seasonality": 0.01,
+    "setupCost": 209000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/lumber.png",
+    "npcOrderTargetUSD": 430,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.008,
+    "carbonPerUnit": 0.05,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "log",
+          "qtyPerUnit": 0.5,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Lumber",
+    "name_tr": "Kereste",
+    "unit_en": "m³",
+    "unit_tr": "m³",
+    "maxStoragePerTile": 1000,
+    "volumeFactor": 1.1,
+    "averagePrice": 362.1696,
+    "name_de": "Holz",
+    "name_es": "Madera",
+    "name_fr": "Bois",
+    "unit_de": "m³",
+    "unit_es": "m³",
+    "unit_fr": "m³",
+    "name_pt": "Madeira",
+    "unit_pt": "m³"
+  },
+  {
+    "_id": "695ab6d84d90a861fe8c573e",
+    "id": 122,
+    "key": "magazine",
+    "name": "Magazine",
+    "name_tr": "Dergi",
+    "name_en": "Magazine",
+    "name_de": "Magazin",
+    "name_es": "Revista",
+    "name_fr": "Revue",
+    "name_pt": "Revista",
+    "unit": "piece(s)",
+    "unit_tr": "adet",
+    "unit_en": "piece(s)",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "unit_pt": "peça(s)",
+    "basePrice": 1,
+    "seasonality": 0.06,
+    "setupCost": 0,
+    "averagePrice": 0.7475,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/magazine.png",
+    "npcOrderTargetUSD": 1,
+    "npcQtyMin": 1,
+    "npcQtyMax": 15,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "maxStoragePerTile": 10000,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "volumeFactor": 0.006,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "byproductOf": [
+      "newspaper"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624c5",
+    "id": 15,
+    "key": "market",
+    "name": "Market",
+    "unit": "piece(s)",
+    "basePrice": 0,
+    "seasonality": 0,
+    "setupCost": 155000,
+    "producerKind": "city",
+    "iconUrl": "/img/products/food-stand.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 11,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "bread",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "flour",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "milk",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "egg",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "whole_chicken",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "butter",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "beef",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sugar",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "chocolate",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "olive_oil",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "honey",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "soap",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "potato_chips",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "corn_chips",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "soft_drink",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sunflower_oil",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "apple",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lemon",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cherry",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "orange",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "rice",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fruit_concentrate",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "apple_juice",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "orange_juice",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lemonade",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "grape",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "caviar",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "tomato",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "pasta",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "onion",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "soybean",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "potato",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "newspaper",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "magazine",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "wine",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Market",
+    "name_tr": "Market",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 100,
+    "volumeFactor": 1,
+    "averagePrice": 0,
+    "name_de": "Markt",
+    "name_es": "Mercado",
+    "name_fr": "Marché",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Mercado",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ca",
+    "id": 18,
+    "key": "beef",
+    "name": "Meat",
+    "unit": "kg(s)",
+    "basePrice": 8.5,
+    "seasonality": 0.03,
+    "setupCost": 208000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/beef.png",
+    "npcOrderTargetUSD": 9,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.17,
+    "carbonPerUnit": 0.05,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "cow",
+          "qtyPerUnit": 0.003,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sheep",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Meat",
+    "name_tr": "Et",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 5000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 6.375,
+    "name_de": "Fleisch",
+    "name_es": "Carne",
+    "name_fr": "Viande",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Carne",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62504",
+    "id": 69,
+    "key": "microchip",
+    "name": "Microchip",
+    "unit": "piece(s)",
+    "basePrice": 40,
+    "setupCost": 460000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/microchip.png",
+    "npcOrderTargetUSD": 45,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 14,
+    "productionPerTick": 0.08,
+    "carbonPerUnit": 0.5,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "silica_sand",
+          "qtyPerUnit": 0.4,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "copper",
+          "qtyPerUnit": 0.4,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "graphite",
+          "qtyPerUnit": 0.3,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "gold",
+          "qtyPerUnit": 0.003,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Microchip",
+    "name_tr": "Mikroçip",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 2600,
+    "volumeFactor": 0.0001,
+    "averagePrice": 38.95729270337424,
+    "name_de": "Mikrochip",
+    "name_es": "Microchip",
+    "name_fr": "Micropuce",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Microchip",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624c6",
+    "id": 16,
+    "key": "milk",
+    "name": "Milk",
+    "unit": "lt(s)",
+    "basePrice": 0.97,
+    "seasonality": 0.03,
+    "setupCost": 35000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/milk-bottle.png",
+    "npcOrderTargetUSD": 1.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.02,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Milk",
+    "name_tr": "Süt",
+    "unit_en": "lt(s)",
+    "unit_tr": "lt",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 4000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 1.090880859237297,
+    "name_de": "Milch",
+    "name_es": "Leche",
+    "name_fr": "Lait",
+    "unit_de": "L",
+    "unit_es": "L",
+    "unit_fr": "L",
+    "name_pt": "Leite",
+    "unit_pt": "L",
+    "byproductOf": [
+      "cow"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f8",
+    "id": 57,
+    "key": "nail",
+    "name": "Nail",
+    "unit": "kg(s)",
+    "basePrice": 4.23,
+    "seasonality": 0.03,
+    "setupCost": 243000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/nail.png",
+    "npcOrderTargetUSD": 1.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.45,
+    "carbonPerUnit": 0.04,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "iron",
+          "qtyPerUnit": 0.003,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Nail",
+    "name_tr": "Çivi",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 8000,
+    "volumeFactor": 0.0002,
+    "averagePrice": 3.964924872481719,
+    "name_de": "Nagel",
+    "name_es": "Clavo",
+    "name_fr": "Clou",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Prego",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "695ab76d4d90a861fe8c950b",
+    "id": 123,
+    "key": "newspaper",
+    "name": "Newspaper",
+    "name_tr": "Gazete",
+    "name_en": "Newspaper",
+    "name_de": "Zeitung",
+    "name_es": "Periódico",
+    "name_fr": "Journal",
+    "name_pt": "Jornal",
+    "unit": "piece(s)",
+    "unit_tr": "adet",
+    "unit_en": "piece(s)",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "unit_pt": "peça(s)",
+    "basePrice": 0.9,
+    "seasonality": 0.06,
+    "setupCost": 110000,
+    "averagePrice": 0.6695,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/newspaper.png",
+    "npcOrderTargetUSD": 0.9,
+    "npcQtyMin": 1,
+    "npcQtyMax": 30,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 11,
+    "maxStoragePerTile": 50000,
+    "productionPerTick": 0.9,
+    "carbonPerUnit": 0.06,
+    "volumeFactor": 0.006,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "paper",
+          "qtyPerUnit": 0.025,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "magazine",
+          "qtyPerUnit": 0.5,
+          "qtyMultByOwnerCount": false,
+          "_id": "695ab79c4d90a861fe8caa24"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62502",
+    "id": 67,
+    "key": "nickel",
+    "name": "Nickel",
+    "unit": "kg(s)",
+    "basePrice": 12,
+    "seasonality": 0.015,
+    "setupCost": 518000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/nickel.png",
+    "npcOrderTargetUSD": 60,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 15,
+    "productionPerTick": 0.15,
+    "carbonPerUnit": 0.15,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Nickel",
+    "name_tr": "Nikel",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 5000,
+    "volumeFactor": 0.0002,
+    "averagePrice": 10.529053813386707,
+    "name_de": "Nickel",
+    "name_es": "Níquel",
+    "name_fr": "Nickel",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Níquel",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f9",
+    "id": 58,
+    "key": "notebook",
+    "name": "Notebook",
+    "unit": "piece(s)",
+    "basePrice": 2.4,
+    "seasonality": 0.03,
+    "setupCost": 200000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/notebook.png",
+    "npcOrderTargetUSD": 2.6,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.58,
+    "carbonPerUnit": 0.03,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "paper",
+          "qtyPerUnit": 0.07,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glue",
+          "qtyPerUnit": 0.001,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Notebook",
+    "name_tr": "Defter",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 15000,
+    "volumeFactor": 0.0007,
+    "averagePrice": 1.9896003381929988,
+    "name_de": "Notizbuch",
+    "name_es": "Cuaderno",
+    "name_fr": "Cahier",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Caderno",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624da",
+    "id": 31,
+    "key": "olive",
+    "name": "Olive",
+    "unit": "kg(s)",
+    "basePrice": 1.6,
+    "seasonality": 0.03,
+    "setupCost": 51000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/olive.png",
+    "npcOrderTargetUSD": 1.6,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 7,
+    "productionPerTick": 0.22,
+    "carbonPerUnit": 0.01,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Olive",
+    "name_tr": "Zeytin",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 7600,
+    "volumeFactor": 0.0012,
+    "averagePrice": 1.6494887523270945,
+    "name_de": "Olive",
+    "name_es": "Aceituna",
+    "name_fr": "Olive",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Azeitona",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624db",
+    "id": 32,
+    "key": "olive_oil",
+    "name": "Olive Oil",
+    "unit": "lt(s)",
+    "basePrice": 12,
+    "seasonality": 0.03,
+    "setupCost": 259000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/olive-oil.png",
+    "npcOrderTargetUSD": 10,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.3,
+    "carbonPerUnit": 0.07,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "olive",
+          "qtyPerUnit": 3,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Olive Oil",
+    "name_tr": "Zeytin Yağı",
+    "unit_en": "lt(s)",
+    "unit_tr": "lt",
+    "maxStoragePerTile": 10000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 8.797,
+    "name_de": "Olivenöl",
+    "name_es": "Aceite de oliva",
+    "name_fr": "Huile d'olive",
+    "unit_de": "L",
+    "unit_es": "L",
+    "unit_fr": "L",
+    "name_pt": "Azeite de oliva",
+    "unit_pt": "L"
+  },
+  {
+    "_id": "690f4dd431d145e916e29838",
+    "id": 114,
+    "key": "onion",
+    "name": "Onion",
+    "name_tr": "Soğan",
+    "name_en": "Onion",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 0.25,
+    "seasonality": 0.12,
+    "setupCost": 11000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/onion.png",
+    "npcOrderTargetUSD": 0.3,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 4,
+    "maxStoragePerTile": 10000,
+    "productionPerTick": 0.3,
+    "carbonPerUnit": 0.02,
+    "volumeFactor": 0.0013,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "onion_seed",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.025,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "onion_seed",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "6957894003aeb68cdc2858c6"
+        }
+      ]
+    },
+    "averagePrice": 0.22042648202323464,
+    "name_de": "Zwiebel",
+    "name_es": "Cebolla",
+    "name_fr": "Oignon",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cebola",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "690f4f2031d145e916e529eb",
+    "id": 115,
+    "key": "onion_seed",
+    "name": "Onion Seed",
+    "name_tr": "Soğan Tohumu",
+    "name_en": "Onion Seed",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 0.1,
+    "seasonality": 0,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.1,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "maxStoragePerTile": 1000,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.0016,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 0.125,
+    "name_de": "Zwiebelsaat",
+    "name_es": "Semilla de cebolla",
+    "name_fr": "Graine d'oignon",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de cebola",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "onion"
+    ]
+  },
+  {
+    "_id": "68fcc262d5dd5fe76435e3ed",
+    "id": 87,
+    "key": "orange",
+    "name": "Orange",
+    "unit": "kg(s)",
+    "basePrice": 2.2,
+    "seasonality": 0.03,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/orange.png",
+    "npcOrderTargetUSD": 2.6,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0.13,
+    "carbonPerUnit": 0.01,
+    "xpOnSet": 6,
+    "setupCost": 41000,
+    "name_en": "Orange",
+    "name_tr": "Portakal",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 4400,
+    "volumeFactor": 0.0016,
+    "averagePrice": 1.65,
+    "name_de": "Orange",
+    "name_es": "Naranja",
+    "name_fr": "Orange",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Laranja",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fd0aabd5dd5fe76435e40f",
+    "id": 98,
+    "key": "orange_juice",
+    "name": "Orange Juice",
+    "unit": "L(s)",
+    "basePrice": 2,
+    "seasonality": 0.03,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/orange-juice.png",
+    "npcOrderTargetUSD": 2.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "xpOnSet": 5,
+    "setupCost": 0,
+    "name_en": "Orange Juice",
+    "name_tr": "Portakal Suyu",
+    "unit_en": "L(s)",
+    "unit_tr": "lt",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "maxStoragePerTile": 5000,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "volumeFactor": 0.0011,
+    "averagePrice": 2.5146,
+    "name_de": "Orangensaft",
+    "name_es": "Jugo de naranja",
+    "name_fr": "Jus d'orange",
+    "unit_de": "L",
+    "unit_es": "L",
+    "unit_fr": "L",
+    "name_pt": "Suco de laranja",
+    "unit_pt": "L",
+    "byproductOf": [
+      "fruit_concentrate"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624eb",
+    "id": 45,
+    "key": "pants",
+    "name": "Pants",
+    "unit": "piece(s)",
+    "basePrice": 15,
+    "seasonality": 0.06,
+    "setupCost": 216000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/pants.png",
+    "npcOrderTargetUSD": 300,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.1,
+    "carbonPerUnit": 0.15,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "cotton_fabric",
+          "qtyPerUnit": 0.75,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cotton_yarn",
+          "qtyPerUnit": 0.012,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Pants",
+    "name_tr": "Pantolon",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 3400,
+    "volumeFactor": 0.003,
+    "averagePrice": 12.03924313277793,
+    "name_de": "Hose",
+    "name_es": "Pantalones",
+    "name_fr": "Pantalon",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Calças",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f0",
+    "id": 50,
+    "key": "paper",
+    "name": "Paper",
+    "unit": "kg(s)",
+    "basePrice": 13.5,
+    "seasonality": 0.01,
+    "setupCost": 233000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/paper.png",
+    "npcOrderTargetUSD": 180,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.14,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "tree",
+          "qtyPerUnit": 0.18,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "log",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Paper",
+    "name_tr": "Kağıt",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 12000,
+    "volumeFactor": 0.0018,
+    "averagePrice": 10.125,
+    "name_de": "Papier",
+    "name_es": "Papel",
+    "name_fr": "Papier",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Papel",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "690b55bf6143cd40b9a170aa",
+    "id": 112,
+    "key": "pasta",
+    "name": "Pasta",
+    "name_tr": "Makarna",
+    "name_en": "Pasta",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 4.8,
+    "seasonality": 0.03,
+    "setupCost": 138000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/pasta.png",
+    "npcOrderTargetUSD": 5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 11,
+    "maxStoragePerTile": 6800,
+    "productionPerTick": 0.2,
+    "carbonPerUnit": 0.1,
+    "volumeFactor": 0.0022,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "flour",
+          "qtyPerUnit": 0.8,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "egg",
+          "qtyPerUnit": 0.2,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 5.296582903025489,
+    "name_de": "Pasta",
+    "name_es": "Pasta",
+    "name_fr": "Pâtes",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Massa",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624fe",
+    "id": 63,
+    "key": "pencil",
+    "name": "Pencil",
+    "unit": "piece(s)",
+    "basePrice": 0.8,
+    "seasonality": 0.01,
+    "setupCost": 230000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/pencil.png",
+    "npcOrderTargetUSD": 1,
+    "npcQtyMin": 5,
+    "npcQtyMax": 30,
+    "npcQtyJitter": 0.3,
+    "xpOnSet": 12,
+    "productionPerTick": 2,
+    "carbonPerUnit": 0.005,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "lumber",
+          "qtyPerUnit": 0.0011,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "graphite",
+          "qtyPerUnit": 0.0002,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glue",
+          "qtyPerUnit": 0.0001,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Pencil",
+    "name_tr": "Kurşun Kalem",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 60000,
+    "volumeFactor": 0.0001,
+    "averagePrice": 0.6,
+    "name_de": "Bleistift",
+    "name_es": "Lápiz",
+    "name_fr": "Crayon",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Lápis",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62505",
+    "id": 70,
+    "key": "plastic",
+    "name": "Plastic",
+    "unit": "kg(s)",
+    "basePrice": 3.5,
+    "seasonality": 0.01,
+    "setupCost": 403000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/plastic.png",
+    "npcOrderTargetUSD": 5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 14,
+    "productionPerTick": 0.8,
+    "carbonPerUnit": 0.22,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "crude",
+          "qtyPerUnit": 0.022,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Plastic",
+    "name_tr": "Plastik",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 27000,
+    "volumeFactor": 0.0017,
+    "averagePrice": 2.687641354340524,
+    "name_de": "Plastik",
+    "name_es": "Plástico",
+    "name_fr": "Plastique",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Plástico",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62508",
+    "id": 73,
+    "key": "potato",
+    "name": "Potato",
+    "unit": "kg(s)",
+    "basePrice": 0.6,
+    "seasonality": 0.06,
+    "setupCost": 43000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/potato.png",
+    "npcOrderTargetUSD": 1,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 6,
+    "productionPerTick": 0.5,
+    "carbonPerUnit": 0.015,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "seed_potato",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.025,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_potato",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "695788e803aeb68cdc283542"
+        }
+      ]
+    },
+    "name_en": "Potato",
+    "name_tr": "Patates",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 15000,
+    "volumeFactor": 0.0013,
+    "averagePrice": 0.45,
+    "name_de": "Kartoffel",
+    "name_es": "Patata",
+    "name_fr": "Pomme de terre",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Batata",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe6250b",
+    "id": 75,
+    "key": "potato_chips",
+    "name": "Potato Chips",
+    "unit": "pack(s)",
+    "basePrice": 2.5,
+    "seasonality": 0.04,
+    "setupCost": 234000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/potato_chips.png",
+    "npcOrderTargetUSD": 3,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.3,
+    "xpOnSet": 12,
+    "productionPerTick": 0.65,
+    "carbonPerUnit": 0.06,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "potato",
+          "qtyPerUnit": 0.25,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sunflower_oil",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "plastic",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Potato Chips",
+    "name_tr": "Patates Cipsi",
+    "unit_en": "pack(s)",
+    "unit_tr": "paket",
+    "maxStoragePerTile": 12000,
+    "volumeFactor": 0.005,
+    "averagePrice": 1.9938536320589093,
+    "name_de": "Kartoffelchips",
+    "name_es": "Papas fritas",
+    "name_fr": "Chips",
+    "unit_de": "Packung(en)",
+    "unit_es": "paquete(s)",
+    "unit_fr": "paquet(s)",
+    "name_pt": "Batata frita",
+    "unit_pt": "pacote(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624fa",
+    "id": 59,
+    "key": "silica_sand",
+    "name": "Quartz Sand",
+    "unit": "kg(s)",
+    "basePrice": 7,
+    "seasonality": 0.02,
+    "setupCost": 403000,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/silica_sand.png",
+    "npcOrderTargetUSD": 1.5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 14,
+    "productionPerTick": 0.25,
+    "carbonPerUnit": 0.01,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "name_en": "Quartz Sand",
+    "name_tr": "Kuvars Kumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 12000,
+    "volumeFactor": 0.0008,
+    "averagePrice": 6.070064718611081,
+    "name_de": "Quarzsand",
+    "name_es": "Arena de cuarzo",
+    "name_fr": "Sable de quartz",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Areia de sílica",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fcbeb5d5dd5fe76435e3e9",
+    "id": 85,
+    "key": "rice",
+    "name": "Rice",
+    "unit": "kg(s)",
+    "basePrice": 0.8,
+    "seasonality": 0.06,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/rice.png",
+    "npcOrderTargetUSD": 1.2,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0.4,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "seed_rice",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.025,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "name_en": "Rice",
+    "name_tr": "Pirinç",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "setupCost": 46000,
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_rice",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "6957891003aeb68cdc28449d"
+        }
+      ]
+    },
+    "xpOnSet": 6,
+    "maxStoragePerTile": 13000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 0.6,
+    "name_de": "Reis",
+    "name_es": "Arroz",
+    "name_fr": "Riz",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Arroz",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fcbec0d5dd5fe76435e3eb",
+    "id": 86,
+    "key": "seed_rice",
+    "name": "Rice Seed",
+    "unit": "kg(s)",
+    "basePrice": 0.1,
+    "seasonality": 0.03,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.11,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "xpOnSet": 5,
+    "setupCost": 250,
+    "name_en": "Rice Seed",
+    "name_tr": "Pirinç Tohumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "maxStoragePerTile": 15000,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "volumeFactor": 0.0012,
+    "averagePrice": 0.125,
+    "name_de": "Reissaat",
+    "name_es": "Semilla de arroz",
+    "name_fr": "Graine de riz",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de arroz",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "rice"
+    ]
+  },
+  {
+    "_id": "68fc96a0d5dd5fe76435e3dc",
+    "id": 83,
+    "key": "sand",
+    "name": "Sand",
+    "unit": "ton(s)",
+    "basePrice": 16,
+    "seasonality": 0.015,
+    "producerKind": "mine",
+    "iconUrl": "/img/products/sand.png",
+    "npcOrderTargetUSD": 20,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.25,
+    "productionPerTick": 0.07,
+    "carbonPerUnit": 0.12,
+    "xpOnSet": 12,
+    "setupCost": 207000,
+    "name_en": "Sand",
+    "name_tr": "Kum",
+    "unit_en": "ton(s)",
+    "unit_tr": "ton",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 7000,
+    "volumeFactor": 0.625,
+    "averagePrice": 17.99777000847091,
+    "name_de": "Sand",
+    "name_es": "Arena",
+    "name_fr": "Sable",
+    "unit_de": "Tonne(n)",
+    "unit_es": "tonelada(s)",
+    "unit_fr": "tonne(s)",
+    "name_pt": "Areia",
+    "unit_pt": "tonelada(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe6250a",
+    "id": 74,
+    "key": "seed_potato",
+    "name": "Seed Potato",
+    "unit": "kg(s)",
+    "basePrice": 0.1,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seed_potato.png",
+    "npcOrderTargetUSD": 0.11,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Seed Potato",
+    "name_tr": "Tohumluk Patates",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 12000,
+    "volumeFactor": 0.0014,
+    "averagePrice": 0.125,
+    "name_de": "Saatkartoffel",
+    "name_es": "Patata de siembra",
+    "name_fr": "Pomme de terre de semence",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Batata-semente",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "potato"
+    ]
+  },
+  {
+    "_id": "690b3c266143cd40b97801ff",
+    "id": 108,
+    "key": "sheep",
+    "name": "Sheep",
+    "name_tr": "Koyun",
+    "name_en": "Sheep",
+    "unit": "piece(s)",
+    "unit_tr": "adet",
+    "unit_en": "piece(s)",
+    "basePrice": 120,
+    "seasonality": 0.04,
+    "setupCost": 30000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/sheep.png",
+    "npcOrderTargetUSD": 125,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 6,
+    "maxStoragePerTile": 500,
+    "productionPerTick": 0.001,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.25,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "barley",
+          "qtyPerUnit": 0.005,
+          "qtyMultByOwnerCount": true
+        },
+        {
+          "key": "straw",
+          "qtyPerUnit": 0.005,
+          "qtyMultByOwnerCount": true
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "wool",
+          "qtyPerUnit": 0.0025,
+          "qtyMultByOwnerCount": true,
+          "_id": "6957881c03aeb68cdc27dfb2"
+        },
+        {
+          "key": "leather",
+          "qtyPerUnit": 0.0001,
+          "qtyMultByOwnerCount": true,
+          "_id": "6957881c03aeb68cdc27dfb3"
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.015,
+          "qtyMultByOwnerCount": true,
+          "_id": "6957881c03aeb68cdc27dfb4"
+        }
+      ]
+    },
+    "averagePrice": 168.9605,
+    "name_de": "Schaf",
+    "name_es": "Oveja",
+    "name_fr": "Mouton",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Ovelha",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ea",
+    "id": 44,
+    "key": "shirt",
+    "name": "Shirt",
+    "unit": "piece(s)",
+    "basePrice": 18,
+    "seasonality": 0.06,
+    "setupCost": 207000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/shirt.png",
+    "npcOrderTargetUSD": 200,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.08,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "cotton_fabric",
+          "qtyPerUnit": 0.35,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cotton_yarn",
+          "qtyPerUnit": 0.012,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Shirt",
+    "name_tr": "Gömlek",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 2500,
+    "volumeFactor": 0.005,
+    "averagePrice": 16.505349665833872,
+    "name_de": "Hemd",
+    "name_es": "Camisa",
+    "name_fr": "Chemise",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Camisa",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "690b48096143cd40b98b364e",
+    "id": 111,
+    "key": "shoes",
+    "name": "Shoes",
+    "name_tr": "Ayakkabı",
+    "name_en": "Shoes",
+    "unit": "pair(s)",
+    "unit_tr": "çift",
+    "unit_en": "pair(s)",
+    "basePrice": 80,
+    "seasonality": 0,
+    "setupCost": 576000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/shoes.png",
+    "npcOrderTargetUSD": 85,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 15,
+    "maxStoragePerTile": 25000,
+    "productionPerTick": 0.04,
+    "carbonPerUnit": 0.1,
+    "volumeFactor": 0.015,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "leather",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cotton_yarn",
+          "qtyPerUnit": 0.003,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glue",
+          "qtyPerUnit": 0.01,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 94.07726794275311,
+    "name_de": "Schuhe",
+    "name_es": "Zapatos",
+    "name_fr": "Chaussures",
+    "unit_de": "Paar(e)",
+    "unit_es": "par(es)",
+    "unit_fr": "paire(s)",
+    "name_pt": "Sapatos",
+    "unit_pt": "par(es)"
+  },
+  {
+    "_id": "68fce9bdd5dd5fe76435e404",
+    "id": 95,
+    "key": "shopping_mall",
+    "name": "Shopping Mall",
+    "unit": "piece(s)",
+    "basePrice": 0,
+    "seasonality": 0,
+    "producerKind": "city",
+    "iconUrl": "/img/products/shopping-mall.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "bread",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "flour",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "milk",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "egg",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "whole_chicken",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "butter",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "beef",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sugar",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "olive",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "olive_oil",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sunflower_oil",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "honey",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "soap",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "potato_chips",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "corn_chips",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "soft_drink",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "walnut",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "strawberry",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "chocolate",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lettuce",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "apple",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lemon",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cherry",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "orange",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "smartphone",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "computer",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "tshirt",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "shirt",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "pants",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "furniture",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "notebook",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "pencil",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lithium_battery",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cheddar",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "rice",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "trout",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "caviar",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "grape",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "shoes",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "tomato",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "green_beans",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "pasta",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "onion",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "soybean",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "potato",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sneakers",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "newspaper",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "magazine",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "wine",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "xpOnSet": 12,
+    "setupCost": 250000,
+    "name_en": "Shopping Mall",
+    "name_tr": "Alışveriş Merkezi",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "maxStoragePerTile": 100,
+    "volumeFactor": 1,
+    "averagePrice": 0,
+    "name_de": "Einkaufszentrum",
+    "name_es": "Centro comercial",
+    "name_fr": "Centre commercial",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Shopping center",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "6904bae796e0ac214b050f3a",
+    "id": 103,
+    "key": "depot_basic",
+    "name": "Small Storage Depot",
+    "name_tr": "Küçük Depo",
+    "name_en": "Small Storage Depot",
+    "unit": "piece",
+    "unit_tr": "adet",
+    "unit_en": "piece",
+    "basePrice": 0,
+    "seasonality": 0,
+    "setupCost": 15000,
+    "producerKind": "depot",
+    "iconUrl": "/img/products/warehouse.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 1000,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "maxStoragePerTile": 150000,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "volumeFactor": 1,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 0,
+    "name_de": "Kleines Lagerdepot",
+    "name_es": "Depósito pequeño",
+    "name_fr": "Petit dépôt de stockage",
+    "unit_de": "Stück",
+    "unit_es": "pieza",
+    "unit_fr": "pièce",
+    "name_pt": "Depósito pequeno",
+    "unit_pt": "peça"
+  },
+  {
+    "_id": "68fce25ad5dd5fe76435e402",
+    "id": 94,
+    "key": "smartphone",
+    "name": "Smartphone",
+    "unit": "piece(s)",
+    "basePrice": 458,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/smartphone.png",
+    "npcOrderTargetUSD": 500,
+    "npcQtyMin": 1,
+    "npcQtyMax": 2,
+    "productionPerTick": 0.006,
+    "carbonPerUnit": 0.5,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "circuit",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "microchip",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "plastic",
+          "qtyPerUnit": 0.04,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "lithium_battery",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "xpOnSet": 13,
+    "setupCost": 296000,
+    "name_en": "Smartphone",
+    "name_tr": "Akıllı Telefon",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "npcQtyJitter": 0.1,
+    "seasonality": 0.03,
+    "maxStoragePerTile": 1000,
+    "volumeFactor": 0.0012,
+    "averagePrice": 521.9835503268282,
+    "name_de": "Smartphone",
+    "name_es": "Teléfono inteligente",
+    "name_fr": "Smartphone",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Smartphone",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "690b5b246143cd40b9aa2e0a",
+    "id": 113,
+    "key": "sneakers",
+    "name": "Sneakers",
+    "name_tr": "Spor Ayakkabı",
+    "name_en": "Sneakers",
+    "unit": "pair(s)",
+    "unit_tr": "çift",
+    "unit_en": "pair(s)",
+    "basePrice": 20,
+    "seasonality": 0,
+    "setupCost": 173000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/sneakers.png",
+    "npcOrderTargetUSD": 22,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 11,
+    "maxStoragePerTile": 3400,
+    "productionPerTick": 0.1,
+    "carbonPerUnit": 0.1,
+    "volumeFactor": 0.016,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "plastic",
+          "qtyPerUnit": 1.2,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cotton_yarn",
+          "qtyPerUnit": 0.01,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "glue",
+          "qtyPerUnit": 0.3,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 18.415755438219954,
+    "name_de": "Turnschuhe",
+    "name_es": "Zapatillas",
+    "name_fr": "Baskets",
+    "unit_de": "Paar(e)",
+    "unit_es": "par(es)",
+    "unit_fr": "paire(s)",
+    "name_pt": "Tênis",
+    "unit_pt": "par(es)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f7",
+    "id": 56,
+    "key": "soap",
+    "name": "Soap",
+    "unit": "piece(s)",
+    "basePrice": 1.5,
+    "seasonality": 0.03,
+    "setupCost": 216000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/soap.png",
+    "npcOrderTargetUSD": 18,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 1.2,
+    "carbonPerUnit": 0.02,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "beeswax",
+          "qtyPerUnit": 0.004,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "olive_oil",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Soap",
+    "name_tr": "Sabun",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 40000,
+    "volumeFactor": 0.0002,
+    "averagePrice": 1.368029844163392,
+    "name_de": "Seife",
+    "name_es": "Jabón",
+    "name_fr": "Savon",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Sabão",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe62507",
+    "id": 72,
+    "key": "soft_drink",
+    "name": "Soft Drink",
+    "unit": "piece(s)",
+    "basePrice": 1.5,
+    "seasonality": 0.03,
+    "setupCost": 242000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/soft_drink.png",
+    "npcOrderTargetUSD": 2,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 12,
+    "productionPerTick": 1.6,
+    "carbonPerUnit": 0.04,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "sugar",
+          "qtyPerUnit": 0.07,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "bottle",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Soft Drink",
+    "name_tr": "Meşrubat",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 55000,
+    "volumeFactor": 0.0004,
+    "averagePrice": 1.0995,
+    "name_de": "Softdrink",
+    "name_es": "Refresco",
+    "name_fr": "Boisson gazeuse",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Refrigerante",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "690f55ae821a16075fd72063",
+    "id": 118,
+    "key": "soybean",
+    "name": "Soybean",
+    "name_tr": "Soya Fasulyesi",
+    "name_en": "Soybean",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 0.6,
+    "seasonality": 0.13,
+    "setupCost": 13000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/soybean.png",
+    "npcOrderTargetUSD": 0.7,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "maxStoragePerTile": 5000,
+    "productionPerTick": 0.15,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.0013,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "soybean_seed",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "soybean_seed",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "6957893403aeb68cdc2853bf"
+        }
+      ]
+    },
+    "averagePrice": 0.4357,
+    "name_de": "Sojabohne",
+    "name_es": "Soja",
+    "name_fr": "Soja",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Soja",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "690f5639821a16075fd851b2",
+    "id": 119,
+    "key": "soybean_seed",
+    "name": "Soybean Seed",
+    "name_tr": "Soya Fasulyesi Tohumu",
+    "name_en": "Soybean Seed",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 0.6,
+    "seasonality": 0,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.7,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "maxStoragePerTile": 12000,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.0013,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 0.75,
+    "name_de": "Sojabohnensaat",
+    "name_es": "Semilla de soja",
+    "name_fr": "Graine de soja",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de soja",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "soybean"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624f1",
+    "id": 51,
+    "key": "starch",
+    "name": "Starch",
+    "unit": "kg(s)",
+    "basePrice": 7,
+    "seasonality": 0.01,
+    "setupCost": 262000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/starch.png",
+    "npcOrderTargetUSD": 48,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.26,
+    "carbonPerUnit": 0.08,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "corn",
+          "qtyPerUnit": 1.6,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Starch",
+    "name_tr": "Nişasta",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 7000,
+    "volumeFactor": 0.0016,
+    "averagePrice": 5.25,
+    "name_de": "Stärke",
+    "name_es": "Almidón",
+    "name_fr": "Amidon",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Amido",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ff",
+    "id": 64,
+    "key": "steel",
+    "name": "Steel",
+    "unit": "kg(s)",
+    "basePrice": 6,
+    "setupCost": 346000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/steel.png",
+    "npcOrderTargetUSD": 0,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 13,
+    "productionPerTick": 0.4,
+    "carbonPerUnit": 0.12,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "iron",
+          "qtyPerUnit": 0.0008,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "graphite",
+          "qtyPerUnit": 0.1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Steel",
+    "name_tr": "Çelik",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 13800,
+    "volumeFactor": 0.0002,
+    "averagePrice": 5.343541605846549,
+    "name_de": "Stahl",
+    "name_es": "Acero",
+    "name_fr": "Acier",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Aço",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624c1",
+    "id": 11,
+    "key": "straw",
+    "name": "Straw",
+    "unit": "kg(s)",
+    "basePrice": 0.08,
+    "seasonality": 0.03,
+    "setupCost": 250,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/haystack.png",
+    "npcOrderTargetUSD": 0.12,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Straw",
+    "name_tr": "Saman",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 10000,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "volumeFactor": 0.006,
+    "averagePrice": 0.1,
+    "name_de": "Stroh",
+    "name_es": "Paja",
+    "name_fr": "Paille",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Palha",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "wheat"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624d8",
+    "id": 30,
+    "key": "strawberry",
+    "name": "Strawberry",
+    "unit": "kg(s)",
+    "basePrice": 3.5,
+    "seasonality": 0.04,
+    "setupCost": 40000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/strawberry.png",
+    "npcOrderTargetUSD": 4,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 6,
+    "productionPerTick": 0.08,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "seed_strawberry",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_strawberry",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "695789ae03aeb68cdc288838"
+        }
+      ]
+    },
+    "name_en": "Strawberry",
+    "name_tr": "Çilek",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 2600,
+    "volumeFactor": 0.003,
+    "averagePrice": 2.625,
+    "name_de": "Erdbeere",
+    "name_es": "Fresa",
+    "name_fr": "Fraise",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Morango",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624d7",
+    "id": 29,
+    "key": "seed_strawberry",
+    "name": "Strawberry Seed",
+    "unit": "kg(s)",
+    "basePrice": 0.05,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.06,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Strawberry Seed",
+    "name_tr": "Çilek Tohumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 7000,
+    "volumeFactor": 0.0019,
+    "averagePrice": 0.049999999999999996,
+    "name_de": "Erdbeersaat",
+    "name_es": "Semilla de fresa",
+    "name_fr": "Graine de fraise",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de morango",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "strawberry"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624d2",
+    "id": 24,
+    "key": "sugar",
+    "name": "Sugar",
+    "unit": "kg(s)",
+    "basePrice": 2.5,
+    "seasonality": 0.06,
+    "setupCost": 252000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/sugar.png",
+    "npcOrderTargetUSD": 1.3,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.8,
+    "carbonPerUnit": 0.03,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "sugar_cane",
+          "qtyPerUnit": 3.6,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "sugar_beet",
+          "qtyPerUnit": 4.5,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Sugar",
+    "name_tr": "Şeker",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 24000,
+    "volumeFactor": 0.0012,
+    "averagePrice": 1.875,
+    "name_de": "Zucker",
+    "name_es": "Azúcar",
+    "name_fr": "Sucre",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Açúcar",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fe910cc287698c1ee48a6c",
+    "id": 102,
+    "key": "sugar_beet",
+    "name": "Sugar Beet",
+    "name_tr": "Şeker Pancarı",
+    "name_en": "Sugar Beet",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 0.06,
+    "seasonality": 0.1,
+    "setupCost": 43000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/sugar_beet.png",
+    "npcOrderTargetUSD": 0.09,
+    "npcQtyMin": 1,
+    "npcQtyMax": 1000,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 6,
+    "productionPerTick": 5,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "seed_sugar_beet",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.02,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_sugar_beet",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "695789f203aeb68cdc28a46e"
+        }
+      ]
+    },
+    "maxStoragePerTile": 160000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 0.045,
+    "name_de": "Zuckerrübe",
+    "name_es": "Remolacha azucarera",
+    "name_fr": "Betterave sucrière",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Beterraba açucareira",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68fe906cc287698c1ee3d71b",
+    "id": 101,
+    "key": "seed_sugar_beet",
+    "name": "Sugar Beet Seed",
+    "name_tr": "Şeker Pancarı Tohumu",
+    "name_en": "Sugar Beet Seed",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 0.1,
+    "seasonality": 0,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.1,
+    "npcQtyMin": 1,
+    "npcQtyMax": 1000,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "maxStoragePerTile": 13000,
+    "volumeFactor": 0.0015,
+    "averagePrice": 0.125,
+    "name_de": "Zuckerrübensaat",
+    "name_es": "Semilla de remolacha",
+    "name_fr": "Graine de betterave",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de beterraba",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "sugar_beet"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624d0",
+    "id": 23,
+    "key": "sugar_cane",
+    "name": "Sugarcane",
+    "unit": "kg(s)",
+    "basePrice": 0.3,
+    "seasonality": 0.04,
+    "setupCost": 52000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/sugar-cane.png",
+    "npcOrderTargetUSD": 0.2,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 6,
+    "productionPerTick": 1.2,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "sugar_cane_seed",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "sugar_cane_seed",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "695789ea03aeb68cdc28a131"
+        }
+      ]
+    },
+    "name_en": "Sugarcane",
+    "name_tr": "Şeker Kamışı",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 35000,
+    "volumeFactor": 0.003,
+    "averagePrice": 0.37499999999999994,
+    "name_de": "Zuckerrohr",
+    "name_es": "Caña de azúcar",
+    "name_fr": "Canne à sucre",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Cana-de-açúcar",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624cf",
+    "id": 22,
+    "key": "sugar_cane_seed",
+    "name": "Sugarcane Seedling",
+    "unit": "kg(s)",
+    "basePrice": 0.05,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/growing-plant.png",
+    "npcOrderTargetUSD": 0.06,
+    "npcQtyMin": 1,
+    "npcQtyMax": 1000,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.002,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Sugarcane Seedling",
+    "name_tr": "Şeker Kamışı Fidesi",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 14000,
+    "volumeFactor": 0.0035,
+    "averagePrice": 0.05,
+    "name_de": "Zuckerrohrsetzling",
+    "name_es": "Plántula de caña de azúcar",
+    "name_fr": "Plant de canne à sucre",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Muda de cana-de-açúcar",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "sugar_cane"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624e1",
+    "id": 37,
+    "key": "sun_flower",
+    "name": "Sunflower",
+    "unit": "kg(s)",
+    "basePrice": 0.7,
+    "seasonality": 0.04,
+    "setupCost": 24000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/sun-flower.png",
+    "npcOrderTargetUSD": 0.8,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 6,
+    "productionPerTick": 0.24,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "sun_flower_seed",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "sun_flower_seed",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "6956874f9274f0d806d326ac"
+        }
+      ]
+    },
+    "name_en": "Sunflower",
+    "name_tr": "Ayçiçeği",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 12000,
+    "volumeFactor": 0.0019,
+    "averagePrice": 0.5891858314185061,
+    "name_de": "Sonnenblume",
+    "name_es": "Girasol",
+    "name_fr": "Tournesol",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Girassol",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624e3",
+    "id": 38,
+    "key": "sunflower_oil",
+    "name": "Sunflower Oil",
+    "unit": "lt(s)",
+    "basePrice": 3.2,
+    "seasonality": 0.03,
+    "setupCost": 203000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/sunflower-oil.png",
+    "npcOrderTargetUSD": 5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.6,
+    "carbonPerUnit": 0.07,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "sun_flower",
+          "qtyPerUnit": 2,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Sunflower Oil",
+    "name_tr": "Ayçiçeği Yağı",
+    "unit_en": "lt(s)",
+    "unit_tr": "lt",
+    "maxStoragePerTile": 15000,
+    "volumeFactor": 0.0011,
+    "averagePrice": 2.4,
+    "name_de": "Sonnenblumenöl",
+    "name_es": "Aceite de girasol",
+    "name_fr": "Huile de tournesol",
+    "unit_de": "L",
+    "unit_es": "L",
+    "unit_fr": "L",
+    "name_pt": "Óleo de girassol",
+    "unit_pt": "L"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624e0",
+    "id": 36,
+    "key": "sun_flower_seed",
+    "name": "Sunflower Seed",
+    "unit": "kg(s)",
+    "basePrice": 0.05,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.06,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.1,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Sunflower Seed",
+    "name_tr": "Ayçiçeği Tohumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 12000,
+    "volumeFactor": 0.0019,
+    "averagePrice": 0.06,
+    "name_de": "Sonnenblumensaat",
+    "name_es": "Semilla de girasol",
+    "name_fr": "Graine de tournesol",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de girassol",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "sun_flower"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624e9",
+    "id": 43,
+    "key": "tshirt",
+    "name": "T-shirt",
+    "unit": "piece(s)",
+    "basePrice": 4.9,
+    "seasonality": 0.06,
+    "setupCost": 226000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/tshirt.png",
+    "npcOrderTargetUSD": 150,
+    "npcQtyMin": 1,
+    "npcQtyMax": 3,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.32,
+    "carbonPerUnit": 0.06,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "cotton_fabric",
+          "qtyPerUnit": 0.3,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "cotton_yarn",
+          "qtyPerUnit": 0.005,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "T-shirt",
+    "name_tr": "T-shirt",
+    "unit_en": "piece(s)",
+    "unit_tr": "adet",
+    "maxStoragePerTile": 6500,
+    "volumeFactor": 0.002,
+    "averagePrice": 3.675,
+    "name_de": "T-Shirt",
+    "name_es": "Camiseta",
+    "name_fr": "T-shirt",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "name_pt": "Camiseta",
+    "unit_pt": "peça(s)"
+  },
+  {
+    "_id": "692beffc0ef1eb2b30d4def9",
+    "id": 121,
+    "key": "tomato",
+    "name": "Tomato",
+    "name_tr": "Domates",
+    "name_en": "Tomato",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 0.8,
+    "seasonality": 0.06,
+    "setupCost": 57000,
+    "averagePrice": 0.6,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/tomato.png",
+    "npcOrderTargetUSD": 1,
+    "npcQtyMin": 1,
+    "npcQtyMax": 20,
+    "npcQtyJitter": 0.2,
+    "xpOnSet": 7,
+    "maxStoragePerTile": 15000,
+    "productionPerTick": 0.5,
+    "carbonPerUnit": 0.017,
+    "volumeFactor": 0.0013,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.025,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "seed_tomato",
+          "qtyPerUnit": 0.05,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_tomato",
+          "qtyPerUnit": 0.1,
+          "qtyMultByOwnerCount": false,
+          "_id": "6957877c03aeb68cdc279e54"
+        }
+      ]
+    },
+    "name_de": "Tomate",
+    "name_es": "Tomate",
+    "name_fr": "Tomate",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Tomate",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "692bef670ef1eb2b30d4af00",
+    "id": 120,
+    "key": "seed_tomato",
+    "name": "Tomato Seed",
+    "name_tr": "Domates Tohumu",
+    "name_en": "Tomato Seed",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 0.05,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "averagePrice": 0.06000000000000001,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.06,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "maxStoragePerTile": 12000,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "volumeFactor": 0.0014,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_de": "Tomatensaat",
+    "name_es": "Semilla de tomate",
+    "name_fr": "Graine de tomate",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de tomate",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "tomato"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624ec",
+    "id": 46,
+    "key": "tree",
+    "name": "Tree",
+    "unit": "m³",
+    "basePrice": 45,
+    "seasonality": 0.02,
+    "setupCost": 64800,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/tree.png",
+    "npcOrderTargetUSD": 48,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 8,
+    "productionPerTick": 0.01,
+    "carbonPerUnit": 0,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Tree",
+    "name_tr": "Ağaç",
+    "unit_en": "m³",
+    "unit_tr": "m³",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 300,
+    "volumeFactor": 1.05,
+    "averagePrice": 32.9531,
+    "name_de": "Baum",
+    "name_es": "Árbol",
+    "name_fr": "Arbre",
+    "unit_de": "m³",
+    "unit_es": "m³",
+    "unit_fr": "m³",
+    "name_pt": "Árvore",
+    "unit_pt": "m³"
+  },
+  {
+    "_id": "690b2b5b6143cd40b95d4f89",
+    "id": 106,
+    "key": "trout",
+    "name": "Trout",
+    "name_tr": "Alabalık",
+    "name_en": "Trout",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 7,
+    "seasonality": 0,
+    "setupCost": 50000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/trout.png",
+    "npcOrderTargetUSD": 7,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 7,
+    "maxStoragePerTile": 1000,
+    "productionPerTick": 0.045,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.55,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "caviar",
+          "qtyPerUnit": 0.0001,
+          "qtyMultByOwnerCount": true,
+          "_id": "6956871c9274f0d806d3048a"
+        }
+      ]
+    },
+    "averagePrice": 8.004828890466634,
+    "name_de": "Forelle",
+    "name_es": "Trucha",
+    "name_fr": "Truite",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Truta",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624d5",
+    "id": 27,
+    "key": "walnut",
+    "name": "Walnut",
+    "unit": "kg(s)",
+    "basePrice": 3.8,
+    "seasonality": 0.03,
+    "setupCost": 27000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/walnut.png",
+    "npcOrderTargetUSD": 3.6,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 7,
+    "productionPerTick": 0.05,
+    "carbonPerUnit": 0.01,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Walnut",
+    "name_tr": "Ceviz",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 2000,
+    "volumeFactor": 0.0035,
+    "averagePrice": 3.2563238262554335,
+    "name_de": "Walnuss",
+    "name_es": "Nuez",
+    "name_fr": "Noix",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Noz",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624b2",
+    "id": 1,
+    "key": "wheat",
+    "name": "Wheat",
+    "unit": "kg(s)",
+    "basePrice": 0.6,
+    "seasonality": 0.06,
+    "setupCost": 16000,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/wheat.png",
+    "npcOrderTargetUSD": 0.7,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0.18,
+    "carbonPerUnit": 0.01,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "seed_wheat",
+          "qtyPerUnit": 0.03,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "fertilizer",
+          "qtyPerUnit": 0.025,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": [
+        {
+          "key": "seed_wheat",
+          "qtyPerUnit": 0.06,
+          "qtyMultByOwnerCount": false,
+          "_id": "694e3c1aa3b0570a33fdc81f"
+        },
+        {
+          "key": "straw",
+          "qtyPerUnit": 0.4,
+          "qtyMultByOwnerCount": false,
+          "_id": "694e3c1aa3b0570a33fdc820"
+        }
+      ]
+    },
+    "name_en": "Wheat",
+    "name_tr": "Buğday",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "maxStoragePerTile": 16000,
+    "volumeFactor": 0.0013,
+    "averagePrice": 0.7561,
+    "name_de": "Weizen",
+    "name_es": "Trigo",
+    "name_fr": "Blé",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Trigo",
+    "unit_pt": "kg"
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624c0",
+    "id": 10,
+    "key": "seed_wheat",
+    "name": "Wheat Seed",
+    "unit": "kg(s)",
+    "basePrice": 0.9,
+    "seasonality": 0.03,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/seeds.png",
+    "npcOrderTargetUSD": 0.11,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 5,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0.005,
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Wheat Seed",
+    "name_tr": "Buğday Tohumu",
+    "unit_en": "kg(s)",
+    "unit_tr": "kg",
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "maxStoragePerTile": 18000,
+    "volumeFactor": 0.0013,
+    "averagePrice": 1.0599426046186577,
+    "name_de": "Weizensaat",
+    "name_es": "Semilla de trigo",
+    "name_fr": "Graine de blé",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Semente de trigo",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "wheat"
+    ]
+  },
+  {
+    "_id": "695d42737184386f8cbd8170",
+    "id": 124,
+    "key": "wine",
+    "name": "Wine",
+    "name_tr": "Şarap",
+    "name_en": "Wine",
+    "name_de": "Wein",
+    "name_es": "Vino",
+    "name_fr": "Vin",
+    "name_pt": "Vinho",
+    "unit": "piece(s)",
+    "unit_tr": "adet",
+    "unit_en": "piece(s)",
+    "unit_de": "Stück",
+    "unit_es": "pieza(s)",
+    "unit_fr": "pièce(s)",
+    "unit_pt": "peça(s)",
+    "basePrice": 12,
+    "seasonality": 0.03,
+    "setupCost": 260000,
+    "averagePrice": 12.091873972654861,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/wine.png",
+    "npcOrderTargetUSD": 9,
+    "npcQtyMin": 1,
+    "npcQtyMax": 10,
+    "npcQtyJitter": 0.25,
+    "xpOnSet": 12,
+    "maxStoragePerTile": 7000,
+    "productionPerTick": 0.17,
+    "carbonPerUnit": 0.04,
+    "volumeFactor": 0.0004,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "grape",
+          "qtyPerUnit": 1.9,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "bottle",
+          "qtyPerUnit": 1,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "all"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    }
+  },
+  {
+    "_id": "690b3cc96143cd40b9790292",
+    "id": 109,
+    "key": "wool",
+    "name": "Wool",
+    "name_tr": "Yün",
+    "name_en": "Wool",
+    "unit": "kg(s)",
+    "unit_tr": "kg",
+    "unit_en": "kg(s)",
+    "basePrice": 12,
+    "seasonality": 0,
+    "setupCost": 0,
+    "producerKind": "farm",
+    "iconUrl": "/img/products/wool.png",
+    "npcOrderTargetUSD": 15,
+    "npcQtyMin": 1,
+    "npcQtyMax": 100,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 0,
+    "maxStoragePerTile": 7500,
+    "productionPerTick": 0,
+    "carbonPerUnit": 0,
+    "volumeFactor": 0.007,
+    "recipe": {
+      "inputs": [],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "averagePrice": 14.101305685455703,
+    "name_de": "Wolle",
+    "name_es": "Lana",
+    "name_fr": "Laine",
+    "unit_de": "kg",
+    "unit_es": "kg",
+    "unit_fr": "kg",
+    "name_pt": "Lã",
+    "unit_pt": "kg",
+    "byproductOf": [
+      "sheep"
+    ]
+  },
+  {
+    "_id": "68e13b78ef94ed0e9fe624e7",
+    "id": 41,
+    "key": "cotton_yarn",
+    "name": "Yarn",
+    "unit": "spool(s)",
+    "basePrice": 4,
+    "seasonality": 0.03,
+    "setupCost": 225000,
+    "producerKind": "factory",
+    "iconUrl": "/img/products/cotton-yarn.png",
+    "npcOrderTargetUSD": 5,
+    "npcQtyMin": 1,
+    "npcQtyMax": 5,
+    "npcQtyJitter": 0.1,
+    "xpOnSet": 12,
+    "productionPerTick": 0.38,
+    "carbonPerUnit": 0.03,
+    "recipe": {
+      "inputs": [
+        {
+          "key": "cotton",
+          "qtyPerUnit": 0.12,
+          "qtyMultByOwnerCount": false
+        },
+        {
+          "key": "wool",
+          "qtyPerUnit": 0.12,
+          "qtyMultByOwnerCount": false
+        }
+      ],
+      "mode": "either"
+    },
+    "byproducts": {
+      "mode": "all",
+      "inputs": []
+    },
+    "name_en": "Yarn",
+    "name_tr": "İplik",
+    "unit_en": "spool(s)",
+    "unit_tr": "bobin",
+    "maxStoragePerTile": 13000,
+    "volumeFactor": 0.005,
+    "averagePrice": 2.9746,
+    "name_de": "Garn",
+    "name_es": "Hilo",
+    "name_fr": "Fil",
+    "unit_de": "Spule(n)",
+    "unit_es": "carrete(s)",
+    "unit_fr": "bobine(s)",
+    "name_pt": "Fio",
+    "unit_pt": "bobina(s)"
+  }
+]
