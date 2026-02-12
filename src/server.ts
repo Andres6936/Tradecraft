@@ -186,6 +186,14 @@ const FactoryInspectTransfer = {
     Tolerance: 25,
     // Value in percentage of offset used for transfer
     Offset: 5,
+  },
+  Log: {
+    Key: "log",
+    Kind: "factory",
+    // Value in percentage of max tolerance of storage
+    Tolerance: 25,
+    // Value in percentage of offset used for transfer
+    Offset: 5,
   }
 } as const;
 
