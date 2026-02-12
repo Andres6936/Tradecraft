@@ -19,7 +19,9 @@ const records = result.records.map(it => ({
   AverageCityPrice: it.citySellAmount / (it.citySellQty || 1),
   TotalSaleAmount: it.sellQty + it.citySellQty,
   TotalSaleMoney: it.sellAmount + it.citySellAmount,
-})).sort((a, b) => b.profit - a.profit);
+})).sort((a, b) => b.profit - a.profit)
+  // View only the products where profit is greater than 10,000 or less than 0
+  .filter(it => it.profit > 10_000 || it.profit < 0);
 
 const padded = (value: number | string, padLength: number) =>
   String(value).padStart(padLength, " ");
