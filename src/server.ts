@@ -250,6 +250,11 @@ const ProductsTrade = {
     Key: "butter",
     Id: 25,
     KeepMinInventory: 150,
+  },
+  Wine: {
+    Key: "wine",
+    Id: 124,
+    KeepMinInventory: 0,
   }
 };
 
