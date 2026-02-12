@@ -104,9 +104,9 @@ const sellIf = async (product: ProductTradeType) => {
   }
 }
 
-// for (const product of ProductsTradeList) {
-//   await sellIf(product)
+for (const product of ProductsTradeList) {
+  await sellIf(product)
 
-//   console.log("----------------")
-//   await Bun.sleep(777);
-// }
+  console.log("----------------")
+  await Bun.sleep(777);
+}
