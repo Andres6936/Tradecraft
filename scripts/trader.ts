@@ -11,6 +11,11 @@ const ProductsTrade = {
     Id: 111,
     KeepMinInventory: 500,
   },
+  Caviar: {
+    Key: "caviar",
+    Id: 105,
+    KeepMinInventory: 0,
+  },
   Shirt: {
     Key: "shirt",
     Id: 44,
