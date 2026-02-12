@@ -87,5 +87,7 @@ for (const product of ProductsTradeList) {
       regionId: 1,
       npcAllow: true,
     })
+  } else {
+    console.log(`No inventory of ${Key} to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
   }
 }
