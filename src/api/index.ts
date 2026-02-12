@@ -119,10 +119,38 @@ const transferWarehouse = async (args: {
   console.error("Error transferring item", stream);
 };
 
+
+const sendOrder = async (args: {
+  orderType: "limit" | "market";
+  side: "buy" | "sell";
+  productId: number;
+  qty: number;
+  price: number;
+  regionId: number;
+  npcAllow: boolean;
+}) => {
+  const response = await fetch("https://playtradecraft.com/api/orders", {
+    method: "POST",
+    body: JSON.stringify(args),
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: Cookies,
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+    },
+  });
+  const stream = await response.json();
+  if (response.ok && stream.ok === true) {
+    return;
+  }
+  console.error("Failed to place order:", stream);
+};
+
 export {
   getPriceRange,
   getOrders,
   getBalance,
   getBestSellOffer,
   transferWarehouse,
+  sendOrder,
 };
