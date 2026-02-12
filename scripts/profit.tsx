@@ -168,6 +168,17 @@ const Header = () => {
   );
 };
 
+const Value = (props: { column: typeof Columns[number], record: any }) => {
+  const { column, record } = props;
+  const value = record[column.Key]
+  const valueAsString = column.Type === "number" ? shortNumber(value) : value;
+
+
+  const color = column.Type === "number" ? (value < 0 ? "red" : column.Color) : column.Color;
+
+  return <Item key={column.Key} length={column.Length} color={color}>{valueAsString}</Item>;
+}
+
 const Table = () => {
   return (
     <Fragment>
@@ -176,11 +187,7 @@ const Table = () => {
       {records.map((record) => (
         <Box key={record.productName}>
           {Columns.map((column) => (
-            <Item key={column.Key} length={column.Length} color={column.Color}>
-              {column.Type === "number"
-                ? shortNumber(record[column.Key])
-                : record[column.Key]}
-            </Item>
+            <Value key={column.Key} column={column} record={record} />
           ))}
         </Box>
       ))}
