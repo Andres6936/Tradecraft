@@ -1,3 +1,4 @@
+import { toTruncate } from "~/utility";
 
 const Cookies = process.env.COOKIES || "";
 
@@ -21,9 +22,9 @@ const getPriceRange = async (productId: number) => {
   const BAND_PCT = 0.15; // ±15%
 
   return {
-    Avg: average.toFixed(1),
-    Min: (average * (1 - BAND_PCT)).toFixed(1),
-    Max: (average * (1 + BAND_PCT)).toFixed(1),
+    Avg: toTruncate(average, 1).toString(),
+    Min: toTruncate(average * (1 - BAND_PCT), 1).toString(),
+    Max: toTruncate(average * (1 + BAND_PCT), 1).toString(),
   };
 };
 
