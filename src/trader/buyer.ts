@@ -17,7 +17,7 @@ const buyIf = async (product: ProductType, args: {
 
   // Find the best offer to buy, where the price is market
   const sellOrders = orders.filter(
-    (order) => order.side === "sell" && order.price === null && order.qty >= 1,
+    (order) => order.side === "sell" && order.orderType === "market" && order.qty >= 1,
   );
   if (sellOrders.length === 0) return;
 
@@ -41,7 +41,7 @@ const buyIf = async (product: ProductType, args: {
     })
   } else {
     // Not enought money, buy the maximum possible amount
-    const maxBuyAmount = Math.floor(args.Metrics.cash / (+range.Min));
+    const maxBuyAmount = Math.round(args.Metrics.cash / (+range.Min));
     console.log(`Not enought money, buying ${Name} at min. market price ($${range.Min}) with total of ${maxBuyAmount} units`)
 
     await sendOrder({
