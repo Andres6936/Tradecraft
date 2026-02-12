@@ -2,7 +2,12 @@ import { toTruncate } from "~/utility";
 
 const Cookies = process.env.COOKIES || "";
 
-const getPriceRange = async (productId: number) => {
+const getPriceRange = async (
+  productId: number,
+  args: {
+    withPrecision: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  } = { withPrecision: 1 },
+) => {
   const stream = await fetch(`https://playtradecraft.com/api/state/product`, {
     method: "POST",
     body: JSON.stringify({
@@ -16,15 +21,15 @@ const getPriceRange = async (productId: number) => {
     },
   });
 
-
   const result = await stream.json();
   const average = result.product.averagePrice;
   const BAND_PCT = 0.15; // ±15%
 
+  const withPrecision = args.withPrecision;
   return {
-    Avg: toTruncate(average, 1).toString(),
-    Min: toTruncate(average * (1 - BAND_PCT), 1).toString(),
-    Max: toTruncate(average * (1 + BAND_PCT), 1).toString(),
+    Avg: toTruncate(average, withPrecision).toString(),
+    Min: toTruncate(average * (1 - BAND_PCT), withPrecision).toString(),
+    Max: toTruncate(average * (1 + BAND_PCT), withPrecision).toString(),
   };
 };
 
@@ -77,10 +82,7 @@ const getBestSellOffer = (orders: any[]) => {
     return {
       StatusCode: 201,
       PriceMarketCount: priceMarketCount.length,
-      Amount: priceMarketCount.reduce(
-        (acc, order) => acc + order.qty,
-        0,
-      ),
+      Amount: priceMarketCount.reduce((acc, order) => acc + order.qty, 0),
     } as const;
   }
 
@@ -93,22 +95,25 @@ const getBestSellOffer = (orders: any[]) => {
 };
 
 const transferWarehouse = async (args: {
-  regionId: number,
-  x: number,
-  y: number,
-  id: number,
-  amount: number,
+  regionId: number;
+  x: number;
+  y: number;
+  id: number;
+  amount: number;
 }) => {
-  const response = await fetch("https://playtradecraft.com/api/transfer-to-main", {
-    method: "POST",
-    body: JSON.stringify(args),
-    headers: {
-      "Content-Type": "application/json",
-      Cookie: Cookies,
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+  const response = await fetch(
+    "https://playtradecraft.com/api/transfer-to-main",
+    {
+      method: "POST",
+      body: JSON.stringify(args),
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: Cookies,
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+      },
     },
-  });
+  );
   const stream = await response.json();
   if (response.ok && stream.ok === true) return;
   console.error("Error transferring item", stream);
