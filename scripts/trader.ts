@@ -43,7 +43,7 @@ const ProductsTradeList = Object.values(ProductsTrade);
 
 const { Inventory, Me, Metrics } = await getState();
 
-for (const product of ProductsTradeList) {
+const sellIf = async (product: typeof ProductsTrade[keyof typeof ProductsTrade]) => {
   const { Key, Id, KeepMinInventory } = product;
   const productInventoryAmount = Inventory[Key];
   if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {
@@ -60,7 +60,7 @@ for (const product of ProductsTradeList) {
     );
     if (marketOrders.length === 0) {
       console.log(`No market orders found for ${Key}`);
-      continue;
+      return
     }
 
     // Get the amount of buy amount of orders
@@ -83,6 +83,10 @@ for (const product of ProductsTradeList) {
   } else {
     console.log(`No inventory of ${Key} to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
   }
+}
+
+for (const product of ProductsTradeList) {
+  await sellIf(product)
 
   console.log("----------------")
   await Bun.sleep(777);
