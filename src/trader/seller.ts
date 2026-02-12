@@ -57,14 +57,18 @@ const sellIf = async (product: ProductTradeType, args: {
 const seller = async () => {
   const { Inventory, Me, Metrics } = await getState();
   for (const product of ProductsTradeList) {
-    await sellIf(product, {
-      Me,
-      Metrics,
-      Inventory,
-    })
-
-    console.log("----------------")
-    await Bun.sleep(777);
+    try {
+      await sellIf(product, {
+        Me,
+        Metrics,
+        Inventory,
+      })
+    } catch (error) {
+      console.error(`Error selling ${product.Key}: `, error);
+    } finally {
+      console.log("----------------")
+      await Bun.sleep(777);
+    }
   }
 }
 
