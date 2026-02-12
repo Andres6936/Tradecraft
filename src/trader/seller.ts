@@ -13,7 +13,7 @@ const sellIf = async (product: ProductTradeType, args: {
   const productInventoryAmount = args.Inventory[Key];
   if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {
     // Implement logic to sell products to best offer
-    console.log(`Inventory of ${productInventoryAmount - KeepMinInventory} ${Key}`);
+    console.log(`Inventory of ${productInventoryAmount} with minimum ${KeepMinInventory} units of ${Key}`);
     const range = await getPriceRange(Id, {
       withPrecision: 2
     });
@@ -31,16 +31,20 @@ const sellIf = async (product: ProductTradeType, args: {
     // Get the amount of buy amount of orders
     const buyAmount = marketOrders.reduce((acc, order) => acc + order.qty, 0);
     // Determine the amount of inventory to sell
-    const sellAmount = Math.min(productInventoryAmount - KeepMinInventory, buyAmount);
+    const sellAmount = Math.floor(Math.min(productInventoryAmount - KeepMinInventory, buyAmount));
+    if (sellAmount < 1) {
+      console.log(`Not enough inventory to sell ${Key}`);
+      return;
+    }
 
     console.log(`Found ${marketOrders.length} market orders with a total of ${buyAmount} units to max. price ${range.Max}`);
-    console.log(`Selling ${Math.floor(sellAmount)} units at ${range.Max} price, expected profit ${Math.floor(sellAmount * (+range.Max))}`);
+    console.log(`Selling ${sellAmount} units at ${range.Max} price, expected profit ${Math.floor(sellAmount * (+range.Max))}`);
 
     await sendOrder({
       orderType: 'limit',
       side: 'sell',
       productId: Id,
-      qty: Math.floor(sellAmount),
+      qty: sellAmount,
       price: +range.Max,
       regionId: 1,
       npcAllow: true,
