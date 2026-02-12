@@ -1,6 +1,4 @@
-import { getOrders, getPriceRange, sendOrder } from "~/api";
-
-const Cookies = process.env.COOKIES || "";
+import { getOrders, getPriceRange, getState, sendOrder } from "~/api";
 
 const ProductsTrade = {
   Microchip: {
@@ -13,23 +11,11 @@ const ProductsTrade = {
 const ProductsTradeList = Object.values(ProductsTrade);
 
 
-const response = await fetch("https://playtradecraft.com/api/state", {
-  headers: {
-    "Content-Type": "application/json",
-    Cookie: Cookies,
-    "User-Agent":
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
-  },
-});
-
-const stream = await response.json();
-const inventory = stream.gs.inventory;
-const me = stream.me;
-const metrics = stream.metrics;
+const { Inventory, Me, Metrics } = await getState();
 
 for (const product of ProductsTradeList) {
   const { Key, Id, KeepMinInventory } = product;
-  const productInventoryAmount = inventory[Key];
+  const productInventoryAmount = Inventory[Key];
   if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {
     // Implement logic to sell products to best offer
     console.log(`Inventory of ${productInventoryAmount - KeepMinInventory} ${Key}s`);

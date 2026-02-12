@@ -119,6 +119,27 @@ const transferWarehouse = async (args: {
   console.error("Error transferring item", stream);
 };
 
+const getState = async () => {
+  const response = await fetch("https://playtradecraft.com/api/state", {
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: Cookies,
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+    },
+  });
+
+  const stream = await response.json();
+  const inventory = stream.gs.inventory;
+  const me = stream.me;
+  const metrics = stream.metrics;
+
+  return {
+    Me: me,
+    Metrics: metrics,
+    Inventory: inventory,
+  }
+}
 
 const sendOrder = async (args: {
   orderType: "limit" | "market";
@@ -152,5 +173,6 @@ export {
   getBalance,
   getBestSellOffer,
   transferWarehouse,
+  getState,
   sendOrder,
 };
