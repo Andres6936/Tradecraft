@@ -1,4 +1,4 @@
-import { play } from "../src/beep";
+import { play } from "~/beep";
 
 await play('./public/tone.wav')
 

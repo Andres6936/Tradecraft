@@ -1,6 +1,6 @@
 import {render} from 'ink';
-import { AnalyticsView } from '../src/analytics/ui';
-import { ProductsAnalytics } from '../src/server';
+import { AnalyticsView } from '~/analytics/ui';
+import { ProductsAnalytics } from '~/server';
 
 const products = Object.values(ProductsAnalytics);
 const nodes = products.map(it => (

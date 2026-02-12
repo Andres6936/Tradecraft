@@ -1,5 +1,5 @@
-import { transferWarehouse } from "../src/api";
-import { QuestionIsFactoryInspectTransfer } from "../src/server";
+import { transferWarehouse } from "~/api";
+import { QuestionIsFactoryInspectTransfer } from "~/server";
 
 const Cookies = process.env.COOKIES || "";
 const regions = [1, 2, 3, 4, 5, 6];
