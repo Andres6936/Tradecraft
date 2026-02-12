@@ -1,49 +1,13 @@
 import { getOrders, getPriceRange, getState, sendOrder } from "~/api";
+import { ProductsTrade, type ProductTradeType } from "~/server";
 
-const ProductsTrade = {
-  Microchip: {
-    Key: "microchip",
-    Id: 69,
-    KeepMinInventory: 1000,
-  },
-  Shoes: {
-    Key: "shoes",
-    Id: 111,
-    KeepMinInventory: 500,
-  },
-  Caviar: {
-    Key: "caviar",
-    Id: 105,
-    KeepMinInventory: 0,
-  },
-  Shirt: {
-    Key: "shirt",
-    Id: 44,
-    KeepMinInventory: 0,
-  },
-  Pants: {
-    Key: "pants",
-    Id: 45,
-    KeepMinInventory: 0,
-  },
-  Log: {
-    Key: "log",
-    Id: 47,
-    KeepMinInventory: 150,
-  },
-  Butter: {
-    Key: "butter",
-    Id: 25,
-    KeepMinInventory: 150,
-  }
-};
 
 const ProductsTradeList = Object.values(ProductsTrade);
 
 
 const { Inventory, Me, Metrics } = await getState();
 
-const sellIf = async (product: typeof ProductsTrade[keyof typeof ProductsTrade]) => {
+const sellIf = async (product: ProductTradeType) => {
   const { Key, Id, KeepMinInventory } = product;
   const productInventoryAmount = Inventory[Key];
   if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {

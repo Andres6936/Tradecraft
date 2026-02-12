@@ -214,12 +214,54 @@ const QuestionIsFactoryInspectTransfer = (args: {
   return [undefined, false];
 };
 
+
+const ProductsTrade = {
+  Microchip: {
+    Key: "microchip",
+    Id: 69,
+    KeepMinInventory: 1000,
+  },
+  Shoes: {
+    Key: "shoes",
+    Id: 111,
+    KeepMinInventory: 500,
+  },
+  Caviar: {
+    Key: "caviar",
+    Id: 105,
+    KeepMinInventory: 0,
+  },
+  Shirt: {
+    Key: "shirt",
+    Id: 44,
+    KeepMinInventory: 0,
+  },
+  Pants: {
+    Key: "pants",
+    Id: 45,
+    KeepMinInventory: 0,
+  },
+  Log: {
+    Key: "log",
+    Id: 47,
+    KeepMinInventory: 150,
+  },
+  Butter: {
+    Key: "butter",
+    Id: 25,
+    KeepMinInventory: 150,
+  }
+};
+
+type ProductTradeType = typeof ProductsTrade[keyof typeof ProductsTrade];
+
 export {
   Priority,
   ProductsAnalytics,
   FactoryInspectTransfer,
   FactoryInspectTransferList,
   QuestionIsFactoryInspectTransfer,
+  ProductsTrade,
 };
 
-export type { ProductType, FactoryType };
+export type { ProductType, FactoryType, ProductTradeType };
