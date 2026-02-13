@@ -24,11 +24,12 @@ const getPriceRange = async (
   const result = await stream.json();
   const average = result.product.averagePrice;
   const BAND_PCT = 0.15; // ±15%
+  const DELTA = 0.01;
 
   const withPrecision = args.withPrecision;
   return {
     Avg: toTruncate(average, withPrecision).toString(),
-    Min: toTruncate(average * (1 - BAND_PCT), withPrecision).toString(),
+    Min: toTruncate((average * (1 - BAND_PCT) + DELTA), withPrecision).toString(),
     Max: toTruncate(average * (1 + BAND_PCT), withPrecision).toString(),
   };
 };
