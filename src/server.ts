@@ -6,6 +6,7 @@ const Priority = {
 
 type ProductType = {
   Id: number;
+  Key: string;
   Name: string;
   Order: number;
   Priority: (typeof Priority)[keyof typeof Priority];
@@ -15,6 +16,7 @@ type ProductType = {
 const ProductsAnalytics = {
   Computer: {
     Id: 93,
+    Key: "computer",
     Name: "Computer",
     Order: 899,
     Priority: Priority.High,
@@ -22,6 +24,7 @@ const ProductsAnalytics = {
   },
   Smartphone: {
     Id: 94,
+    Key: "smartphone",
     Name: "Smartphone",
     Order: 540,
     Priority: Priority.High,
@@ -29,6 +32,7 @@ const ProductsAnalytics = {
   },
   Lumber: {
     Id: 48,
+    Key: "lumber",
     Name: "Lumber",
     Order: 320,
     Priority: Priority.Medium,
@@ -36,6 +40,7 @@ const ProductsAnalytics = {
   },
   Circuit: {
     Id: 92,
+    Key: "circuit",
     Name: "Circuit",
     Order: 232,
     Priority: Priority.Medium,
@@ -43,6 +48,7 @@ const ProductsAnalytics = {
   },
   Furniture: {
     Id: 49,
+    Key: "furniture",
     Name: "Furniture",
     Order: 227,
     Priority: Priority.High,
@@ -50,6 +56,7 @@ const ProductsAnalytics = {
   },
   Log: {
     Id: 47,
+    Key: "log",
     Name: "Log",
     Order: 152,
     Priority: Priority.Medium,
@@ -57,6 +64,7 @@ const ProductsAnalytics = {
   },
   Beeswax: {
     Id: 55,
+    Key: "beeswax",
     Name: "Beeswax",
     Order: 111,
     Priority: Priority.Medium,
@@ -64,6 +72,7 @@ const ProductsAnalytics = {
   },
   Shoes: {
     Id: 111,
+    Key: "shoes",
     Name: "Shoes",
     Order: 105,
     Priority: Priority.Medium,
@@ -71,6 +80,7 @@ const ProductsAnalytics = {
   },
   Microchip: {
     Id: 69,
+    Key: "microchip",
     Name: "Microchip",
     Order: 40,
     Priority: Priority.Low,
@@ -78,6 +88,7 @@ const ProductsAnalytics = {
   },
   Butter: {
     Id: 25,
+    Key: "butter",
     Name: "Butter",
     Order: 36,
     Priority: Priority.Low,
