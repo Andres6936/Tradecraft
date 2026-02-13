@@ -9,6 +9,7 @@ type ProductType = {
   Name: string;
   Order: number;
   Priority: (typeof Priority)[keyof typeof Priority];
+  MaxInventory: number;
 };
 
 const ProductsAnalytics = {
@@ -17,60 +18,70 @@ const ProductsAnalytics = {
     Name: "Computer",
     Order: 899,
     Priority: Priority.High,
+    MaxInventory: Infinity,
   },
   Smartphone: {
     Id: 94,
     Name: "Smartphone",
     Order: 540,
     Priority: Priority.High,
+    MaxInventory: Infinity,
   },
   Lumber: {
     Id: 48,
     Name: "Lumber",
     Order: 320,
     Priority: Priority.Medium,
+    MaxInventory: Infinity,
   },
   Circuit: {
     Id: 92,
     Name: "Circuit",
     Order: 232,
     Priority: Priority.Medium,
+    MaxInventory: Infinity,
   },
   Furniture: {
     Id: 49,
     Name: "Furniture",
     Order: 227,
     Priority: Priority.High,
+    MaxInventory: Infinity,
   },
   Log: {
     Id: 47,
     Name: "Log",
     Order: 152,
     Priority: Priority.Medium,
+    MaxInventory: 100_000,
   },
   Beeswax: {
     Id: 55,
     Name: "Beeswax",
     Order: 111,
     Priority: Priority.Medium,
+    MaxInventory: 100_000,
   },
   Shoes: {
     Id: 111,
     Name: "Shoes",
     Order: 105,
     Priority: Priority.Medium,
+    MaxInventory: 100_000,
   },
   Microchip: {
     Id: 69,
     Name: "Microchip",
     Order: 40,
     Priority: Priority.Low,
+    MaxInventory: 10_000,
   },
   Butter: {
     Id: 25,
     Name: "Butter",
     Order: 36,
     Priority: Priority.Low,
+    MaxInventory: Infinity,
   },
 } as const satisfies Record<string, ProductType>;
 
@@ -194,7 +205,7 @@ const FactoryInspectTransfer = {
     Tolerance: 25,
     // Value in percentage of offset used for transfer
     Offset: 5,
-  }
+  },
 } as const;
 
 type FactoryType =
@@ -213,7 +224,6 @@ const QuestionIsFactoryInspectTransfer = (args: {
   if (factory) return [factory, true];
   return [undefined, false];
 };
-
 
 const ProductsTrade = {
   Microchip: {
@@ -255,10 +265,10 @@ const ProductsTrade = {
     Key: "wine",
     Id: 124,
     KeepMinInventory: 0,
-  }
+  },
 };
 
-type ProductTradeType = typeof ProductsTrade[keyof typeof ProductsTrade];
+type ProductTradeType = (typeof ProductsTrade)[keyof typeof ProductsTrade];
 
 export {
   Priority,
