@@ -9,7 +9,15 @@ const buyIf = async (product: ProductType, args: {
   Metrics: any,
   Inventory: any,
 }) => {
-  const { Name, Id } = product;
+  const { Name, Id, MaxInventory } = product;
+
+  // Verify if max inventory is reached, and if so, skip buy
+  const productInventoryAmount = args.Inventory[Name] || 0;
+  if (productInventoryAmount >= MaxInventory) {
+    console.log(`Max inventory reached for ${Name}, skipping buy`);
+    return
+  };
+
   const range = await getPriceRange(Id, {
     withPrecision: 2
   });
