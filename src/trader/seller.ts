@@ -1,6 +1,8 @@
+import { getLogger } from "@logtape/logtape";
 import { getOrders, getPriceRange, getState, sendOrder } from "~/api";
 import { ProductsTrade, type ProductTradeType } from "~/server";
 
+const logger = getLogger(['trader', 'seller']);
 
 const ProductsTradeList = Object.values(ProductsTrade);
 
@@ -13,7 +15,7 @@ const sellIf = async (product: ProductTradeType, args: {
   const productInventoryAmount = args.Inventory[Key];
   if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {
     // Implement logic to sell products to best offer
-    console.log(`Inventory of ${productInventoryAmount} with minimum ${KeepMinInventory} units of ${Key}`);
+    logger.info(`Inventory of ${productInventoryAmount} with minimum ${KeepMinInventory} units of ${Key}`);
     const range = await getPriceRange(Id, {
       withPrecision: 2
     });
@@ -24,7 +26,7 @@ const sellIf = async (product: ProductTradeType, args: {
       (order) => order.side === "buy" && order.price === null && order.qty >= 1,
     );
     if (marketOrders.length === 0) {
-      console.log(`No market orders found for ${Key}`);
+      logger.info(`No market orders found for ${Key}`);
       return
     }
 
@@ -33,12 +35,12 @@ const sellIf = async (product: ProductTradeType, args: {
     // Determine the amount of inventory to sell
     const sellAmount = Math.floor(Math.min(productInventoryAmount - KeepMinInventory, buyAmount));
     if (sellAmount < 1) {
-      console.log(`Not enough inventory to sell ${Key}`);
+      logger.info(`Not enough inventory to sell ${Key}`);
       return;
     }
 
-    console.log(`Found ${marketOrders.length} market orders with a total of ${buyAmount} units to max. price ${range.Max}`);
-    console.log(`Selling ${sellAmount} units at ${range.Max} price, expected profit ${Math.floor(sellAmount * (+range.Max))}`);
+    logger.info(`Found ${marketOrders.length} market orders with a total of ${buyAmount} units to max. price ${range.Max}`);
+    logger.info(`Selling ${sellAmount} units at ${range.Max} price, expected profit ${Math.floor(sellAmount * (+range.Max))}`);
 
     await sendOrder({
       orderType: 'limit',
@@ -50,7 +52,7 @@ const sellIf = async (product: ProductTradeType, args: {
       npcAllow: true,
     })
   } else {
-    console.log(`No inventory of ${Key} to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
+    logger.info(`No inventory of ${Key} to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
   }
 }
 
@@ -66,7 +68,6 @@ const seller = async () => {
     } catch (error) {
       console.error(`Error selling ${product.Key}: `, error);
     } finally {
-      console.log("----------------")
       await Bun.sleep(777);
     }
   }
