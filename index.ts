@@ -1,3 +1,6 @@
+// Configure logging
+import '~/logger';
+
 // Set DATA_PATH FIRST
 import { mkdirSync } from 'fs';
 mkdirSync('./brain', { recursive: true });

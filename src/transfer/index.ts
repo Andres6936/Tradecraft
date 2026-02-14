@@ -1,12 +1,16 @@
+import { getLogger } from "@logtape/logtape";
+
 import { transferWarehouse } from "~/api";
 import { QuestionIsFactoryInspectTransfer } from "~/server";
 
 const Cookies = process.env.COOKIES || "";
 const regions = [1, 2, 3, 4, 5, 6];
 
+const logger = getLogger(["transfer"]);
+
 const main = async () => {
   for (const regionId of regions) {
-    console.log(`Processing region: ${regionId}`);
+    logger.info(`Processing region: ${regionId}`);
     const stream = await fetch(
       `https://playtradecraft.com/api/state?regionId=${regionId}`,
       {
@@ -25,7 +29,7 @@ const main = async () => {
       const capacity = tile.localStorage.capacity;
       const percentage = (stored / capacity) * 100;
 
-      console.log(
+      logger.info(
         `${tile.productKey} (${tile.kind}) - ${stored.toFixed(1)}/${capacity} (${percentage.toFixed(1)}%)`,
       );
 
@@ -41,7 +45,7 @@ const main = async () => {
           );
           if (amount < 1) continue;
 
-          console.log(
+          logger.info(
             `Tolerance exceeded by ${percentageExceed.toFixed(1)}%, moving ${amount} products`,
           );
           await transferWarehouse({
@@ -54,8 +58,6 @@ const main = async () => {
           await Bun.sleep(777);
         }
       }
-
-      console.log("----------");
     }
     await Bun.sleep(777);
   }
