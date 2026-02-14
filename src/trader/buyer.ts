@@ -1,6 +1,8 @@
+import { getLogger } from "@logtape/logtape";
 import { getOrders, getPriceRange, getState, sendOrder } from "~/api";
 import { ProductsAnalytics, type ProductType } from "~/server";
 
+const logger = getLogger(['trader', 'buyer']);
 
 const ProductsAnalyticsList = Object.values(ProductsAnalytics);
 
@@ -14,7 +16,7 @@ const buyIf = async (product: ProductType, args: {
   // Verify if max inventory is reached, and if so, skip buy
   const productInventoryAmount = args.Inventory[Key] || 0;
   if (productInventoryAmount >= MaxInventory) {
-    console.log(`Max inventory reached for ${Name}, skipping buy`);
+    logger.info(`Max inventory reached for ${Name}, skipping buy`);
     return
   };
 
@@ -31,11 +33,11 @@ const buyIf = async (product: ProductType, args: {
 
   const buyAmount = sellOrders.reduce((acc, order) => acc + order.qty, 0);;
   const expectValue = buyAmount * (+range.Min);
-  console.log(`Found (${buyAmount} units) ${Name} at min. market price ($${range.Min}) with expected value of $${expectValue}`)
+  logger.info(`Found (${buyAmount} units) ${Name} at min. market price ($${range.Min}) with expected value of $${expectValue}`)
 
   // Verify if we had the money to buy
   if (args.Metrics.cash >= expectValue) {
-    console.log(`Buying all ${Name} at min. market price ($${range.Min}) with total of ${buyAmount} units`)
+    logger.info(`Buying all ${Name} at min. market price ($${range.Min}) with total of ${buyAmount} units`)
 
     // Buy all
     await sendOrder({
@@ -50,7 +52,7 @@ const buyIf = async (product: ProductType, args: {
   } else {
     // Not enought money, buy the maximum possible amount
     const maxBuyAmount = Math.round(args.Metrics.cash / (+range.Min));
-    console.log(`Not enought money, buying ${Name} at min. market price ($${range.Min}) with total of ${maxBuyAmount} units`)
+    logger.info(`Not enought money, buying ${Name} at min. market price ($${range.Min}) with total of ${maxBuyAmount} units`)
 
     await sendOrder({
       orderType: 'limit',
@@ -76,7 +78,6 @@ const buyer = async () => {
     } catch (error) {
       console.error(`Error buying ${product.Name}: `, error);
     } finally {
-      console.log("----------------")
       await Bun.sleep(777);
     }
   }

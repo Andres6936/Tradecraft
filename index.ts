@@ -47,8 +47,8 @@ await traderBuyer.upsertJobScheduler('buyer-job', {
 
 const traderSeller = traderQueue.getQueue("seller", { embedded: true });
 await traderSeller.upsertJobScheduler('seller-job', {
-  // Set the job to run every 45 seconds
-  pattern: '*/77 * * * * *'
+  // Set the job to run every 2 minutes
+  pattern: '*/2 * * * *'
 });
 
 const workerBuyer = traderQueue.getWorker(
