@@ -51,9 +51,12 @@ const buyIf = async (product: ProductType, args: {
     })
   } else {
     // Not enought money, buy the maximum possible amount
-    const maxBuyAmount = Math.round(args.Metrics.cash / (+range.Min));
+    // First validate that the current cash is positive
+    const availableCash = args.Metrics.cash < 0 ? 0 : args.Metrics.cash;
+    const maxBuyAmount = Math.round(availableCash / (+range.Min));
     const expectValue = maxBuyAmount * (+range.Min);
-    context.info(`[{Key}] Not enough money to buy all (${buyAmount}) buying a total of ${maxBuyAmount} units to $${range.Min} per unit, expected value: $${expectValue}`);
+
+    context.info(`[{Key}] Not enough money ($${availableCash}) to buy all (${buyAmount}) buying a total of ${maxBuyAmount} units to $${range.Min} per unit, expected value: $${expectValue}`);
 
     await sendOrder({
       orderType: 'limit',
