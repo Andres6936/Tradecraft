@@ -77,6 +77,7 @@ const buyIf = async (
       ].join(" "),
       {
         minValue: range.Min,
+        buyAmount,
         availableCash: availableCash.toFixed(1),
         maxBuyAmount: maxBuyAmount.toFixed(1),
         expectValue: expectValue.toFixed(1),
