@@ -15,6 +15,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "bunqueue": "^2.4.5",
     "ink": "^6.6.0",
     "react": "^19.2.4"
   }
