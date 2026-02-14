@@ -11,12 +11,13 @@ const buyIf = async (product: ProductType, args: {
   Metrics: any,
   Inventory: any,
 }) => {
-  const { Name, Key, Id, MaxInventory } = product;
+  const { Key, Id, MaxInventory } = product;
+  const context = logger.with({ Key });
 
   // Verify if max inventory is reached, and if so, skip buy
   const productInventoryAmount = args.Inventory[Key] || 0;
   if (productInventoryAmount >= MaxInventory) {
-    logger.info(`Max inventory reached for ${Name}, skipping buy`);
+    context.info(`[{Key}] Max inventory reached, skipping buy`);
     return
   };
 
@@ -33,11 +34,10 @@ const buyIf = async (product: ProductType, args: {
 
   const buyAmount = sellOrders.reduce((acc, order) => acc + order.qty, 0);;
   const expectValue = buyAmount * (+range.Min);
-  logger.info(`Found (${buyAmount} units) ${Name} at min. market price ($${range.Min}) with expected value of $${expectValue}`)
 
   // Verify if we had the money to buy
   if (args.Metrics.cash >= expectValue) {
-    logger.info(`Buying all ${Name} at min. market price ($${range.Min}) with total of ${buyAmount} units`)
+    context.info(`[{Key}] Found (${buyAmount} units) at min. market price ($${range.Min}) with expected value of $${expectValue}, buying all`)
 
     // Buy all
     await sendOrder({
@@ -52,7 +52,8 @@ const buyIf = async (product: ProductType, args: {
   } else {
     // Not enought money, buy the maximum possible amount
     const maxBuyAmount = Math.round(args.Metrics.cash / (+range.Min));
-    logger.info(`Not enought money, buying ${Name} at min. market price ($${range.Min}) with total of ${maxBuyAmount} units`)
+    const expectValue = maxBuyAmount * (+range.Min);
+    context.info(`[{Key}] Not enough money to buy all (${buyAmount}) buying a total of ${maxBuyAmount} units to $${range.Min} per unit, expected value: $${expectValue}`);
 
     await sendOrder({
       orderType: 'limit',
