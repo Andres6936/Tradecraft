@@ -1,3 +1,4 @@
+import '~/logger'
 import { buyer } from "~/trader/buyer";
 import { seller } from "~/trader/seller";
 
