@@ -1,28 +1,11 @@
 import { parseISO, differenceInMinutes } from "date-fns";
-import { cancelOrder } from "~/api";
+import { cancelOrder, getMineOrders } from "~/api";
 import { ProductsAnalytics } from "~/server";
-
-const Cookies = process.env.COOKIES || "";
 
 const ProductsAnalyticsList = Object.values(ProductsAnalytics);
 const ProductsAnalyticsListKey = ProductsAnalyticsList.map((it) => it.Key);
 
-
-
-const stream = await fetch(
-  `https://playtradecraft.com/api/state?mineOrdersOnly=1`,
-  {
-    headers: {
-      "Content-Type": "application/json",
-      Cookie: Cookies,
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
-    },
-  },
-);
-
-const result = await stream.json();
-const orders = result.orders
+const orders = await getMineOrders()
   // Filter the orders where the product is important product
   .filter((order) => ProductsAnalyticsListKey.includes(order.productKey));
 
