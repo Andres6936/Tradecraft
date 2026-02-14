@@ -56,7 +56,16 @@ const buyIf = async (product: ProductType, args: {
     const maxBuyAmount = Math.round(availableCash / (+range.Min));
     const expectValue = maxBuyAmount * (+range.Min);
 
-    context.info(`[{Key}] Not enough money ($${availableCash.toFixed(1)}) to buy all (${buyAmount.toFixed(1)}) buying a total of ${maxBuyAmount.toFixed(1)} units to $${range.Min} per unit, expected value: $${expectValue.toFixed(1)}`);
+    context.info([
+      '[{Key}] Not enough money (${availableCash}) to buy all ({buyAmount})',
+      'buying a total of {maxBuyAmount} units to ${minValue} per unit,',
+      'expected value: ${expectValue}'
+      ].join(' '), {
+      minValue: range.Min,
+      availableCash: availableCash.toFixed(1),
+      maxBuyAmount: maxBuyAmount.toFixed(1),
+      expectValue: expectValue.toFixed(1),
+    });
 
     await sendOrder({
       orderType: 'limit',
