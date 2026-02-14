@@ -22,5 +22,5 @@ const workerTransfer = new Worker<JobTransferDepositType>('transfer', async (job
 
 await queueTransfer.upsertJobScheduler('transfer-to-deposit', {
   // Set the job to run every hour
-  pattern: '* * * * *'
+  pattern: '0 * * * *'
 });
