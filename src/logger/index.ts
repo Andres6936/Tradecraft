@@ -1,10 +1,10 @@
 import { getFileSink } from "@logtape/file";
-import { configureSync, getConsoleSink } from "@logtape/logtape";
+import { configure, getConsoleSink } from "@logtape/logtape";
 import { getPrettyFormatter } from "@logtape/pretty";
 
-configureSync({
+await configure({
   sinks: {
-    file: getFileSink("./logs/analytics.log", {
+    file: getFileSink("analytics.log", {
       lazy: true,
       bufferSize: 8192,
       flushInterval: 5000,
