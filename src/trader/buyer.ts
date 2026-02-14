@@ -37,7 +37,7 @@ const buyIf = async (product: ProductType, args: {
 
   // Verify if we had the money to buy
   if (args.Metrics.cash >= expectValue) {
-    context.info(`[{Key}] Found (${buyAmount} units) at min. market price ($${range.Min}) with expected value of $${expectValue}, buying all`)
+    context.info(`[{Key}] Found (${buyAmount.toFixed(1)} units) at min. market price ($${range.Min}) with expected value of $${expectValue.toFixed(1)}, buying all`)
 
     // Buy all
     await sendOrder({
@@ -56,7 +56,7 @@ const buyIf = async (product: ProductType, args: {
     const maxBuyAmount = Math.round(availableCash / (+range.Min));
     const expectValue = maxBuyAmount * (+range.Min);
 
-    context.info(`[{Key}] Not enough money ($${availableCash}) to buy all (${buyAmount}) buying a total of ${maxBuyAmount} units to $${range.Min} per unit, expected value: $${expectValue}`);
+    context.info(`[{Key}] Not enough money ($${availableCash.toFixed(1)}) to buy all (${buyAmount.toFixed(1)}) buying a total of ${maxBuyAmount.toFixed(1)} units to $${range.Min} per unit, expected value: $${expectValue.toFixed(1)}`);
 
     await sendOrder({
       orderType: 'limit',
