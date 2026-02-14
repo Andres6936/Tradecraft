@@ -16,6 +16,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@logtape/file": "^2.0.2",
     "@logtape/logtape": "^2.0.2",
     "@logtape/pretty": "^2.0.2",
     "bunqueue": "^2.4.5",
