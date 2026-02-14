@@ -27,9 +27,7 @@ const workerTransfer = new Worker(
   "transfer",
   async (job) => {
     try {
-      logger.info('Executing transfer')
       await executeTransfer();
-      logger.info('Transfer executed successfully')
       return { statusCode: 200 };
     } catch (error) {
       console.error("Error executing transfer:", error);
@@ -54,9 +52,7 @@ await queueBuyer.upsertJobScheduler("buyer-job", {
 const workerBuyer = new Worker(
   "buyer",
   async () => {
-    logger.info('Executing buyer')
     await buyer();
-    logger.info('Buyer executed successfully')
     return { statusCode: 200 };
   },
   { embedded: true },
@@ -77,9 +73,7 @@ await queueSeller.upsertJobScheduler("seller-job", {
 const workerSeller = new Worker(
   "seller",
   async () => {
-    logger.info('Executing seller')
     await seller();
-    logger.info('Seller executed successfully')
     return { statusCode: 200 };
   },
   { embedded: true },
