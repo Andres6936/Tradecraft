@@ -24,7 +24,8 @@ const sellIf = async (
 
     // Find all order where the price is of market
     const marketOrders = orders.filter(
-      (order) => order.side === "buy" && order.price === null && order.qty >= 1,
+      (order) =>
+        order.side === "buy" && order.orderType === "market" && order.qty >= 1,
     );
     if (marketOrders.length === 0) {
       return;
@@ -38,7 +39,14 @@ const sellIf = async (
     );
     if (sellAmount < 1) {
       context.info(
-        `[{Key}] Not enough inventory to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`,
+        [
+          "[{Key}] Not enough inventory to sell, the amount of ${productInventoryAmount}",
+          "is less than the minimum required ${KeepMinInventory}",
+        ].join(" "),
+        {
+          productInventoryAmount,
+          KeepMinInventory,
+        },
       );
       return;
     }
@@ -49,7 +57,17 @@ const sellIf = async (
 
     const expectedProfit = Math.floor(sellAmount * +range.Max);
     context.info(
-      `[{Key}] Found ${marketOrders.length} market orders with a total of ${buyAmount} units to max. price ${range.Max}, selling ${sellAmount} units, expected profit ${expectedProfit}`,
+      [
+        "[{Key}] Found {marketOrdersAmount} market orders with a total of {buyAmount}",
+        "units to max. price ${rangeMax}, selling {sellAmount} units, expected profit ${expectedProfit}",
+      ].join(" "),
+      {
+        marketOrdersAmount: marketOrders.length,
+        buyAmount: buyAmount.toFixed(1),
+        rangeMax: range.Max,
+        sellAmount: sellAmount.toFixed(1),
+        expectedProfit: expectedProfit.toFixed(1),
+      },
     );
 
     await sendOrder({
