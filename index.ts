@@ -6,10 +6,9 @@ import { main as executeTransfer } from "~/transfer";
 import { buyer } from "~/trader/buyer";
 import { seller } from "~/trader/seller";
 
-type JobTransferDepositType = {};
+// --- Transfer Queue and Worker ----
 
-// Both Queue and Worker must have embedded: true
-const queueTransfer = new Queue<JobTransferDepositType>("transfer", {
+const queueTransfer = new Queue("transfer", {
   embedded: true,
 });
 queueTransfer.setStallConfig({
@@ -21,7 +20,7 @@ await queueTransfer.upsertJobScheduler("transfer-to-deposit", {
   pattern: "0 * * * *",
 });
 
-const workerTransfer = new Worker<JobTransferDepositType>(
+const workerTransfer = new Worker(
   "transfer",
   async (job) => {
     try {
@@ -35,7 +34,9 @@ const workerTransfer = new Worker<JobTransferDepositType>(
   { embedded: true },
 );
 
-const queueBuyer = new Queue("buyer", {embedded: true});
+// --- Buyer Queue and Worker ----
+
+const queueBuyer = new Queue("buyer", { embedded: true });
 queueBuyer.setStallConfig({
   enabled: false,
 });
@@ -53,6 +54,8 @@ const workerBuyer = new Worker(
   },
   { embedded: true },
 );
+
+// --- Seller Queue and Worker ----
 
 const queueSeller = new Queue("seller", { embedded: true });
 queueSeller.setStallConfig({
