@@ -2,6 +2,7 @@
   "name": "tradecraft",
   "type": "module",
   "scripts": {
+    "trader": "bun run index.ts",
     "analytics": "bun run cli/analytics.tsx",
     "transfer": "bun run cli/transfer.ts",
     "profit": "bun run cli/profit.tsx"
