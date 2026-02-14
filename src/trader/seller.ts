@@ -12,6 +12,8 @@ const sellIf = async (product: ProductTradeType, args: {
   Inventory: any,
 }) => {
   const { Key, Id, KeepMinInventory } = product;
+  const context = logger.with({ Key })
+
   const productInventoryAmount = args.Inventory[Key];
   if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {
     // Implement logic to sell products to best offer
@@ -30,7 +32,7 @@ const sellIf = async (product: ProductTradeType, args: {
     // Determine the amount of inventory to sell
     const sellAmount = Math.floor(Math.min(productInventoryAmount - KeepMinInventory, buyAmount));
     if (sellAmount < 1) {
-      logger.info(`Not enough inventory to sell ${Key}, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
+      context.info(`[{Key}] Not enough inventory to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
       return;
     }
 
@@ -38,8 +40,8 @@ const sellIf = async (product: ProductTradeType, args: {
       withPrecision: 2
     });
 
-    logger.info(`Found ${marketOrders.length} market orders with a total of ${buyAmount} units to max. price ${range.Max}`);
-    logger.info(`Selling ${sellAmount} units at ${range.Max} price, expected profit ${Math.floor(sellAmount * (+range.Max))}`);
+    const expectedProfit = Math.floor(sellAmount * (+range.Max));
+    context.info(`[{Key}] Found ${marketOrders.length} market orders with a total of ${buyAmount} units to max. price ${range.Max}, selling ${sellAmount} units, expected profit ${expectedProfit}`);
 
     await sendOrder({
       orderType: 'limit',
