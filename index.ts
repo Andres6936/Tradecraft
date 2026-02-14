@@ -35,27 +35,17 @@ const workerTransfer = new Worker<JobTransferDepositType>(
   { embedded: true },
 );
 
-const traderQueue = new QueueGroup("trader");
-
-const traderBuyer = traderQueue.getQueue("buyer", { embedded: true });
-traderBuyer.setStallConfig({
+const queueBuyer = new Queue("buyer");
+queueBuyer.setStallConfig({
   enabled: false,
 });
-await traderBuyer.upsertJobScheduler("buyer-job", {
+
+await queueBuyer.upsertJobScheduler("buyer-job", {
   // Set the job to run every 1 minute
   pattern: "*/1 * * * *",
 });
 
-const traderSeller = traderQueue.getQueue("seller", { embedded: true });
-traderSeller.setStallConfig({
-  enabled: false,
-});
-await traderSeller.upsertJobScheduler("seller-job", {
-  // Set the job to run every 2 minutes
-  pattern: "*/2 * * * *",
-});
-
-const workerBuyer = traderQueue.getWorker(
+const workerBuyer = new Worker(
   "buyer",
   async () => {
     await buyer();
@@ -64,7 +54,17 @@ const workerBuyer = traderQueue.getWorker(
   { embedded: true },
 );
 
-const workerSeller = traderQueue.getWorker(
+const queueSeller = new Queue("seller", { embedded: true });
+queueSeller.setStallConfig({
+  enabled: false,
+});
+
+await queueSeller.upsertJobScheduler("seller-job", {
+  // Set the job to run every 2 minutes
+  pattern: "*/2 * * * *",
+});
+
+const workerSeller = new Worker(
   "seller",
   async () => {
     await seller();
