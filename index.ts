@@ -1,11 +1,6 @@
 // Configure logging
 import "~/logger";
 
-// Set DATA_PATH FIRST
-import { mkdirSync } from "fs";
-mkdirSync("./brain", { recursive: true });
-process.env.DATA_PATH = "./brain/SQLito.sqlite";
-
 import { QueueGroup, Queue, Worker } from "bunqueue/client";
 import { main as executeTransfer } from "~/transfer";
 import { buyer } from "~/trader/buyer";
