@@ -35,7 +35,7 @@ const workerTransfer = new Worker<JobTransferDepositType>(
   { embedded: true },
 );
 
-const queueBuyer = new Queue("buyer");
+const queueBuyer = new Queue("buyer", {embedded: true});
 queueBuyer.setStallConfig({
   enabled: false,
 });
