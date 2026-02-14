@@ -101,9 +101,9 @@ const MINIMUM_VALUE_IN_CASH_FOR_BUYER = 10_000;
 const buyer = async () => {
   const { Inventory, Me, Metrics } = await getState();
   if (Metrics.cash < MINIMUM_VALUE_IN_CASH_FOR_BUYER) {
-    logger.warn(
-      `Not enough cash for buy, the current cash is: $${Metrics.cash}`,
-    );
+    logger.warn("Not enough cash for buy, the current cash is: ${cash}", {
+      cash: Metrics.cash.toFixed(1),
+    });
     return;
   }
 
