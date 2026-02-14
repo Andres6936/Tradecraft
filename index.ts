@@ -32,7 +32,7 @@ const workerTransfer = new Worker(
       return { statusCode: 500 };
     }
   },
-  { embedded: true },
+  { embedded: true, useLocks: false },
 );
 
 // --- Buyer Queue and Worker ----
@@ -53,7 +53,7 @@ const workerBuyer = new Worker(
     await buyer();
     return { statusCode: 200 };
   },
-  { embedded: true },
+  { embedded: true, useLocks: false },
 );
 
 // --- Seller Queue and Worker ----
@@ -74,7 +74,7 @@ const workerSeller = new Worker(
     await seller();
     return { statusCode: 200 };
   },
-  { embedded: true },
+  { embedded: true, useLocks: false },
 );
 
 // --- Order Orphan Queue and Worker ----
@@ -95,5 +95,5 @@ const workerOrderOrphan = new Worker(
     await cancelOrdersOrphan();
     return { statusCode: 200 };
   },
-  { embedded: true },
+  { embedded: true, useLocks: false },
 );
