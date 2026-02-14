@@ -17,7 +17,7 @@ const buyIf = async (product: ProductType, args: {
   // Verify if max inventory is reached, and if so, skip buy
   const productInventoryAmount = args.Inventory[Key] || 0;
   if (productInventoryAmount >= MaxInventory) {
-    context.info(`[{Key}] Max inventory reached, skipping buy`);
+    context.info(`[{Key}] Max inventory reached ${MaxInventory}, skipping buy`);
     return
   };
 
