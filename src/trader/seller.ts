@@ -15,10 +15,6 @@ const sellIf = async (product: ProductTradeType, args: {
   const productInventoryAmount = args.Inventory[Key];
   if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {
     // Implement logic to sell products to best offer
-    logger.info(`Inventory of ${productInventoryAmount} with minimum ${KeepMinInventory} units of ${Key}`);
-    const range = await getPriceRange(Id, {
-      withPrecision: 2
-    });
     const orders = await getOrders(Id);
 
     // Find all order where the price is of market
@@ -26,9 +22,10 @@ const sellIf = async (product: ProductTradeType, args: {
       (order) => order.side === "buy" && order.price === null && order.qty >= 1,
     );
     if (marketOrders.length === 0) {
-      logger.info(`No market orders found for ${Key}`);
       return
     }
+
+    logger.info(`Inventory of ${productInventoryAmount} with minimum ${KeepMinInventory} units of ${Key}`);
 
     // Get the amount of buy amount of orders
     const buyAmount = marketOrders.reduce((acc, order) => acc + order.qty, 0);
@@ -38,6 +35,10 @@ const sellIf = async (product: ProductTradeType, args: {
       logger.info(`Not enough inventory to sell ${Key}`);
       return;
     }
+
+    const range = await getPriceRange(Id, {
+      withPrecision: 2
+    });
 
     logger.info(`Found ${marketOrders.length} market orders with a total of ${buyAmount} units to max. price ${range.Max}`);
     logger.info(`Selling ${sellAmount} units at ${range.Max} price, expected profit ${Math.floor(sellAmount * (+range.Max))}`);
@@ -51,8 +52,6 @@ const sellIf = async (product: ProductTradeType, args: {
       regionId: 1,
       npcAllow: true,
     })
-  } else {
-    logger.info(`No inventory of ${Key} to sell, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
   }
 }
 
