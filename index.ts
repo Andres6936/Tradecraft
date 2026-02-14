@@ -1,10 +1,13 @@
 // Configure logging
 import "~/logger";
 
-import { QueueGroup, Queue, Worker } from "bunqueue/client";
+import { Queue, Worker } from "bunqueue/client";
 import { main as executeTransfer } from "~/transfer";
 import { buyer } from "~/trader/buyer";
 import { seller } from "~/trader/seller";
+import { getLogger } from "@logtape/logtape";
+
+const logger = getLogger(['trader'])
 
 // --- Transfer Queue and Worker ----
 
@@ -24,6 +27,7 @@ const workerTransfer = new Worker(
   "transfer",
   async (job) => {
     try {
+      logger.info('Executing transfer')
       await executeTransfer();
       return { statusCode: 200 };
     } catch (error) {
@@ -49,6 +53,7 @@ await queueBuyer.upsertJobScheduler("buyer-job", {
 const workerBuyer = new Worker(
   "buyer",
   async () => {
+    logger.info('Executing buyer')
     await buyer();
     return { statusCode: 200 };
   },
@@ -70,6 +75,7 @@ await queueSeller.upsertJobScheduler("seller-job", {
 const workerSeller = new Worker(
   "seller",
   async () => {
+    logger.info('Executing seller')
     await seller();
     return { statusCode: 200 };
   },
