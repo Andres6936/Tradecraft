@@ -36,8 +36,8 @@ const traderQueue = new QueueGroup("trader");
 
 const traderBuyer = traderQueue.getQueue("buyer", { embedded: true });
 await traderBuyer.upsertJobScheduler('buyer-job', {
-  // Set the job to run every 37 seconds
-  pattern: '*/37 * * * * *'
+  // Set the job to run every 1 minute
+  pattern: '*/1 * * * *'
 })
 
 const traderSeller = traderQueue.getQueue("seller", { embedded: true });
