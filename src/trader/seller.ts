@@ -25,14 +25,12 @@ const sellIf = async (product: ProductTradeType, args: {
       return
     }
 
-    logger.info(`Inventory of ${productInventoryAmount} with minimum ${KeepMinInventory} units of ${Key}`);
-
     // Get the amount of buy amount of orders
     const buyAmount = marketOrders.reduce((acc, order) => acc + order.qty, 0);
     // Determine the amount of inventory to sell
     const sellAmount = Math.floor(Math.min(productInventoryAmount - KeepMinInventory, buyAmount));
     if (sellAmount < 1) {
-      logger.info(`Not enough inventory to sell ${Key}`);
+      logger.info(`Not enough inventory to sell ${Key}, the amount of ${productInventoryAmount} is less than the minimum required ${KeepMinInventory}`);
       return;
     }
 
