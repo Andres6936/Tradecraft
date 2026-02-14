@@ -1,3 +1,4 @@
+import type { ExternOrderType } from "~/types/d";
 import { toTruncate } from "~/utility";
 
 const Cookies = process.env.COOKIES || "";
@@ -46,7 +47,9 @@ const getOrders = async (productId: number) => {
     },
   );
 
-  const result = await stream.json();
+  const result = await stream.json() as {
+    orders: ExternOrderType[];
+  };
   return result.orders;
 };
 
@@ -196,7 +199,9 @@ const getMineOrders = async () => {
     },
   );
 
-  const result = await stream.json();
+  const result = await stream.json() as {
+    orders: ExternOrderType[];
+  };
   return result.orders;
 }
 
