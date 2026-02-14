@@ -44,7 +44,7 @@ const sellIf = async (
           "is less than the minimum required ${KeepMinInventory}",
         ].join(" "),
         {
-          productInventoryAmount,
+          productInventoryAmount: productInventoryAmount.toFixed(1),
           KeepMinInventory,
         },
       );
