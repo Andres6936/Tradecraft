@@ -40,8 +40,8 @@ const sellIf = async (
     if (sellAmount < 1) {
       context.info(
         [
-          "[{Key}] Not enough inventory to sell, the amount of ${productInventoryAmount}",
-          "is less than the minimum required ${KeepMinInventory}",
+          "[{Key}] Not enough inventory to sell, the amount of {productInventoryAmount}",
+          "is less than the minimum required {KeepMinInventory}",
         ].join(" "),
         {
           productInventoryAmount: productInventoryAmount.toFixed(1),
