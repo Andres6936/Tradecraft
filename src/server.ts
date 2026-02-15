@@ -237,6 +237,16 @@ const QuestionIsFactoryInspectTransfer = (args: {
 };
 
 const ProductsTrade = {
+  Computer: {
+    Key: "computer",
+    Id: 93,
+    KeepMinInventory: 100,
+  },
+  Smarthphone: {
+    Key: "smartphone",
+    Id: 94,
+    KeepMinInventory: 100,
+  },
   Microchip: {
     Key: "microchip",
     Id: 69,
