@@ -2,14 +2,12 @@ import { getLogger } from "@logtape/logtape";
 import { parseISO, differenceInMinutes } from "date-fns";
 
 import { cancelOrder, getMineOrders } from "~/api";
-import { ProductsAnalytics } from "~/server";
+import {
+  MAXIMUM_AGE_IN_MINUTES,
+  ProductsCancelOrphansOrderListKey,
+} from "./setup";
 
 const logger = getLogger("trader");
-
-const ProductsAnalyticsList = Object.values(ProductsAnalytics);
-const ProductsAnalyticsListKey = ProductsAnalyticsList.map((it) => it.Key);
-
-const MAXIMUM_AGE_IN_MINUTES = 3;
 
 const deleteOrphansOrders = async (orders: any[]) => {
   for (const order of orders) {
@@ -29,7 +27,9 @@ const deleteOrphansOrders = async (orders: any[]) => {
 const main = async () => {
   const orders = (await getMineOrders())
     // Filter the orders where the product is important product
-    .filter((order) => ProductsAnalyticsListKey.includes(order.productKey));
+    .filter((order) =>
+      ProductsCancelOrphansOrderListKey.includes(order.productKey),
+    );
 
   const buyOrders = orders.filter((order) => order.side === "buy");
 
