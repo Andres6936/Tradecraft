@@ -1,0 +1,35 @@
+import { userInfo } from "os";
+import { join } from "path";
+
+const user = userInfo().username;
+const workingDirectory = process.cwd();
+const bunPath = Bun.which("bun");
+const entryPoint = join(workingDirectory, "index.ts");
+
+const output = `
+[Unit]
+Description=Trader
+# start the app after the network is available
+After=network.target
+
+[Service]
+# usually you'll use 'simple'
+# one of https://www.freedesktop.org/software/systemd/man/systemd.service.html#Type=
+Type=simple
+# which user to use when starting the app
+User=${user}
+# path to your application's root directory
+WorkingDirectory=${workingDirectory}
+# the command to start the app
+# requires absolute paths
+ExecStart=${bunPath} run ${entryPoint}
+# restart policy
+# one of {no|on-success|on-failure|on-abnormal|on-watchdog|on-abort|always}
+Restart=always
+
+[Install]
+# start the app automatically
+WantedBy=multi-user.target
+  `;
+
+await Bun.write("trader.service", output);
