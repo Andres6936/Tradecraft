@@ -14,6 +14,11 @@ const ProductsCancelOrphans = {
     Key: "pants",
     Name: "Pants",
   },
+  Wine: {
+    Id: 124,
+    Key: "wine",
+    Name: "Wine",
+  },
 };
 
 const ProductsCancelOrphansOrderList = Object.values(ProductsCancelOrphans);
