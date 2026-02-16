@@ -247,15 +247,20 @@ const ProductsTrade = {
     Id: 94,
     KeepMinInventory: 100,
   },
+  Circuit: {
+    Key: "circuit",
+    Id: 92,
+    KeepMinInventory: 0,
+  },
   Microchip: {
     Key: "microchip",
     Id: 69,
-    KeepMinInventory: 1000,
+    KeepMinInventory: 0,
   },
   Shoes: {
     Key: "shoes",
     Id: 111,
-    KeepMinInventory: 500,
+    KeepMinInventory: 0,
   },
   Caviar: {
     Key: "caviar",
@@ -275,7 +280,7 @@ const ProductsTrade = {
   Log: {
     Key: "log",
     Id: 47,
-    KeepMinInventory: 150,
+    KeepMinInventory: 0,
   },
   Butter: {
     Key: "butter",
