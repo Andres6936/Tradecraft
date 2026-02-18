@@ -30,10 +30,10 @@ const buyIf = async (args: {
   const expectValue = Math.floor(amountToBuy * +Min);
   if (expectValue >= args.Metrics.cash) {
     logger.warn(
-      "Not enough cash (${cash}) to buy {amountInInventory} units of {productKey}",
+      "Not enough cash (${cash}) to buy {amountToBuy} units of {productKey}",
       {
         cash: args.Metrics.cash,
-        amountInInventory,
+        amountToBuy: amountToBuy.toFixed(1),
         productKey: args.product.Key,
       },
     );
