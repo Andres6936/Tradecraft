@@ -1,5 +1,8 @@
-import type { ExternOrderType } from "~/types/d";
 import { getLogger } from "@logtape/logtape";
+import { differenceInMinutes, parseISO } from "date-fns";
+
+import type { ExternOrderType } from "~/types/d";
+
 import { getMineOrders, getState, sendOrder } from "~/api";
 import { ProductsSellerList, MAXIMUM_SELL_AMOUNT } from "./setup";
 
@@ -21,12 +24,12 @@ const sellerIf = async (args: {
     )
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
+  const amountInInventory = args.Inventory[args.product.Key];
+
   // Get the first order for the product (with the latest date)
   const [latestOrder] = currentOrdersOfProduct;
   if (!latestOrder) {
     // If not exist order of sell and has inventory, sell
-    const amountInInventory = args.Inventory[args.product.Key];
-
     if (amountInInventory > MAXIMUM_SELL_AMOUNT) {
       // Enough inventory, sell the product
       logger.info(
@@ -48,6 +51,36 @@ const sellerIf = async (args: {
       });
     }
   } else {
+    // If exist the order, check the difference of minutes from the latest order
+    const minutesFromPublish = parseISO(latestOrder.createdAt);
+    const diffInMinutes = differenceInMinutes(new Date(), minutesFromPublish);
+
+    // If enough time passed since last order, sell the product
+    if (diffInMinutes > args.product.SeparationIntervalMinutes) {
+      if (amountInInventory < MAXIMUM_SELL_AMOUNT) {
+        // Not enough inventory, skip
+        return;
+      }
+
+      logger.info(
+        "Enough time passed since last order ({diffInMinutes} min.), sell {maximumSellAmount} of product {productKey}",
+        {
+          productKey: args.product.Key,
+          amountInInventory: amountInInventory.toFixed(1),
+          maximumSellAmount: MAXIMUM_SELL_AMOUNT,
+          diffInMinutes,
+        },
+      );
+
+      await sendOrder({
+        orderType: "market",
+        side: "sell",
+        productId: args.product.Id,
+        qty: MAXIMUM_SELL_AMOUNT,
+        regionId: 1,
+        npcAllow: true,
+      });
+    }
   }
 };
 
