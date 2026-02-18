@@ -77,7 +77,7 @@ const sellIf = async (
       qty: sellAmount,
       price: +range.Max,
       regionId: 1,
-      npcAllow: true,
+      npcAllow: false,
     });
   }
 };

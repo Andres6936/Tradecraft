@@ -60,7 +60,7 @@ const buyIf = async (
       qty: Math.floor(buyAmount),
       price: +range.Min,
       regionId: 1,
-      npcAllow: true,
+      npcAllow: false,
     });
   } else {
     // Not enought money, buy the maximum possible amount
@@ -91,7 +91,7 @@ const buyIf = async (
       qty: maxBuyAmount,
       price: +range.Min,
       regionId: 1,
-      npcAllow: true,
+      npcAllow: false,
     });
   }
 };
