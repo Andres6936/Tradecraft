@@ -49,6 +49,7 @@ const sellerIf = async (args: {
         regionId: 1,
         npcAllow: true,
       });
+      await Bun.sleep(777);
     }
   } else {
     // If exist the order, check the difference of minutes from the latest order
@@ -80,6 +81,7 @@ const sellerIf = async (args: {
         regionId: 1,
         npcAllow: true,
       });
+      await Bun.sleep(777);
     }
   }
 };
