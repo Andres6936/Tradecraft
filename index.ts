@@ -5,6 +5,7 @@ import { Queue, Worker } from "bunqueue/client";
 import { main as executeTransfer } from "~/transfer";
 import { buyer } from "~/trader/buyer";
 import { seller } from "~/trader/seller";
+import { main as executeBuyerSupply } from "~/orders/buyer";
 import { main as executeSellerInterval } from "~/orders/seller";
 import { main as cancelOrdersOrphan } from "~/orders/cancel/orphans";
 
@@ -28,6 +29,7 @@ const workerTransfer = new Worker(
     try {
       await executeTransfer();
       await executeSellerInterval();
+      await executeBuyerSupply();
       return { statusCode: 200 };
     } catch (error) {
       console.error("Error executing hourly job:", error);
