@@ -1,27 +1,33 @@
 import { getLogger } from "@logtape/logtape";
 import { getOrders, getPriceRange, getState, sendOrder } from "~/api";
-import { ProductsAnalytics, type ProductType } from "~/server";
+import { getByCategory } from "~/server";
 
 const logger = getLogger(["trader", "buyer"]);
 
-const ProductsAnalyticsList = Object.values(ProductsAnalytics);
+const ProductsAnalyticsList = getByCategory("Trader");
 
 const buyIf = async (
-  product: ProductType,
+  product: (typeof ProductsAnalyticsList)[number],
   args: {
     Me: any;
     Metrics: any;
     Inventory: any;
   },
 ) => {
-  const { Key, Id, MaxInventory } = product;
+  const { Key, Id, Trader } = product;
   const context = logger.with({ Key });
 
   // Verify if max inventory is reached, and if so, skip buy
   const productInventoryAmount = args.Inventory[Key] || 0;
-  if (productInventoryAmount >= MaxInventory) {
-    context.info(`[{Key}] Max inventory reached ${MaxInventory}, skipping buy`);
-    return;
+
+  // If the MaxInvetory is -1, the max amount is unlimited
+  if (Trader.MaxInventory !== -1) {
+    if (productInventoryAmount >= Trader.MaxInventory) {
+      context.info(
+        `[{Key}] Max inventory reached ${Trader.MaxInventory}, skipping buy`,
+      );
+      return;
+    }
   }
 
   const range = await getPriceRange(Id, {

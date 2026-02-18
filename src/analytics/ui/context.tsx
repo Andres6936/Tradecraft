@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { getOrders, getPriceRange } from "../../api";
 import { useQuery } from "./hooks";
-import type { Priority } from "../../server";
 
 type ContextAnalyticsProps =
   | {
@@ -13,7 +12,7 @@ type ContextAnalyticsProps =
       IsLoading: false;
       Id: number;
       Name: string;
-      Avg: number;
+      Avg: string;
       Min: string;
       Max: string;
       Orders: any[];
@@ -26,7 +25,7 @@ const ContextAnalytics = React.createContext<ContextAnalyticsProps | null>(
 type ProductType = {
   Id: number;
   Name: string;
-  Priority: typeof Priority[keyof typeof Priority];
+  Priority: "High" | "Medium" | "Low";
 };
 
 const AnalyticsProvider = ({
@@ -34,7 +33,9 @@ const AnalyticsProvider = ({
   ...props
 }: React.PropsWithChildren<ProductType>) => {
   const { isLoading, data } = useQuery(async () => {
-    await Bun.sleep(props.Priority)
+    await Bun.sleep(
+      props.Priority === "High" ? 1 : props.Priority === "Medium" ? 1000 : 500,
+    );
     return await Promise.all([getPriceRange(props.Id), getOrders(props.Id)]);
   });
 

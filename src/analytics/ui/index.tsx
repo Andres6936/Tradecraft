@@ -1,16 +1,22 @@
-import { AnalyticsProvider } from './context';
-import * as Comp from './composition';
-import type { ProductType } from '../../server';
+import { AnalyticsProvider } from "./context";
+import * as Comp from "./composition";
+import type { InstructionType, CategoryInstructionType } from "../../server";
 
-const AnalyticsView = (props: ProductType) => {
+const AnalyticsView = (
+  props: InstructionType & Required<Pick<CategoryInstructionType, "Trader">>,
+) => {
   return (
-    <AnalyticsProvider Id={props.Id} Name={props.Name} Priority={props.Priority}>
+    <AnalyticsProvider
+      Id={props.Id}
+      Name={props.Name}
+      Priority={props.Trader.Priority}
+    >
       <Comp.Root>
         <Comp.Header />
-        <Comp.Balance/>
+        <Comp.Balance />
       </Comp.Root>
     </AnalyticsProvider>
   );
-}
+};
 
-export { AnalyticsView, }
+export { AnalyticsView };
