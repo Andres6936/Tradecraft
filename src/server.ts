@@ -1,3 +1,36 @@
+import instructions from "~/instructions.json" with { type: "json" };
+
+type CategoryInstructionType = {
+  Trader: {
+    Priority: "High" | "Medium" | "Low";
+    MaxInventory: number;
+  };
+};
+
+type InstructionType = {
+  Id: number;
+  Key: string;
+  Name: string;
+  Categories: (keyof CategoryInstructionType)[];
+} & Partial<CategoryInstructionType>;
+
+const InstructionList = instructions as InstructionType[];
+
+const getByCategory = <K extends keyof CategoryInstructionType>(
+  category: K,
+) => {
+  return InstructionList.filter(
+    (
+      instruction,
+    ): instruction is InstructionType &
+      Required<Pick<CategoryInstructionType, K>> => {
+      return (
+        instruction.Categories.includes(category) && !!instruction[category]
+      );
+    },
+  );
+};
+
 const Priority = {
   High: 1,
   Medium: 500,
@@ -303,6 +336,13 @@ export {
   FactoryInspectTransferList,
   QuestionIsFactoryInspectTransfer,
   ProductsTrade,
+  getByCategory,
 };
 
-export type { ProductType, FactoryType, ProductTradeType };
+export type {
+  ProductType,
+  FactoryType,
+  ProductTradeType,
+  InstructionType,
+  CategoryInstructionType,
+};
