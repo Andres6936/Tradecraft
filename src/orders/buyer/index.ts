@@ -22,6 +22,11 @@ const buyIf = async (args: {
   const amountToBuy = Math.floor(
     args.product.KeepInventory - amountInInventory,
   );
+  if (amountToBuy < 1) {
+    // Avoid saturating the inventory
+    return;
+  }
+
   // Get the minimum price of product
   const { Min } = await getPriceRange(args.product.Id, {
     withPrecision: 2,
