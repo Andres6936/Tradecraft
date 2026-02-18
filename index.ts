@@ -5,30 +5,32 @@ import { Queue, Worker } from "bunqueue/client";
 import { main as executeTransfer } from "~/transfer";
 import { buyer } from "~/trader/buyer";
 import { seller } from "~/trader/seller";
-import { main as cancelOrdersOrphan } from '~/orders/cancel/orphans'
+import { main as executeSellerInterval } from "~/orders/seller";
+import { main as cancelOrdersOrphan } from "~/orders/cancel/orphans";
 
-// --- Transfer Queue and Worker ----
+// --- Hourly Queue and Worker ----
 
-const queueTransfer = new Queue("transfer", {
+const queueTransfer = new Queue("hourly", {
   embedded: true,
 });
 queueTransfer.setStallConfig({
   enabled: false,
 });
 
-await queueTransfer.upsertJobScheduler("transfer-to-deposit", {
+await queueTransfer.upsertJobScheduler("run-every-hour", {
   // Set the job to run every hour
   pattern: "0 * * * *",
 });
 
 const workerTransfer = new Worker(
-  "transfer",
+  "hourly",
   async (job) => {
     try {
       await executeTransfer();
+      await executeSellerInterval();
       return { statusCode: 200 };
     } catch (error) {
-      console.error("Error executing transfer:", error);
+      console.error("Error executing hourly job:", error);
       return { statusCode: 500 };
     }
   },
