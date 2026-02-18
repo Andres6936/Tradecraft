@@ -11,7 +11,7 @@ const buyIf = async (args: {
   Inventory: any;
   Metrics: any;
 }) => {
-  const amountInInventory = args.Inventory[args.product.Key];
+  const amountInInventory = args.Inventory[args.product.Key] || 0;
   if (amountInInventory > args.product.KeepInventory) {
     // If the amount in inventory is greater than the keep inventory amount, do nothing
     // the product is enough supply
@@ -63,6 +63,7 @@ const buyIf = async (args: {
     regionId: 1,
     npcAllow: false,
   });
+  await Bun.sleep(777);
 };
 
 const main = async () => {
