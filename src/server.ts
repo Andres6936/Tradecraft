@@ -84,7 +84,7 @@ const ProductsAnalytics = {
     Name: "Microchip",
     Order: 40,
     Priority: Priority.Low,
-    MaxInventory: 55_000,
+    MaxInventory: 77_000,
   },
   Butter: {
     Id: 25,
