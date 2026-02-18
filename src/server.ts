@@ -84,7 +84,7 @@ const ProductsAnalytics = {
     Name: "Microchip",
     Order: 40,
     Priority: Priority.Low,
-    MaxInventory: 35_000,
+    MaxInventory: 55_000,
   },
   Butter: {
     Id: 25,
@@ -255,7 +255,7 @@ const ProductsTrade = {
   Microchip: {
     Key: "microchip",
     Id: 69,
-    KeepMinInventory: 0,
+    KeepMinInventory: 20_000,
   },
   Shoes: {
     Key: "shoes",
