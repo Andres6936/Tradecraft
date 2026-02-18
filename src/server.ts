@@ -1,6 +1,10 @@
 import instructions from "~/instructions.json" with { type: "json" };
 
 type CategoryInstructionType = {
+  CancelOrphans: {
+    Sell: boolean;
+    Buy: boolean;
+  };
   Trader: {
     Priority: "High" | "Medium" | "Low";
     MaxInventory: number;
