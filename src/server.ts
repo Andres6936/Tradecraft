@@ -173,7 +173,7 @@ const FactoryInspectTransfer = {
     Key: "trout",
     Kind: "farm",
     // Value in percentage of max tolerance of storage
-    Tolerance: 95,
+    Tolerance: 90,
     // Value in percentage of offset used for transfer
     Offset: 2,
   },
