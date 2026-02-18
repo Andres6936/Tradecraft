@@ -35,104 +35,6 @@ const getByCategory = <K extends keyof CategoryInstructionType>(
   );
 };
 
-const Priority = {
-  High: 1,
-  Medium: 500,
-  Low: 1000,
-} as const;
-
-type ProductType = {
-  Id: number;
-  Key: string;
-  Name: string;
-  Order: number;
-  Priority: (typeof Priority)[keyof typeof Priority];
-  MaxInventory: number;
-};
-
-const ProductsAnalytics = {
-  Computer: {
-    Id: 93,
-    Key: "computer",
-    Name: "Computer",
-    Order: 899,
-    Priority: Priority.High,
-    MaxInventory: Infinity,
-  },
-  Smartphone: {
-    Id: 94,
-    Key: "smartphone",
-    Name: "Smartphone",
-    Order: 540,
-    Priority: Priority.High,
-    MaxInventory: Infinity,
-  },
-  Lumber: {
-    Id: 48,
-    Key: "lumber",
-    Name: "Lumber",
-    Order: 320,
-    Priority: Priority.Medium,
-    MaxInventory: Infinity,
-  },
-  Circuit: {
-    Id: 92,
-    Key: "circuit",
-    Name: "Circuit",
-    Order: 232,
-    Priority: Priority.Medium,
-    MaxInventory: Infinity,
-  },
-  Furniture: {
-    Id: 49,
-    Key: "furniture",
-    Name: "Furniture",
-    Order: 227,
-    Priority: Priority.High,
-    MaxInventory: Infinity,
-  },
-  Log: {
-    Id: 47,
-    Key: "log",
-    Name: "Log",
-    Order: 152,
-    Priority: Priority.Medium,
-    MaxInventory: 100_000,
-  },
-  Beeswax: {
-    Id: 55,
-    Key: "beeswax",
-    Name: "Beeswax",
-    Order: 111,
-    Priority: Priority.Medium,
-    MaxInventory: 100_000,
-  },
-  Shoes: {
-    Id: 111,
-    Key: "shoes",
-    Name: "Shoes",
-    Order: 105,
-    Priority: Priority.Medium,
-    MaxInventory: 100_000,
-  },
-  Microchip: {
-    Id: 69,
-    Key: "microchip",
-    Name: "Microchip",
-    Order: 40,
-    Priority: Priority.Low,
-    MaxInventory: 77_000,
-  },
-  Butter: {
-    Id: 25,
-    Key: "butter",
-    Name: "Butter",
-    Order: 36,
-    Priority: Priority.Low,
-    MaxInventory: Infinity,
-  },
-} as const satisfies Record<string, ProductType>;
-
 const FactoryInspectTransfer = {
   Bread: {
     Key: "bread",
@@ -334,8 +236,6 @@ const ProductsTrade = {
 type ProductTradeType = (typeof ProductsTrade)[keyof typeof ProductsTrade];
 
 export {
-  Priority,
-  ProductsAnalytics,
   FactoryInspectTransfer,
   FactoryInspectTransferList,
   QuestionIsFactoryInspectTransfer,
@@ -344,7 +244,6 @@ export {
 };
 
 export type {
-  ProductType,
   FactoryType,
   ProductTradeType,
   InstructionType,
