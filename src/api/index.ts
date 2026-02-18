@@ -30,7 +30,7 @@ const getPriceRange = async (
   const withPrecision = args.withPrecision;
   return {
     Avg: toTruncate(average, withPrecision).toString(),
-    Min: toTruncate((average * (1 - BAND_PCT) + DELTA), withPrecision).toString(),
+    Min: toTruncate(average * (1 - BAND_PCT) + DELTA, withPrecision).toString(),
     Max: toTruncate(average * (1 + BAND_PCT), withPrecision).toString(),
   };
 };
@@ -47,7 +47,7 @@ const getOrders = async (productId: number) => {
     },
   );
 
-  const result = await stream.json() as {
+  const result = (await stream.json()) as {
     orders: ExternOrderType[];
   };
   return result.orders;
@@ -142,18 +142,27 @@ const getState = async () => {
     Me: me,
     Metrics: metrics,
     Inventory: inventory,
-  }
-}
+  };
+};
 
-const sendOrder = async (args: {
-  orderType: "limit" | "market";
+type OrderBaseType = {
   side: "buy" | "sell";
   productId: number;
   qty: number;
-  price: number;
   regionId: number;
   npcAllow: boolean;
-}) => {
+};
+
+type OrderLimitType = OrderBaseType & {
+  orderType: "limit";
+  price: number;
+};
+
+type OrderMarketType = OrderBaseType & {
+  orderType: "market";
+};
+
+const sendOrder = async (args: OrderLimitType | OrderMarketType) => {
   const response = await fetch("https://playtradecraft.com/api/orders", {
     method: "POST",
     body: JSON.stringify(args),
@@ -172,14 +181,17 @@ const sendOrder = async (args: {
 };
 
 const cancelOrder = async (orderId: string) => {
-  const response = await fetch(`https://playtradecraft.com/api/orders/${orderId}`, {
-    method: "DELETE",
-    headers: {
-      Cookie: Cookies,
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+  const response = await fetch(
+    `https://playtradecraft.com/api/orders/${orderId}`,
+    {
+      method: "DELETE",
+      headers: {
+        Cookie: Cookies,
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+      },
     },
-  });
+  );
 
   if (!response.ok) {
     console.error(`Failed to cancel order ${orderId}`);
@@ -199,11 +211,11 @@ const getMineOrders = async () => {
     },
   );
 
-  const result = await stream.json() as {
+  const result = (await stream.json()) as {
     orders: ExternOrderType[];
   };
   return result.orders;
-}
+};
 
 export {
   getPriceRange,
