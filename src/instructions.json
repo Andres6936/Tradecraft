@@ -15,20 +15,28 @@
     "Id": 93,
     "Key": "computer",
     "Name": "Computer",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "High",
       "MaxInventory": -1
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
     "Id": 94,
     "Key": "smartphone",
     "Name": "Smartphone",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "High",
       "MaxInventory": -1
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
@@ -41,40 +49,56 @@
     "Id": 92,
     "Key": "circuit",
     "Name": "Circuit",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "High",
       "MaxInventory": -1
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
     "Id": 48,
     "Key": "lumber",
     "Name": "Lumber",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "High",
       "MaxInventory": -1
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
     "Id": 49,
     "Key": "furniture",
     "Name": "Furniture",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "High",
       "MaxInventory": -1
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
     "Id": 47,
     "Key": "log",
     "Name": "Log",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "High",
       "MaxInventory": 100000
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
@@ -87,20 +111,28 @@
     "Id": 55,
     "Key": "beeswax",
     "Name": "Beeswax",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "Medium",
       "MaxInventory": 100000
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
     "Id": 111,
     "Key": "shoes",
     "Name": "Shoes",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "Medium",
       "MaxInventory": 100000
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
@@ -119,10 +151,14 @@
     "Id": 69,
     "Key": "microchip",
     "Name": "Microchip",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "Medium",
       "MaxInventory": 100000
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
@@ -135,10 +171,14 @@
     "Id": 25,
     "Key": "butter",
     "Name": "Butter",
-    "Categories": ["Trader"],
+    "Categories": ["Trader", "CancelOrphans"],
     "Trader": {
       "Priority": "Medium",
       "MaxInventory": -1
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
     }
   },
   {
@@ -169,7 +209,11 @@
     "Id": 44,
     "Key": "shirt",
     "Name": "Shirt",
-    "Categories": []
+    "Categories": ["CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    }
   },
   {
     "Id": 53,
@@ -199,7 +243,11 @@
     "Id": 45,
     "Key": "pants",
     "Name": "Pants",
-    "Categories": []
+    "Categories": ["CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    }
   },
   {
     "Id": 50,
@@ -229,7 +277,11 @@
     "Id": 124,
     "Key": "wine",
     "Name": "Wine",
-    "Categories": []
+    "Categories": ["CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    }
   },
   {
     "Id": 109,
