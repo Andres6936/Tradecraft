@@ -1,24 +1,27 @@
 import { getLogger } from "@logtape/logtape";
 import { getOrders, getPriceRange, getState, sendOrder } from "~/api";
-import { ProductsTrade, type ProductTradeType } from "~/server";
+import { getByCategory } from "~/server";
 
 const logger = getLogger(["trader", "seller"]);
 
-const ProductsTradeList = Object.values(ProductsTrade);
+const ProductsTradeList = getByCategory("Seller");
 
 const sellIf = async (
-  product: ProductTradeType,
+  product: (typeof ProductsTradeList)[number],
   args: {
     Me: any;
     Metrics: any;
     Inventory: any;
   },
 ) => {
-  const { Key, Id, KeepMinInventory } = product;
+  const { Key, Id, Seller } = product;
   const context = logger.with({ Key });
 
   const productInventoryAmount = args.Inventory[Key];
-  if (productInventoryAmount && productInventoryAmount > KeepMinInventory) {
+  if (
+    productInventoryAmount &&
+    productInventoryAmount > Seller.KeepMinInventory
+  ) {
     // Implement logic to sell products to best offer
     const orders = await getOrders(Id);
 
@@ -35,7 +38,7 @@ const sellIf = async (
     const buyAmount = marketOrders.reduce((acc, order) => acc + order.qty, 0);
     // Determine the amount of inventory to sell
     const sellAmount = Math.floor(
-      Math.min(productInventoryAmount - KeepMinInventory, buyAmount),
+      Math.min(productInventoryAmount - Seller.KeepMinInventory, buyAmount),
     );
     if (sellAmount < 1) {
       context.info(
@@ -45,7 +48,7 @@ const sellIf = async (
         ].join(" "),
         {
           productInventoryAmount: productInventoryAmount.toFixed(1),
-          KeepMinInventory,
+          KeepMinInventory: Seller.KeepMinInventory,
         },
       );
       return;

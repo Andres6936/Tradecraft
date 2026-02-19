@@ -15,10 +15,12 @@
     "Id": 93,
     "Key": "computer",
     "Name": "Computer",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
     "Buyer": {
-      "Priority": "High",
       "MaxInventory": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 100
     },
     "CancelOrphans": {
       "Sell": true,
@@ -34,9 +36,12 @@
     "Id": 94,
     "Key": "smartphone",
     "Name": "Smartphone",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
     "Buyer": {
       "MaxInventory": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 100
     },
     "CancelOrphans": {
       "Sell": true,
@@ -58,9 +63,12 @@
     "Id": 92,
     "Key": "circuit",
     "Name": "Circuit",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
     "Buyer": {
       "MaxInventory": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     },
     "CancelOrphans": {
       "Sell": true,
@@ -112,9 +120,12 @@
     "Id": 47,
     "Key": "log",
     "Name": "Log",
-    "Categories": ["Buyer", "CancelOrphans", "Transfer", "Analytics"],
+    "Categories": ["Buyer", "CancelOrphans", "Transfer", "Analytics", "Seller"],
     "Buyer": {
       "MaxInventory": 100000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     },
     "CancelOrphans": {
       "Sell": true,
@@ -164,9 +175,12 @@
     "Id": 111,
     "Key": "shoes",
     "Name": "Shoes",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
     "Buyer": {
       "MaxInventory": 100000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     },
     "CancelOrphans": {
       "Sell": true,
@@ -199,9 +213,12 @@
     "Id": 69,
     "Key": "microchip",
     "Name": "Microchip",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
     "Buyer": {
       "MaxInventory": 100000
+    },
+    "Seller": {
+      "KeepMinInventory": 20000
     },
     "CancelOrphans": {
       "Sell": true,
@@ -223,9 +240,12 @@
     "Id": 25,
     "Key": "butter",
     "Name": "Butter",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
     "Buyer": {
       "MaxInventory": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 150
     },
     "CancelOrphans": {
       "Sell": true,
@@ -241,7 +261,10 @@
     "Id": 105,
     "Key": "caviar",
     "Name": "Caviar",
-    "Categories": []
+    "Categories": ["Seller"],
+    "Seller": {
+      "KeepMinInventory": 0
+    }
   },
   {
     "Id": 66,
@@ -265,7 +288,7 @@
     "Id": 44,
     "Key": "shirt",
     "Name": "Shirt",
-    "Categories": ["CancelOrphans", "Transfer"],
+    "Categories": ["CancelOrphans", "Transfer", "Seller"],
     "CancelOrphans": {
       "Sell": true,
       "Buy": true
@@ -274,6 +297,9 @@
       "Kind": "factory",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -304,7 +330,7 @@
     "Id": 45,
     "Key": "pants",
     "Name": "Pants",
-    "Categories": ["CancelOrphans", "Transfer"],
+    "Categories": ["CancelOrphans", "Transfer", "Seller"],
     "CancelOrphans": {
       "Sell": true,
       "Buy": true
@@ -313,6 +339,9 @@
       "Kind": "factory",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -343,7 +372,7 @@
     "Id": 124,
     "Key": "wine",
     "Name": "Wine",
-    "Categories": ["CancelOrphans", "Transfer"],
+    "Categories": ["CancelOrphans", "Transfer", "Seller"],
     "CancelOrphans": {
       "Sell": true,
       "Buy": true
@@ -352,6 +381,9 @@
       "Kind": "factory",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
