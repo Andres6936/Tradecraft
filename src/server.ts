@@ -9,6 +9,13 @@ type CategoryInstructionType = {
     Priority: "High" | "Medium" | "Low";
     MaxInventory: number;
   };
+  Transfer: {
+    Kind: "factory" | "farm";
+    // Value in percentage of max tolerance of storage
+    Tolerance: number;
+    // Value in percentage of offset used for transfer
+    Offset: number;
+  };
 };
 
 type InstructionType = {

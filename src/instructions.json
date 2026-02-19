@@ -91,7 +91,7 @@
     "Id": 47,
     "Key": "log",
     "Name": "Log",
-    "Categories": ["Trader", "CancelOrphans"],
+    "Categories": ["Trader", "CancelOrphans", "Transfer"],
     "Trader": {
       "Priority": "High",
       "MaxInventory": 100000
@@ -99,13 +99,23 @@
     "CancelOrphans": {
       "Sell": true,
       "Buy": true
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
     }
   },
   {
     "Id": 108,
     "Key": "sheep",
     "Name": "Sheep",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 99,
+      "Offset": 0.5
+    }
   },
   {
     "Id": 55,
@@ -145,7 +155,12 @@
     "Id": 46,
     "Key": "tree",
     "Name": "Tree",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 69,
@@ -209,10 +224,15 @@
     "Id": 44,
     "Key": "shirt",
     "Name": "Shirt",
-    "Categories": ["CancelOrphans"],
+    "Categories": ["CancelOrphans", "Transfer"],
     "CancelOrphans": {
       "Sell": true,
       "Buy": true
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
     }
   },
   {
@@ -243,10 +263,15 @@
     "Id": 45,
     "Key": "pants",
     "Name": "Pants",
-    "Categories": ["CancelOrphans"],
+    "Categories": ["CancelOrphans", "Transfer"],
     "CancelOrphans": {
       "Sell": true,
       "Buy": true
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
     }
   },
   {
@@ -277,10 +302,15 @@
     "Id": 124,
     "Key": "wine",
     "Name": "Wine",
-    "Categories": ["CancelOrphans"],
+    "Categories": ["CancelOrphans", "Transfer"],
     "CancelOrphans": {
       "Sell": true,
       "Buy": true
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
     }
   },
   {
@@ -341,7 +371,12 @@
     "Id": 106,
     "Key": "trout",
     "Name": "Trout",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 90,
+      "Offset": 2
+    }
   },
   {
     "Id": 26,
@@ -359,7 +394,12 @@
     "Id": 42,
     "Key": "cotton_fabric",
     "Name": "Fabric",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 54,
@@ -431,7 +471,12 @@
     "Id": 41,
     "Key": "cotton_yarn",
     "Name": "Yarn",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 27,
@@ -443,13 +488,23 @@
     "Id": 90,
     "Key": "cherry",
     "Name": "Cherry",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 5,
     "Key": "flour",
     "Name": "Flour",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 34,
@@ -497,7 +552,12 @@
     "Id": 107,
     "Key": "grape",
     "Name": "Grape",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 75,
@@ -521,7 +581,12 @@
     "Id": 87,
     "Key": "orange",
     "Name": "Orange",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 77,
@@ -569,7 +634,12 @@
     "Id": 7,
     "Key": "bread",
     "Name": "Bread",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 61,
@@ -653,7 +723,12 @@
     "Id": 6,
     "Key": "corn",
     "Name": "Corn",
-    "Categories": []
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
   },
   {
     "Id": 73,
