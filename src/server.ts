@@ -16,6 +16,9 @@ type CategoryInstructionType = {
   Seller: {
     KeepMinInventory: number;
   };
+  Supply: {
+    StopWhenInventoryReach: number;
+  };
   Transfer: {
     Kind: "factory" | "farm";
     // Value in percentage of max tolerance of storage

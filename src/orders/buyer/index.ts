@@ -12,7 +12,7 @@ const buyIf = async (args: {
   Metrics: any;
 }) => {
   const amountInInventory = args.Inventory[args.product.Key] || 0;
-  if (amountInInventory > args.product.KeepInventory) {
+  if (amountInInventory > args.product.Supply.StopWhenInventoryReach) {
     // If the amount in inventory is greater than the keep inventory amount, do nothing
     // the product is enough supply
     return;
@@ -20,7 +20,7 @@ const buyIf = async (args: {
 
   // If the product not is enough, get the amount to buy to reach the minimum in inventory
   const amountToBuy = Math.floor(
-    args.product.KeepInventory - amountInInventory,
+    args.product.Supply.StopWhenInventoryReach - amountInInventory,
   );
   if (amountToBuy < 1) {
     // Avoid saturating the inventory
@@ -54,7 +54,7 @@ const buyIf = async (args: {
       amountToBuy: amountToBuy.toFixed(1),
       productKey: args.product.Key,
       minPrice: Min,
-      keepInventory: args.product.KeepInventory,
+      keepInventory: args.product.Supply.StopWhenInventoryReach,
       expectValue,
     },
   );
