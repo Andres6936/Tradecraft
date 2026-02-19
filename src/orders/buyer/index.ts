@@ -74,11 +74,18 @@ const buyIf = async (args: {
 const main = async () => {
   const { Inventory, Metrics } = await getState();
   for (const productSupply of ProductsSupplyBuyerList) {
-    await buyIf({
-      product: productSupply,
-      Inventory,
-      Metrics,
-    });
+    try {
+      await buyIf({
+        product: productSupply,
+        Inventory,
+        Metrics,
+      });
+    } catch (error) {
+      logger.error("Error buying supply product {Name}, casued by: {error}", {
+        Name: productSupply.Name,
+        error,
+      });
+    }
   }
 };
 
