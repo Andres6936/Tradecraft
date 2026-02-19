@@ -14,17 +14,21 @@ const buyIf = async (
     Inventory: any;
   },
 ) => {
-  const { Key, Id, Trader } = product;
+  const {
+    Key,
+    Id,
+    Buyer: { StopWhenInventoryReach },
+  } = product;
   const context = logger.with({ Key });
 
   // Verify if max inventory is reached, and if so, skip buy
   const productInventoryAmount = args.Inventory[Key] || 0;
 
   // If the MaxInvetory is -1, the max amount is unlimited
-  if (Trader.MaxInventory !== -1) {
-    if (productInventoryAmount >= Trader.MaxInventory) {
+  if (StopWhenInventoryReach !== -1) {
+    if (productInventoryAmount >= StopWhenInventoryReach) {
       context.info(
-        `[{Key}] Max inventory reached ${Trader.MaxInventory}, skipping buy`,
+        `[{Key}] Max inventory reached ${StopWhenInventoryReach}, skipping buy`,
       );
       return;
     }

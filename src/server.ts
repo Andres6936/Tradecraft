@@ -11,7 +11,7 @@ type CategoryInstructionType = {
     Buy: boolean;
   };
   Buyer: {
-    MaxInventory: number;
+    StopWhenInventoryReach: number;
   };
   Seller: {
     KeepMinInventory: number;
