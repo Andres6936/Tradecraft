@@ -1,7 +1,7 @@
 import { getLogger } from "@logtape/logtape";
 
 import { transferWarehouse } from "~/api";
-import { QuestionIsFactoryInspectTransfer } from "~/server";
+import { QuestionIsFactoryInspectTransfer } from "./setup";
 
 const Cookies = process.env.COOKIES || "";
 const regions = [1, 2, 3, 4, 5, 6];
@@ -38,10 +38,10 @@ const main = async () => {
         kind: tile.kind,
       });
       if (isFactoryInspect) {
-        if (percentage > factory.Tolerance) {
-          const percentageExceed = percentage - factory.Tolerance;
+        if (percentage > factory.Transfer.Tolerance) {
+          const percentageExceed = percentage - factory.Transfer.Tolerance;
           const amount = Math.floor(
-            ((percentageExceed + factory.Offset) / 100) * capacity,
+            ((percentageExceed + factory.Transfer.Offset) / 100) * capacity,
           );
           if (amount < 1) continue;
 
@@ -61,6 +61,6 @@ const main = async () => {
     }
     await Bun.sleep(777);
   }
-}
+};
 
-export {main}
+export { main };
