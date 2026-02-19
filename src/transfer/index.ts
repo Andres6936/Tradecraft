@@ -28,10 +28,6 @@ const processRegion = async (regionId: number) => {
     const capacity = tile.localStorage.capacity;
     const percentage = (stored / capacity) * 100;
 
-    logger.info(
-      `${tile.productKey} (${tile.kind}) - ${stored.toFixed(1)}/${capacity} (${percentage.toFixed(1)}%)`,
-    );
-
     const [factory, isFactoryInspect] = QuestionIsFactoryInspectTransfer({
       key: tile.productKey,
       kind: tile.kind,
@@ -45,7 +41,10 @@ const processRegion = async (regionId: number) => {
         if (amount < 1) continue;
 
         logger.info(
-          `Tolerance exceeded by ${percentageExceed.toFixed(1)}%, moving ${amount} products`,
+          [
+            `${tile.productKey} (${tile.kind}) - ${stored.toFixed(1)}/${capacity} (${percentage.toFixed(1)}%) -`,
+            `Tolerance exceeded by ${percentageExceed.toFixed(1)}%, moving ${amount} products`,
+          ].join(" "),
         );
         await transferWarehouse({
           regionId: tile.regionId,
@@ -65,10 +64,13 @@ const main = async () => {
     try {
       await processRegion(regionId);
     } catch (error) {
-      logger.error("Error to transfer from region {regionId}, caused by: {error}", {
-        regionId,
-        error,
-      });
+      logger.error(
+        "Error to transfer from region {regionId}, caused by: {error}",
+        {
+          regionId,
+          error,
+        },
+      );
     } finally {
       await Bun.sleep(777);
     }
