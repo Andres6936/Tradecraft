@@ -125,7 +125,10 @@ const buyer = async () => {
         Inventory,
       });
     } catch (error) {
-      console.error(`Error buying ${product.Name}: `, error);
+      logger.error(`Error buying {Name}, caused by: {error}`, {
+        Name: product.Name,
+        error,
+      });
     } finally {
       await Bun.sleep(777);
     }

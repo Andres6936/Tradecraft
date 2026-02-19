@@ -95,7 +95,10 @@ const seller = async () => {
         Inventory,
       });
     } catch (error) {
-      console.error(`Error selling ${product.Key}: `, error);
+      logger.error(`Error selling {Name}, casued by: {error}`, {
+        Name: product.Name,
+        error,
+      });
     } finally {
       await Bun.sleep(777);
     }
