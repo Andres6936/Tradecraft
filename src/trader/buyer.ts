@@ -4,7 +4,7 @@ import { getByCategory } from "~/server";
 
 const logger = getLogger(["trader", "buyer"]);
 
-const ProductsAnalyticsList = getByCategory("Trader");
+const ProductsAnalyticsList = getByCategory("Buyer");
 
 const buyIf = async (
   product: (typeof ProductsAnalyticsList)[number],

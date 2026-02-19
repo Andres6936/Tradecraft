@@ -15,12 +15,17 @@
     "Id": 93,
     "Key": "computer",
     "Name": "Computer",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "Priority": "High",
       "MaxInventory": -1
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
       "Sell": true,
       "Buy": true
     }
@@ -29,12 +34,16 @@
     "Id": 94,
     "Key": "smartphone",
     "Name": "Smartphone",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
-      "Priority": "High",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "MaxInventory": -1
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
       "Sell": true,
       "Buy": true
     }
@@ -49,12 +58,16 @@
     "Id": 92,
     "Key": "circuit",
     "Name": "Circuit",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
-      "Priority": "High",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "MaxInventory": -1
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
       "Sell": true,
       "Buy": true
     }
@@ -63,12 +76,16 @@
     "Id": 48,
     "Key": "lumber",
     "Name": "Lumber",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
-      "Priority": "High",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "MaxInventory": -1
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
       "Sell": true,
       "Buy": true
     }
@@ -77,12 +94,16 @@
     "Id": 49,
     "Key": "furniture",
     "Name": "Furniture",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
-      "Priority": "High",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "MaxInventory": -1
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
       "Sell": true,
       "Buy": true
     }
@@ -91,9 +112,8 @@
     "Id": 47,
     "Key": "log",
     "Name": "Log",
-    "Categories": ["Trader", "CancelOrphans", "Transfer"],
-    "Trader": {
-      "Priority": "High",
+    "Categories": ["Buyer", "CancelOrphans", "Transfer", "Analytics"],
+    "Buyer": {
       "MaxInventory": 100000
     },
     "CancelOrphans": {
@@ -104,6 +124,11 @@
       "Kind": "factory",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "Analytics": {
+      "Priority": "High",
+      "Sell": true,
+      "Buy": true
     }
   },
   {
@@ -121,12 +146,16 @@
     "Id": 55,
     "Key": "beeswax",
     "Name": "Beeswax",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
-      "Priority": "Medium",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "MaxInventory": 100000
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "Medium",
       "Sell": true,
       "Buy": true
     }
@@ -135,12 +164,16 @@
     "Id": 111,
     "Key": "shoes",
     "Name": "Shoes",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
-      "Priority": "Medium",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "MaxInventory": 100000
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "Medium",
       "Sell": true,
       "Buy": true
     }
@@ -166,12 +199,16 @@
     "Id": 69,
     "Key": "microchip",
     "Name": "Microchip",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
-      "Priority": "Medium",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "MaxInventory": 100000
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "Medium",
       "Sell": true,
       "Buy": true
     }
@@ -186,12 +223,16 @@
     "Id": 25,
     "Key": "butter",
     "Name": "Butter",
-    "Categories": ["Trader", "CancelOrphans"],
-    "Trader": {
-      "Priority": "Medium",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
       "MaxInventory": -1
     },
     "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "Medium",
       "Sell": true,
       "Buy": true
     }

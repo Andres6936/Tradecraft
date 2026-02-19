@@ -5,8 +5,12 @@ type CategoryInstructionType = {
     Sell: boolean;
     Buy: boolean;
   };
-  Trader: {
+  Analytics: {
     Priority: "High" | "Medium" | "Low";
+    Sell: boolean;
+    Buy: boolean;
+  };
+  Buyer: {
     MaxInventory: number;
   };
   Transfer: {

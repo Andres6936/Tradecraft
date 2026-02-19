@@ -1,15 +1,15 @@
+import type { InstructionType, CategoryInstructionType } from "~/server";
 import { AnalyticsProvider } from "./context";
 import * as Comp from "./composition";
-import type { InstructionType, CategoryInstructionType } from "../../server";
 
 const AnalyticsView = (
-  props: InstructionType & Required<Pick<CategoryInstructionType, "Trader">>,
+  props: InstructionType & Required<Pick<CategoryInstructionType, "Analytics">>,
 ) => {
   return (
     <AnalyticsProvider
       Id={props.Id}
       Name={props.Name}
-      Priority={props.Trader.Priority}
+      Priority={props.Analytics.Priority}
     >
       <Comp.Root>
         <Comp.Header />
