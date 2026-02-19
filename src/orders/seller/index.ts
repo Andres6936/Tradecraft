@@ -91,11 +91,18 @@ const main = async () => {
   const orders = await getMineOrders();
 
   for (const productSeller of ProductsSellerList) {
-    await sellerIf({
-      product: productSeller,
-      orders,
-      Inventory,
-    });
+    try {
+      await sellerIf({
+        product: productSeller,
+        orders,
+        Inventory,
+      });
+    } catch (error) {
+      logger.error("Error selling market of {Name}, caused by: {error}", {
+        Name: productSeller.Name,
+        error,
+      });
+    }
   }
 };
 
