@@ -57,7 +57,7 @@ const sellerIf = async (args: {
     const diffInMinutes = differenceInMinutes(new Date(), minutesFromPublish);
 
     // If enough time passed since last order, sell the product
-    if (diffInMinutes > args.product.SeparationIntervalMinutes) {
+    if (diffInMinutes > args.product.OfferMarket.SeparationIntervalMinutes) {
       if (amountInInventory < MAXIMUM_SELL_AMOUNT) {
         // Not enough inventory, skip
         return;

@@ -399,7 +399,10 @@
     "Id": 109,
     "Key": "wool",
     "Name": "Wool",
-    "Categories": []
+    "Categories": ["OfferMarket"],
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
   },
   {
     "Id": 82,
@@ -456,11 +459,14 @@
     "Id": 106,
     "Key": "trout",
     "Name": "Trout",
-    "Categories": ["Transfer"],
+    "Categories": ["Transfer", "OfferMarket"],
     "Transfer": {
       "Kind": "farm",
       "Tolerance": 90,
       "Offset": 2
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
     }
   },
   {
@@ -479,11 +485,14 @@
     "Id": 42,
     "Key": "cotton_fabric",
     "Name": "Fabric",
-    "Categories": ["Transfer"],
+    "Categories": ["Transfer", "OfferMarket"],
     "Transfer": {
       "Kind": "factory",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
     }
   },
   {
@@ -556,11 +565,14 @@
     "Id": 41,
     "Key": "cotton_yarn",
     "Name": "Yarn",
-    "Categories": ["Transfer"],
+    "Categories": ["Transfer", "OfferMarket"],
     "Transfer": {
       "Kind": "factory",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
     }
   },
   {
@@ -584,11 +596,14 @@
     "Id": 5,
     "Key": "flour",
     "Name": "Flour",
-    "Categories": ["Transfer"],
+    "Categories": ["Transfer", "OfferMarket"],
     "Transfer": {
       "Kind": "factory",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
     }
   },
   {
@@ -719,11 +734,14 @@
     "Id": 7,
     "Key": "bread",
     "Name": "Bread",
-    "Categories": ["Transfer"],
+    "Categories": ["Transfer", "OfferMarket"],
     "Transfer": {
       "Kind": "factory",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
     }
   },
   {
@@ -760,7 +778,10 @@
     "Id": 12,
     "Key": "fertilizer",
     "Name": "Fertilizer",
-    "Categories": []
+    "Categories": ["OfferMarket"],
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
   },
   {
     "Id": 123,

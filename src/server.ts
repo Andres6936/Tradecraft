@@ -26,6 +26,9 @@ type CategoryInstructionType = {
     // Value in percentage of offset used for transfer
     Offset: number;
   };
+  OfferMarket: {
+    SeparationIntervalMinutes: number;
+  };
 };
 
 type InstructionType = {
