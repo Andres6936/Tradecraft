@@ -26,15 +26,10 @@ await queueTransfer.upsertJobScheduler("run-every-hour", {
 const workerTransfer = new Worker(
   "hourly",
   async (job) => {
-    try {
-      await executeTransfer();
-      await executeSellerInterval();
-      await executeBuyerSupply();
-      return { statusCode: 200 };
-    } catch (error) {
-      console.error("Error executing hourly job:", error);
-      return { statusCode: 500 };
-    }
+    await executeTransfer();
+    await executeSellerInterval();
+    await executeBuyerSupply();
+    return { statusCode: 200 };
   },
   { embedded: true, useLocks: false },
 );
