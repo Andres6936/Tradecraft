@@ -1,6 +1,7 @@
 import { getLogger } from "@logtape/logtape";
-import { getPriceRange, getState, sendOrder } from "~/api";
+import { getMineOrders, getPriceRange, getState, sendOrder } from "~/api";
 import { ProductsSupplyBuyerList } from "./setup";
+import type { ExternOrderType } from "~/types/d";
 
 const logger = getLogger(["buyer"]);
 
@@ -8,6 +9,7 @@ type ProductSupplyBuyer = (typeof ProductsSupplyBuyerList)[number];
 
 const buyIf = async (args: {
   product: ProductSupplyBuyer;
+  orders: ExternOrderType[];
   Inventory: any;
   Metrics: any;
 }) => {
@@ -24,6 +26,15 @@ const buyIf = async (args: {
   );
   if (amountToBuy < 1) {
     // Avoid saturating the inventory
+    return;
+  }
+
+  // Search if exist a vigent order of product
+  const existOrder = args.orders.find(
+    (order) => order.productId === args.product.Id && order.side === "buy",
+  );
+  if (existOrder) {
+    // If exist a vigent order, do nothing
     return;
   }
 
@@ -73,10 +84,12 @@ const buyIf = async (args: {
 
 const main = async () => {
   const { Inventory, Metrics } = await getState();
+  const orders = await getMineOrders();
   for (const productSupply of ProductsSupplyBuyerList) {
     try {
       await buyIf({
         product: productSupply,
+        orders,
         Inventory,
         Metrics,
       });
