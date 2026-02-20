@@ -5,7 +5,7 @@
     "Name": "Gold",
     "Categories": ["Supply"],
     "Supply": {
-      "StopWhenInventoryReach": 140
+      "StopWhenInventoryReach": 170
     }
   },
   {
@@ -285,7 +285,10 @@
     "Id": 62,
     "Key": "graphite",
     "Name": "Graphite",
-    "Categories": []
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 3000
+    }
   },
   {
     "Id": 44,
@@ -416,7 +419,7 @@
     "Name": "Copper",
     "Categories": ["Supply"],
     "Supply": {
-      "StopWhenInventoryReach": 12800
+      "StopWhenInventoryReach": 16800
     }
   },
   {
@@ -447,7 +450,10 @@
     "Id": 59,
     "Key": "silica_sand",
     "Name": "Quartz Sand",
-    "Categories": []
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 4000
+    }
   },
   {
     "Id": 51,
