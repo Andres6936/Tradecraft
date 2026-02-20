@@ -39,7 +39,7 @@
     "Id": 94,
     "Key": "smartphone",
     "Name": "Smartphone",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "-Seller"],
     "Buyer": {
       "StopWhenInventoryReach": -1
     },
