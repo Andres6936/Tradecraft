@@ -216,9 +216,9 @@
     "Id": 69,
     "Key": "microchip",
     "Name": "Microchip",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "-Seller"],
     "Buyer": {
-      "StopWhenInventoryReach": 100000
+      "StopWhenInventoryReach": -1
     },
     "Seller": {
       "KeepMinInventory": 20000
