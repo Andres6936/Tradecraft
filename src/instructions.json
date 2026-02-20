@@ -18,7 +18,7 @@
     "Id": 93,
     "Key": "computer",
     "Name": "Computer",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "-Seller"],
     "Buyer": {
       "StopWhenInventoryReach": -1
     },
