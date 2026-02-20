@@ -333,7 +333,10 @@
     "Id": 65,
     "Key": "lithium_battery",
     "Name": "Lithium Battery",
-    "Categories": []
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 10000
+    }
   },
   {
     "Id": 45,
@@ -365,7 +368,7 @@
     "Name": "Copper Wire",
     "Categories": ["Supply"],
     "Supply": {
-      "StopWhenInventoryReach": 3000
+      "StopWhenInventoryReach": 10000
     }
   },
   {
@@ -419,7 +422,7 @@
     "Name": "Copper",
     "Categories": ["Supply"],
     "Supply": {
-      "StopWhenInventoryReach": 16800
+      "StopWhenInventoryReach": 30800
     }
   },
   {
@@ -622,7 +625,10 @@
     "Id": 70,
     "Key": "plastic",
     "Name": "Plastic",
-    "Categories": []
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 8000
+    }
   },
   {
     "Id": 30,
