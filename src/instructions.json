@@ -237,7 +237,10 @@
     "Id": 110,
     "Key": "leather",
     "Name": "Leather",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    }
   },
   {
     "Id": 25,
@@ -312,7 +315,10 @@
     "Id": 53,
     "Key": "cardboard",
     "Name": "Cardboard",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    }
   },
   {
     "Id": 83,
@@ -324,9 +330,15 @@
     "Id": 52,
     "Key": "glue",
     "Name": "Glue",
-    "Categories": ["Supply"],
+    "Categories": ["-Supply", "Buyer", "Seller"],
     "Supply": {
       "StopWhenInventoryReach": 4000
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 50000
+    },
+    "Seller": {
+      "KeepMinInventory": 4000
     }
   },
   {
@@ -414,7 +426,10 @@
     "Id": 82,
     "Key": "cheddar",
     "Name": "Cheddar Cheese",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    }
   },
   {
     "Id": 68,
@@ -526,7 +541,10 @@
     "Id": 79,
     "Key": "hamburger",
     "Name": "Hamburger",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    }
   },
   {
     "Id": 43,
@@ -568,7 +586,10 @@
     "Id": 78,
     "Key": "fried_chicken",
     "Name": "Fried Chicken",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    }
   },
   {
     "Id": 41,
@@ -619,7 +640,10 @@
     "Id": 34,
     "Key": "lettuce",
     "Name": "Lettuce",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 10000
+    }
   },
   {
     "Id": 70,
@@ -646,7 +670,10 @@
     "Id": 89,
     "Key": "lemon",
     "Name": "Lemon",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    }
   },
   {
     "Id": 99,
@@ -693,30 +720,42 @@
     "Id": 87,
     "Key": "orange",
     "Name": "Orange",
-    "Categories": ["Transfer"],
+    "Categories": ["Transfer", "Seller"],
     "Transfer": {
       "Kind": "farm",
       "Tolerance": 25,
       "Offset": 5
+    },
+    "Seller": {
+      "StopWhenInventoryReach": 0
     }
   },
   {
     "Id": 77,
     "Key": "french_fries",
     "Name": "French Fries",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    }
   },
   {
     "Id": 100,
     "Key": "lemonade",
     "Name": "Lemonade",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    }
   },
   {
     "Id": 98,
     "Key": "orange_juice",
     "Name": "Orange Juice",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    }
   },
   {
     "Id": 31,
@@ -778,7 +817,10 @@
     "Id": 16,
     "Key": "milk",
     "Name": "Milk",
-    "Categories": []
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    }
   },
   {
     "Id": 88,
