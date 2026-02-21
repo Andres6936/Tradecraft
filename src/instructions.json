@@ -315,9 +315,12 @@
     "Id": 53,
     "Key": "cardboard",
     "Name": "Cardboard",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -426,9 +429,12 @@
     "Id": 82,
     "Key": "cheddar",
     "Name": "Cheddar Cheese",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -541,9 +547,12 @@
     "Id": 79,
     "Key": "hamburger",
     "Name": "Hamburger",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -586,9 +595,12 @@
     "Id": 78,
     "Key": "fried_chicken",
     "Name": "Fried Chicken",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -640,9 +652,12 @@
     "Id": 34,
     "Key": "lettuce",
     "Name": "Lettuce",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 10000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -670,9 +685,12 @@
     "Id": 89,
     "Key": "lemon",
     "Name": "Lemon",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -734,27 +752,36 @@
     "Id": 77,
     "Key": "french_fries",
     "Name": "French Fries",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
     "Id": 100,
     "Key": "lemonade",
     "Name": "Lemonade",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
     "Id": 98,
     "Key": "orange_juice",
     "Name": "Orange Juice",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
@@ -817,9 +844,12 @@
     "Id": 16,
     "Key": "milk",
     "Name": "Milk",
-    "Categories": ["Buyer"],
+    "Categories": ["Buyer", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 0
     }
   },
   {
