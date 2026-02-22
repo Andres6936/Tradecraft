@@ -20,6 +20,13 @@ const buyIf = async (args: {
   Inventory: any;
   Metrics: any;
 }) => {
+  const [isEnough] = isEnoughInventory(args);
+  if (isEnough) {
+    // If the amount in inventory is greater than the keep inventory amount, do nothing
+    // the product is enough supply
+    return;
+  }
+
   // First sort the orders from the latest to the oldest,
   // then search if exist a vigent order of product
   const existOrder = args.orders
@@ -51,18 +58,24 @@ const buyIf = async (args: {
   await sendBuyOrder(args);
 };
 
+const isEnoughInventory = (args: {
+  product: ProductSupplyBuyer;
+  Inventory: any;
+}): [boolean, number] => {
+  const amountInInventory = args.Inventory[args.product.Key] || 0;
+  return [
+    amountInInventory >= args.product.Supply.StopWhenInventoryReach,
+    amountInInventory,
+  ];
+};
+
 const sendBuyOrder = async (args: {
   product: ProductSupplyBuyer;
   orders: ExternOrderType[];
   Inventory: any;
   Metrics: any;
 }) => {
-  const amountInInventory = args.Inventory[args.product.Key] || 0;
-  if (amountInInventory > args.product.Supply.StopWhenInventoryReach) {
-    // If the amount in inventory is greater than the keep inventory amount, do nothing
-    // the product is enough supply
-    return;
-  }
+  const [_, amountInInventory] = isEnoughInventory(args);
 
   // If the product not is enough, get the amount to buy to reach the minimum in inventory
   const amountToBuy = Math.floor(
