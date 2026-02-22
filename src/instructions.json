@@ -422,7 +422,7 @@
     "Name": "Copper Wire",
     "Categories": ["Supply"],
     "Supply": {
-      "StopWhenInventoryReach": 10000
+      "StopWhenInventoryReach": 50000
     }
   },
   {
