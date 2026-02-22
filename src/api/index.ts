@@ -1,4 +1,4 @@
-import type { ExternOrderType } from "~/types/d";
+import type { ExternOrderType, GetPriceRangeResponseType } from "~/types/d";
 import { toTruncate } from "~/utility";
 
 const Cookies = process.env.COOKIES || "";
@@ -22,7 +22,7 @@ const getPriceRange = async (
     },
   });
 
-  const result = await stream.json();
+  const result = (await stream.json()) as GetPriceRangeResponseType;
   const average = result.product.averagePrice;
   const BAND_PCT = 0.15; // ±15%
   const DELTA = 0.01;

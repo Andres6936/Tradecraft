@@ -1,3 +1,5 @@
+// Order Types
+
 type ExternOrderBaseType = {
   _id: string;
   ownerUserId: string;
@@ -25,4 +27,27 @@ type ExternOrderMarketType = ExternOrderBaseType & {
 
 type ExternOrderType = ExternOrderLimitType | ExternOrderMarketType;
 
-export type {ExternOrderType}
+// Product Types
+
+type GetPriceRangeResponseType = {
+  ok: boolean;
+  product: ExternProductStateType;
+};
+
+type ExternProductStateType = {
+  id: number;
+  key: string;
+  name: string;
+  unit: string;
+  basePrice: number;
+  averagePrice: number;
+  priceHistory: ExternPriceHistoryType[];
+  currentPrice: any;
+};
+
+type ExternPriceHistoryType = {
+  t: number;
+  p: number;
+};
+
+export type { ExternOrderType, GetPriceRangeResponseType };
