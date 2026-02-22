@@ -68,6 +68,7 @@ type GetStateType = {
   metrics: Metrics;
   gs: Gs;
   me: Me;
+  tiles: TilesType[];
 };
 
 type Metrics = {
@@ -124,6 +125,47 @@ type Gs = {
   depositTotalDeposited: number;
   depositTotalInterestPaid: number;
   depositTotalWithdrawn: number;
+};
+
+type TilesType = {
+  _id: string;
+  x: number;
+  regionId: number;
+  ownerUserId: string;
+  y: number;
+  alert: boolean;
+  beneficiaryUserId: any;
+  busy: boolean;
+  createdAt: string;
+  currentRentalId: any;
+  disabledConsumptionInputs: any[];
+  disabledSaleProducts: any[];
+  id: number;
+  isRented: boolean;
+  kind: string;
+  level: number;
+  localStorage: LocalStorage;
+  maxEmployeeCapacity: number;
+  perfPct: number;
+  prodPartial: number;
+  prodTotal: number;
+  productKey: string;
+  retailRevenueToday: number;
+  retailRevenueTotal: number;
+  retailUnitsSoldToday: number;
+  retailUnitsSoldTotal: number;
+  updatedAt: string;
+  upgradeEndsAt: any;
+  upgradeStartedAt: any;
+  upgradeTargetLevel: any;
+  upgrading: boolean;
+  hasActiveListing: boolean;
+};
+
+type LocalStorage = {
+  productKey: string;
+  storedQty: number;
+  capacity: number;
 };
 
 // Daily P/L Types

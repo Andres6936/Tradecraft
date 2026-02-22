@@ -1,5 +1,6 @@
 import { getLogger } from "@logtape/logtape";
 
+import type { GetStateType } from "~/types/d";
 import { transferWarehouse } from "~/api";
 import { QuestionIsFactoryInspectTransfer } from "./setup";
 
@@ -20,7 +21,7 @@ const processRegion = async (regionId: number) => {
       },
     },
   );
-  const payload = await stream.json();
+  const payload = (await stream.json()) as GetStateType;
   const tiles = payload.tiles;
 
   for (const tile of tiles) {
