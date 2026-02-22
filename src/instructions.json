@@ -39,12 +39,12 @@
     "Id": 94,
     "Key": "smartphone",
     "Name": "Smartphone",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics", "-Seller"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": -1
     },
     "Seller": {
-      "KeepMinInventory": 100
+      "KeepMinInventory": 250
     },
     "CancelOrphans": {
       "Sell": true,
@@ -66,12 +66,12 @@
     "Id": 92,
     "Key": "circuit",
     "Name": "Circuit",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics", "-Seller"],
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
     "Buyer": {
       "StopWhenInventoryReach": -1
     },
     "Seller": {
-      "KeepMinInventory": 0
+      "KeepMinInventory": 777
     },
     "CancelOrphans": {
       "Sell": true,
