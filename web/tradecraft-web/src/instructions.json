@@ -1,0 +1,1188 @@
+[
+  {
+    "Id": 8,
+    "Key": "gold",
+    "Name": "Gold",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 170
+    }
+  },
+  {
+    "Id": 17,
+    "Key": "cow",
+    "Name": "Cow",
+    "Categories": []
+  },
+  {
+    "Id": 93,
+    "Key": "computer",
+    "Name": "Computer",
+    "Categories": [
+      "Buyer",
+      "Transfer",
+      "CancelOrphans",
+      "Analytics",
+      "-Seller"
+    ],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 100
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 94,
+    "Key": "smartphone",
+    "Name": "Smartphone",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 250
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 2,
+    "Key": "iron",
+    "Name": "Iron Ore",
+    "Categories": []
+  },
+  {
+    "Id": 92,
+    "Key": "circuit",
+    "Name": "Circuit",
+    "Categories": ["Buyer", "Transfer", "CancelOrphans", "Analytics", "Seller"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 777
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 48,
+    "Key": "lumber",
+    "Name": "Lumber",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 49,
+    "Key": "furniture",
+    "Name": "Furniture",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "High",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 47,
+    "Key": "log",
+    "Name": "Log",
+    "Categories": ["Buyer", "CancelOrphans", "Transfer", "Analytics", "Seller"],
+    "Buyer": {
+      "StopWhenInventoryReach": 100000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "Analytics": {
+      "Priority": "High",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 108,
+    "Key": "sheep",
+    "Name": "Sheep",
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 99,
+      "Offset": 0.5
+    }
+  },
+  {
+    "Id": 55,
+    "Key": "beeswax",
+    "Name": "Beeswax",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics"],
+    "Buyer": {
+      "StopWhenInventoryReach": 100000
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "Medium",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 111,
+    "Key": "shoes",
+    "Name": "Shoes",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
+    "Buyer": {
+      "StopWhenInventoryReach": 100000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "Medium",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 3,
+    "Key": "crude",
+    "Name": "Crude Oil",
+    "Categories": []
+  },
+  {
+    "Id": 46,
+    "Key": "tree",
+    "Name": "Tree",
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
+  },
+  {
+    "Id": 69,
+    "Key": "microchip",
+    "Name": "Microchip",
+    "Categories": [
+      "Buyer",
+      "Transfer",
+      "CancelOrphans",
+      "Analytics",
+      "-Seller"
+    ],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 20000
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "Medium",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 110,
+    "Key": "leather",
+    "Name": "Leather",
+    "Categories": ["Buyer"],
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    }
+  },
+  {
+    "Id": 25,
+    "Key": "butter",
+    "Name": "Butter",
+    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 150
+    },
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Analytics": {
+      "Priority": "Medium",
+      "Sell": true,
+      "Buy": true
+    }
+  },
+  {
+    "Id": 105,
+    "Key": "caviar",
+    "Name": "Caviar",
+    "Categories": ["Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 66,
+    "Key": "lithium",
+    "Name": "Lithium",
+    "Categories": []
+  },
+  {
+    "Id": 113,
+    "Key": "sneakers",
+    "Name": "Sneakers",
+    "Categories": []
+  },
+  {
+    "Id": 62,
+    "Key": "graphite",
+    "Name": "Graphite",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 3000
+    }
+  },
+  {
+    "Id": 44,
+    "Key": "shirt",
+    "Name": "Shirt",
+    "Categories": ["CancelOrphans", "Transfer", "Seller"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 53,
+    "Key": "cardboard",
+    "Name": "Cardboard",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 83,
+    "Key": "sand",
+    "Name": "Sand",
+    "Categories": []
+  },
+  {
+    "Id": 52,
+    "Key": "glue",
+    "Name": "Glue",
+    "Categories": ["-Supply", "Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Supply": {
+      "StopWhenInventoryReach": 4000
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 50000
+    },
+    "Seller": {
+      "KeepMinInventory": 4000
+    }
+  },
+  {
+    "Id": 65,
+    "Key": "lithium_battery",
+    "Name": "Lithium Battery",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 10000
+    }
+  },
+  {
+    "Id": 45,
+    "Key": "pants",
+    "Name": "Pants",
+    "Categories": ["CancelOrphans", "Transfer", "Seller"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 50,
+    "Key": "paper",
+    "Name": "Paper",
+    "Categories": []
+  },
+  {
+    "Id": 91,
+    "Key": "copper_wire",
+    "Name": "Copper Wire",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 50000
+    }
+  },
+  {
+    "Id": 67,
+    "Key": "nickel",
+    "Name": "Nickel",
+    "Categories": []
+  },
+  {
+    "Id": 32,
+    "Key": "olive_oil",
+    "Name": "Olive Oil",
+    "Categories": []
+  },
+  {
+    "Id": 124,
+    "Key": "wine",
+    "Name": "Wine",
+    "Categories": ["CancelOrphans", "Transfer", "Seller"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 109,
+    "Key": "wool",
+    "Name": "Wool",
+    "Categories": ["OfferMarket"],
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
+  },
+  {
+    "Id": 82,
+    "Key": "cheddar",
+    "Name": "Cheddar Cheese",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 68,
+    "Key": "copper",
+    "Name": "Copper",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 30800
+    }
+  },
+  {
+    "Id": 84,
+    "Key": "cement",
+    "Name": "Cement",
+    "Categories": []
+  },
+  {
+    "Id": 81,
+    "Key": "cheese",
+    "Name": "Cheese",
+    "Categories": []
+  },
+  {
+    "Id": 18,
+    "Key": "beef",
+    "Name": "Meat",
+    "Categories": []
+  },
+  {
+    "Id": 97,
+    "Key": "fruit_concentrate",
+    "Name": "Fruit Concentrate",
+    "Categories": []
+  },
+  {
+    "Id": 59,
+    "Key": "silica_sand",
+    "Name": "Quartz Sand",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 4000
+    }
+  },
+  {
+    "Id": 51,
+    "Key": "starch",
+    "Name": "Starch",
+    "Categories": []
+  },
+  {
+    "Id": 106,
+    "Key": "trout",
+    "Name": "Trout",
+    "Categories": ["Transfer", "OfferMarket"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 90,
+      "Offset": 2
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
+  },
+  {
+    "Id": 26,
+    "Key": "cocoa",
+    "Name": "Cocoa",
+    "Categories": []
+  },
+  {
+    "Id": 21,
+    "Key": "whole_chicken",
+    "Name": "Broiler",
+    "Categories": []
+  },
+  {
+    "Id": 42,
+    "Key": "cotton_fabric",
+    "Name": "Fabric",
+    "Categories": ["Transfer", "OfferMarket"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
+  },
+  {
+    "Id": 54,
+    "Key": "honey",
+    "Name": "Honey",
+    "Categories": []
+  },
+  {
+    "Id": 40,
+    "Key": "cotton",
+    "Name": "Cotton",
+    "Categories": []
+  },
+  {
+    "Id": 64,
+    "Key": "steel",
+    "Name": "Steel",
+    "Categories": []
+  },
+  {
+    "Id": 79,
+    "Key": "hamburger",
+    "Name": "Hamburger",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 43,
+    "Key": "tshirt",
+    "Name": "T-shirt",
+    "Categories": []
+  },
+  {
+    "Id": 112,
+    "Key": "pasta",
+    "Name": "Pasta",
+    "Categories": []
+  },
+  {
+    "Id": 20,
+    "Key": "chicken",
+    "Name": "Chicken",
+    "Categories": []
+  },
+  {
+    "Id": 60,
+    "Key": "glass",
+    "Name": "Glass",
+    "Categories": []
+  },
+  {
+    "Id": 9,
+    "Key": "iron_profile",
+    "Name": "Iron Profile",
+    "Categories": []
+  },
+  {
+    "Id": 57,
+    "Key": "nail",
+    "Name": "Nail",
+    "Categories": []
+  },
+  {
+    "Id": 78,
+    "Key": "fried_chicken",
+    "Name": "Fried Chicken",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 41,
+    "Key": "cotton_yarn",
+    "Name": "Yarn",
+    "Categories": ["Transfer", "OfferMarket"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
+  },
+  {
+    "Id": 27,
+    "Key": "walnut",
+    "Name": "Walnut",
+    "Categories": []
+  },
+  {
+    "Id": 90,
+    "Key": "cherry",
+    "Name": "Cherry",
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
+  },
+  {
+    "Id": 5,
+    "Key": "flour",
+    "Name": "Flour",
+    "Categories": ["Transfer", "OfferMarket"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
+  },
+  {
+    "Id": 34,
+    "Key": "lettuce",
+    "Name": "Lettuce",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 10000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 70,
+    "Key": "plastic",
+    "Name": "Plastic",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 8000
+    }
+  },
+  {
+    "Id": 30,
+    "Key": "strawberry",
+    "Name": "Strawberry",
+    "Categories": []
+  },
+  {
+    "Id": 38,
+    "Key": "sunflower_oil",
+    "Name": "Sunflower Oil",
+    "Categories": []
+  },
+  {
+    "Id": 89,
+    "Key": "lemon",
+    "Name": "Lemon",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 99,
+    "Key": "apple_juice",
+    "Name": "Apple Juice",
+    "Categories": []
+  },
+  {
+    "Id": 76,
+    "Key": "corn_chips",
+    "Name": "Corn Chips",
+    "Categories": []
+  },
+  {
+    "Id": 107,
+    "Key": "grape",
+    "Name": "Grape",
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
+  },
+  {
+    "Id": 75,
+    "Key": "potato_chips",
+    "Name": "Potato Chips",
+    "Categories": []
+  },
+  {
+    "Id": 24,
+    "Key": "sugar",
+    "Name": "Sugar",
+    "Categories": []
+  },
+  {
+    "Id": 58,
+    "Key": "notebook",
+    "Name": "Notebook",
+    "Categories": []
+  },
+  {
+    "Id": 87,
+    "Key": "orange",
+    "Name": "Orange",
+    "Categories": ["Transfer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "Seller": {
+      "StopWhenInventoryReach": 0
+    }
+  },
+  {
+    "Id": 77,
+    "Key": "french_fries",
+    "Name": "French Fries",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 100,
+    "Key": "lemonade",
+    "Name": "Lemonade",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 98,
+    "Key": "orange_juice",
+    "Name": "Orange Juice",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": 25000
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 31,
+    "Key": "olive",
+    "Name": "Olive",
+    "Categories": []
+  },
+  {
+    "Id": 116,
+    "Key": "green_beans",
+    "Name": "Green Beans",
+    "Categories": []
+  },
+  {
+    "Id": 56,
+    "Key": "soap",
+    "Name": "Soap",
+    "Categories": []
+  },
+  {
+    "Id": 72,
+    "Key": "soft_drink",
+    "Name": "Soft Drink",
+    "Categories": []
+  },
+  {
+    "Id": 7,
+    "Key": "bread",
+    "Name": "Bread",
+    "Categories": ["Transfer", "OfferMarket"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
+  },
+  {
+    "Id": 61,
+    "Key": "coal",
+    "Name": "Coal",
+    "Categories": []
+  },
+  {
+    "Id": 117,
+    "Key": "green_bean_seed",
+    "Name": "Green Bean Seed",
+    "Categories": []
+  },
+  {
+    "Id": 122,
+    "Key": "magazine",
+    "Name": "Magazine",
+    "Categories": []
+  },
+  {
+    "Id": 16,
+    "Key": "milk",
+    "Name": "Milk",
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
+    "Buyer": {
+      "StopWhenInventoryReach": -1
+    },
+    "Seller": {
+      "KeepMinInventory": 0
+    }
+  },
+  {
+    "Id": 88,
+    "Key": "apple",
+    "Name": "Apple",
+    "Categories": []
+  },
+  {
+    "Id": 12,
+    "Key": "fertilizer",
+    "Name": "Fertilizer",
+    "Categories": ["OfferMarket"],
+    "OfferMarket": {
+      "SeparationIntervalMinutes": 120
+    }
+  },
+  {
+    "Id": 123,
+    "Key": "newspaper",
+    "Name": "Newspaper",
+    "Categories": []
+  },
+  {
+    "Id": 10,
+    "Key": "seed_wheat",
+    "Name": "Wheat Seed",
+    "Categories": []
+  },
+  {
+    "Id": 63,
+    "Key": "pencil",
+    "Name": "Pencil",
+    "Categories": []
+  },
+  {
+    "Id": 85,
+    "Key": "rice",
+    "Name": "Rice",
+    "Categories": []
+  },
+  {
+    "Id": 121,
+    "Key": "tomato",
+    "Name": "Tomato",
+    "Categories": []
+  },
+  {
+    "Id": 37,
+    "Key": "sun_flower",
+    "Name": "Sunflower",
+    "Categories": []
+  },
+  {
+    "Id": 4,
+    "Key": "barley",
+    "Name": "Barley",
+    "Categories": []
+  },
+  {
+    "Id": 6,
+    "Key": "corn",
+    "Name": "Corn",
+    "Categories": ["Transfer"],
+    "Transfer": {
+      "Kind": "farm",
+      "Tolerance": 25,
+      "Offset": 5
+    }
+  },
+  {
+    "Id": 73,
+    "Key": "potato",
+    "Name": "Potato",
+    "Categories": []
+  },
+  {
+    "Id": 118,
+    "Key": "soybean",
+    "Name": "Soybean",
+    "Categories": []
+  },
+  {
+    "Id": 119,
+    "Key": "soybean_seed",
+    "Name": "Soybean Seed",
+    "Categories": []
+  },
+  {
+    "Id": 1,
+    "Key": "wheat",
+    "Name": "Wheat",
+    "Categories": []
+  },
+  {
+    "Id": 28,
+    "Key": "chocolate",
+    "Name": "Chocolate",
+    "Categories": []
+  },
+  {
+    "Id": 23,
+    "Key": "sugar_cane",
+    "Name": "Sugarcane",
+    "Categories": []
+  },
+  {
+    "Id": 71,
+    "Key": "bottle",
+    "Name": "Bottle",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 50000
+    }
+  },
+  {
+    "Id": 114,
+    "Key": "onion",
+    "Name": "Onion",
+    "Categories": []
+  },
+  {
+    "Id": 19,
+    "Key": "egg",
+    "Name": "Egg",
+    "Categories": []
+  },
+  {
+    "Id": 13,
+    "Key": "seed_barley",
+    "Name": "Barley Seed",
+    "Categories": []
+  },
+  {
+    "Id": 14,
+    "Key": "seed_corn",
+    "Name": "Corn Seed",
+    "Categories": []
+  },
+  {
+    "Id": 115,
+    "Key": "onion_seed",
+    "Name": "Onion Seed",
+    "Categories": []
+  },
+  {
+    "Id": 86,
+    "Key": "seed_rice",
+    "Name": "Rice Seed",
+    "Categories": []
+  },
+  {
+    "Id": 74,
+    "Key": "seed_potato",
+    "Name": "Seed Potato",
+    "Categories": []
+  },
+  {
+    "Id": 101,
+    "Key": "seed_sugar_beet",
+    "Name": "Sugar Beet Seed",
+    "Categories": []
+  },
+  {
+    "Id": 11,
+    "Key": "straw",
+    "Name": "Straw",
+    "Categories": ["Supply"],
+    "Supply": {
+      "StopWhenInventoryReach": 1000000
+    }
+  },
+  {
+    "Id": 102,
+    "Key": "sugar_beet",
+    "Name": "Sugar Beet",
+    "Categories": []
+  },
+  {
+    "Id": 35,
+    "Key": "corn_silage",
+    "Name": "Corn Silage",
+    "Categories": []
+  },
+  {
+    "Id": 39,
+    "Key": "cotton_seed",
+    "Name": "Cotton Seed",
+    "Categories": []
+  },
+  {
+    "Id": 33,
+    "Key": "seed_lettuce",
+    "Name": "Lettuce Seed",
+    "Categories": []
+  },
+  {
+    "Id": 29,
+    "Key": "seed_strawberry",
+    "Name": "Strawberry Seed",
+    "Categories": []
+  },
+  {
+    "Id": 22,
+    "Key": "sugar_cane_seed",
+    "Name": "Sugarcane Seedling",
+    "Categories": []
+  },
+  {
+    "Id": 36,
+    "Key": "sun_flower_seed",
+    "Name": "Sunflower Seed",
+    "Categories": []
+  },
+  {
+    "Id": 120,
+    "Key": "seed_tomato",
+    "Name": "Tomato Seed",
+    "Categories": []
+  },
+  {
+    "Id": 104,
+    "Key": "depot_big",
+    "Name": "Big Storage Depot",
+    "Categories": []
+  },
+  {
+    "Id": 80,
+    "Key": "fastfood",
+    "Name": "Fast Food",
+    "Categories": []
+  },
+  {
+    "Id": 96,
+    "Key": "hardware_store",
+    "Name": "Hardware Store",
+    "Categories": []
+  },
+  {
+    "Id": 15,
+    "Key": "market",
+    "Name": "Market",
+    "Categories": []
+  },
+  {
+    "Id": 95,
+    "Key": "shopping_mall",
+    "Name": "Shopping Mall",
+    "Categories": []
+  },
+  {
+    "Id": 103,
+    "Key": "depot_basic",
+    "Name": "Small Storage Depot",
+    "Categories": []
+  }
+]
