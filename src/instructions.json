@@ -267,7 +267,11 @@
     "Id": 105,
     "Key": "caviar",
     "Name": "Caviar",
-    "Categories": ["Seller"],
+    "Categories": ["Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Seller": {
       "KeepMinInventory": 0
     }
@@ -315,7 +319,11 @@
     "Id": 53,
     "Key": "cardboard",
     "Name": "Cardboard",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 25000
     },
@@ -333,7 +341,11 @@
     "Id": 52,
     "Key": "glue",
     "Name": "Glue",
-    "Categories": ["-Supply", "Buyer", "Seller"],
+    "Categories": ["-Supply", "Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Supply": {
       "StopWhenInventoryReach": 4000
     },
@@ -429,7 +441,11 @@
     "Id": 82,
     "Key": "cheddar",
     "Name": "Cheddar Cheese",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 25000
     },
@@ -547,7 +563,11 @@
     "Id": 79,
     "Key": "hamburger",
     "Name": "Hamburger",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 25000
     },
@@ -595,7 +615,11 @@
     "Id": 78,
     "Key": "fried_chicken",
     "Name": "Fried Chicken",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 25000
     },
@@ -652,7 +676,11 @@
     "Id": 34,
     "Key": "lettuce",
     "Name": "Lettuce",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 10000
     },
@@ -685,7 +713,11 @@
     "Id": 89,
     "Key": "lemon",
     "Name": "Lemon",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 25000
     },
@@ -738,7 +770,11 @@
     "Id": 87,
     "Key": "orange",
     "Name": "Orange",
-    "Categories": ["Transfer", "Seller"],
+    "Categories": ["Transfer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Transfer": {
       "Kind": "farm",
       "Tolerance": 25,
@@ -752,7 +788,11 @@
     "Id": 77,
     "Key": "french_fries",
     "Name": "French Fries",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 25000
     },
@@ -764,7 +804,11 @@
     "Id": 100,
     "Key": "lemonade",
     "Name": "Lemonade",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 25000
     },
@@ -776,7 +820,11 @@
     "Id": 98,
     "Key": "orange_juice",
     "Name": "Orange Juice",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": 25000
     },
@@ -844,7 +892,11 @@
     "Id": 16,
     "Key": "milk",
     "Name": "Milk",
-    "Categories": ["Buyer", "Seller"],
+    "Categories": ["Buyer", "Seller", "CancelOrphans"],
+    "CancelOrphans": {
+      "Sell": true,
+      "Buy": true
+    },
     "Buyer": {
       "StopWhenInventoryReach": -1
     },
