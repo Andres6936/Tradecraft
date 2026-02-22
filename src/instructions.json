@@ -18,7 +18,18 @@
     "Id": 93,
     "Key": "computer",
     "Name": "Computer",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics", "-Seller"],
+    "Categories": [
+      "Buyer",
+      "Transfer",
+      "CancelOrphans",
+      "Analytics",
+      "-Seller"
+    ],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
     "Buyer": {
       "StopWhenInventoryReach": -1
     },
@@ -66,7 +77,12 @@
     "Id": 92,
     "Key": "circuit",
     "Name": "Circuit",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics", "Seller"],
+    "Categories": ["Buyer", "Transfer", "CancelOrphans", "Analytics", "Seller"],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
     "Buyer": {
       "StopWhenInventoryReach": -1
     },
@@ -216,7 +232,18 @@
     "Id": 69,
     "Key": "microchip",
     "Name": "Microchip",
-    "Categories": ["Buyer", "CancelOrphans", "Analytics", "-Seller"],
+    "Categories": [
+      "Buyer",
+      "Transfer",
+      "CancelOrphans",
+      "Analytics",
+      "-Seller"
+    ],
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 25,
+      "Offset": 5
+    },
     "Buyer": {
       "StopWhenInventoryReach": -1
     },
