@@ -1,6 +1,7 @@
 import type {
   ExternOrderType,
   GetPriceRangeResponseType,
+  GetStateType,
   TransferWarehouseResponseType,
 } from "~/types/d";
 import { toTruncate } from "~/utility";
@@ -137,7 +138,7 @@ const getState = async () => {
     },
   });
 
-  const stream = await response.json();
+  const stream = (await response.json()) as GetStateType;
   const inventory = stream.gs.inventory;
   const me = stream.me;
   const metrics = stream.metrics;

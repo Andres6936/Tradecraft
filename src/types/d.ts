@@ -62,8 +62,73 @@ type TransferWarehouseResponseType = {
   freeSpaceAfter: number;
 };
 
+// State Types
+
+type GetStateType = {
+  metrics: Metrics;
+  gs: Gs;
+  me: Me;
+};
+
+type Metrics = {
+  netWorth: number;
+  cash: number;
+  invValue: number;
+};
+
+type Me = {
+  userId: string;
+  nick: string;
+  status: string;
+  showNudge: boolean;
+  animationEnabled: boolean;
+  soundEnabled: boolean;
+  musicEnabled: boolean;
+  ambientSoundsEnabled: boolean;
+  showNotification: boolean;
+  language: string;
+  avatar: string;
+};
+
+type Gs = {
+  _id: string;
+  isGlobal: boolean;
+  userId: string;
+  cash: number;
+  selectedRegion: number;
+  selectedProductId: number;
+  tick: number;
+  tickAnchorAt: any;
+  loanTotalBorrowed: number;
+  loanTotalRepaid: number;
+  loanInterestAccrued: number;
+  loanDailyInterestAccrued: number;
+  carbonTotal: number;
+  carbonToday: number;
+  carbonDay: string;
+  totalVolumeUsed: number;
+  totalStorageCapacity: number;
+  govTradeBuyToday: number;
+  govTradeSellToday: number;
+  govTradeDay: string;
+  xp: number;
+  netWorth: number;
+  lastDailyClaimDate: string;
+  lastStorageFeeAt: any;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  inventory: Record<string, number>;
+  storageInventory: Record<string, number>;
+  loanInterestDay: string;
+  depositTotalDeposited: number;
+  depositTotalInterestPaid: number;
+  depositTotalWithdrawn: number;
+};
+
 export type {
   ExternOrderType,
   GetPriceRangeResponseType,
   TransferWarehouseResponseType,
+  GetStateType,
 };
