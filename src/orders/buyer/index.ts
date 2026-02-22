@@ -1,5 +1,12 @@
 import { getLogger } from "@logtape/logtape";
-import { getMineOrders, getPriceRange, getState, sendOrder } from "~/api";
+import { differenceInMinutes, parseISO } from "date-fns";
+import {
+  cancelOrder,
+  getMineOrders,
+  getPriceRange,
+  getState,
+  sendOrder,
+} from "~/api";
 import { ProductsSupplyBuyerList } from "./setup";
 import type { ExternOrderType } from "~/types/d";
 
@@ -29,12 +36,27 @@ const buyIf = async (args: {
     return;
   }
 
-  // Search if exist a vigent order of product
-  const existOrder = args.orders.find(
-    (order) => order.productId === args.product.Id && order.side === "buy",
-  );
+  // First sort the orders from the latest to the oldest,
+  // then search if exist a vigent order of product
+  const existOrder = args.orders
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+    .find(
+      (order) => order.productId === args.product.Id && order.side === "buy",
+    );
+
   if (existOrder) {
-    // If exist a vigent order, do nothing
+    // If exist the order, check the difference of minutes from the latest order
+    const minutesFromPublish = parseISO(existOrder.createdAt);
+    const diffInMinutes = differenceInMinutes(new Date(), minutesFromPublish);
+
+    if (diffInMinutes > 60) {
+      // Cancel the order and put an new order with updated prices
+      await cancelOrder(existOrder._id);
+
+      // TODO: Send new order
+    }
+
+    // The order is vigent, so wait other cycle
     return;
   }
 
