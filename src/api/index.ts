@@ -1,3 +1,4 @@
+import { getLogger } from "@logtape/logtape";
 import type {
   ExternOrderType,
   GetPriceRangeResponseType,
@@ -5,6 +6,8 @@ import type {
   TransferWarehouseResponseType,
 } from "~/types/d";
 import { toTruncate } from "~/utility";
+
+const logger = getLogger("trader");
 
 const Cookies = process.env.COOKIES || "";
 
@@ -125,7 +128,9 @@ const transferWarehouse = async (args: {
   );
   const stream = (await response.json()) as TransferWarehouseResponseType;
   if (response.ok && stream.ok === true) return;
-  console.error("Error transferring item", stream);
+  logger.error("Error transferring item, caused by: {error}", {
+    error: stream,
+  });
 };
 
 const getState = async () => {
@@ -182,7 +187,9 @@ const sendOrder = async (args: OrderLimitType | OrderMarketType) => {
   if (response.ok && stream.ok === true) {
     return;
   }
-  console.error("Failed to place order:", stream);
+  logger.error("Failed to place order, caused by:", {
+    error: stream,
+  });
 };
 
 const cancelOrder = async (orderId: string) => {
@@ -199,7 +206,7 @@ const cancelOrder = async (orderId: string) => {
   );
 
   if (!response.ok) {
-    console.error(`Failed to cancel order ${orderId}`);
+    logger.error(`Failed to cancel order ${orderId}`);
   }
 };
 
