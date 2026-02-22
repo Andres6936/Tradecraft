@@ -126,9 +126,32 @@ type Gs = {
   depositTotalWithdrawn: number;
 };
 
+// Daily P/L Types
+
+type GetProductDailyPLTypes = {
+  ok: boolean;
+  records: RecordDailyType[];
+};
+
+type RecordDailyType = {
+  productKey: string;
+  productName: string;
+  iconUrl: string;
+  unit: string;
+  buyQty: number;
+  sellQty: number;
+  buyAmount: number;
+  sellAmount: number;
+  citySellQty: number;
+  citySellAmount: number;
+  profit: number;
+  profitMargin: number;
+};
+
 export type {
   ExternOrderType,
   GetPriceRangeResponseType,
   TransferWarehouseResponseType,
   GetStateType,
+  GetProductDailyPLTypes,
 };

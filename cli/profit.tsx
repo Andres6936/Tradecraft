@@ -1,3 +1,4 @@
+import type { GetProductDailyPLTypes } from "~/types/d";
 import React, { Fragment } from "react";
 import { render, Box, Text } from "ink";
 
@@ -12,16 +13,18 @@ const stream = await fetch(`https://playtradecraft.com/api/product-daily-pnl`, {
   },
 });
 
-const result = await stream.json();
-const records = result.records.map(it => ({
-  ...it,
-  AverageMarketPrice: it.sellAmount / (it.sellQty || 1),
-  AverageCityPrice: it.citySellAmount / (it.citySellQty || 1),
-  TotalSaleAmount: it.sellQty + it.citySellQty,
-  TotalSaleMoney: it.sellAmount + it.citySellAmount,
-})).sort((a, b) => b.profit - a.profit)
+const result = (await stream.json()) as GetProductDailyPLTypes;
+const records = result.records
+  .map((it) => ({
+    ...it,
+    AverageMarketPrice: it.sellAmount / (it.sellQty || 1),
+    AverageCityPrice: it.citySellAmount / (it.citySellQty || 1),
+    TotalSaleAmount: it.sellQty + it.citySellQty,
+    TotalSaleMoney: it.sellAmount + it.citySellAmount,
+  }))
+  .sort((a, b) => b.profit - a.profit)
   // View only the products where profit is greater than 10,000 or less than 0
-  .filter(it => it.profit > 10_000 || it.profit < 0);
+  .filter((it) => it.profit > 10_000 || it.profit < 0);
 
 const padded = (value: number | string, padLength: number) =>
   String(value).padStart(padLength, " ");
@@ -57,12 +60,12 @@ const shortNumber = (value: number) => {
     result = absValue.toFixed(0);
   } else if (absValue === 0) {
     result = "0";
-  }  else {
+  } else {
     result = absValue.toFixed(1);
   }
 
   return isNegative ? `-${result}` : result;
-}
+};
 
 const Columns = [
   {
@@ -168,16 +171,24 @@ const Header = () => {
   );
 };
 
-const Value = (props: { column: typeof Columns[number], record: any }) => {
+const Value = (props: { column: (typeof Columns)[number]; record: any }) => {
   const { column, record } = props;
-  const value = record[column.Key]
+  const value = record[column.Key];
   const valueAsString = column.Type === "number" ? shortNumber(value) : value;
 
+  const color =
+    column.Type === "number"
+      ? value < 0
+        ? "red"
+        : column.Color
+      : column.Color;
 
-  const color = column.Type === "number" ? (value < 0 ? "red" : column.Color) : column.Color;
-
-  return <Item key={column.Key} length={column.Length} color={color}>{valueAsString}</Item>;
-}
+  return (
+    <Item key={column.Key} length={column.Length} color={color}>
+      {valueAsString}
+    </Item>
+  );
+};
 
 const Table = () => {
   return (
