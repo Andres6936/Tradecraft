@@ -20,22 +20,6 @@ const buyIf = async (args: {
   Inventory: any;
   Metrics: any;
 }) => {
-  const amountInInventory = args.Inventory[args.product.Key] || 0;
-  if (amountInInventory > args.product.Supply.StopWhenInventoryReach) {
-    // If the amount in inventory is greater than the keep inventory amount, do nothing
-    // the product is enough supply
-    return;
-  }
-
-  // If the product not is enough, get the amount to buy to reach the minimum in inventory
-  const amountToBuy = Math.floor(
-    args.product.Supply.StopWhenInventoryReach - amountInInventory,
-  );
-  if (amountToBuy < 1) {
-    // Avoid saturating the inventory
-    return;
-  }
-
   // First sort the orders from the latest to the oldest,
   // then search if exist a vigent order of product
   const existOrder = args.orders
@@ -52,11 +36,40 @@ const buyIf = async (args: {
     if (diffInMinutes > 60) {
       // Cancel the order and put an new order with updated prices
       await cancelOrder(existOrder._id);
+      await Bun.sleep(777);
+      // Send new order of buy with update values
+      await sendBuyOrder(args);
 
-      // TODO: Send new order
+      // Continue to next product
+      return;
     }
 
     // The order is vigent, so wait other cycle
+    return;
+  }
+
+  await sendBuyOrder(args);
+};
+
+const sendBuyOrder = async (args: {
+  product: ProductSupplyBuyer;
+  orders: ExternOrderType[];
+  Inventory: any;
+  Metrics: any;
+}) => {
+  const amountInInventory = args.Inventory[args.product.Key] || 0;
+  if (amountInInventory > args.product.Supply.StopWhenInventoryReach) {
+    // If the amount in inventory is greater than the keep inventory amount, do nothing
+    // the product is enough supply
+    return;
+  }
+
+  // If the product not is enough, get the amount to buy to reach the minimum in inventory
+  const amountToBuy = Math.floor(
+    args.product.Supply.StopWhenInventoryReach - amountInInventory,
+  );
+  if (amountToBuy < 1) {
+    // Avoid saturating the inventory
     return;
   }
 
