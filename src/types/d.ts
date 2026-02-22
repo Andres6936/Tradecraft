@@ -50,4 +50,20 @@ type ExternPriceHistoryType = {
   p: number;
 };
 
-export type { ExternOrderType, GetPriceRangeResponseType };
+// Deposit Types
+
+type TransferWarehouseResponseType = {
+  ok: boolean;
+  transferred: number;
+  productKey: string;
+  remainingInTile: number;
+  volumeFactor: number;
+  usedSpace: number;
+  freeSpaceAfter: number;
+};
+
+export type {
+  ExternOrderType,
+  GetPriceRangeResponseType,
+  TransferWarehouseResponseType,
+};

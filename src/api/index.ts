@@ -1,4 +1,8 @@
-import type { ExternOrderType, GetPriceRangeResponseType } from "~/types/d";
+import type {
+  ExternOrderType,
+  GetPriceRangeResponseType,
+  TransferWarehouseResponseType,
+} from "~/types/d";
 import { toTruncate } from "~/utility";
 
 const Cookies = process.env.COOKIES || "";
@@ -118,7 +122,7 @@ const transferWarehouse = async (args: {
       },
     },
   );
-  const stream = await response.json();
+  const stream = (await response.json()) as TransferWarehouseResponseType;
   if (response.ok && stream.ok === true) return;
   console.error("Error transferring item", stream);
 };
