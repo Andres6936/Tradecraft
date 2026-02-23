@@ -1,7 +1,17 @@
 import { useTraderContext } from "../context/use-trader";
 
 const InfoSelected = () => {
-  const { selectedProduct, isAllProductSelected } = useTraderContext();
+  const context = useTraderContext();
+
+  if (context.isLoading) {
+    return <p>Loading ...</p>;
+  }
+
+  if (context.error) {
+    return <p>Error: {context.error.message}</p>;
+  }
+
+  const { selectedProduct, isAllProductSelected } = context;
 
   return (
     <div className="flex gap-2 items-center justify-between">

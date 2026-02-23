@@ -8,13 +8,23 @@ import { Input } from "~/components/ui/input";
 import { useTraderContext } from "../context/use-trader";
 
 const QuantityPrice = () => {
+  const context = useTraderContext();
+
+  if (context.isLoading) {
+    return <p>Loading ...</p>;
+  }
+
+  if (context.error) {
+    return <p>Error: {context.error.message}</p>;
+  }
+
   const {
     isAllProductSelected,
     quantity,
     onChangeQuantity,
     price,
     onChangePrice,
-  } = useTraderContext();
+  } = context;
 
   return (
     <div className="flex gap-2 items-center justify-between">

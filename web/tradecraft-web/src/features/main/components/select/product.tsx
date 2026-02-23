@@ -15,7 +15,17 @@ import { useTraderContext } from "~/features/main/context/use-trader";
 import { defaultValue } from "~/features/main/utils/setup";
 
 function SelectProduct() {
-  const { selectedProduct, onSelectProduct } = useTraderContext();
+  const context = useTraderContext();
+
+  if (context.isLoading) {
+    return <p>Loading ...</p>;
+  }
+
+  if (context.error) {
+    return <p>Error: {context.error.message}</p>;
+  }
+
+  const { selectedProduct, onSelectProduct } = context;
 
   return (
     <Combobox

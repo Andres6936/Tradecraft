@@ -1,5 +1,4 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
 
 import type { ExternOrderType } from "~/types/d";
 
@@ -8,7 +7,6 @@ import { ScrollArea } from "~/components/ui/scroll-area";
 
 import { Order } from "./order";
 import { useTraderContext } from "../context/use-trader";
-import { getState } from "~/features/main/server/actions/get-state";
 
 const Root = ({
   children,
@@ -20,17 +18,9 @@ const Root = ({
 );
 
 const ListOrders = () => {
-  const { selectedProduct } = useTraderContext();
+  const context = useTraderContext();
 
-  const query = useQuery({
-    queryKey: [`/server/action/getOrders?`, selectedProduct],
-    queryFn: () =>
-      getState({
-        productId: selectedProduct ? selectedProduct.Id : null,
-      }),
-  });
-
-  if (query.isLoading || !query.data) {
+  if (context.isLoading) {
     return (
       <Root className="items-center justify-center">
         <div>Loading...</div>
@@ -38,15 +28,15 @@ const ListOrders = () => {
     );
   }
 
-  if (query.error) {
+  if (context.error) {
     return (
       <Root>
-        <div>Error: {query.error.message}</div>
+        <div>Error: {context.error.message}</div>
       </Root>
     );
   }
 
-  const orders = query.data.orders;
+  const orders = context.orders;
 
   return (
     <Root>
