@@ -8,6 +8,7 @@ import { getOrders } from "~/api";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
 import { Order } from "./order";
+import { useTraderContext } from "../context/use-trader";
 
 const Root = ({
   children,
@@ -19,9 +20,14 @@ const Root = ({
 );
 
 const ListOrders = () => {
+  const { selectedProduct } = useTraderContext();
+
   const query = useQuery({
-    queryKey: ["/server/action/getOrders"],
-    queryFn: () => getOrders(),
+    queryKey: [`/server/action/getOrders?`, selectedProduct],
+    queryFn: () =>
+      getOrders({
+        productId: selectedProduct ? selectedProduct.Id : null,
+      }),
   });
 
   if (query.isLoading || !query.data) {

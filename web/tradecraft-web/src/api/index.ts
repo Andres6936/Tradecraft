@@ -1,6 +1,8 @@
 "use server";
 
 import { getLogger } from "@logtape/logtape";
+import { isNullish, isInt } from "radashi";
+
 import { toTruncate } from "~/lib/utils";
 import type {
   ExternOrderType,
@@ -47,11 +49,18 @@ const getPriceRange = async (
 
 const getOrders = async (
   args: {
-    productId?: number;
+    productId?: number | null;
   } = {},
 ) => {
   const searchParams = new URLSearchParams();
-  if (args.productId) {
+
+  // Determine if the value is not null and is an integer without
+  // fractions parts and the value is different from -1
+  if (
+    !isNullish(args.productId) &&
+    isInt(args.productId) &&
+    args.productId !== -1
+  ) {
     searchParams.append("orderFilterProductId", args.productId.toString());
   }
 
