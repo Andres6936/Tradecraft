@@ -2,8 +2,13 @@
 
 import { SelectProduct } from "~/components/select/product";
 import { Button } from "~/components/ui/button";
-import { ButtonGroup } from "~/components/ui/button-group";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import { Checkbox } from "~/components/ui/checkbox";
 import {
   InputGroup,
@@ -12,6 +17,7 @@ import {
   InputGroupInput,
 } from "~/components/ui/input-group";
 import { Label } from "~/components/ui/label";
+import { Switch } from "~/components/ui/switch";
 import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 
 const Trader = () => {
@@ -19,6 +25,12 @@ const Trader = () => {
     <Card className="w-full min-w-md max-w-md">
       <CardHeader>
         <CardTitle>Market Orders</CardTitle>
+        <CardAction>
+          <Label>
+            <p className="text-muted-foreground text-xs">My Orders</p>
+            <Switch />
+          </Label>
+        </CardAction>
       </CardHeader>
       <CardContent>
         <section className="flex flex-col gap-4">
