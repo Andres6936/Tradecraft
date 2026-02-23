@@ -2,9 +2,20 @@ import { useQuery } from "@tanstack/react-query";
 
 import { getOrders } from "~/api";
 import { ScrollArea } from "~/components/ui/scroll-area";
+import { cn } from "~/lib/utils";
 import type { ExternOrderType } from "~/types/d";
 
+import React from "react";
 import { Order } from "./order";
+
+const Root = ({
+  children,
+  className,
+}: React.PropsWithChildren<{ className?: string }>) => (
+  <div className="relative h-96">
+    <div className={cn("flex absolute inset-0", className)}>{children}</div>
+  </div>
+);
 
 const ListOrders = () => {
   const query = useQuery({
@@ -13,25 +24,31 @@ const ListOrders = () => {
   });
 
   if (query.isLoading || !query.data) {
-    return <div>Loading...</div>;
+    return (
+      <Root className="items-center justify-center">
+        <div>Loading...</div>
+      </Root>
+    );
   }
 
   if (query.error) {
-    return <div>Error: {query.error.message}</div>;
+    return (
+      <Root>
+        <div>Error: {query.error.message}</div>
+      </Root>
+    );
   }
 
   const orders = query.data;
 
   return (
-    <div className="relative h-96">
-      <div className="flex absolute inset-0">
-        <ScrollArea className="flex flex-1">
-          {orders.map((it) => (
-            <Order key={it._id} model={it as ExternOrderType} />
-          ))}
-        </ScrollArea>
-      </div>
-    </div>
+    <Root>
+      <ScrollArea className="flex flex-1">
+        {orders.map((it) => (
+          <Order key={it._id} model={it as ExternOrderType} />
+        ))}
+      </ScrollArea>
+    </Root>
   );
 };
 
