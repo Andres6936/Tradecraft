@@ -14,11 +14,20 @@ import {
 import { useTraderContext } from "~/features/main/context/use-trader";
 import { defaultValue } from "~/features/main/utils/setup";
 
+const Skeleton = () => {
+  return (
+    <Combobox disabled={true}>
+      <ComboboxInput placeholder="Loading..." />
+      <ComboboxContent />
+    </Combobox>
+  );
+};
+
 function SelectProduct() {
   const context = useTraderContext();
 
   if (context.isLoading) {
-    return <p>Loading ...</p>;
+    return <Skeleton />;
   }
 
   if (context.error) {
