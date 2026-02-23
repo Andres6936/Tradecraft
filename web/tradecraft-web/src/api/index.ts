@@ -75,7 +75,7 @@ const getStateWith = async (
     },
   );
 
-  const result = (await stream.json()) as {
+  const result = (await stream.json()) as GetStateType & {
     orders: ExternOrderType[];
   };
   return result;
