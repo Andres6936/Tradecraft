@@ -4,11 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 import type { ExternOrderType } from "~/types/d";
 
 import { cn } from "~/lib/utils";
-import { getOrders } from "~/api";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
 import { Order } from "./order";
 import { useTraderContext } from "../context/use-trader";
+import { getState } from "~/features/main/server/actions/get-state";
 
 const Root = ({
   children,
@@ -25,7 +25,7 @@ const ListOrders = () => {
   const query = useQuery({
     queryKey: [`/server/action/getOrders?`, selectedProduct],
     queryFn: () =>
-      getOrders({
+      getState({
         productId: selectedProduct ? selectedProduct.Id : null,
       }),
   });
@@ -46,7 +46,7 @@ const ListOrders = () => {
     );
   }
 
-  const orders = query.data;
+  const orders = query.data.orders;
 
   return (
     <Root>

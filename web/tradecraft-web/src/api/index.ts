@@ -47,7 +47,7 @@ const getPriceRange = async (
   };
 };
 
-const getOrders = async (
+const getStateWith = async (
   args: {
     productId?: number | null;
   } = {},
@@ -78,7 +78,7 @@ const getOrders = async (
   const result = (await stream.json()) as {
     orders: ExternOrderType[];
   };
-  return result.orders;
+  return result;
 };
 
 const getBalance = (orders: any[]) => {
@@ -254,7 +254,7 @@ export {
   getBalance,
   getBestSellOffer,
   getMineOrders,
-  getOrders,
+  getStateWith,
   getPriceRange,
   getState,
   sendOrder,
