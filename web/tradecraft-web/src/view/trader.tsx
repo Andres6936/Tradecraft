@@ -1,6 +1,7 @@
 "use client";
 
 import { SelectProduct } from "~/components/select/product";
+import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -20,6 +21,21 @@ import { Label } from "~/components/ui/label";
 import { Switch } from "~/components/ui/switch";
 import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 
+const Order = () => {
+  return (
+    <section className="border rounded p-2">
+      <div className="flex items-center justify-between">
+        <p className="font-bold text-lg">Buy - Smartphone</p>
+        <Badge>Market</Badge>
+      </div>
+      <div className="flex items-center justify-between">
+        <p className="text-muted-foreground text-xs">14 pieces(s) - Kestrel</p>
+        <p className="text-muted-foreground text-xs">49s ago</p>
+      </div>
+    </section>
+  );
+};
+
 const Trader = () => {
   return (
     <Card className="w-full min-w-md max-w-md">
@@ -35,7 +51,11 @@ const Trader = () => {
       <CardContent>
         <section className="flex flex-col gap-4">
           <SelectProduct />
-          <div className="bg-red-100 h-96"></div>
+          <hr />
+          <div className="h-96">
+            <Order />
+          </div>
+          <hr />
           <div className="flex gap-2 items-center justify-between">
             <div className="flex flex-col">
               <p className="text-muted-foreground text-xs text-start">
