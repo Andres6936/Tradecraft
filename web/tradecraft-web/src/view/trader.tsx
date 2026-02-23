@@ -18,12 +18,13 @@ import {
   InputGroupInput,
 } from "~/components/ui/input-group";
 import { Label } from "~/components/ui/label";
+import { ScrollArea } from "~/components/ui/scroll-area";
 import { Switch } from "~/components/ui/switch";
 import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 
 const Order = () => {
   return (
-    <section className="border rounded p-2">
+    <section className="border rounded py-2 px-3">
       <div className="flex items-center justify-between">
         <p className="font-bold text-lg">Buy - Smartphone</p>
         <Badge>Market</Badge>
@@ -52,8 +53,21 @@ const Trader = () => {
         <section className="flex flex-col gap-4">
           <SelectProduct />
           <hr />
-          <div className="h-96">
-            <Order />
+          <div className="relative h-96">
+            <div className="flex absolute inset-0">
+              <ScrollArea className="flex flex-1">
+                <Order />
+                <Order />
+                <Order />
+                <Order />
+                <Order />
+                <Order />
+                <Order />
+                <Order />
+                <Order />
+                <Order />
+              </ScrollArea>
+            </div>
           </div>
           <hr />
           <div className="flex gap-2 items-center justify-between">
