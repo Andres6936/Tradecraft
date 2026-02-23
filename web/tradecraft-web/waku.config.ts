@@ -5,6 +5,9 @@ import { defineConfig } from "waku/config";
 
 export default defineConfig({
   vite: {
+    server: {
+      hmr: false,
+    },
     resolve: {
       alias: { "~": path.resolve(import.meta.dirname, "./src") },
     },
