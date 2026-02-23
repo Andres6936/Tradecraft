@@ -33,10 +33,10 @@ const SkeletonLoading = () => {
   return (
     <Root>
       <ProductSelected>
-        <Skeleton className="h-4 w-28" />
+        <Skeleton className="h-5 w-28" />
       </ProductSelected>
       <Stock>
-        <Skeleton className="h-4 w-20 text-end" />
+        <Skeleton className="h-5 w-20 text-end" />
       </Stock>
     </Root>
   );

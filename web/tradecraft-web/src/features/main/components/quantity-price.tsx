@@ -42,10 +42,10 @@ const SkeletonLoading = () => {
   return (
     <Root>
       <Quantity>
-        <InputGroupInput disabled={true} />
+        <InputGroupInput className="max-w-24" disabled={true} />
       </Quantity>
       <Price>
-        <Input disabled={true} />
+        <Input className="max-w-24" disabled={true} />
       </Price>
     </Root>
   );
