@@ -7,8 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import { Label } from "~/components/ui/label";
-import { Switch } from "~/components/ui/switch";
 
 import { ListOrders } from "~/features/main/components/list-orders";
 import { SelectProduct } from "~/features/main/components/select/product";
@@ -17,6 +15,7 @@ import { InfoSelected } from "~/features/main/components/info-selected";
 import { QuantityPrice } from "~/features/main/components/quantity-price";
 import { AllowNpcTotal } from "~/features/main/components/allow-npc-total";
 import { Actions } from "~/features/main/components/actions";
+import { ActionsMineOnly } from "~/features/main/components/action-mine-only";
 
 const Trader = () => {
   return (
@@ -25,10 +24,7 @@ const Trader = () => {
         <CardHeader>
           <CardTitle>Market Orders</CardTitle>
           <CardAction>
-            <Label>
-              <p className="text-muted-foreground text-xs">My Orders</p>
-              <Switch />
-            </Label>
+            <ActionsMineOnly />
           </CardAction>
         </CardHeader>
         <CardContent>

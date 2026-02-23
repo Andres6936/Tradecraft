@@ -19,6 +19,8 @@ type TraderContextProps =
       isLoading: false;
       error: null;
       isAllProductSelected: boolean;
+      isOrdersMineOnly: boolean;
+      onChangeOrdersMineOnly: (isOrdersMineOnly: boolean) => void;
       side: "buy" | "sell";
       onChangeSide: (side: "buy" | "sell") => void;
       orderType: "limit" | "market";
@@ -51,6 +53,7 @@ const useTraderContext = () => {
 const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [side, setSide] = useState<"buy" | "sell">("buy");
   const [orderType, setOrderType] = useState<"limit" | "market">("limit");
+  const [isOrdersMineOnly, setIsOrdersMineOnly] = useState<boolean>(true);
   const [isAllowNpc, setIsAllowNpc] = useState<boolean>(true);
   const [quantity, setQuantity] = useState<number>(100);
   const [price, setPrice] = useState<number>(0);
@@ -91,6 +94,8 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
         orders,
         isAllowNpc,
         onChangeAllowNpc: setIsAllowNpc,
+        isOrdersMineOnly,
+        onChangeOrdersMineOnly: setIsOrdersMineOnly,
         side,
         onChangeSide: setSide,
         orderType,
