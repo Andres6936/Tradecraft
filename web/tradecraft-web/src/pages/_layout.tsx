@@ -1,8 +1,9 @@
-import '../styles.css';
+import "../styles.css";
 
-import type { ReactNode } from 'react';
-import { Footer } from '../components/footer';
-import { Header } from '../components/header';
+import type { ReactNode } from "react";
+import { Footer } from "../components/footer";
+import { Header } from "../components/header";
+import { Providers } from "~/components/provider";
 
 type RootLayoutProps = { children: ReactNode };
 
@@ -20,19 +21,21 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         precedence="font"
       />
-      <Header />
-      <main className="m-6 flex items-center *:min-h-64 *:min-w-64 lg:m-0 lg:min-h-svh lg:justify-center">
-        {children}
-      </main>
-      <Footer />
+      <Providers>
+        <Header />
+        <main className="m-6 flex items-center *:min-h-64 *:min-w-64 lg:m-0 lg:min-h-svh lg:justify-center">
+          {children}
+        </main>
+        <Footer />
+      </Providers>
     </div>
   );
 }
 
 const getData = async () => {
   const data = {
-    description: 'An internet website!',
-    icon: '/images/favicon.png',
+    description: "An internet website!",
+    icon: "/images/favicon.png",
   };
 
   return data;
@@ -40,6 +43,6 @@ const getData = async () => {
 
 export const getConfig = async () => {
   return {
-    render: 'static',
+    render: "static",
   } as const;
 };
