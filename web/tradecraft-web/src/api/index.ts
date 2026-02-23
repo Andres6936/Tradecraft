@@ -1,3 +1,5 @@
+"use server";
+
 import { getLogger } from "@logtape/logtape";
 import { toTruncate } from "~/lib/utils";
 import type {
@@ -43,9 +45,18 @@ const getPriceRange = async (
   };
 };
 
-const getOrders = async (productId: number) => {
+const getOrders = async (
+  args: {
+    productId?: number;
+  } = {},
+) => {
+  const searchParams = new URLSearchParams();
+  if (args.productId) {
+    searchParams.append("orderFilterProductId", args.productId.toString());
+  }
+
   const stream = await fetch(
-    `https://playtradecraft.com/api/state?orderFilterProductId=${productId}`,
+    `https://playtradecraft.com/api/state?${searchParams.toString()}`,
     {
       headers: {
         Cookie: Cookies,
