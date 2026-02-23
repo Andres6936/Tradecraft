@@ -23,6 +23,7 @@ import { Input } from "~/components/ui/input";
 import { ListOrders } from "~/features/main/components/list-orders";
 import { SelectProduct } from "~/features/main/components/select/product";
 import { TraderContextProvider } from "~/features/main/context/use-trader";
+import { InfoSelected } from "~/features/main/components/info-selected";
 
 const Trader = () => {
   return (
@@ -43,18 +44,7 @@ const Trader = () => {
             <hr />
             <ListOrders />
             <hr />
-            <div className="flex gap-2 items-center justify-between">
-              <div className="flex flex-col">
-                <p className="text-muted-foreground text-xs text-start">
-                  Selected Product
-                </p>
-                <p>Milk</p>
-              </div>
-              <div className="flex flex-col">
-                <p className="text-muted-foreground text-xs text-end">Stock</p>
-                <p>0.00 lts(s)</p>
-              </div>
-            </div>
+            <InfoSelected />
             <div className="flex gap-2 items-center justify-between">
               <div className="flex flex-row gap-2 items-center">
                 <p className="text-muted-foreground text-xs">Quantity</p>
