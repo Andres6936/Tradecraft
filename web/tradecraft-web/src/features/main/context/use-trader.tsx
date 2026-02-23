@@ -19,8 +19,11 @@ type TraderContextProps =
       isLoading: false;
       error: null;
       isAllProductSelected: boolean;
+      totalPrice: number;
       inventory: Record<string, number>;
       orders: ExternOrderType[];
+      isAllowNpc: boolean;
+      onChangeAllowNpc: (allowNpc: boolean) => void;
       quantity: number;
       onChangeQuantity: (quantity: number) => void;
       price: number;
@@ -42,6 +45,7 @@ const useTraderContext = () => {
 };
 
 const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
+  const [isAllowNpc, setIsAllowNpc] = useState<boolean>(true);
   const [quantity, setQuantity] = useState<number>(100);
   const [price, setPrice] = useState<number>(0);
   const [selectedProduct, setSelectedProduct] =
@@ -79,6 +83,9 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
         isLoading: false,
         error: null,
         orders,
+        isAllowNpc,
+        onChangeAllowNpc: setIsAllowNpc,
+        totalPrice: 0,
         inventory,
         isAllProductSelected: selectedProduct.Id === defaultValue.Id,
         quantity,
