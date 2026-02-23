@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { ThemeProvider } from "./theme-provider";
@@ -10,7 +11,10 @@ const queryClient = new QueryClient();
 const Providers = ({ children }: React.PropsWithChildren<{}>) => {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        {children}
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </ThemeProvider>
   );
 };
