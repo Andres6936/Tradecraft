@@ -3,32 +3,34 @@
 import instructions from "~/instructions.json" with { type: "json" };
 
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "~/components/ui/select";
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "~/components/ui/combobox";
+
+const defaultValue = { Id: "ALL", Key: "ALL", Name: "All products" };
 
 function SelectProduct() {
   return (
-    <Select>
-      <SelectTrigger className="w-full max-w-48">
-        <SelectValue placeholder="Select a product" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Products</SelectLabel>
-          {instructions.map((it) => (
-            <SelectItem key={it.Id} value={it.Key}>
-              {it.Name}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <Combobox
+      items={[defaultValue, ...instructions]}
+      defaultValue={defaultValue.Name}
+    >
+      <ComboboxInput placeholder="Select a product" />
+      <ComboboxContent>
+        <ComboboxEmpty>No products found.</ComboboxEmpty>
+        <ComboboxList>
+          {(item) => (
+            <ComboboxItem key={item.Id} value={item.Name}>
+              {item.Name}
+            </ComboboxItem>
+          )}
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
   );
 }
 
