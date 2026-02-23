@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import type { ProductType } from "~/features/main/types/d";
 
 type TraderContextProps = {
-  selectedProductId: number | "ALL" | null;
-  onSelectProductId: (id: number) => void;
+  selectedProduct: ProductType | null;
+  onSelectProduct: (id: ProductType | null) => void;
 };
 
 const TraderContext = React.createContext<TraderContextProps | null>(null);
@@ -18,13 +19,13 @@ const useTraderContext = () => {
 };
 
 const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
-  const [selectedProductId, setSelectedProductId] = useState<
-    number | "ALL" | null
-  >(null);
+  const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
+    null,
+  );
 
   return (
     <TraderContext.Provider
-      value={{ selectedProductId, onSelectProductId: setSelectedProductId }}
+      value={{ selectedProduct, onSelectProduct: setSelectedProduct }}
     >
       {children}
     </TraderContext.Provider>
