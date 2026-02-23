@@ -1,10 +1,17 @@
+import React, { useMemo } from "react";
 import { capitalize } from "radashi";
-import React from "react";
+import { type RowComponentProps } from "react-window";
 
 import { Badge } from "~/components/ui/badge";
 import type { ExternOrderType } from "~/types/d";
 
-const Order = ({ model }: { model: ExternOrderType }) => {
+const Order = ({
+  index,
+  style,
+  orders,
+}: RowComponentProps<{ orders: ExternOrderType[] }>) => {
+  const model = useMemo(() => orders[index]!, [index, orders]);
+
   const side = React.useMemo(() => {
     return capitalize(model.side);
   }, [model]);
@@ -23,7 +30,7 @@ const Order = ({ model }: { model: ExternOrderType }) => {
   }, [model]);
 
   return (
-    <section className="border rounded py-2 px-3">
+    <section className="border rounded py-2 px-3" style={style}>
       <div className="flex items-center justify-between">
         <p className="font-bold text-lg">
           {side} - {model.productName}

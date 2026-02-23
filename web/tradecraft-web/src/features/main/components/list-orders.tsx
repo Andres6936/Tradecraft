@@ -1,4 +1,5 @@
 import React from "react";
+import { List } from "react-window";
 
 import type { ExternOrderType } from "~/types/d";
 
@@ -40,11 +41,12 @@ const ListOrders = () => {
 
   return (
     <Root>
-      <ScrollArea className="flex flex-1">
-        {orders.map((it) => (
-          <Order key={it._id} model={it as ExternOrderType} />
-        ))}
-      </ScrollArea>
+      <List
+        rowComponent={Order}
+        rowCount={orders.length}
+        rowHeight={60}
+        rowProps={{ orders }}
+      />
     </Root>
   );
 };
