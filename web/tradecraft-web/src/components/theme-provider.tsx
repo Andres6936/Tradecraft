@@ -28,9 +28,11 @@ export function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-  );
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
+
+  useEffect(() => {
+    setTheme((localStorage.getItem(storageKey) as Theme) || defaultTheme);
+  }, []);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -61,6 +63,19 @@ export function ThemeProvider({
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
       {children}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          try {
+            const theme = localStorage.getItem("${storageKey}") || "${defaultTheme}";
+            const root = window.document.documentElement;
+
+            root.classList.remove("light", "dark");
+            root.classList.add(theme);
+          } catch (ignored) {}
+        `,
+        }}
+      />
     </ThemeProviderContext.Provider>
   );
 }
