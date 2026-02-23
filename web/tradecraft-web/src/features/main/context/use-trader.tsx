@@ -19,6 +19,7 @@ type TraderContextProps =
       isLoading: false;
       error: null;
       isAllProductSelected: boolean;
+      inventory: Record<string, number>;
       orders: ExternOrderType[];
       quantity: number;
       onChangeQuantity: (quantity: number) => void;
@@ -70,14 +71,15 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
     );
   }
 
-  const orders = query.data.orders;
+  const { orders, inventory } = query.data;
 
   return (
     <TraderContext.Provider
       value={{
         isLoading: false,
         error: null,
-        orders: orders,
+        orders,
+        inventory,
         isAllProductSelected: selectedProduct.Id === defaultValue.Id,
         quantity,
         onChangeQuantity: setQuantity,

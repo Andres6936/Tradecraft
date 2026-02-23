@@ -9,6 +9,7 @@ const getState = async (args: { productId?: number | null }) => {
 
   return {
     orders: state.orders,
+    inventory: state.gs.inventory,
   };
 };
 

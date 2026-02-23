@@ -11,7 +11,7 @@ const InfoSelected = () => {
     return <p>Error: {context.error.message}</p>;
   }
 
-  const { selectedProduct, isAllProductSelected } = context;
+  const { selectedProduct, inventory, isAllProductSelected } = context;
 
   return (
     <div className="flex gap-2 items-center justify-between">
@@ -24,7 +24,9 @@ const InfoSelected = () => {
       <div className="flex flex-col">
         <p className="text-muted-foreground text-xs text-end">Stock</p>
         <p className="text-end">
-          {isAllProductSelected ? "All" : "0.00 lts(s)"}
+          {isAllProductSelected
+            ? "All"
+            : (inventory[selectedProduct.Key] || 0).toFixed(1) + " units"}
         </p>
       </div>
     </div>
