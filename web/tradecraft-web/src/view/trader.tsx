@@ -1,5 +1,7 @@
 "use client";
 
+import type { ExternOrderType } from "~/types/d";
+
 import { SelectProduct } from "~/components/select/product";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
@@ -22,15 +24,19 @@ import { ScrollArea } from "~/components/ui/scroll-area";
 import { Switch } from "~/components/ui/switch";
 import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 
-const Order = () => {
+import state from "~/state.json" with { type: "json" };
+
+const Order = ({ model }: { model: ExternOrderType }) => {
   return (
     <section className="border rounded py-2 px-3">
       <div className="flex items-center justify-between">
-        <p className="font-bold text-lg">Buy - Smartphone</p>
+        <p className="font-bold text-lg">Buy - {model.productName}</p>
         <Badge>Market</Badge>
       </div>
       <div className="flex items-center justify-between">
-        <p className="text-muted-foreground text-xs">14 pieces(s) - Kestrel</p>
+        <p className="text-muted-foreground text-xs">
+          {model.qty} {model.unit} - {model.regionName}
+        </p>
         <p className="text-muted-foreground text-xs">49s ago</p>
       </div>
     </section>
@@ -56,16 +62,9 @@ const Trader = () => {
           <div className="relative h-96">
             <div className="flex absolute inset-0">
               <ScrollArea className="flex flex-1">
-                <Order />
-                <Order />
-                <Order />
-                <Order />
-                <Order />
-                <Order />
-                <Order />
-                <Order />
-                <Order />
-                <Order />
+                {state.orders.map((it) => (
+                  <Order key={it._id} model={it as ExternOrderType} />
+                ))}
               </ScrollArea>
             </div>
           </div>
