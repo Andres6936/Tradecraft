@@ -1,11 +1,12 @@
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { getOrders } from "~/api";
-import { ScrollArea } from "~/components/ui/scroll-area";
-import { cn } from "~/lib/utils";
 import type { ExternOrderType } from "~/types/d";
 
-import React from "react";
+import { cn } from "~/lib/utils";
+import { getOrders } from "~/api";
+import { ScrollArea } from "~/components/ui/scroll-area";
+
 import { Order } from "./order";
 
 const Root = ({
