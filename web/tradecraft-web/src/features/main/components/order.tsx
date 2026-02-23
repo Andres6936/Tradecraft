@@ -1,8 +1,8 @@
-import React from "react";
 import { capitalize } from "radashi";
+import React from "react";
 
-import type { ExternOrderType } from "~/types/d";
 import { Badge } from "~/components/ui/badge";
+import type { ExternOrderType } from "~/types/d";
 
 const Order = ({ model }: { model: ExternOrderType }) => {
   const side = React.useMemo(() => {

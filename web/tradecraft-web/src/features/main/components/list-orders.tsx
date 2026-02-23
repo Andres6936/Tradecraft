@@ -1,5 +1,5 @@
-import type { ExternOrderType } from "~/types/d";
 import { ScrollArea } from "~/components/ui/scroll-area";
+import type { ExternOrderType } from "~/types/d";
 
 import { Order } from "./order";
 
