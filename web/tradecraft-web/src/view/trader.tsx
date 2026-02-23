@@ -1,11 +1,6 @@
 "use client";
 
-import React from "react";
-
-import type { ExternOrderType } from "~/types/d";
-
 import { SelectProduct } from "~/components/select/product";
-import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -22,50 +17,11 @@ import {
   InputGroupInput,
 } from "~/components/ui/input-group";
 import { Label } from "~/components/ui/label";
-import { ScrollArea } from "~/components/ui/scroll-area";
 import { Switch } from "~/components/ui/switch";
 import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 
-import { capitalize } from "radashi";
-
-import state from "~/state.json" with { type: "json" };
 import { Input } from "~/components/ui/input";
-
-const Order = ({ model }: { model: ExternOrderType }) => {
-  const side = React.useMemo(() => {
-    return capitalize(model.side);
-  }, [model]);
-
-  const regionName = React.useMemo(() => {
-    return model.regionName.split(" ").at(0);
-  }, [model]);
-
-  const CompBadge = React.useMemo(() => {
-    const orderType = model.orderType;
-    if (orderType === "market") {
-      return <Badge>Market</Badge>;
-    } else {
-      return <p className="font-bold text-lg">${model.price}</p>;
-    }
-  }, [model]);
-
-  return (
-    <section className="border rounded py-2 px-3">
-      <div className="flex items-center justify-between">
-        <p className="font-bold text-lg">
-          {side} - {model.productName}
-        </p>
-        {CompBadge}
-      </div>
-      <div className="flex items-center justify-between">
-        <p className="text-muted-foreground text-xs">
-          {model.qty} {model.unit} - {regionName}
-        </p>
-        <p className="text-muted-foreground text-xs">49s ago</p>
-      </div>
-    </section>
-  );
-};
+import { ListOrders } from "~/features/main/components/list-orders";
 
 const Trader = () => {
   return (
@@ -83,15 +39,7 @@ const Trader = () => {
         <section className="flex flex-col gap-4">
           <SelectProduct />
           <hr />
-          <div className="relative h-96">
-            <div className="flex absolute inset-0">
-              <ScrollArea className="flex flex-1">
-                {state.orders.map((it) => (
-                  <Order key={it._id} model={it as ExternOrderType} />
-                ))}
-              </ScrollArea>
-            </div>
-          </div>
+          <ListOrders />
           <hr />
           <div className="flex gap-2 items-center justify-between">
             <div className="flex flex-col">
