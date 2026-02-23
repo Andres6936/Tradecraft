@@ -16,7 +16,7 @@ import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 
 const Trader = () => {
   return (
-    <Card className="w-full max-w-lg">
+    <Card className="w-full min-w-md max-w-md">
       <CardHeader>
         <CardTitle>Market Orders</CardTitle>
       </CardHeader>
@@ -25,27 +25,33 @@ const Trader = () => {
           <SelectProduct />
           <div className="bg-red-100 h-96"></div>
           <div className="flex gap-2 items-center justify-between">
-            <div className="flex flex-row gap-2">
-              <p>Selected product</p>
+            <div className="flex flex-col">
+              <p className="text-muted-foreground text-xs text-start">
+                Selected Product
+              </p>
               <p>Milk</p>
             </div>
-            <div className="flex flex-row gap-2">
-              <p>Stock</p>
+            <div className="flex flex-col">
+              <p className="text-muted-foreground text-xs text-end">Stock</p>
               <p>0.00 lts(s)</p>
             </div>
           </div>
           <div className="flex gap-2 items-center justify-between">
-            <p>Quantity</p>
-            <div>
-              <InputGroup>
-                <InputGroupInput />
-                <InputGroupAddon align="inline-end">
-                  <InputGroupButton>Max</InputGroupButton>
-                </InputGroupAddon>
-              </InputGroup>
+            <div className="flex flex-row gap-2 items-center">
+              <p className="text-muted-foreground text-xs">Quantity</p>
+              <div>
+                <InputGroup>
+                  <InputGroupInput className="max-w-20" />
+                  <InputGroupAddon align="inline-end">
+                    <InputGroupButton>Max</InputGroupButton>
+                  </InputGroupAddon>
+                </InputGroup>
+              </div>
             </div>
-            <p>Price</p>
-            <p>107.90</p>
+            <div className="flex flex-row gap-2 items-center">
+              <p className="text-muted-foreground text-xs">Price</p>
+              <p>107.90</p>
+            </div>
           </div>
           <div className="flex gap-2 items-center justify-between">
             <Label>
@@ -53,8 +59,8 @@ const Trader = () => {
               Allow NPC Fill
             </Label>
 
-            <div className="flex flex-row gap-2">
-              <p>Total</p>
+            <div className="flex flex-row gap-2 items-center">
+              <p className="text-muted-foreground text-xs">Total</p>
               <p>$10.790.0</p>
             </div>
           </div>
