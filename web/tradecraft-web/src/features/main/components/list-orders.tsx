@@ -1,10 +1,7 @@
 import React from "react";
 import { List } from "react-window";
 
-import type { ExternOrderType } from "~/types/d";
-
 import { cn } from "~/lib/utils";
-import { ScrollArea } from "~/components/ui/scroll-area";
 
 import { Order } from "./order";
 import { useTraderContext } from "../context/use-trader";
