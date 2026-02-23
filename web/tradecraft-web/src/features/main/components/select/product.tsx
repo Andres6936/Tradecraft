@@ -22,6 +22,7 @@ function SelectProduct() {
     <Combobox
       items={[defaultValue, ...instructions] as ProductType[]}
       itemToStringValue={(value) => value.Name}
+      itemToStringLabel={(value) => value.Name}
       value={selectedProduct}
       onValueChange={(value) => onSelectProduct(value)}
     >
