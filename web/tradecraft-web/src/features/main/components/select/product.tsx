@@ -1,6 +1,7 @@
 "use client";
 
 import instructions from "~/instructions.json" with { type: "json" };
+import type { ProductType } from "~/features/main/types/d";
 
 import {
   Combobox,
@@ -11,9 +12,7 @@ import {
   ComboboxList,
 } from "~/components/ui/combobox";
 import { useTraderContext } from "~/features/main/context/use-trader";
-import { ProductType } from "~/features/main/types/d";
-
-const defaultValue = { Id: -1, Key: "ALL", Name: "All products" };
+import { defaultValue } from "~/features/main/utils/setup";
 
 function SelectProduct() {
   const { selectedProduct, onSelectProduct } = useTraderContext();
@@ -24,7 +23,7 @@ function SelectProduct() {
       itemToStringValue={(value) => value.Name}
       itemToStringLabel={(value) => value.Name}
       value={selectedProduct}
-      onValueChange={(value) => onSelectProduct(value)}
+      onValueChange={(value) => onSelectProduct(value || defaultValue)}
     >
       <ComboboxInput placeholder="Select a product" />
       <ComboboxContent>
