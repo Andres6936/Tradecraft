@@ -4,7 +4,7 @@ import { ThemeProvider } from "./theme-provider";
 
 const Providers = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       {children}
     </ThemeProvider>
   );

@@ -69,9 +69,18 @@ export function ThemeProvider({
           try {
             const theme = localStorage.getItem("${storageKey}") || "${defaultTheme}";
             const root = window.document.documentElement;
-
             root.classList.remove("light", "dark");
-            root.classList.add(theme);
+
+            if (theme === "system") {
+              const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+                .matches
+                ? "dark"
+                : "light";
+
+              root.classList.add(systemTheme);
+            } else {
+              root.classList.add(theme);
+            }
           } catch (ignored) {}
         `,
         }}
