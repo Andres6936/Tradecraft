@@ -1,7 +1,7 @@
 import { useTraderContext } from "../context/use-trader";
 
 const InfoSelected = () => {
-  const { selectedProduct } = useTraderContext();
+  const { selectedProduct, isAllProductSelected } = useTraderContext();
 
   return (
     <div className="flex gap-2 items-center justify-between">
@@ -13,7 +13,9 @@ const InfoSelected = () => {
       </div>
       <div className="flex flex-col">
         <p className="text-muted-foreground text-xs text-end">Stock</p>
-        <p>0.00 lts(s)</p>
+        <p className="text-end">
+          {isAllProductSelected ? "All" : "0.00 lts(s)"}
+        </p>
       </div>
     </div>
   );
