@@ -53,7 +53,7 @@ const useTraderContext = () => {
 const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [side, setSide] = useState<"buy" | "sell">("buy");
   const [orderType, setOrderType] = useState<"limit" | "market">("limit");
-  const [isOrdersMineOnly, setIsOrdersMineOnly] = useState<boolean>(true);
+  const [isOrdersMineOnly, setIsOrdersMineOnly] = useState<boolean>(false);
   const [isAllowNpc, setIsAllowNpc] = useState<boolean>(true);
   const [quantity, setQuantity] = useState<number>(100);
   const [price, setPrice] = useState<number>(0);
@@ -61,10 +61,13 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
     useState<ProductType>(defaultValue);
 
   const query = useQuery({
-    queryKey: [`/server/action/getOrders?`, selectedProduct],
+    queryKey: [
+      `/server/action/getOrders?ProductId=${selectedProduct.Id}&MineOrdersOnly=${isOrdersMineOnly}`,
+    ],
     queryFn: () =>
       getState({
         productId: selectedProduct ? selectedProduct.Id : null,
+        ordersMineOnly: isOrdersMineOnly,
       }),
   });
 

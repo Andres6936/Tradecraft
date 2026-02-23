@@ -1,7 +1,7 @@
 "use server";
 
 import { getLogger } from "@logtape/logtape";
-import { isNullish, isInt } from "radashi";
+import { isNullish, isInt, isBoolean } from "radashi";
 
 import { toTruncate } from "~/lib/utils";
 import type {
@@ -50,6 +50,7 @@ const getPriceRange = async (
 const getStateWith = async (
   args: {
     productId?: number | null;
+    ordersMineOnly?: boolean;
   } = {},
 ) => {
   const searchParams = new URLSearchParams();
@@ -62,6 +63,10 @@ const getStateWith = async (
     args.productId !== -1
   ) {
     searchParams.append("orderFilterProductId", args.productId.toString());
+  }
+
+  if (!isNullish(args.ordersMineOnly) && isBoolean(args.ordersMineOnly)) {
+    searchParams.append("mineOrdersOnly", args.ordersMineOnly ? "1" : "0");
   }
 
   const stream = await fetch(
