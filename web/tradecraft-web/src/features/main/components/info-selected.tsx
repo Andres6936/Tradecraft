@@ -1,10 +1,52 @@
+import { Skeleton } from "~/components/ui/skeleton";
 import { useTraderContext } from "../context/use-trader";
+
+const Root = (props: React.PropsWithChildren<{}>) => (
+  <div className="flex gap-2 items-center justify-between" {...props} />
+);
+
+const Row = (props: React.PropsWithChildren<{}>) => (
+  <div className="flex flex-col" {...props} />
+);
+
+const ProductSelected = ({ children }: React.PropsWithChildren<{}>) => {
+  return (
+    <Row>
+      <p className="text-muted-foreground text-xs text-start">
+        Selected Product
+      </p>
+      {children}
+    </Row>
+  );
+};
+
+const Stock = ({ children }: React.PropsWithChildren<{}>) => {
+  return (
+    <Row>
+      <p className="text-muted-foreground text-xs text-end">Stock</p>
+      {children}
+    </Row>
+  );
+};
+
+const SkeletonLoading = () => {
+  return (
+    <Root>
+      <ProductSelected>
+        <Skeleton className="h-4 w-28" />
+      </ProductSelected>
+      <Stock>
+        <Skeleton className="h-4 w-20 text-end" />
+      </Stock>
+    </Root>
+  );
+};
 
 const InfoSelected = () => {
   const context = useTraderContext();
 
   if (context.isLoading) {
-    return <p>Loading ...</p>;
+    return <SkeletonLoading />;
   }
 
   if (context.error) {
@@ -14,22 +56,18 @@ const InfoSelected = () => {
   const { selectedProduct, inventory, isAllProductSelected } = context;
 
   return (
-    <div className="flex gap-2 items-center justify-between">
-      <div className="flex flex-col">
-        <p className="text-muted-foreground text-xs text-start">
-          Selected Product
-        </p>
+    <Root>
+      <ProductSelected>
         <p>{selectedProduct.Name}</p>
-      </div>
-      <div className="flex flex-col">
-        <p className="text-muted-foreground text-xs text-end">Stock</p>
+      </ProductSelected>
+      <Stock>
         <p className="text-end">
           {isAllProductSelected
             ? "All"
             : (inventory[selectedProduct.Key] || 0).toFixed(1) + " units"}
         </p>
-      </div>
-    </div>
+      </Stock>
+    </Root>
   );
 };
 
