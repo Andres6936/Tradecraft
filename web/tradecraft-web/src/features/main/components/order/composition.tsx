@@ -28,13 +28,18 @@ const Row = (props: React.PropsWithChildren<{}>) => (
 const Name = () => {
   const { order } = useOrderContext();
 
-  const side = React.useMemo(() => {
-    return capitalize(order.side);
+  const [side, color] = React.useMemo(() => {
+    const capitalizeSide = capitalize(order.side);
+    if (order.side === "buy") {
+      return [capitalizeSide, "text-orange-400"];
+    } else {
+      return [capitalizeSide, "text-lime-400"];
+    }
   }, [order]);
 
   return (
     <p className="font-bold text-lg leading-none">
-      {side} - {order.productName}
+      <span className={color}>{side}</span> - {order.productName}
     </p>
   );
 };
