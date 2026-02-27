@@ -160,7 +160,7 @@ the service file (manifest), for this case, the project include a script
 that generate the service file with the command:
 
 ```bash
-bun run scripts/systemd.setup
+bun run scripts/systemd.setup.ts
 ```
 
 The script generate a service file with the name of `trader.service`, now is
