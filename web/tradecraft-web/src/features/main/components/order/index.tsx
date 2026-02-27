@@ -7,6 +7,7 @@ import type { ExternOrderType } from "~/types/d";
 import { Locate } from "lucide-react";
 import { TimeAgoCounter } from "./components/time-ago-counter";
 import { OrderContext } from "./context";
+import * as Comp from "./composition";
 
 const Order = ({
   index,
@@ -17,10 +18,6 @@ const Order = ({
   const model = useMemo(() => orders[index]!, [index, orders]);
 
   const isMineOrder = model.ownerUserId === userId;
-
-  const side = React.useMemo(() => {
-    return capitalize(model.side);
-  }, [model]);
 
   const regionName = React.useMemo(() => {
     return model.regionName.split(" ").at(0);
@@ -38,21 +35,19 @@ const Order = ({
   return (
     <OrderContext.Provider value={{ order: model, isMineOrder }}>
       <section className="border rounded py-2 px-3" style={style}>
-        <div className="flex items-center justify-between">
-          <div className="flex flex-row items-center gap-2">
-            <p className="font-bold text-lg">
-              {side} - {model.productName}
-            </p>
+        <Comp.Flex>
+          <Comp.Row>
+            <Comp.Name />
             {isMineOrder && <Locate className="h-4 text-blue-500" />}
-          </div>
+          </Comp.Row>
           {CompBadge}
-        </div>
-        <div className="flex items-center justify-between">
+        </Comp.Flex>
+        <Comp.Flex>
           <p className="text-muted-foreground text-xs">
             {model.qty} {model.unit} - {regionName}
           </p>
           <TimeAgoCounter createdAt={model.createdAt} />
-        </div>
+        </Comp.Flex>
       </section>
     </OrderContext.Provider>
   );
