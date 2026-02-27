@@ -6,6 +6,7 @@ import { Badge } from "~/components/ui/badge";
 import type { ExternOrderType } from "~/types/d";
 import { Locate } from "lucide-react";
 import { TimeAgoCounter } from "./time-ago-counter";
+import { OrderContext } from "./context";
 
 const Order = ({
   index,
@@ -35,23 +36,25 @@ const Order = ({
   }, [model]);
 
   return (
-    <section className="border rounded py-2 px-3" style={style}>
-      <div className="flex items-center justify-between">
-        <div className="flex flex-row items-center gap-2">
-          <p className="font-bold text-lg">
-            {side} - {model.productName}
-          </p>
-          {isMineOrder && <Locate className="h-4 text-blue-500" />}
+    <OrderContext.Provider value={{ order: model }}>
+      <section className="border rounded py-2 px-3" style={style}>
+        <div className="flex items-center justify-between">
+          <div className="flex flex-row items-center gap-2">
+            <p className="font-bold text-lg">
+              {side} - {model.productName}
+            </p>
+            {isMineOrder && <Locate className="h-4 text-blue-500" />}
+          </div>
+          {CompBadge}
         </div>
-        {CompBadge}
-      </div>
-      <div className="flex items-center justify-between">
-        <p className="text-muted-foreground text-xs">
-          {model.qty} {model.unit} - {regionName}
-        </p>
-        <TimeAgoCounter createdAt={model.createdAt} />
-      </div>
-    </section>
+        <div className="flex items-center justify-between">
+          <p className="text-muted-foreground text-xs">
+            {model.qty} {model.unit} - {regionName}
+          </p>
+          <TimeAgoCounter createdAt={model.createdAt} />
+        </div>
+      </section>
+    </OrderContext.Provider>
   );
 };
 
