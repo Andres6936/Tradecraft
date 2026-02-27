@@ -4,9 +4,13 @@ import { Locate } from "lucide-react";
 
 import { Badge } from "~/components/ui/badge";
 import { useOrderContext } from "./context";
+import { Button } from "~/components/ui/button";
 
 const Root = (props: React.ComponentPropsWithRef<"section">) => (
-  <section className="border rounded py-2 px-3" {...props} />
+  <section
+    className="flex flex-col gap-0.5 border rounded py-2 px-3"
+    {...props}
+  />
 );
 
 const Flex = (props: React.PropsWithChildren<{}>) => (
@@ -25,7 +29,7 @@ const Name = () => {
   }, [order]);
 
   return (
-    <p className="font-bold text-lg">
+    <p className="font-bold text-lg leading-none">
       {side} - {order.productName}
     </p>
   );
@@ -44,7 +48,7 @@ const BadgePrice = () => {
   if (order.orderType === "market") {
     return <Badge>Market</Badge>;
   } else {
-    return <p className="font-bold text-lg">${order.price}</p>;
+    return <p className="font-bold text-lg leading-none">${order.price}</p>;
   }
 };
 
@@ -62,4 +66,25 @@ const QuantityRegion = () => {
   );
 };
 
-export { Root, Flex, Row, Name, Indicator, BadgePrice, QuantityRegion };
+const ActionCancel = () => {
+  const { isMineOrder } = useOrderContext();
+
+  if (!isMineOrder) return null;
+
+  return (
+    <Button size="xs" variant="destructive">
+      Cancel
+    </Button>
+  );
+};
+
+export {
+  Root,
+  Flex,
+  Row,
+  Name,
+  Indicator,
+  BadgePrice,
+  QuantityRegion,
+  ActionCancel,
+};

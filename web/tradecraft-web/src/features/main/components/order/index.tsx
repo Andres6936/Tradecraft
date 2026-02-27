@@ -30,6 +30,9 @@ const Order = ({
           <Comp.QuantityRegion />
           <TimeAgoCounter createdAt={model.createdAt} />
         </Comp.Flex>
+        <Comp.Flex>
+          <Comp.ActionCancel />
+        </Comp.Flex>
       </Comp.Root>
     </OrderContext.Provider>
   );
