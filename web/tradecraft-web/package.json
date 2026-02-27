@@ -9,6 +9,7 @@
     "start": "waku start"
   },
   "dependencies": {
+    "@trader/api": "*",
     "@base-ui/react": "^1.2.0",
     "@logtape/logtape": "^2.0.2",
     "@tanstack/react-query": "^5.90.21",
