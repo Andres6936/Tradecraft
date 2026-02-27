@@ -5,6 +5,10 @@ import { Locate } from "lucide-react";
 import { Badge } from "~/components/ui/badge";
 import { useOrderContext } from "./context";
 
+const Root = (props: React.ComponentPropsWithRef<"section">) => (
+  <section className="border rounded py-2 px-3" {...props} />
+);
+
 const Flex = (props: React.PropsWithChildren<{}>) => (
   <div className="flex items-center justify-between" {...props} />
 );
@@ -58,4 +62,4 @@ const QuantityRegion = () => {
   );
 };
 
-export { Flex, Row, Name, Indicator, BadgePrice, QuantityRegion };
+export { Root, Flex, Row, Name, Indicator, BadgePrice, QuantityRegion };

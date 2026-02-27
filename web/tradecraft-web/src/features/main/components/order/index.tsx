@@ -18,7 +18,7 @@ const Order = ({
 
   return (
     <OrderContext.Provider value={{ order: model, isMineOrder }}>
-      <section className="border rounded py-2 px-3" style={style}>
+      <Comp.Root style={style}>
         <Comp.Flex>
           <Comp.Row>
             <Comp.Name />
@@ -30,7 +30,7 @@ const Order = ({
           <Comp.QuantityRegion />
           <TimeAgoCounter createdAt={model.createdAt} />
         </Comp.Flex>
-      </section>
+      </Comp.Root>
     </OrderContext.Provider>
   );
 };
