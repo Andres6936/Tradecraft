@@ -16,6 +16,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@trader/api": "*",
     "@logtape/file": "^2.0.2",
     "@logtape/logtape": "^2.0.2",
     "@logtape/otel": "^2.0.2",
