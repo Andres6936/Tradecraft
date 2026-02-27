@@ -12,6 +12,7 @@ const getState = async (args: {
   });
 
   return {
+    userId: state.me.userId,
     orders: state.orders,
     inventory: state.gs.inventory,
   };

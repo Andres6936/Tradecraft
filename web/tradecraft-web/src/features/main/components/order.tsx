@@ -5,8 +5,10 @@ import { type RowComponentProps } from "react-window";
 
 import { Badge } from "~/components/ui/badge";
 import type { ExternOrderType } from "~/types/d";
+import { useTraderContext } from "../context/use-trader";
+import { Locate } from "lucide-react";
 
-const AgoCounter = ({ createdAt }: { createdAt: string }) => {
+const TimeAgoCounter = ({ createdAt }: { createdAt: string }) => {
   const createdAtDate = useMemo(() => parseISO(createdAt), [createdAt]);
   const [now, setNow] = useState(new Date());
 
@@ -38,8 +40,11 @@ const Order = ({
   index,
   style,
   orders,
-}: RowComponentProps<{ orders: ExternOrderType[] }>) => {
+  userId,
+}: RowComponentProps<{ orders: ExternOrderType[]; userId: string }>) => {
   const model = useMemo(() => orders[index]!, [index, orders]);
+
+  const isMineOrder = model.ownerUserId === userId;
 
   const side = React.useMemo(() => {
     return capitalize(model.side);
@@ -61,16 +66,19 @@ const Order = ({
   return (
     <section className="border rounded py-2 px-3" style={style}>
       <div className="flex items-center justify-between">
-        <p className="font-bold text-lg">
-          {side} - {model.productName}
-        </p>
+        <div className="flex flex-row items-center gap-2">
+          <p className="font-bold text-lg">
+            {side} - {model.productName}
+          </p>
+          {isMineOrder && <Locate className="h-4 text-blue-500" />}
+        </div>
         {CompBadge}
       </div>
       <div className="flex items-center justify-between">
         <p className="text-muted-foreground text-xs">
           {model.qty} {model.unit} - {regionName}
         </p>
-        <AgoCounter createdAt={model.createdAt} />
+        <TimeAgoCounter createdAt={model.createdAt} />
       </div>
     </section>
   );

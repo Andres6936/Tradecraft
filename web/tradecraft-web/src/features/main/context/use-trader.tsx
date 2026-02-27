@@ -18,6 +18,7 @@ type TraderContextProps =
   | {
       isLoading: false;
       error: null;
+      userId: string;
       isAllProductSelected: boolean;
       isOrdersMineOnly: boolean;
       onChangeOrdersMineOnly: (isOrdersMineOnly: boolean) => void;
@@ -87,7 +88,7 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
     );
   }
 
-  const { orders, inventory } = query.data;
+  const { userId, orders, inventory } = query.data;
 
   return (
     <TraderContext.Provider
@@ -95,6 +96,7 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
         isLoading: false,
         error: null,
         orders,
+        userId,
         isAllowNpc,
         onChangeAllowNpc: setIsAllowNpc,
         isOrdersMineOnly,

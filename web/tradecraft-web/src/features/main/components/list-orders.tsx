@@ -34,7 +34,7 @@ const ListOrders = () => {
     );
   }
 
-  const orders = context.orders;
+  const { userId, orders } = context;
 
   return (
     <Root>
@@ -42,7 +42,7 @@ const ListOrders = () => {
         rowComponent={Order}
         rowCount={orders.length}
         rowHeight={60}
-        rowProps={{ orders }}
+        rowProps={{ orders, userId }}
       />
     </Root>
   );
