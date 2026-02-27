@@ -21,6 +21,7 @@
         "@logtape/logtape": "^2.0.2",
         "@logtape/otel": "^2.0.2",
         "@logtape/pretty": "^2.0.2",
+        "@trader/api": "*",
         "bunqueue": "^2.4.5",
         "date-fns": "^4.1.0",
         "ink": "^6.6.0",
