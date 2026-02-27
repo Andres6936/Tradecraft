@@ -3,6 +3,7 @@ import { ExternOrderType } from "~/types/d";
 
 type OrderContextType = {
   order: ExternOrderType;
+  isMineOrder: boolean;
 };
 
 const OrderContext = React.createContext<OrderContextType | null>(null);

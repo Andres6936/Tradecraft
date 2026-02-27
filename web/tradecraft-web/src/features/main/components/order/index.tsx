@@ -5,7 +5,7 @@ import { type RowComponentProps } from "react-window";
 import { Badge } from "~/components/ui/badge";
 import type { ExternOrderType } from "~/types/d";
 import { Locate } from "lucide-react";
-import { TimeAgoCounter } from "./time-ago-counter";
+import { TimeAgoCounter } from "./components/time-ago-counter";
 import { OrderContext } from "./context";
 
 const Order = ({
@@ -36,7 +36,7 @@ const Order = ({
   }, [model]);
 
   return (
-    <OrderContext.Provider value={{ order: model }}>
+    <OrderContext.Provider value={{ order: model, isMineOrder }}>
       <section className="border rounded py-2 px-3" style={style}>
         <div className="flex items-center justify-between">
           <div className="flex flex-row items-center gap-2">
