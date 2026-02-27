@@ -1,0 +1,25 @@
+{
+  "name": "@trader/api",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "rslib build --watch",
+    "build": "rslib build"
+  },
+  "devDependencies": {
+    "@rslib/core": "^0.19.6",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@logtape/logtape": "^2.0.4"
+  }
+}
