@@ -41,7 +41,7 @@ const ListOrders = () => {
       <List
         rowComponent={Order}
         rowCount={orders.length}
-        rowHeight={75}
+        rowHeight={77}
         rowProps={{ orders, userId }}
       />
     </Root>
