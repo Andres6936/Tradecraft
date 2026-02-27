@@ -16,10 +16,6 @@ const Order = ({
 
   const isMineOrder = model.ownerUserId === userId;
 
-  const regionName = React.useMemo(() => {
-    return model.regionName.split(" ").at(0);
-  }, [model]);
-
   return (
     <OrderContext.Provider value={{ order: model, isMineOrder }}>
       <section className="border rounded py-2 px-3" style={style}>
@@ -31,9 +27,7 @@ const Order = ({
           <Comp.BadgePrice />
         </Comp.Flex>
         <Comp.Flex>
-          <p className="text-muted-foreground text-xs">
-            {model.qty} {model.unit} - {regionName}
-          </p>
+          <Comp.QuantityRegion />
           <TimeAgoCounter createdAt={model.createdAt} />
         </Comp.Flex>
       </section>

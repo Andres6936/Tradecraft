@@ -44,4 +44,18 @@ const BadgePrice = () => {
   }
 };
 
-export { Flex, Row, Name, Indicator, BadgePrice };
+const QuantityRegion = () => {
+  const { order } = useOrderContext();
+
+  const regionName = React.useMemo(() => {
+    return order.regionName.split(" ").at(0);
+  }, [order]);
+
+  return (
+    <p className="text-muted-foreground text-xs">
+      {order.qty} {order.unit} - {regionName}
+    </p>
+  );
+};
+
+export { Flex, Row, Name, Indicator, BadgePrice, QuantityRegion };
