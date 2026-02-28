@@ -77,7 +77,8 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
         <YAxis
           tickLine={false}
           axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.3}}
-          domain={[min, max]}
+          domain={[min * 0.9, max * 1.05]}
+          tickFormatter={value => value.toFixed(1)}
         />
         <XAxis
           dataKey="t"
@@ -86,6 +87,8 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           tickMargin={8}
           minTickGap={32}
         />
+        <ReferenceLine y={min} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1} />
+        <ReferenceLine y={max} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1} />
         <ReferenceLine y={avg} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1} />
         <ChartTooltip
           cursor={false}
