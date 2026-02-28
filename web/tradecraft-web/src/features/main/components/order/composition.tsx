@@ -6,9 +6,9 @@ import { useQueryClient } from "@tanstack/react-query";
 
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
-import { useOrderContext } from "./context";
-import { useDispatchAction } from "./hooks";
 import { Spinner } from "~/components/ui/spinner";
+import { useDispatchAction } from "~/hooks/use-dispatch-action";
+import { useOrderContext } from "./context";
 
 // Actions
 import { cancelOrder } from "~/api";
