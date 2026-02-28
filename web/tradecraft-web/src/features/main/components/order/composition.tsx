@@ -9,6 +9,7 @@ import { useOrderContext } from "./context";
 import { useDispatchAction } from "./hooks";
 import { cancelOrder } from "@trader/api";
 import { Spinner } from "~/components/ui/spinner";
+import { useQueryClient } from "@tanstack/react-query";
 
 const Root = (props: React.ComponentPropsWithRef<"section">) => (
   <section
@@ -83,10 +84,13 @@ const ActionCancel = () => {
   const { order, isMineOrder } = useOrderContext();
   const { isLoading, dispatch } = useDispatchAction()
 
+  const queryClient = useQueryClient();
+
   if (!isMineOrder) return null;
 
   const dispatchCancel = () => dispatch(async () => {
-    return await cancelOrder(order._id)
+    await cancelOrder(order._id)
+    await queryClient.invalidateQueries({queryKey: ["/server/action/getOrders"]})
   })
 
   const onPress = async () => {
