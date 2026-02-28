@@ -20,26 +20,50 @@ import { ActionsMineOnly } from "~/features/main/components/action-mine-only";
 const Trader = () => {
   return (
     <TraderContextProvider>
-      <Card className="w-full min-w-md max-w-md">
-        <CardHeader>
-          <CardTitle>Market Orders</CardTitle>
-          <CardAction>
-            <ActionsMineOnly />
-          </CardAction>
-        </CardHeader>
-        <CardContent>
-          <section className="flex flex-col gap-4">
-            <SelectProduct />
-            <hr />
-            <ListOrders />
-            <hr />
-            <InfoSelected />
-            <QuantityPrice />
-            <AllowNpcTotal />
-            <Actions />
-          </section>
-        </CardContent>
-      </Card>
+      <main className="flex flex-row gap-2">
+        <Card className="w-full min-w-md max-w-md">
+          <CardHeader>
+            <CardTitle>Market Orders</CardTitle>
+            <CardAction>
+              <ActionsMineOnly />
+            </CardAction>
+          </CardHeader>
+          <CardContent>
+            <section className="flex flex-col gap-4">
+              <SelectProduct />
+              <hr />
+              <ListOrders />
+              <hr />
+              <InfoSelected />
+              <QuantityPrice />
+              <AllowNpcTotal />
+              <Actions />
+            </section>
+          </CardContent>
+        </Card>
+        <section className="flex flex-col gap-2">
+          <Card className="flex flex-1 flex-col w-full min-w-xl max-w-xl">
+            <CardHeader>
+              <CardTitle>Market View</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <section className="bg-red-100">
+
+              </section>
+            </CardContent>
+          </Card>
+          <Card className="flex flex-1 flex-col w-full min-w-xl max-w-xl">
+            <CardHeader>
+              <CardTitle>Market View</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <section className=" bg-red-100">
+
+              </section>
+            </CardContent>
+          </Card>
+        </section>
+      </main>
     </TraderContextProvider>
   );
 };
