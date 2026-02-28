@@ -41,6 +41,7 @@ const getPriceRange = async (
     Avg: toTruncate(average, withPrecision || 1),
     Min: toTruncate(average * (1 - BAND_PCT) + DELTA, withPrecision || 1),
     Max: toTruncate(average * (1 + BAND_PCT), withPrecision || 1),
+    History: result.product.priceHistory,
   };
 };
 
