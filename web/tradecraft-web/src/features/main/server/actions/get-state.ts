@@ -15,7 +15,8 @@ const getPriceWithhistory = async (args: {
   }
 
   const {Avg, Min, Max} = await getPriceRange({
-    productId: args.productId
+    productId: args.productId,
+    withPrecision: 2,
   })
 
   return {
