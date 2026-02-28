@@ -87,8 +87,24 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           tickMargin={8}
           minTickGap={32}
         />
-        <ReferenceLine y={min} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}  />
-        <ReferenceLine y={max} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1} />
+        <ReferenceLine y={min} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}
+          label={{
+            value: "Min. " + min,
+            position: "insideBottomRight",
+            fill: "var(--muted-foreground)",
+            fontSize: 10,
+            offset: 10
+          }}
+        />
+        <ReferenceLine y={max} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}
+          label={{
+            value: "Max. " + max,
+            position: "insideBottomRight",
+            fill: "var(--muted-foreground)",
+            fontSize: 10,
+            offset: 10
+          }}
+        />
         <ReferenceLine y={avg} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}
           label={{
             value: "Avg. " + avg,
