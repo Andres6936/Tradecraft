@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import type { ProductType } from "~/features/main/types/d";
@@ -66,14 +66,19 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [selectedProduct, setSelectedProduct] =
     useState<ProductType>(defaultValue);
 
-  const onChangeSide = React.useEffectEvent((side: "buy" | "sell") => {
+  const setPriceUsingSide = React.useEffectEvent((args: {Max: number, Min: number}) => {
     if (side === 'buy') {
-      setPrice(productGraph.Max);
+      setPrice(args.Min);
     }
     if (side === 'sell') {
-      setPrice(productGraph.Min);
+      setPrice(args.Max);
     }
+  })
+
+  const onChangeSide = React.useEffectEvent((side: "buy" | "sell") => {
     setSide(side);
+    // Set the price based on the selected side
+    setPriceUsingSide(productGraph);
   })
 
   const query = useQuery({
@@ -87,6 +92,13 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
         ordersMineOnly: isOrdersMineOnly,
       }),
   });
+
+  useEffect(() => {
+    if (query.isSuccess && !query.isLoading) {
+      // Set the price based on the selected side
+      setPriceUsingSide(query.data.productGraph);
+    }
+  }, [query])
 
   if (query.error) {
     return (
