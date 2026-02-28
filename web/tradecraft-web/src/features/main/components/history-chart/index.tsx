@@ -58,7 +58,7 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
   const values = useMemo(() => {
     return history.map(it => {
       const date = new Date(it.t);
-      const hour = format(date, 'HH:mmaaa');
+      const hour = format(date, 'h:mmaaa');
       return { t: hour, p: it.p };
     });
   }, [history])
@@ -87,9 +87,17 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           tickMargin={8}
           minTickGap={32}
         />
-        <ReferenceLine y={min} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1} />
+        <ReferenceLine y={min} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}  />
         <ReferenceLine y={max} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1} />
-        <ReferenceLine y={avg} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1} />
+        <ReferenceLine y={avg} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}
+          label={{
+            value: "Avg. " + avg,
+            position: "insideBottomRight",
+            fill: "var(--muted-foreground)",
+            fontSize: 10,
+            offset: 10
+          }}
+        />
         <ChartTooltip
           cursor={false}
           content={<ChartTooltipContent hideLabel />}
