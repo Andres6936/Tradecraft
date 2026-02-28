@@ -10,27 +10,25 @@ import type {
 
 import {
   cancelOrder as cancelOrderExternal,
-  getBalance,
-  getBestSellOffer,
-  getMineOrders,
   getPriceRange,
-  getState,
-  sendOrder,
-  transferWarehouse,
+  sendOrder as sendOrderExternal,
 } from "@trader/api"
 
 const logger = getLogger("trader");
 
-const Cookies = process.env.COOKIES || "";
-const UserAgent = process.env.USER_AGENT || "";
+const Headers = {
+  Cookie: process.env.COOKIES || "",
+  "User-Agent": process.env.USER_AGENT || "",
+}
 
 type FirstArgs<T extends (...args: any) => any> = Parameters<T>[0]
 
 const cancelOrder = async (args: FirstArgs<typeof cancelOrderExternal>) => cancelOrderExternal(args, {
-  headers: {
-    Cookie: Cookies,
-    "User-Agent": UserAgent,
-  },
+  headers: Headers,
+})
+
+const sendOrder = async (args: FirstArgs<typeof sendOrderExternal>) => sendOrderExternal(args, {
+  headers: Headers,
 })
 
 const getStateWith = async (
@@ -58,10 +56,7 @@ const getStateWith = async (
   const stream = await fetch(
     `https://playtradecraft.com/api/state?${searchParams.toString()}`,
     {
-      headers: {
-        Cookie: Cookies,
-        "User-Agent": UserAgent,
-      },
+      headers: Headers,
     },
   );
 
@@ -75,12 +70,7 @@ const getStateWith = async (
 
 export {
   cancelOrder,
-  getBalance,
-  getBestSellOffer,
-  getMineOrders,
+  sendOrder,
   getStateWith,
   getPriceRange,
-  getState,
-  sendOrder,
-  transferWarehouse,
 };
