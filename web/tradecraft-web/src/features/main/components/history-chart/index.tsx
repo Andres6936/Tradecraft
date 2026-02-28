@@ -40,7 +40,7 @@ const HistoryChart = () => {
     return <p>Error: {context.error.message}</p>
   }
 
-  const { productGraph: { History } } = context;
+  const { productGraph: { Min, Max, Avg, History } } = context;
 
   return (
     <Card className="flex flex-1 flex-col w-full min-w-xl max-w-xl">
@@ -48,13 +48,13 @@ const HistoryChart = () => {
         <CardTitle>Market View</CardTitle>
       </CardHeader>
       <CardContent>
-        <Chart history={History}/>
+        <Chart avg={Avg} min={Min} max={Max} history={History}/>
       </CardContent>
     </Card>
   )
 }
 
-const Chart = ({ history }: { history: { t: number, p: number }[] }) => {
+const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: number, history: { t: number, p: number }[] }) => {
   const values = useMemo(() => {
     return history.map(it => {
       const date = new Date(it.t);
