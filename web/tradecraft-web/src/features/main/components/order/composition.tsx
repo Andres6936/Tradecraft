@@ -80,8 +80,12 @@ const ActionCancel = () => {
 
   if (!isMineOrder) return null;
 
+  const onPress = async () => {
+
+  }
+
   return (
-    <Button size="xs" variant="destructive">
+    <Button onClick={onPress} size="xs" variant="destructive">
       Cancel
     </Button>
   );
