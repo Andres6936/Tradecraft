@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+import { format } from "date-fns";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 import {
@@ -16,70 +18,81 @@ import {
   type ChartConfig,
 } from "~/components/ui/chart"
 
-import { ListOrders } from "~/features/main/components/list-orders";
-import { SelectProduct } from "~/features/main/components/select/product";
-import { TraderContextProvider } from "~/features/main/context/use-trader";
-import { InfoSelected } from "~/features/main/components/info-selected";
-import { QuantityPrice } from "~/features/main/components/quantity-price";
-import { AllowNpcTotal } from "~/features/main/components/allow-npc-total";
-import { Actions } from "~/features/main/components/actions";
-import { ActionsMineOnly } from "~/features/main/components/action-mine-only";
+
+import {  useTraderContext } from "~/features/main/context/use-trader";
 
 
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-]
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  p: {
+    label: "Price",
     color: "var(--chart-1)",
   },
 } satisfies ChartConfig
 
 const HistoryChart = () => {
+  const context = useTraderContext();
+
+  if (context.isLoading) {
+    return <p>Loading ...</p>
+  }
+
+  if (context.error) {
+    return <p>Error: {context.error.message}</p>
+  }
+
+  const { productGraph: { History } } = context;
+
   return (
     <Card className="flex flex-1 flex-col w-full min-w-xl max-w-xl">
       <CardHeader>
         <CardTitle>Market View</CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer className="py-2" config={chartConfig}>
-          <LineChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
-          >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="month"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Line
-              dataKey="desktop"
-              type="natural"
-              stroke="var(--color-desktop)"
-              strokeWidth={2}
-              dot={false}
-            />
-          </LineChart>
-        </ChartContainer>
+        <Chart history={History}/>
       </CardContent>
     </Card>
+  )
+}
+
+const Chart = ({ history }: { history: { t: number, p: number }[] }) => {
+  const values = useMemo(() => {
+    return history.map(it => {
+      const date = new Date(it.t);
+      const hour = format(date, 'HH:mmaaa');
+      return { t: hour, p: it.p };
+    });
+  }, [history])
+
+  return (
+    <ChartContainer className="py-2" config={chartConfig}>
+      <LineChart
+        accessibilityLayer
+        data={values}
+        margin={{
+          left: 12,
+          right: 12,
+        }}
+      >
+        <CartesianGrid vertical={false} />
+        <XAxis
+          dataKey="t"
+          tickLine={false}
+          axisLine={false}
+          tickMargin={8}
+        />
+        <ChartTooltip
+          cursor={false}
+          content={<ChartTooltipContent hideLabel />}
+        />
+        <Line
+          dataKey="p"
+          type="natural"
+          stroke="var(--color-p)"
+          strokeWidth={2}
+          dot={false}
+        />
+      </LineChart>
+    </ChartContainer>
   )
 }
 
