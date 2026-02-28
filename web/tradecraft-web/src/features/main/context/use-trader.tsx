@@ -63,7 +63,8 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
 
   const query = useQuery({
     queryKey: [
-      `/server/action/getOrders?ProductId=${selectedProduct.Id}&MineOrdersOnly=${isOrdersMineOnly}`,
+      '/server/action/getOrders',
+      `?ProductId=${selectedProduct.Id}&MineOrdersOnly=${isOrdersMineOnly}`,
     ],
     queryFn: () =>
       getState({
