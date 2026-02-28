@@ -113,7 +113,7 @@ const Actions = () => {
           variant="outline"
           type="single"
           value={side}
-          onValueChange={(value) => onChangeSide(value as "buy" | "sell")}
+          onValueChange={(value) => onChangeSide(value as "buy" | "sell" || "buy")}
         >
           <ToggleGroupItem value="buy">Buy</ToggleGroupItem>
           <ToggleGroupItem value="sell">Sell</ToggleGroupItem>
@@ -124,7 +124,7 @@ const Actions = () => {
           type="single"
           value={orderType}
           onValueChange={(value) =>
-            onChangeOrderType(value as "limit" | "market")
+            onChangeOrderType(value as "limit" | "market" || "limit")
           }
         >
           <ToggleGroupItem value="limit">Limit</ToggleGroupItem>
