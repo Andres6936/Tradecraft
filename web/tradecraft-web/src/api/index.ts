@@ -9,7 +9,7 @@ import type {
 } from "~/types/d";
 
 import {
-  cancelOrder,
+  cancelOrder as cancelOrderExternal,
   getBalance,
   getBestSellOffer,
   getMineOrders,
@@ -22,6 +22,16 @@ import {
 const logger = getLogger("trader");
 
 const Cookies = process.env.COOKIES || "";
+const UserAgent = process.env.USER_AGENT || "";
+
+type FirstArgs<T extends (...args: any) => any> = Parameters<T>[0]
+
+const cancelOrder = async (args: FirstArgs<typeof cancelOrderExternal>) => cancelOrderExternal(args, {
+  headers: {
+    Cookie: Cookies,
+    "User-Agent": UserAgent,
+  },
+})
 
 const getStateWith = async (
   args: {
@@ -50,8 +60,7 @@ const getStateWith = async (
     {
       headers: {
         Cookie: Cookies,
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+        "User-Agent": UserAgent,
       },
     },
   );

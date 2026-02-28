@@ -2,14 +2,16 @@ import React from "react";
 import { toast } from "sonner";
 import { capitalize } from "radashi";
 import { Locate } from "lucide-react";
+import { useQueryClient } from "@tanstack/react-query";
 
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { useOrderContext } from "./context";
 import { useDispatchAction } from "./hooks";
-import { cancelOrder } from "@trader/api";
 import { Spinner } from "~/components/ui/spinner";
-import { useQueryClient } from "@tanstack/react-query";
+
+// Actions
+import { cancelOrder } from "~/api";
 
 const Root = (props: React.ComponentPropsWithRef<"section">) => (
   <section
@@ -90,7 +92,7 @@ const ActionCancel = () => {
 
   const dispatchCancel = () => dispatch(async () => {
     await cancelOrder(order._id)
-    await queryClient.invalidateQueries({queryKey: ["/server/action/getOrders"]})
+    queryClient.invalidateQueries({queryKey: ["/server/action/getOrders"]})
   })
 
   const onPress = async () => {
