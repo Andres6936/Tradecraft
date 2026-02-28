@@ -1,19 +1,21 @@
 import React from "react";
+import { toast } from "sonner";
 import { useQueryClient } from "@tanstack/react-query";
 
 import type { ProductType } from "../types/d";
 import { Button } from "~/components/ui/button";
+import { Spinner } from "~/components/ui/spinner";
 import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 import { useTraderContext } from "../context/use-trader";
 import { useDispatchAction } from "~/hooks/use-dispatch-action";
+import { defaultValue } from "~/features/main/utils/setup";
 
 // Actions
 import { sendOrder } from "~/api";
-import { toast } from "sonner";
-import { Spinner } from "~/components/ui/spinner";
 
 type ContextRootProps = {
   selectedProduct: ProductType;
+  price: number;
   quantity: number;
   isAllowNpc: boolean;
   side: "buy" | "sell";
@@ -53,12 +55,17 @@ const SkeletonLoading = () => {
 };
 
 const ActionBuy = () => {
-  const { selectedProduct, side, orderType, quantity, isAllowNpc } = useContextRoot()
+  const { selectedProduct, price, side, orderType, quantity, isAllowNpc } = useContextRoot()
   const { isLoading, dispatch } = useDispatchAction()
 
   const queryClient = useQueryClient();
 
   const dispatchSendOrder = () => dispatch(async () => {
+    if (selectedProduct.Id === defaultValue.Id) {
+      toast.error("Please select a product first.");
+      return;
+    };
+
     await sendOrder({
       productId: selectedProduct.Id,
       side,
@@ -66,7 +73,7 @@ const ActionBuy = () => {
       regionId: 1,
       npcAllow: isAllowNpc,
       qty: quantity,
-      price: 0,
+      price,
     });
     queryClient.invalidateQueries({queryKey: ["/server/action/getOrders"]})
   })
