@@ -14,16 +14,16 @@ type OptionsFetch = {
 }
 
 const getPriceRange = async (
-  productId: number,
   args: {
-    withPrecision: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  } = { withPrecision: 1 },
+    productId: number,
+    withPrecision?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  },
   options: OptionsFetch = {},
 ) => {
   const stream = await fetch(`https://playtradecraft.com/api/state/product`, {
     method: "POST",
     body: JSON.stringify({
-      productId,
+      productId: args.productId,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -38,9 +38,9 @@ const getPriceRange = async (
 
   const withPrecision = args.withPrecision;
   return {
-    Avg: toTruncate(average, withPrecision).toString(),
-    Min: toTruncate(average * (1 - BAND_PCT) + DELTA, withPrecision).toString(),
-    Max: toTruncate(average * (1 + BAND_PCT), withPrecision).toString(),
+    Avg: toTruncate(average, withPrecision || 1).toString(),
+    Min: toTruncate(average * (1 - BAND_PCT) + DELTA, withPrecision || 1).toString(),
+    Max: toTruncate(average * (1 + BAND_PCT), withPrecision || 1).toString(),
   };
 };
 

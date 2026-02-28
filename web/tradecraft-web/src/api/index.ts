@@ -10,7 +10,7 @@ import type {
 
 import {
   cancelOrder as cancelOrderExternal,
-  getPriceRange,
+  getPriceRange as getPriceRangeExternal,
   sendOrder as sendOrderExternal,
 } from "@trader/api"
 
@@ -28,6 +28,10 @@ const cancelOrder = async (args: FirstArgs<typeof cancelOrderExternal>) => cance
 })
 
 const sendOrder = async (args: FirstArgs<typeof sendOrderExternal>) => sendOrderExternal(args, {
+  headers: Headers,
+})
+
+const getPriceRange = async (args: FirstArgs<typeof getPriceRangeExternal>) => getPriceRangeExternal(args, {
   headers: Headers,
 })
 
