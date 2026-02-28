@@ -1,10 +1,20 @@
 import { userInfo } from "os";
 import { join } from "path";
 
+const getBunPath = () => {
+  // In some cases the Bun path is found in node_modules/.bin/bun, for avoid take this route
+  // show all list of executable in the system and choice the executable that not is present
+  // in node_modules
+  const bunPaths = Bun.spawnSync(["which", "-a", "bun"]).stdout.toString().split("\n");
+  return bunPaths
+    .map(path => path.trim())
+    // Choice the first executable that not is present in node_modules, if not exist return the default path
+    .find(p => p && !p.includes("node_modules")) || Bun.which("bun");
+}
+
 const user = userInfo().username;
 const workingDirectory = process.cwd();
-const bunPaths = Bun.spawnSync(["which", "-a", "bun"]).stdout.toString().split("\n");
-const bunPath = bunPaths.map(p => p.trim()).find(p => p && !p.includes("node_modules")) || Bun.which("bun");
+const bunPath = getBunPath();
 const entryPoint = join(workingDirectory, "index.ts");
 
 const output = `
