@@ -1,10 +1,14 @@
 import React from "react";
+import { toast } from "sonner";
 import { capitalize } from "radashi";
 import { Locate } from "lucide-react";
 
 import { Badge } from "~/components/ui/badge";
-import { useOrderContext } from "./context";
 import { Button } from "~/components/ui/button";
+import { useOrderContext } from "./context";
+import { useDispatchAction } from "./hooks";
+import { cancelOrder } from "@trader/api";
+import { Spinner } from "~/components/ui/spinner";
 
 const Root = (props: React.ComponentPropsWithRef<"section">) => (
   <section
@@ -76,17 +80,26 @@ const QuantityRegion = () => {
 };
 
 const ActionCancel = () => {
-  const { isMineOrder } = useOrderContext();
+  const { order, isMineOrder } = useOrderContext();
+  const { isLoading, dispatch } = useDispatchAction()
 
   if (!isMineOrder) return null;
 
-  const onPress = async () => {
+  const dispatchCancel = () => dispatch(async () => {
+    return await cancelOrder(order._id)
+  })
 
+  const onPress = async () => {
+    toast.promise(dispatchCancel, {
+      loading: "Canceling order...",
+      success: "Order canceled successfully!",
+      error: "Failed to cancel order."
+    })
   }
 
   return (
-    <Button onClick={onPress} size="xs" variant="destructive">
-      Cancel
+    <Button onClick={onPress} size="xs" variant="destructive" disabled={isLoading}>
+      { isLoading && <Spinner data-icon="inline-start"/> } Cancel
     </Button>
   );
 };
