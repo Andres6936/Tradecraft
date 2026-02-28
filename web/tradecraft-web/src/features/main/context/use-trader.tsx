@@ -88,17 +88,17 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
       }),
   });
 
-  if (query.isLoading || !query.data) {
+  if (query.error) {
     return (
-      <TraderContext.Provider value={{ isLoading: true, error: null }}>
+      <TraderContext.Provider value={{ isLoading: false, error: query.error }}>
         {children}
       </TraderContext.Provider>
     );
   }
 
-  if (query.error) {
+  if (query.isLoading || !query.isSuccess) {
     return (
-      <TraderContext.Provider value={{ isLoading: false, error: query.error }}>
+      <TraderContext.Provider value={{ isLoading: true, error: null }}>
         {children}
       </TraderContext.Provider>
     );
