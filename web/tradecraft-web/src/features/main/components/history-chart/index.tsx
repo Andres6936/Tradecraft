@@ -76,17 +76,17 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
         <CartesianGrid vertical={false} />
         <YAxis
           tickLine={false}
-          axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.5}}
+          axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.3}}
           domain={[min, max]}
         />
         <XAxis
           dataKey="t"
           tickLine={false}
-          axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.5}}
+          axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.3}}
           tickMargin={8}
           minTickGap={32}
         />
-        <ReferenceLine y={avg} stroke="var(--color-chart-2)" strokeWidth={1} />
+        <ReferenceLine y={avg} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1} />
         <ChartTooltip
           cursor={false}
           content={<ChartTooltipContent hideLabel />}
