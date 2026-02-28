@@ -81,14 +81,16 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           syncWithTicks
         />
         <YAxis
+          type='number'
           tickLine={false}
+          tickCount={7}
           domain={[min * 0.9, max * 1.05]}
           tickFormatter={value => '$' + value.toFixed(1)}
         />
         <XAxis
           dataKey="t"
           tickLine={false}
-          tickMargin={8}
+          tickMargin={7}
           minTickGap={28}
         />
         <ReferenceLine y={min} stroke="var(--color-lime-400)" strokeDasharray='3 3' strokeWidth={1}
