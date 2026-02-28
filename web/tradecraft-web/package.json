@@ -9,13 +9,14 @@
     "start": "waku start"
   },
   "dependencies": {
-    "@trader/api": "*",
     "@base-ui/react": "^1.2.0",
     "@logtape/logtape": "^2.0.2",
     "@tanstack/react-query": "^5.90.21",
     "@tanstack/react-query-devtools": "^5.91.3",
+    "@trader/api": "*",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "lucide-react": "^0.575.0",
     "radashi": "^12.7.1",
     "radix-ui": "^1.4.3",
