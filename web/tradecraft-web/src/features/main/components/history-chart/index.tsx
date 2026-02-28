@@ -73,17 +73,21 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           right: 4,
         }}
       >
-        <CartesianGrid vertical={false} />
+        <CartesianGrid
+          stroke="var(--muted-foreground)"
+          strokeOpacity={0.2}
+          strokeWidth={1}
+          strokeDasharray="10 5"
+          syncWithTicks
+        />
         <YAxis
           tickLine={false}
-          axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.3}}
           domain={[min * 0.9, max * 1.05]}
           tickFormatter={value => '$' + value.toFixed(1)}
         />
         <XAxis
           dataKey="t"
           tickLine={false}
-          axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.3}}
           tickMargin={8}
           minTickGap={28}
         />
