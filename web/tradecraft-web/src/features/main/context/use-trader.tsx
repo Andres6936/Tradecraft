@@ -29,6 +29,11 @@ type TraderContextProps =
       totalPrice: number;
       inventory: Record<string, number>;
       orders: ExternOrderType[];
+      productGraph: {
+        Avg: number;
+        Min: number;
+        Max: number;
+      };
       isAllowNpc: boolean;
       onChangeAllowNpc: (allowNpc: boolean) => void;
       quantity: number;
@@ -89,7 +94,7 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
     );
   }
 
-  const { userId, orders, inventory } = query.data;
+  const { userId, orders, inventory, productGraph } = query.data;
 
   return (
     <TraderContext.Provider
@@ -108,6 +113,7 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
         onChangeOrderType: setOrderType,
         totalPrice: 0,
         inventory,
+        productGraph,
         isAllProductSelected: selectedProduct.Id === defaultValue.Id,
         quantity,
         onChangeQuantity: setQuantity,

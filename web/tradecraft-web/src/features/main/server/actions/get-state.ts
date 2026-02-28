@@ -29,20 +29,21 @@ const getState = async (args: {
   productId?: number | null;
   ordersMineOnly: boolean;
 }) => {
-  const state = await getStateWith({
-    productId: args.productId ? args.productId : null,
-    ordersMineOnly: args.ordersMineOnly,
-  });
-
-  const {Avg, Min, Max} = await getPriceWithhistory({
-    productId: args.productId ? args.productId : defaultValue.Id,
-  })
+  const [state, { Avg, Min, Max }] = await Promise.all([
+    getStateWith({
+      productId: args.productId ? args.productId : null,
+      ordersMineOnly: args.ordersMineOnly,
+    }),
+    getPriceWithhistory({
+      productId: args.productId ? args.productId : defaultValue.Id,
+    }),
+  ]);
 
   return {
     userId: state.me.userId,
     orders: state.orders,
     inventory: state.gs.inventory,
-    product: {
+    productGraph: {
       Avg,
       Min,
       Max,

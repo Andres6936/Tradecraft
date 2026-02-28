@@ -38,9 +38,9 @@ const getPriceRange = async (
 
   const withPrecision = args.withPrecision;
   return {
-    Avg: toTruncate(average, withPrecision || 1).toString(),
-    Min: toTruncate(average * (1 - BAND_PCT) + DELTA, withPrecision || 1).toString(),
-    Max: toTruncate(average * (1 + BAND_PCT), withPrecision || 1).toString(),
+    Avg: toTruncate(average, withPrecision || 1),
+    Min: toTruncate(average * (1 - BAND_PCT) + DELTA, withPrecision || 1),
+    Max: toTruncate(average * (1 + BAND_PCT), withPrecision || 1),
   };
 };
 
