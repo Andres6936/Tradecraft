@@ -167,7 +167,7 @@ The script generate a service file with the name of `trader.service`, now is
 needed move the file to `/lib/systemd/system/`
 
 ```bash
-cp trader.service /lib/systemd/system/
+sudo cp trader.service /lib/systemd/system/
 ```
 
 With the service file configured, you can now enable the service. Once enabled,
