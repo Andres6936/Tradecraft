@@ -85,13 +85,13 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           tickLine={false}
           axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.3}}
           tickMargin={8}
-          minTickGap={32}
+          minTickGap={28}
         />
         <ReferenceLine y={min} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}
           label={{
             value: "Min. " + min,
             position: "insideBottomRight",
-            fill: "var(--muted-foreground)",
+            fill: "var(--color-lime-400)",
             fontSize: 10,
             offset: 10
           }}
@@ -100,7 +100,7 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           label={{
             value: "Max. " + max,
             position: "insideBottomRight",
-            fill: "var(--muted-foreground)",
+            fill: "var(--color-orange-400)",
             fontSize: 10,
             offset: 10
           }}
