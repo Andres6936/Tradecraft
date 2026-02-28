@@ -66,6 +66,16 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [selectedProduct, setSelectedProduct] =
     useState<ProductType>(defaultValue);
 
+  const onChangeSide = React.useEffectEvent((side: "buy" | "sell") => {
+    if (side === 'buy') {
+      setPrice(productGraph.Max);
+    }
+    if (side === 'sell') {
+      setPrice(productGraph.Min);
+    }
+    setSide(side);
+  })
+
   const query = useQuery({
     queryKey: [
       '/server/action/getOrders',
@@ -108,7 +118,7 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
         isOrdersMineOnly,
         onChangeOrdersMineOnly: setIsOrdersMineOnly,
         side,
-        onChangeSide: setSide,
+        onChangeSide,
         orderType,
         onChangeOrderType: setOrderType,
         totalPrice: 0,
