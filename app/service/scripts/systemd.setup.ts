@@ -3,7 +3,8 @@ import { join } from "path";
 
 const user = userInfo().username;
 const workingDirectory = process.cwd();
-const bunPath = Bun.which("bun");
+const bunPaths = Bun.spawnSync(["which", "-a", "bun"]).stdout.toString().split("\n");
+const bunPath = bunPaths.map(p => p.trim()).find(p => p && !p.includes("node_modules")) || Bun.which("bun");
 const entryPoint = join(workingDirectory, "index.ts");
 
 const output = `
