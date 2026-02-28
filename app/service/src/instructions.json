@@ -368,7 +368,7 @@
     "Id": 52,
     "Key": "glue",
     "Name": "Glue",
-    "Categories": ["-Supply", "Buyer", "Seller", "CancelOrphans"],
+    "Categories": ["-Supply", "-Buyer", "Seller", "CancelOrphans"],
     "CancelOrphans": {
       "Sell": true,
       "Buy": true
@@ -1096,7 +1096,7 @@
     "Id": 11,
     "Key": "straw",
     "Name": "Straw",
-    "Categories": ["Supply"],
+    "Categories": ["-Supply"],
     "Supply": {
       "StopWhenInventoryReach": 1000000
     }
