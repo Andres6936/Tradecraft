@@ -66,6 +66,8 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [selectedProduct, setSelectedProduct] =
     useState<ProductType>(defaultValue);
 
+  // Update the price based on the selected side, when the side is buy wannat the less price,
+  // when the side is sell want to get the max price
   const setPriceUsingSide = React.useEffectEvent((args: {Max: number, Min: number}) => {
     if (side === 'buy') {
       setPrice(args.Min);
@@ -75,6 +77,8 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
     }
   })
 
+  // Update the price based on the selected side, when the side is buy wannat the less price,
+  // when the side is sell want to get the max price
   const onChangeSide = React.useEffectEvent((side: "buy" | "sell") => {
     setSide(side);
     // Set the price based on the selected side
