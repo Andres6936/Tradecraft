@@ -6,10 +6,11 @@ import type {
   TransferWarehouseResponseType,
 } from "~/d";
 import { toTruncate } from "~/utility";
+import { CookiesSingleton } from "~/cookies";
 
 const logger = getLogger("trader");
 
-const Cookies = process.env.COOKIES || "";
+const cookiesSingleton = CookiesSingleton.getInstance();
 
 const getPriceRange = async (
   productId: number,
@@ -24,7 +25,7 @@ const getPriceRange = async (
     }),
     headers: {
       "Content-Type": "application/json",
-      Cookie: Cookies,
+      Cookie: cookiesSingleton.getCookies(),
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
     },
@@ -48,7 +49,7 @@ const getOrders = async (productId: number) => {
     `https://playtradecraft.com/api/state?orderFilterProductId=${productId}`,
     {
       headers: {
-        Cookie: Cookies,
+        Cookie: cookiesSingleton.getCookies(),
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
       },
@@ -120,7 +121,7 @@ const transferWarehouse = async (args: {
       body: JSON.stringify(args),
       headers: {
         "Content-Type": "application/json",
-        Cookie: Cookies,
+        Cookie: cookiesSingleton.getCookies(),
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
       },
@@ -137,7 +138,7 @@ const getState = async () => {
   const response = await fetch("https://playtradecraft.com/api/state", {
     headers: {
       "Content-Type": "application/json",
-      Cookie: Cookies,
+      Cookie: cookiesSingleton.getCookies(),
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
     },
@@ -178,7 +179,7 @@ const sendOrder = async (args: OrderLimitType | OrderMarketType) => {
     body: JSON.stringify(args),
     headers: {
       "Content-Type": "application/json",
-      Cookie: Cookies,
+      Cookie: cookiesSingleton.getCookies(),
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
     },
@@ -198,7 +199,7 @@ const cancelOrder = async (orderId: string) => {
     {
       method: "DELETE",
       headers: {
-        Cookie: Cookies,
+        Cookie: cookiesSingleton.getCookies(),
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
       },
@@ -216,7 +217,7 @@ const getMineOrders = async () => {
     {
       headers: {
         "Content-Type": "application/json",
-        Cookie: Cookies,
+        Cookie: cookiesSingleton.getCookies(),
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
       },
