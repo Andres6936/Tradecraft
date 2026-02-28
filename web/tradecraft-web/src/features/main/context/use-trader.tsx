@@ -33,6 +33,7 @@ type TraderContextProps =
         Avg: number;
         Min: number;
         Max: number;
+        History: {t: number, p: number}[],
       };
       isAllowNpc: boolean;
       onChangeAllowNpc: (allowNpc: boolean) => void;

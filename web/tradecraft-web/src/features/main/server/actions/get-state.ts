@@ -32,7 +32,7 @@ const getState = async (args: {
   productId?: number | null;
   ordersMineOnly: boolean;
 }) => {
-  const [state, { Avg, Min, Max }] = await Promise.all([
+  const [state, { Avg, Min, Max, History }] = await Promise.all([
     getStateWith({
       productId: args.productId ? args.productId : null,
       ordersMineOnly: args.ordersMineOnly,
@@ -50,6 +50,7 @@ const getState = async (args: {
       Avg,
       Min,
       Max,
+      History,
     }
   };
 };
