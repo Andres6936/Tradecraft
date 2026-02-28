@@ -69,8 +69,8 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
         accessibilityLayer
         data={values}
         margin={{
-          left: 12,
-          right: 12,
+          left: 4,
+          right: 4,
         }}
       >
         <CartesianGrid vertical={false} />
@@ -78,7 +78,7 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           tickLine={false}
           axisLine={{stroke: 'var(--muted-foreground)', strokeWidth: 1, strokeOpacity: 0.3}}
           domain={[min * 0.9, max * 1.05]}
-          tickFormatter={value => value.toFixed(1)}
+          tickFormatter={value => '$' + value.toFixed(1)}
         />
         <XAxis
           dataKey="t"
@@ -87,7 +87,7 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           tickMargin={8}
           minTickGap={28}
         />
-        <ReferenceLine y={min} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}
+        <ReferenceLine y={min} stroke="var(--color-lime-400)" strokeDasharray='3 3' strokeWidth={1}
           label={{
             value: "Min. " + min,
             position: "insideBottomRight",
@@ -96,7 +96,7 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
             offset: 10
           }}
         />
-        <ReferenceLine y={max} stroke="var(--color-chart-1)" strokeDasharray='3 3' strokeWidth={1}
+        <ReferenceLine y={max} stroke="var(--color-orange-400)" strokeDasharray='3 3' strokeWidth={1}
           label={{
             value: "Max. " + max,
             position: "insideBottomRight",
