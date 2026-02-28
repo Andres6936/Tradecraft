@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { format } from "date-fns";
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis, YAxis, ReferenceLine } from "recharts"
 
 import {
   Card,
@@ -74,13 +74,19 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
         }}
       >
         <CartesianGrid vertical={false} />
+        <YAxis
+          tickLine={false}
+          axisLine={{stroke: 'hsl(var(--muted-foreground))'}}
+          domain={[min, max]}
+        />
         <XAxis
           dataKey="t"
           tickLine={false}
-          axisLine={false}
+          axisLine={{stroke: 'hsl(var(--muted-foreground))'}}
           tickMargin={8}
           minTickGap={32}
         />
+        <ReferenceLine y={avg} stroke="hsl(var(--char-1))" />
         <ChartTooltip
           cursor={false}
           content={<ChartTooltipContent hideLabel />}
