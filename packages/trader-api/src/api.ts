@@ -6,17 +6,19 @@ import type {
   TransferWarehouseResponseType,
 } from "~/d";
 import { toTruncate } from "~/utility";
-import { CookiesSingleton } from "~/cookies";
 
 const logger = getLogger("trader");
 
-const cookiesSingleton = CookiesSingleton.getInstance();
+type OptionsFetch = {
+  headers?: Record<string, string>;
+}
 
 const getPriceRange = async (
   productId: number,
   args: {
     withPrecision: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   } = { withPrecision: 1 },
+  options: OptionsFetch = {},
 ) => {
   const stream = await fetch(`https://playtradecraft.com/api/state/product`, {
     method: "POST",
@@ -25,9 +27,7 @@ const getPriceRange = async (
     }),
     headers: {
       "Content-Type": "application/json",
-      Cookie: cookiesSingleton.getCookies(),
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+      ...options.headers,
     },
   });
 
@@ -44,14 +44,12 @@ const getPriceRange = async (
   };
 };
 
-const getOrders = async (productId: number) => {
+const getOrders = async (productId: number,   options: OptionsFetch = {},) => {
   const stream = await fetch(
     `https://playtradecraft.com/api/state?orderFilterProductId=${productId}`,
     {
       headers: {
-        Cookie: cookiesSingleton.getCookies(),
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+        ...options.headers,
       },
     },
   );
@@ -62,7 +60,7 @@ const getOrders = async (productId: number) => {
   return result.orders;
 };
 
-const getBalance = (orders: any[]) => {
+const getBalance = (orders: ExternOrderType[],   ) => {
   const buyOrders = orders.filter((it) => it.side === "buy");
   const sellOrders = orders.filter((it) => it.side === "sell");
 
@@ -113,7 +111,7 @@ const transferWarehouse = async (args: {
   y: number;
   id: number;
   amount: number;
-}) => {
+},   options: OptionsFetch = {},) => {
   const response = await fetch(
     "https://playtradecraft.com/api/transfer-to-main",
     {
@@ -121,9 +119,7 @@ const transferWarehouse = async (args: {
       body: JSON.stringify(args),
       headers: {
         "Content-Type": "application/json",
-        Cookie: cookiesSingleton.getCookies(),
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+        ...options.headers,
       },
     },
   );
@@ -134,13 +130,11 @@ const transferWarehouse = async (args: {
   });
 };
 
-const getState = async () => {
+const getState = async (  options: OptionsFetch = {},) => {
   const response = await fetch("https://playtradecraft.com/api/state", {
     headers: {
       "Content-Type": "application/json",
-      Cookie: cookiesSingleton.getCookies(),
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+      ...options.headers,
     },
   });
 
@@ -173,15 +167,13 @@ type OrderMarketType = OrderBaseType & {
   orderType: "market";
 };
 
-const sendOrder = async (args: OrderLimitType | OrderMarketType) => {
+const sendOrder = async (args: OrderLimitType | OrderMarketType,   options: OptionsFetch = {},) => {
   const response = await fetch("https://playtradecraft.com/api/orders", {
     method: "POST",
     body: JSON.stringify(args),
     headers: {
       "Content-Type": "application/json",
-      Cookie: cookiesSingleton.getCookies(),
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+      ...options.headers,
     },
   });
   const stream = (await response.json()) as { ok: boolean };
@@ -193,15 +185,13 @@ const sendOrder = async (args: OrderLimitType | OrderMarketType) => {
   });
 };
 
-const cancelOrder = async (orderId: string) => {
+const cancelOrder = async (orderId: string,   options: OptionsFetch = {},) => {
   const response = await fetch(
     `https://playtradecraft.com/api/orders/${orderId}`,
     {
       method: "DELETE",
       headers: {
-        Cookie: cookiesSingleton.getCookies(),
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+        ...options.headers,
       },
     },
   );
@@ -211,15 +201,13 @@ const cancelOrder = async (orderId: string) => {
   }
 };
 
-const getMineOrders = async () => {
+const getMineOrders = async (  options: OptionsFetch = {},) => {
   const stream = await fetch(
     `https://playtradecraft.com/api/state?mineOrdersOnly=1`,
     {
       headers: {
         "Content-Type": "application/json",
-        Cookie: cookiesSingleton.getCookies(),
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+        ...options.headers,
       },
     },
   );
