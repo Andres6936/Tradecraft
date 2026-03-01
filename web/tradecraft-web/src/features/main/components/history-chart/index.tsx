@@ -78,10 +78,12 @@ const HistoryChart = () => {
            <Chart avg={Avg} min={Min} max={Max} history={History}/>
         </section>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex items-center justify-between">
         <p>Average: {Avg}</p>
-        <p>Minimum: {Min}</p>
-        <p>Maximum: {Max}</p>
+        <div className="flex flex-row gap-4">
+          <p className="text-lime-400">Minimum: {Min}</p>
+          <p className="text-orange-400">Maximum: {Max}</p>
+        </div>
       </CardFooter>
     </Root>
   )
