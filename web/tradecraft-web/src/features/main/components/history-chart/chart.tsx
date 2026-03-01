@@ -8,6 +8,8 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "~/components/ui/chart"
+import { useHistoryChart } from "./context";
+import { useInvertColors } from "./hooks";
 
 const chartConfig = {
   p: {
@@ -16,7 +18,10 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: number, history: { t: number, p: number }[] }) => {
+const Chart = ({ history }: { history: { t: number, p: number }[] }) => {
+  const { min, max, avg, invertColors } = useHistoryChart();
+  const [firstColor, secondColor] = useInvertColors(invertColors);
+
   const values = useMemo(() => {
     return history.map(it => {
       const date = new Date(it.t);
@@ -55,20 +60,20 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
           tickMargin={7}
           minTickGap={28}
         />
-        <ReferenceLine y={min} stroke="var(--color-lime-400)" strokeDasharray='3 3' strokeWidth={1}
+        <ReferenceLine y={min} stroke={firstColor} strokeDasharray='3 3' strokeWidth={1}
           label={{
             value: "Min. " + min,
             position: "insideBottomRight",
-            fill: "var(--color-lime-400)",
+            fill: firstColor,
             fontSize: 10,
             offset: 10
           }}
         />
-        <ReferenceLine y={max} stroke="var(--color-orange-400)" strokeDasharray='3 3' strokeWidth={1}
+        <ReferenceLine y={max} stroke={secondColor} strokeDasharray='3 3' strokeWidth={1}
           label={{
             value: "Max. " + max,
             position: "insideBottomRight",
-            fill: "var(--color-orange-400)",
+            fill: secondColor,
             fontSize: 10,
             offset: 10
           }}
