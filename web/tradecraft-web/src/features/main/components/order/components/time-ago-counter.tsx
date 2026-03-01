@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { differenceInMinutes, differenceInSeconds, parseISO } from "date-fns";
+import { differenceInMinutes, differenceInSeconds, differenceInHours, parseISO } from "date-fns";
 
 const TimeAgoCounter = ({ createdAt }: { createdAt: string }) => {
   const createdAtDate = useMemo(() => parseISO(createdAt), [createdAt]);
@@ -7,6 +7,7 @@ const TimeAgoCounter = ({ createdAt }: { createdAt: string }) => {
 
   const secondsAgo = differenceInSeconds(now, createdAtDate);
   const minutesAgo = differenceInMinutes(now, createdAtDate);
+  const hoursAgo = differenceInHours(now, createdAtDate);
 
   useEffect(() => {
     const isLessThanMinute = secondsAgo < 60;
@@ -18,6 +19,10 @@ const TimeAgoCounter = ({ createdAt }: { createdAt: string }) => {
 
     return () => clearInterval(intervalId);
   }, [secondsAgo < 60]);
+
+  if (hoursAgo > 0) {
+    return <p className="text-muted-foreground text-xs">{hoursAgo}h ago</p>;
+  }
 
   if (secondsAgo < 60) {
     const displaySeconds = Math.max(0, secondsAgo);
