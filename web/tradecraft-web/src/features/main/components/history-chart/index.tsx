@@ -27,6 +27,15 @@ const Header = (props: React.PropsWithChildren<{}>) => {
   )
 }
 
+const ActionInvertColors = () => {
+  return (
+    <Label>
+      <p className="text-muted-foreground text-xs">Invert Colors</p>
+      <Switch/>
+    </Label>
+  )
+}
+
 const SkeletonLoading = (props: React.PropsWithChildren<{}>) => {
   return (
     <Root>
@@ -67,10 +76,7 @@ const HistoryChart = () => {
     <Root>
       <Header>
         <CardAction>
-          <Label>
-            <p className="text-muted-foreground text-xs">Invert Colors</p>
-            <Switch/>
-          </Label>
+          <ActionInvertColors/>
         </CardAction>
       </Header>
       <CardContent className="relative flex flex-1 p-0">
