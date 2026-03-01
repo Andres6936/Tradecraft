@@ -14,6 +14,7 @@ import {  useTraderContext } from "~/features/main/context/use-trader";
 import { Label } from "~/components/ui/label";
 import { Switch } from "~/components/ui/switch";
 import { Chart } from "./chart";
+import { HistoryChartProvider, useHistoryChart } from "./context";
 
 const Root = (props: React.PropsWithChildren<{}>) =>
   <Card className="flex flex-1 flex-col w-full min-w-xl max-w-xl" {...props} />
@@ -28,10 +29,12 @@ const Header = (props: React.PropsWithChildren<{}>) => {
 }
 
 const ActionInvertColors = () => {
+  const { invertColors, onChangeInvertColors } = useHistoryChart();
+
   return (
     <Label>
       <p className="text-muted-foreground text-xs">Invert Colors</p>
-      <Switch/>
+      <Switch checked={invertColors} onCheckedChange={onChangeInvertColors}/>
     </Label>
   )
 }
@@ -73,25 +76,27 @@ const HistoryChart = () => {
   }
 
   return (
-    <Root>
-      <Header>
-        <CardAction>
-          <ActionInvertColors/>
-        </CardAction>
-      </Header>
-      <CardContent className="relative flex flex-1 p-0">
-        <section className="absolute inset-0 flex">
-           <Chart avg={Avg} min={Min} max={Max} history={History}/>
-        </section>
-      </CardContent>
-      <CardFooter className="flex items-center justify-between">
-        <p>Average: {Avg}</p>
-        <div className="flex flex-row gap-4">
-          <p className="text-lime-400">Minimum: {Min}</p>
-          <p className="text-orange-400">Maximum: {Max}</p>
-        </div>
-      </CardFooter>
-    </Root>
+    <HistoryChartProvider>
+      <Root>
+        <Header>
+          <CardAction>
+            <ActionInvertColors/>
+          </CardAction>
+        </Header>
+        <CardContent className="relative flex flex-1 p-0">
+          <section className="absolute inset-0 flex">
+             <Chart avg={Avg} min={Min} max={Max} history={History}/>
+          </section>
+        </CardContent>
+        <CardFooter className="flex items-center justify-between">
+          <p>Average: {Avg}</p>
+          <div className="flex flex-row gap-4">
+            <p className="text-lime-400">Minimum: {Min}</p>
+            <p className="text-orange-400">Maximum: {Max}</p>
+          </div>
+        </CardFooter>
+      </Root>
+    </HistoryChartProvider>
   )
 }
 
