@@ -1,3 +1,5 @@
+![TradeCraft Logo](./Tradecraft.jpg)
+
 # TradeCraft - Automated Trading System for PlayTradeCraft
 
 TradeCraft is an automated trading bot designed for the PlayTradeCraft.com economic simulation game. It automates various trading operations including buying, selling, production transfer, orphan order cancellation, and market analytics.
