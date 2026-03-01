@@ -15,6 +15,7 @@ import { Label } from "~/components/ui/label";
 import { Switch } from "~/components/ui/switch";
 import { Chart } from "./chart";
 import { HistoryChartProvider, useHistoryChart } from "./context";
+import { useInvertColors } from "./hooks";
 
 const Root = (props: React.PropsWithChildren<{}>) =>
   <Card className="flex flex-1 flex-col w-full min-w-xl max-w-xl" {...props} />
@@ -50,6 +51,21 @@ const SkeletonLoading = (props: React.PropsWithChildren<{}>) => {
   )
 }
 
+const Footer = () => {
+  const { min, max, avg, invertColors } = useHistoryChart();
+  const [firstColor, secondColor] = useInvertColors(invertColors);
+
+  return (
+    <CardFooter className="flex items-center justify-between">
+      <p>Average: {avg}</p>
+      <div className="flex flex-row gap-4">
+        <p style={{color: firstColor}}>Minimum: {min}</p>
+        <p style={{color: secondColor}}>Maximum: {max}</p>
+      </div>
+    </CardFooter>
+  )
+}
+
 const HistoryChart = () => {
   const context = useTraderContext();
 
@@ -76,7 +92,7 @@ const HistoryChart = () => {
   }
 
   return (
-    <HistoryChartProvider>
+    <HistoryChartProvider min={Min} max={Max} avg={Avg}>
       <Root>
         <Header>
           <CardAction>
@@ -88,13 +104,7 @@ const HistoryChart = () => {
              <Chart avg={Avg} min={Min} max={Max} history={History}/>
           </section>
         </CardContent>
-        <CardFooter className="flex items-center justify-between">
-          <p>Average: {Avg}</p>
-          <div className="flex flex-row gap-4">
-            <p className="text-lime-400">Minimum: {Min}</p>
-            <p className="text-orange-400">Maximum: {Max}</p>
-          </div>
-        </CardFooter>
+        <Footer/>
       </Root>
     </HistoryChartProvider>
   )
