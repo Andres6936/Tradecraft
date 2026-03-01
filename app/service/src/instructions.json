@@ -23,7 +23,7 @@
       "Transfer",
       "CancelOrphans",
       "Analytics",
-      "-Seller"
+      "Seller"
     ],
     "Transfer": {
       "Kind": "factory",
