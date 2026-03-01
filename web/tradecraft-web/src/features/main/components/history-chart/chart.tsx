@@ -26,7 +26,7 @@ const Chart = ({ min, max, avg, history }: { min: number, max: number, avg: numb
   }, [history])
 
   return (
-    <ChartContainer className="py-2" config={chartConfig}>
+    <ChartContainer className="flex flex-1 px-2" config={chartConfig}>
       <LineChart
         accessibilityLayer
         data={values}

@@ -4,6 +4,7 @@ import {
   Card,
   CardAction,
   CardContent,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
@@ -72,9 +73,16 @@ const HistoryChart = () => {
           </Label>
         </CardAction>
       </Header>
-      <CardContent>
-        <Chart avg={Avg} min={Min} max={Max} history={History}/>
+      <CardContent className="relative flex flex-1 p-0">
+        <section className="absolute inset-0 flex">
+           <Chart avg={Avg} min={Min} max={Max} history={History}/>
+        </section>
       </CardContent>
+      <CardFooter>
+        <p>Average: {Avg}</p>
+        <p>Minimum: {Min}</p>
+        <p>Maximum: {Max}</p>
+      </CardFooter>
     </Root>
   )
 }
