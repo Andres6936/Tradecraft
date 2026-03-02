@@ -7,3 +7,7 @@
     <img src="./docs/White All.png" alt="Screenshot 4" width="480"/>
     <img src="./docs/Dark 2.png" alt="Screenshot 2" width="480"/>
 </div>
+
+### Video
+
+<video src="https://github.com/user-attachments/assets/cfaaf9a8-a34d-49fd-950b-a9a0764c17da" muted playsinline />
