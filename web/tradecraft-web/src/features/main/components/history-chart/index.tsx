@@ -101,7 +101,7 @@ const HistoryChart = () => {
         </Header>
         <CardContent className="relative flex flex-1 p-0">
           <section className="absolute inset-0 flex">
-             <Chart avg={Avg} min={Min} max={Max} history={History}/>
+             <Chart history={History}/>
           </section>
         </CardContent>
         <Footer/>
