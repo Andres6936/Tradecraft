@@ -34,7 +34,8 @@ const buyIf = async (
     }
   }
 
-  const range = await getPriceRange(Id, {
+  const range = await getPriceRange({
+    productId: Id,
     withPrecision: 2,
   });
   const orders = await getOrders(Id);

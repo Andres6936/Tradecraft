@@ -87,7 +87,8 @@ const sendBuyOrder = async (args: {
   }
 
   // Get the minimum price of product
-  const { Min } = await getPriceRange(args.product.Id, {
+  const { Min } = await getPriceRange({
+    productId: args.product.Id,
     withPrecision: 2,
   });
 

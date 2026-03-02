@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getOrders, getPriceRange } from "../../api";
+import { getOrders, getPriceRange } from "~/api";
 import { useQuery } from "./hooks";
 
 type ContextAnalyticsProps =
@@ -36,7 +36,7 @@ const AnalyticsProvider = ({
     await Bun.sleep(
       props.Priority === "High" ? 1 : props.Priority === "Medium" ? 1000 : 500,
     );
-    return await Promise.all([getPriceRange(props.Id), getOrders(props.Id)]);
+    return await Promise.all([getPriceRange({productId: props.Id}), getOrders(props.Id)]);
   });
 
   if (isLoading || !data) {
@@ -61,9 +61,9 @@ const AnalyticsProvider = ({
         IsLoading: false,
         Id: props.Id,
         Name: props.Name,
-        Avg: ranges.Avg,
-        Min: ranges.Min,
-        Max: ranges.Max,
+        Avg: ranges.Avg.toString(),
+        Min: ranges.Min.toString(),
+        Max: ranges.Max.toString(),
         Orders: orders,
       }}
     >

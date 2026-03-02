@@ -54,7 +54,8 @@ const sellIf = async (
       return;
     }
 
-    const range = await getPriceRange(Id, {
+    const range = await getPriceRange({
+      productId: Id,
       withPrecision: 2,
     });
 

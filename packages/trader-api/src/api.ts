@@ -10,7 +10,7 @@ import { toTruncate } from "~/utility";
 const logger = getLogger("trader");
 
 type OptionsFetch = {
-  headers?: Record<string, string>;
+  headers: Record<string, string>;
 }
 
 const getPriceRange = async (
@@ -18,7 +18,7 @@ const getPriceRange = async (
     productId: number,
     withPrecision?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   },
-  options: OptionsFetch = {},
+  options: OptionsFetch,
 ) => {
   const stream = await fetch(`https://playtradecraft.com/api/state/product`, {
     method: "POST",
@@ -45,7 +45,7 @@ const getPriceRange = async (
   };
 };
 
-const getOrders = async (productId: number,   options: OptionsFetch = {},) => {
+const getOrders = async (productId: number,   options: OptionsFetch,) => {
   const stream = await fetch(
     `https://playtradecraft.com/api/state?orderFilterProductId=${productId}`,
     {
@@ -112,7 +112,7 @@ const transferWarehouse = async (args: {
   y: number;
   id: number;
   amount: number;
-},   options: OptionsFetch = {},) => {
+},   options: OptionsFetch,) => {
   const response = await fetch(
     "https://playtradecraft.com/api/transfer-to-main",
     {
@@ -131,7 +131,7 @@ const transferWarehouse = async (args: {
   });
 };
 
-const getState = async (  options: OptionsFetch = {},) => {
+const getState = async (  options: OptionsFetch,) => {
   const response = await fetch("https://playtradecraft.com/api/state", {
     headers: {
       "Content-Type": "application/json",
@@ -168,7 +168,7 @@ type OrderMarketType = OrderBaseType & {
   orderType: "market";
 };
 
-const sendOrder = async (args: OrderLimitType | OrderMarketType,   options: OptionsFetch = {},) => {
+const sendOrder = async (args: OrderLimitType | OrderMarketType,   options: OptionsFetch,) => {
   const response = await fetch("https://playtradecraft.com/api/orders", {
     method: "POST",
     body: JSON.stringify(args),
@@ -186,7 +186,7 @@ const sendOrder = async (args: OrderLimitType | OrderMarketType,   options: Opti
   });
 };
 
-const cancelOrder = async (orderId: string,   options: OptionsFetch = {},) => {
+const cancelOrder = async (orderId: string,   options: OptionsFetch ,) => {
   const response = await fetch(
     `https://playtradecraft.com/api/orders/${orderId}`,
     {
@@ -202,7 +202,7 @@ const cancelOrder = async (orderId: string,   options: OptionsFetch = {},) => {
   }
 };
 
-const getMineOrders = async (  options: OptionsFetch = {},) => {
+const getMineOrders = async (  options: OptionsFetch,) => {
   const stream = await fetch(
     `https://playtradecraft.com/api/state?mineOrdersOnly=1`,
     {
