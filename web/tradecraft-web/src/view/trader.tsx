@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 
 import { ListOrders } from "~/features/main/components/list-orders";
 import { SelectProduct } from "~/features/main/components/select/product";
@@ -43,15 +37,13 @@ const Trader = () => {
           </CardContent>
         </Card>
         <section className="flex flex-col gap-2">
-          <HistoryChart/>
+          <HistoryChart />
           <Card className="flex flex-1 flex-col w-full min-w-xl max-w-xl">
             <CardHeader>
               <CardTitle>Market View</CardTitle>
             </CardHeader>
             <CardContent>
-              <section>
-
-              </section>
+              <section></section>
             </CardContent>
           </Card>
         </section>

@@ -4,7 +4,7 @@ import {
   TransferWarehouseResponseType,
   GetStateType,
   GetProductDailyPLTypes,
-} from "@trader/api"
+} from "@trader/api";
 
 export type {
   ExternOrderType,

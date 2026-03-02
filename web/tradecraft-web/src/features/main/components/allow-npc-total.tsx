@@ -50,8 +50,7 @@ const AllowNpcTotal = () => {
     return <p>Error: {context.error.message}</p>;
   }
 
-  const { isAllProductSelected, isAllowNpc, onChangeAllowNpc, totalPrice } =
-    context;
+  const { isAllProductSelected, isAllowNpc, onChangeAllowNpc, totalPrice } = context;
 
   return (
     <Root>

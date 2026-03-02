@@ -35,10 +35,7 @@ const ActionsMineOnly = () => {
 
   return (
     <Field>
-      <Switch
-        checked={isOrdersMineOnly}
-        onCheckedChange={onChangeOrdersMineOnly}
-      />
+      <Switch checked={isOrdersMineOnly} onCheckedChange={onChangeOrdersMineOnly} />
     </Field>
   );
 };

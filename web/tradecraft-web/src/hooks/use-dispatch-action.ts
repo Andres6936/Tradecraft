@@ -1,21 +1,21 @@
-import { useState } from "react"
+import { useState } from "react";
 
 const useDispatchAction = () => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = async (fn: () => Promise<void> | void) => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
-      await fn()
+      await fn();
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return {
     isLoading,
     dispatch,
-  }
-}
+  };
+};
 
-export {useDispatchAction}
+export { useDispatchAction };

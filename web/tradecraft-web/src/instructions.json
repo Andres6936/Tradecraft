@@ -18,13 +18,7 @@
     "Id": 93,
     "Key": "computer",
     "Name": "Computer",
-    "Categories": [
-      "Buyer",
-      "Transfer",
-      "CancelOrphans",
-      "Analytics",
-      "-Seller"
-    ],
+    "Categories": ["Buyer", "Transfer", "CancelOrphans", "Analytics", "-Seller"],
     "Transfer": {
       "Kind": "factory",
       "Tolerance": 25,
@@ -232,13 +226,7 @@
     "Id": 69,
     "Key": "microchip",
     "Name": "Microchip",
-    "Categories": [
-      "Buyer",
-      "Transfer",
-      "CancelOrphans",
-      "Analytics",
-      "-Seller"
-    ],
+    "Categories": ["Buyer", "Transfer", "CancelOrphans", "Analytics", "-Seller"],
     "Transfer": {
       "Kind": "factory",
       "Tolerance": 25,

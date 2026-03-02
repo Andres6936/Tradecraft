@@ -6,10 +6,7 @@ import { cn } from "~/lib/utils";
 import { Order } from "./order";
 import { useTraderContext } from "../context/use-trader";
 
-const Root = ({
-  children,
-  className,
-}: React.PropsWithChildren<{ className?: string }>) => (
+const Root = ({ children, className }: React.PropsWithChildren<{ className?: string }>) => (
   <div className="relative h-96">
     <div className={cn("flex absolute inset-0", className)}>{children}</div>
   </div>

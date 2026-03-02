@@ -26,9 +26,7 @@ const TimeAgoCounter = ({ createdAt }: { createdAt: string }) => {
 
   if (secondsAgo < 60) {
     const displaySeconds = Math.max(0, secondsAgo);
-    return (
-      <p className="text-muted-foreground text-xs">{displaySeconds}s ago</p>
-    );
+    return <p className="text-muted-foreground text-xs">{displaySeconds}s ago</p>;
   }
 
   return <p className="text-muted-foreground text-xs">{minutesAgo}m ago</p>;

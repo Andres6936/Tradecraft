@@ -5,16 +5,12 @@ const Root = (props: React.PropsWithChildren<{}>) => (
   <div className="flex gap-2 items-center justify-between" {...props} />
 );
 
-const Row = (props: React.PropsWithChildren<{}>) => (
-  <div className="flex flex-col" {...props} />
-);
+const Row = (props: React.PropsWithChildren<{}>) => <div className="flex flex-col" {...props} />;
 
 const ProductSelected = ({ children }: React.PropsWithChildren<{}>) => {
   return (
     <Row>
-      <p className="text-muted-foreground text-xs text-start">
-        Selected Product
-      </p>
+      <p className="text-muted-foreground text-xs text-start">Selected Product</p>
       {children}
     </Row>
   );

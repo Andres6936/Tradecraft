@@ -14,7 +14,7 @@ const Providers = ({ children }: React.PropsWithChildren<{}>) => {
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <QueryClientProvider client={queryClient}>
         {children}
-        <Toaster/>
+        <Toaster />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ThemeProvider>

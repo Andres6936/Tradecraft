@@ -1,8 +1,8 @@
 {
   "name": "tradecraft-web",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "waku dev",
     "build": "waku build",

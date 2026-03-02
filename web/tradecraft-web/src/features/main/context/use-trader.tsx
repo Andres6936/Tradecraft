@@ -33,7 +33,7 @@ type TraderContextProps =
         Avg: number;
         Min: number;
         Max: number;
-        History: {t: number, p: number}[],
+        History: { t: number; p: number }[];
       };
       isAllowNpc: boolean;
       onChangeAllowNpc: (allowNpc: boolean) => void;
@@ -50,9 +50,7 @@ const TraderContext = React.createContext<TraderContextProps | null>(null);
 const useTraderContext = () => {
   const context = React.useContext(TraderContext);
   if (!context) {
-    throw new Error(
-      "useTraderContext must be used within a TraderContextProvider",
-    );
+    throw new Error("useTraderContext must be used within a TraderContextProvider");
   }
   return context;
 };
@@ -64,19 +62,18 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [isAllowNpc, setIsAllowNpc] = useState<boolean>(true);
   const [quantity, setQuantity] = useState<number>(100);
   const [price, setPrice] = useState<number>(0);
-  const [selectedProduct, setSelectedProduct] =
-    useState<ProductType>(defaultValue);
+  const [selectedProduct, setSelectedProduct] = useState<ProductType>(defaultValue);
 
   // Update the price based on the selected side, when the side is buy wannat the less price,
   // when the side is sell want to get the max price
-  const setPriceUsingSide = React.useEffectEvent((args: {Max: number, Min: number}) => {
-    if (side === 'buy') {
+  const setPriceUsingSide = React.useEffectEvent((args: { Max: number; Min: number }) => {
+    if (side === "buy") {
       setPrice(args.Min);
     }
-    if (side === 'sell') {
+    if (side === "sell") {
       setPrice(args.Max);
     }
-  })
+  });
 
   // Update the price based on the selected side, when the side is buy wannat the less price,
   // when the side is sell want to get the max price
@@ -84,11 +81,11 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
     setSide(side);
     // Set the price based on the selected side
     setPriceUsingSide(productGraph);
-  })
+  });
 
   const query = useQuery({
     queryKey: [
-      '/server/action/getOrders',
+      "/server/action/getOrders",
       `?ProductId=${selectedProduct.Id}&MineOrdersOnly=${isOrdersMineOnly}`,
     ],
     queryFn: () =>
@@ -103,7 +100,7 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
       // Set the price based on the selected side
       setPriceUsingSide(query.data.productGraph);
     }
-  }, [query])
+  }, [query]);
 
   if (query.error) {
     return (

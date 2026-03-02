@@ -20,7 +20,7 @@ type ContextRootProps = {
   isAllowNpc: boolean;
   side: "buy" | "sell";
   orderType: "limit" | "market";
-}
+};
 
 const ContextRoot = React.createContext<ContextRootProps | null>(null);
 
@@ -55,43 +55,44 @@ const SkeletonLoading = () => {
 };
 
 const ActionBuy = () => {
-  const { selectedProduct, price, side, orderType, quantity, isAllowNpc } = useContextRoot()
-  const { isLoading, dispatch } = useDispatchAction()
+  const { selectedProduct, price, side, orderType, quantity, isAllowNpc } = useContextRoot();
+  const { isLoading, dispatch } = useDispatchAction();
 
   const queryClient = useQueryClient();
 
-  const dispatchSendOrder = () => dispatch(async () => {
-    if (selectedProduct.Id === defaultValue.Id) {
-      toast.error("Please select a product first.");
-      return;
-    };
+  const dispatchSendOrder = () =>
+    dispatch(async () => {
+      if (selectedProduct.Id === defaultValue.Id) {
+        toast.error("Please select a product first.");
+        return;
+      }
 
-    await sendOrder({
-      productId: selectedProduct.Id,
-      side,
-      orderType,
-      regionId: 1,
-      npcAllow: isAllowNpc,
-      qty: quantity,
-      price,
+      await sendOrder({
+        productId: selectedProduct.Id,
+        side,
+        orderType,
+        regionId: 1,
+        npcAllow: isAllowNpc,
+        qty: quantity,
+        price,
+      });
+      queryClient.invalidateQueries({ queryKey: ["/server/action/getOrders"] });
     });
-    queryClient.invalidateQueries({queryKey: ["/server/action/getOrders"]})
-  })
 
   const onPress = async () => {
     toast.promise(dispatchSendOrder, {
       loading: "Placing order...",
       success: "Order placed successfully!",
       error: "Failed to place order.",
-    })
-  }
+    });
+  };
 
   return (
     <Button onClick={onPress} disabled={isLoading}>
-      { isLoading && <Spinner data-icon="inline-start"/> } Order
+      {isLoading && <Spinner data-icon="inline-start" />} Order
     </Button>
-  )
-}
+  );
+};
 
 const Actions = () => {
   const context = useTraderContext();
@@ -113,7 +114,7 @@ const Actions = () => {
           variant="outline"
           type="single"
           value={side}
-          onValueChange={(value) => onChangeSide(value as "buy" | "sell" || "buy")}
+          onValueChange={(value) => onChangeSide((value as "buy" | "sell") || "buy")}
         >
           <ToggleGroupItem value="buy">Buy</ToggleGroupItem>
           <ToggleGroupItem value="sell">Sell</ToggleGroupItem>
@@ -123,9 +124,7 @@ const Actions = () => {
           variant="outline"
           type="single"
           value={orderType}
-          onValueChange={(value) =>
-            onChangeOrderType(value as "limit" | "market" || "limit")
-          }
+          onValueChange={(value) => onChangeOrderType((value as "limit" | "market") || "limit")}
         >
           <ToggleGroupItem value="limit">Limit</ToggleGroupItem>
           <ToggleGroupItem value="market">Market</ToggleGroupItem>

@@ -62,13 +62,7 @@ const QuantityPrice = () => {
     return <p>Error: {context.error.message}</p>;
   }
 
-  const {
-    isAllProductSelected,
-    quantity,
-    onChangeQuantity,
-    price,
-    onChangePrice,
-  } = context;
+  const { isAllProductSelected, quantity, onChangeQuantity, price, onChangePrice } = context;
 
   return (
     <Root>
