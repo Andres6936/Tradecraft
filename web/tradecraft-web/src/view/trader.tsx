@@ -1,7 +1,8 @@
 "use client";
 
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { useRouter } from "waku";
 
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ListOrders } from "~/features/main/components/list-orders";
 import { SelectProduct } from "~/features/main/components/select/product";
 import { TraderContextProvider } from "~/features/main/context/use-trader";
@@ -12,9 +13,19 @@ import { Actions } from "~/features/main/components/actions";
 import { ActionsMineOnly } from "~/features/main/components/action-mine-only";
 import { HistoryChart } from "~/features/main/components/history-chart";
 
+// Context
+import { useLoginContext } from "~/features/login/context/use-login";
+
 const Trader = () => {
+  const { isAuthenticated, token } = useLoginContext();
+  const router = useRouter();
+  if (!isAuthenticated) {
+    // router.push("/login");
+    return null;
+  }
+
   return (
-    <TraderContextProvider>
+    <TraderContextProvider token={token}>
       <main className="flex flex-row gap-2">
         <Card className="w-full min-w-md max-w-md">
           <CardHeader>
