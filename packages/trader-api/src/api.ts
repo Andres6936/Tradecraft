@@ -219,14 +219,60 @@ const getMineOrders = async (  options: OptionsFetch,) => {
   return result.orders;
 };
 
+type LoginType = {
+  username: string;
+  password: string;
+}
+
+const login = async (args: LoginType, options: OptionsFetch) => {
+  const response = await fetch(
+    `https://playtradecraft.com/auth/login`,
+    {
+      method: "POST",
+      body: JSON.stringify(args),
+      headers: {
+        "Content-Type": "application/json",
+        ...options.headers,
+      },
+    },
+  );
+  const stream = (await response.json()) as { ok: boolean };
+  if (response.ok && stream.ok === true) {
+    const cookies = response.headers.getSetCookie();
+    // Parse all cookies into an object
+    const cookiesObject: Record<string, string> = {};
+    for (const cookie of cookies) {
+      const [nameValue] = cookie.split(';');
+      if (!nameValue) continue;
+      const [name, value] = nameValue.split('=');
+      if (!name || !value) continue;
+      cookiesObject[name.trim()] = value;
+    }
+
+    return {
+      statusCode: 200,
+      body: { message: "Login successful", token: cookiesObject.token }
+    } as const;
+  }
+
+  logger.error("Failed to login, caused by:", {
+    error: stream,
+  });
+  return {
+    statusCode: 501,
+    body: { message: "Server error" }
+  } as const;
+};
+
 export {
   getPriceRange,
   getOrders,
   getMineOrders,
   getBalance,
   getBestSellOffer,
-  transferWarehouse,
   getState,
   sendOrder,
   cancelOrder,
+  transferWarehouse,
+  login,
 };
