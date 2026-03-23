@@ -27,8 +27,6 @@ const getPriceWithhistory = async (args: { productId: number }, options: {token:
 };
 
 const getState = async (args: { productId?: number | null; ordersMineOnly: boolean }, options: { token: string }) => {
-  console.log({ token: options.token });
-
   const [state, { Avg, Min, Max, History }] = await Promise.all([
     getStateWith({
       productId: args.productId ? args.productId : null,
