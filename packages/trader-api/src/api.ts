@@ -249,6 +249,13 @@ const login = async (args: LoginType, options: OptionsFetch) => {
       cookiesObject[name.trim()] = value;
     }
 
+    if (!cookiesObject.token) {
+      return {
+        statusCode: 401,
+        body: { message: "Login failed, no token received" }
+      } as const;
+    }
+
     return {
       statusCode: 200,
       body: { message: "Login successful", token: cookiesObject.token }

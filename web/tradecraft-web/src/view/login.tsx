@@ -31,14 +31,14 @@ const Login = ({
   className,
   ...props
 }: React.ComponentProps<"div">) => {
-  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   const router = useRouter()
   const { setToken } = useLoginContext()
 
   const [state, dispatchAction, isPending] = useActionState(loginAction, {
-    username,
+    email,
     password,
     token: '',
   });
@@ -55,7 +55,7 @@ const Login = ({
   const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault()
     startTransition(() => {
-      dispatchAction({ username, password, token: '' })
+      dispatchAction({ email, password, token: '' })
     })
   }
 
@@ -77,8 +77,8 @@ const Login = ({
                   id="email"
                   type="email"
                   placeholder="m@example.com"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </Field>
