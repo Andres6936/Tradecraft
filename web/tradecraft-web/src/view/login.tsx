@@ -46,7 +46,9 @@ const Login = ({
   useEffect(() => {
     if (state.token && state.token.length > 0) {
       setToken(state.token)
-      router.push('/')
+      startTransition(() => {
+        router.push('/')
+      })
     }
   }, [state]);
 
