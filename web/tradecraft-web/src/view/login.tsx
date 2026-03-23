@@ -1,5 +1,7 @@
 "use client"
 
+import {useActionState, useState, startTransition} from "react"
+
 import { cn } from "~/lib/utils"
 import { Button } from "~/components/ui/button"
 import {
@@ -16,11 +18,30 @@ import {
   FieldLabel,
 } from "~/components/ui/field"
 import { Input } from "~/components/ui/input"
+import { login as loginAction } from "~/features/login/server/actions/login"
+import { Spinner } from "~/components/ui/spinner"
 
 const Login = ({
   className,
   ...props
 }: React.ComponentProps<"div">) => {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [token, setToken] = useState("")
+
+  const [state, dispatchAction, isPending] = useActionState(loginAction, {
+    username,
+    password,
+    token,
+  });
+
+  const handleSubmit = (e: React.SubmitEvent) => {
+    e.preventDefault()
+    startTransition(() => {
+      dispatchAction({ username, password, token })
+    })
+  }
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="w-full min-w-xs max-w-xs">
@@ -31,7 +52,7 @@ const Login = ({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit}>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -39,25 +60,19 @@ const Login = ({
                   id="email"
                   type="email"
                   placeholder="m@example.com"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                 />
               </Field>
               <Field>
-                <div className="flex items-center">
-                  <FieldLabel htmlFor="password">Password</FieldLabel>
-                  <a
-                    href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
-                    Forgot your password?
-                  </a>
-                </div>
-                <Input id="password" type="password" required />
+                <FieldLabel htmlFor="password">Password</FieldLabel>
+                <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
               </Field>
               <Field>
-                <Button type="submit">Login</Button>
-                <Button variant="outline" type="button">
-                  Login with Google
+                <Button type="submit" disabled={isPending}>
+                  {isPending && <Spinner data-icon="inline-start" />}
+                  Login
                 </Button>
                 <FieldDescription className="text-center">
                   Don&apos;t have an account? <a href="#">Sign up</a>
