@@ -1,6 +1,7 @@
 "use client"
 
-import {useActionState, useState, startTransition} from "react"
+import { useActionState, useState, startTransition, useEffect } from "react"
+import { useRouter } from 'waku'
 
 import { cn } from "~/lib/utils"
 import { Button } from "~/components/ui/button"
@@ -18,8 +19,13 @@ import {
   FieldLabel,
 } from "~/components/ui/field"
 import { Input } from "~/components/ui/input"
-import { login as loginAction } from "~/features/login/server/actions/login"
 import { Spinner } from "~/components/ui/spinner"
+
+// Context
+import { useLoginContext } from "~/features/login/context/use-login"
+
+// Server Action
+import { login as loginAction } from "~/features/login/server/actions/login"
 
 const Login = ({
   className,
@@ -27,18 +33,27 @@ const Login = ({
 }: React.ComponentProps<"div">) => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [token, setToken] = useState("")
+
+  const router = useRouter()
+  const { setToken } = useLoginContext()
 
   const [state, dispatchAction, isPending] = useActionState(loginAction, {
     username,
     password,
-    token,
+    token: '',
   });
+
+  useEffect(() => {
+    if (state.token && state.token.length > 0) {
+      setToken(state.token)
+      router.push('/')
+    }
+  }, [state]);
 
   const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault()
     startTransition(() => {
-      dispatchAction({ username, password, token })
+      dispatchAction({ username, password, token: '' })
     })
   }
 
