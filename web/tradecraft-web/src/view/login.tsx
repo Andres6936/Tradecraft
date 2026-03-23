@@ -41,6 +41,7 @@ const Login = ({
     email,
     password,
     token: '',
+    message: '',
   });
 
   useEffect(() => {

@@ -17,6 +17,7 @@ const login = async (previosState: any, actionPayload: any) => {
       email: actionPayload.email,
       password: actionPayload.password,
       token: result.body.token,
+      message: result.body.message,
     }
   }
 
@@ -24,6 +25,7 @@ const login = async (previosState: any, actionPayload: any) => {
     email: actionPayload.email,
     password: actionPayload.password,
     token: "",
+    message: "Not authorized",
   }
 }
 
