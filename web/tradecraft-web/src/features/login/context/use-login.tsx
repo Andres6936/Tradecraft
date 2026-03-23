@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 type ContextLoginProps = {
   isAuthenticated: boolean,
@@ -11,7 +12,7 @@ type ContextLoginProps = {
 const LoginContext = React.createContext<ContextLoginProps | null>(null)
 
 const LoginContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
-  const [token, setToken] = React.useState('')
+  const [token, setToken] = useLocalStorage('@Token', '')
 
   return (
     <LoginContext.Provider value={{
