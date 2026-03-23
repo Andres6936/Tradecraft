@@ -220,7 +220,7 @@ const getMineOrders = async (  options: OptionsFetch,) => {
 };
 
 type LoginType = {
-  username: string;
+  email: string;
   password: string;
 }
 
