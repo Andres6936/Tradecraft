@@ -3,7 +3,6 @@
 import {login as withLogin} from "@trader/api"
 
 const login = async (previosState: any, actionPayload: any) => {
-  console.log({ previosState }, { actionPayload })
   const result = await withLogin({
     email: actionPayload.email,
     password: actionPayload.password
