@@ -20,19 +20,19 @@ const Headers = {
 
 type FirstArgs<T extends (...args: any) => any> = Parameters<T>[0];
 
-const cancelOrder = async (args: FirstArgs<typeof cancelOrderExternal>) =>
+const cancelOrder = async (args: FirstArgs<typeof cancelOrderExternal>, options: {token: string}) =>
   cancelOrderExternal(args, {
-    headers: Headers,
+    headers: {...Headers, Cookie: options.token},
   });
 
-const sendOrder = async (args: FirstArgs<typeof sendOrderExternal>) =>
+const sendOrder = async (args: FirstArgs<typeof sendOrderExternal>, options: {token: string}) =>
   sendOrderExternal(args, {
-    headers: Headers,
+    headers: {...Headers, Cookie: options.token},
   });
 
-const getPriceRange = async (args: FirstArgs<typeof getPriceRangeExternal>) =>
+const getPriceRange = async (args: FirstArgs<typeof getPriceRangeExternal>, options: {token: string}) =>
   getPriceRangeExternal(args, {
-    headers: Headers,
+    headers: {...Headers, Cookie: options.token},
   });
 
 const getStateWith = async (
@@ -40,6 +40,7 @@ const getStateWith = async (
     productId?: number | null;
     ordersMineOnly?: boolean;
   } = {},
+  options: {token: string}
 ) => {
   const searchParams = new URLSearchParams();
 
@@ -54,7 +55,7 @@ const getStateWith = async (
   }
 
   const stream = await fetch(`https://playtradecraft.com/api/state?${searchParams.toString()}`, {
-    headers: Headers,
+    headers: {...Headers, Cookie: options.token},
   });
 
   const result = (await stream.json()) as GetStateType & {

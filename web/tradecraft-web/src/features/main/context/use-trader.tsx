@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "waku";
 import { useQuery } from "@tanstack/react-query";
 
 import type { ProductType } from "~/features/main/types/d";
 import { defaultValue } from "~/features/main/utils/setup";
 import { getState } from "~/features/main/server/actions/get-state";
 import { ExternOrderType } from "~/types/d";
+
+// Context
+import { useLoginContext } from "~/features/login/context/use-login";
 
 type TraderContextProps =
   | {
@@ -56,6 +60,13 @@ const useTraderContext = () => {
 };
 
 const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
+  const router = useRouter();
+  const { isAuthenticated, token } = useLoginContext()
+  if (!isAuthenticated) {
+    router.push("/login");
+    return null;
+  }
+
   const [side, setSide] = useState<"buy" | "sell">("buy");
   const [orderType, setOrderType] = useState<"limit" | "market">("limit");
   const [isOrdersMineOnly, setIsOrdersMineOnly] = useState<boolean>(false);
@@ -92,7 +103,7 @@ const TraderContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
       getState({
         productId: selectedProduct ? selectedProduct.Id : null,
         ordersMineOnly: isOrdersMineOnly,
-      }),
+      }, { token }),
   });
 
   useEffect(() => {

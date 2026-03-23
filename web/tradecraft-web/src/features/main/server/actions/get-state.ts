@@ -3,7 +3,7 @@
 import { getPriceRange, getStateWith } from "~/api";
 import { defaultValue } from "~/features/main/utils/setup";
 
-const getPriceWithhistory = async (args: { productId: number }) => {
+const getPriceWithhistory = async (args: { productId: number }, options: {token: string}) => {
   if (args.productId === defaultValue.Id) {
     return {
       Avg: 0,
@@ -16,7 +16,7 @@ const getPriceWithhistory = async (args: { productId: number }) => {
   const { Avg, Min, Max, History } = await getPriceRange({
     productId: args.productId,
     withPrecision: 2,
-  });
+  }, options);
 
   return {
     Avg,
@@ -26,15 +26,15 @@ const getPriceWithhistory = async (args: { productId: number }) => {
   };
 };
 
-const getState = async (args: { productId?: number | null; ordersMineOnly: boolean }) => {
+const getState = async (args: { productId?: number | null; ordersMineOnly: boolean }, options: {token: string}) => {
   const [state, { Avg, Min, Max, History }] = await Promise.all([
     getStateWith({
       productId: args.productId ? args.productId : null,
       ordersMineOnly: args.ordersMineOnly,
-    }),
+    }, options),
     getPriceWithhistory({
       productId: args.productId ? args.productId : defaultValue.Id,
-    }),
+    }, options),
   ]);
 
   return {
