@@ -1,7 +1,5 @@
 "use client";
 
-import { useRouter } from "waku";
-
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ListOrders } from "~/features/main/components/list-orders";
 import { SelectProduct } from "~/features/main/components/select/product";
@@ -18,9 +16,8 @@ import { useLoginContext } from "~/features/login/context/use-login";
 
 const Trader = () => {
   const { isAuthenticated, token } = useLoginContext();
-  const router = useRouter();
   if (!isAuthenticated) {
-    // router.push("/login");
+    window.location.href = "/login";
     return null;
   }
 

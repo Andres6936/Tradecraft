@@ -34,7 +34,6 @@ const Login = ({
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const router = useRouter()
   const { setToken } = useLoginContext()
 
   const [state, dispatchAction, isPending] = useActionState(loginAction, {
@@ -48,7 +47,7 @@ const Login = ({
     if (state.token && state.token.length > 0) {
       setToken(state.token)
       startTransition(() => {
-        router.push('/')
+        window.location.href = '/'
       })
     }
   }, [state]);
