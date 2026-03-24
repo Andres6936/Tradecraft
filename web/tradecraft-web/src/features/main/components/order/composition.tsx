@@ -9,8 +9,11 @@ import { Button } from "~/components/ui/button";
 import { Spinner } from "~/components/ui/spinner";
 import { useDispatchAction } from "~/hooks/use-dispatch-action";
 import { useOrderContext } from "./context";
-import { useTraderContext } from "~/features/main/context/use-trader";
 import { Flex, FlexEnd, Row } from "~/features/main/components/view";
+
+// Context
+import { useTraderContext } from "~/features/main/context/use-trader";
+import { useLoginContext } from "~/features/login/context/use-login";
 
 // Actions
 import { cancelOrder } from "~/api";
@@ -87,6 +90,7 @@ const QuantityRegion = () => {
 };
 
 const ActionCancel = () => {
+  const { isAuthenticated, token } = useLoginContext();
   const { order, isMineOrder } = useOrderContext();
   const { isLoading, dispatch } = useDispatchAction();
 
@@ -96,7 +100,8 @@ const ActionCancel = () => {
 
   const dispatchCancel = () =>
     dispatch(async () => {
-      await cancelOrder(order._id);
+      if (!isAuthenticated) return;
+      await cancelOrder(order._id, { token });
       queryClient.invalidateQueries({ queryKey: ["/server/action/getOrders"] });
     });
 
