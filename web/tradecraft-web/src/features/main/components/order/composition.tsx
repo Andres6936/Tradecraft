@@ -10,6 +10,7 @@ import { Spinner } from "~/components/ui/spinner";
 import { useDispatchAction } from "~/hooks/use-dispatch-action";
 import { useOrderContext } from "./context";
 import { useTraderContext } from "~/features/main/context/use-trader";
+import { Flex, FlexEnd, Row } from "~/features/main/components/view";
 
 // Actions
 import { cancelOrder } from "~/api";
@@ -34,18 +35,6 @@ const Root = (props: React.ComponentPropsWithRef<"section">) => {
     <section onClick={onPress} className="flex flex-col gap-0.5 border rounded py-2 px-3 hover:bg-[#00000033]" {...props} />
   );
 };
-
-const Flex = (props: React.PropsWithChildren<{}>) => (
-  <div className="flex items-center justify-between" {...props} />
-);
-
-const FlexEnd = (props: React.PropsWithChildren<{}>) => (
-  <div className="flex items-center justify-end" {...props} />
-);
-
-const Row = (props: React.PropsWithChildren<{}>) => (
-  <div className="flex flex-row items-center gap-2" {...props} />
-);
 
 const Name = () => {
   const { order } = useOrderContext();
