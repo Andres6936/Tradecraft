@@ -1,6 +1,3 @@
 [build]
   command = "bun install && bunx turbo build"
-  publish = "web/tradecraft-web/dist/public"
-[functions]
-  included_files = ["web/tradecraft-web/private/**"]
-  directory = "netlify-functions"
+  publish = "web/tradecraft-web/dist/server"
