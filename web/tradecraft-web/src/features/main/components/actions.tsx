@@ -12,6 +12,7 @@ import { defaultValue } from "~/features/main/utils/setup";
 
 // Actions
 import { sendOrder } from "~/api";
+import { useLoginContext } from "~/features/login/context/use-login";
 
 type ContextRootProps = {
   selectedProduct: ProductType;
@@ -55,6 +56,7 @@ const SkeletonLoading = () => {
 };
 
 const ActionBuy = () => {
+  const { isAuthenticated, token } = useLoginContext()
   const { selectedProduct, price, side, orderType, quantity, isAllowNpc } = useContextRoot();
   const { isLoading, dispatch } = useDispatchAction();
 
@@ -67,6 +69,11 @@ const ActionBuy = () => {
         return;
       }
 
+      if (!isAuthenticated) {
+        toast.error("Please log in first.");
+        return;
+      }
+
       await sendOrder({
         productId: selectedProduct.Id,
         side,
@@ -75,7 +82,7 @@ const ActionBuy = () => {
         npcAllow: isAllowNpc,
         qty: quantity,
         price,
-      });
+      }, {token});
       queryClient.invalidateQueries({ queryKey: ["/server/action/getOrders"] });
     });
 
