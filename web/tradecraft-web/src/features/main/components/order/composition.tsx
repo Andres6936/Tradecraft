@@ -26,6 +26,8 @@ const Root = (props: React.ComponentPropsWithRef<"section">) => {
       Name: order.productName,
     })
     context.onChangeQuantity(order.qty)
+    // Toggle side
+    context.onChangeSide(order.side === "buy" ? "sell" : "buy")
   }
 
   return (
