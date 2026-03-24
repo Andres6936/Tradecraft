@@ -33,7 +33,15 @@ const Price = ({ children }: React.PropsWithChildren<{}>) => {
   return (
     <Row>
       <p className="text-muted-foreground text-xs">Price</p>
-      {children}
+      <InputGroup>
+        {children}
+        <InputGroupAddon align="inline-start">
+          <InputGroupButton>Min</InputGroupButton>
+        </InputGroupAddon>
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton>Max</InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
     </Row>
   );
 };
@@ -42,10 +50,10 @@ const SkeletonLoading = () => {
   return (
     <Root>
       <Quantity>
-        <InputGroupInput className="max-w-24" disabled={true} />
+        <InputGroupInput className="max-w-18" disabled={true} />
       </Quantity>
       <Price>
-        <Input className="max-w-24" disabled={true} />
+        <Input className="max-w-18" disabled={true} />
       </Price>
     </Root>
   );
@@ -71,7 +79,7 @@ const QuantityPrice = () => {
           type="number"
           value={isAllProductSelected ? 0 : quantity}
           onChange={(e) => onChangeQuantity(e.target.valueAsNumber)}
-          className="max-w-24"
+          className="max-w-18"
           min={1}
           disabled={isAllProductSelected}
         />
@@ -79,7 +87,7 @@ const QuantityPrice = () => {
       <Price>
         <Input
           type="number"
-          className="max-w-24"
+          className="max-w-18"
           value={isAllProductSelected ? 0 : price}
           onChange={(e) => onChangePrice(e.target.valueAsNumber)}
           min={0}
