@@ -30,16 +30,30 @@ const Quantity = ({ children }: React.PropsWithChildren<{}>) => {
 };
 
 const Price = ({ children }: React.PropsWithChildren<{}>) => {
+  const context = useTraderContext();
+
+  const onPressMin = () => {
+    if (context.isLoading || context.error) return;
+    const minPrice = context.productGraph.Min;
+    context.onChangePrice(minPrice);
+  };
+
+  const onPressMax = () => {
+    if (context.isLoading || context.error) return;
+    const maxPrice = context.productGraph.Max;
+    context.onChangePrice(maxPrice);
+  };
+
   return (
     <Row>
       <p className="text-muted-foreground text-xs">Price</p>
       <InputGroup>
         {children}
         <InputGroupAddon align="inline-start">
-          <InputGroupButton>Min</InputGroupButton>
+          <InputGroupButton onClick={onPressMin}>Min</InputGroupButton>
         </InputGroupAddon>
         <InputGroupAddon align="inline-end">
-          <InputGroupButton>Max</InputGroupButton>
+          <InputGroupButton onClick={onPressMax}>Max</InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
     </Row>

@@ -97,13 +97,6 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
       }, { token }),
   });
 
-  useEffect(() => {
-    if (query.isSuccess && !query.isLoading) {
-      // Set the price based on the selected side
-      setPriceUsingSide(query.data.productGraph);
-    }
-  }, [query]);
-
   if (query.error) {
     return (
       <TraderContext.Provider value={{ isLoading: false, error: query.error }}>
