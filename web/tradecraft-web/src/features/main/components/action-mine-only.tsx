@@ -17,9 +17,14 @@ const Field = ({ children, title, className }: React.PropsWithChildren<{title: s
 
 const SkeletonLoading = () => {
   return (
-    <Field title="My Orders">
-      <Switch disabled={true} />
-    </Field>
+    <Row>
+      <Field title="Loading" className="text-yellow-500">
+        <Spinner className="text-yellow-500"/>
+      </Field>
+      <Field title="My Orders">
+        <Switch disabled={true} />
+      </Field>
+    </Row>
   );
 };
 
@@ -38,9 +43,11 @@ const ActionsMineOnly = () => {
 
   return (
     <Row>
-      <Field title="Refreshing" className="text-yellow-500">
-        <Spinner className="text-yellow-500"/>
-      </Field>
+      {context.isFetching && (
+        <Field title="Refreshing" className="text-yellow-500">
+          <Spinner className="text-yellow-500"/>
+        </Field>
+      )}
       <Field title="My Orders">
         <Switch checked={isOrdersMineOnly} onCheckedChange={onChangeOrdersMineOnly} />
       </Field>

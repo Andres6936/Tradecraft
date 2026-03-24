@@ -19,6 +19,7 @@ type TraderContextProps =
     }
   | {
       isLoading: false;
+      isFetching: boolean;
       error: null;
       userId: string;
       isAllProductSelected: boolean;
@@ -118,6 +119,7 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
   return (
     <TraderContext.Provider
       value={{
+        isFetching: query.isFetching,
         isLoading: false,
         error: null,
         orders,
