@@ -4,7 +4,7 @@ import { Spinner } from "~/components/ui/spinner";
 
 import { cn } from "~/lib/utils";
 import { Row } from "~/features/main/components/view";
-import { useTraderContext } from "../context/use-trader";
+import { useTraderContext } from "../../../context/use-trader";
 
 const Field = ({ children, title, className }: React.PropsWithChildren<{title: string, className?: string}>) => {
   return (

@@ -2,11 +2,11 @@ import React from "react";
 import { toast } from "sonner";
 import { useQueryClient } from "@tanstack/react-query";
 
-import type { ProductType } from "../types/d";
+import type { ProductType } from "../../../types/d";
 import { Button } from "~/components/ui/button";
 import { Spinner } from "~/components/ui/spinner";
 import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
-import { useTraderContext } from "../context/use-trader";
+import { useTraderContext } from "../../../context/use-trader";
 import { useDispatchAction } from "~/hooks/use-dispatch-action";
 import { defaultValue } from "~/features/main/utils/setup";
 

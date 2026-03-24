@@ -3,8 +3,8 @@ import { List } from "react-window";
 
 import { cn } from "~/lib/utils";
 
-import { Order } from "./order";
-import { useTraderContext } from "../context/use-trader";
+import { Order } from "../../order";
+import { useTraderContext } from "../../../context/use-trader";
 
 const Root = ({ children, className }: React.PropsWithChildren<{ className?: string }>) => (
   <div className="relative h-96">

@@ -5,7 +5,7 @@ import {
   InputGroupInput,
 } from "~/components/ui/input-group";
 import { Input } from "~/components/ui/input";
-import { useTraderContext } from "../context/use-trader";
+import { useTraderContext } from "../../../context/use-trader";
 
 const Root = (props: React.PropsWithChildren<{}>) => (
   <div className="flex gap-2 items-center justify-between" {...props} />

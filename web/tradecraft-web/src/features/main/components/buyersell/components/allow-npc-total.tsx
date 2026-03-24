@@ -1,6 +1,6 @@
 import { Checkbox } from "~/components/ui/checkbox";
 import { Label } from "~/components/ui/label";
-import { useTraderContext } from "../context/use-trader";
+import { useTraderContext } from "../../../context/use-trader";
 import { Skeleton } from "~/components/ui/skeleton";
 
 const Root = (props: React.PropsWithChildren<{}>) => (

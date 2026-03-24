@@ -1,5 +1,5 @@
 import { Skeleton } from "~/components/ui/skeleton";
-import { useTraderContext } from "../context/use-trader";
+import { useTraderContext } from "../../../context/use-trader";
 
 const Root = (props: React.PropsWithChildren<{}>) => (
   <div className="flex gap-2 items-center justify-between" {...props} />
