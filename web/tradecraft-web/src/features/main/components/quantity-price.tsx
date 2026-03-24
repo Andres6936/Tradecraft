@@ -11,13 +11,17 @@ const Root = (props: React.PropsWithChildren<{}>) => (
   <div className="flex gap-2 items-center justify-between" {...props} />
 );
 
+const Col = (props: React.PropsWithChildren<{}>) => (
+  <div className="flex flex-col gap-1" {...props} />
+);
+
 const Row = (props: React.PropsWithChildren<{}>) => (
   <div className="flex flex-row gap-2 items-center" {...props} />
 );
 
 const Quantity = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <Row>
+    <Col>
       <p className="text-muted-foreground text-xs">Quantity</p>
       <InputGroup>
         {children}
@@ -25,7 +29,7 @@ const Quantity = ({ children }: React.PropsWithChildren<{}>) => {
           <InputGroupButton>Max</InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
-    </Row>
+    </Col>
   );
 };
 
@@ -45,8 +49,8 @@ const Price = ({ children }: React.PropsWithChildren<{}>) => {
   };
 
   return (
-    <Row>
-      <p className="text-muted-foreground text-xs">Price</p>
+    <Col>
+      <p className="text-muted-foreground text-xs text-end">Price</p>
       <InputGroup>
         {children}
         <InputGroupAddon align="inline-start">
@@ -56,7 +60,7 @@ const Price = ({ children }: React.PropsWithChildren<{}>) => {
           <InputGroupButton onClick={onPressMax}>Max</InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
-    </Row>
+    </Col>
   );
 };
 
@@ -64,10 +68,10 @@ const SkeletonLoading = () => {
   return (
     <Root>
       <Quantity>
-        <InputGroupInput className="max-w-20" disabled={true} />
+        <InputGroupInput className="max-w-28" disabled={true} />
       </Quantity>
       <Price>
-        <Input className="max-w-20" disabled={true} />
+        <Input className="max-w-24" disabled={true} />
       </Price>
     </Root>
   );
@@ -93,7 +97,7 @@ const QuantityPrice = () => {
           type="number"
           value={isAllProductSelected ? 0 : quantity}
           onChange={(e) => onChangeQuantity(e.target.valueAsNumber)}
-          className="max-w-20"
+          className="max-w-28"
           min={1}
           disabled={isAllProductSelected}
         />
@@ -101,7 +105,7 @@ const QuantityPrice = () => {
       <Price>
         <Input
           type="number"
-          className="max-w-20"
+          className="max-w-24"
           value={isAllProductSelected ? 0 : price}
           onChange={(e) => onChangePrice(e.target.valueAsNumber)}
           min={0}
