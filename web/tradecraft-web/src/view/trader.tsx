@@ -1,5 +1,6 @@
 "use client";
 
+import { Separator } from "~/components/ui/separator";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ListOrders } from "~/features/main/components/list-orders";
 import { SelectProduct } from "~/features/main/components/select/product";
@@ -34,9 +35,9 @@ const Trader = () => {
           <CardContent>
             <section className="flex flex-col gap-4">
               <SelectProduct />
-              <hr />
+              <Separator/>
               <ListOrders />
-              <hr />
+              <Separator/>
               <InfoSelected />
               <QuantityPrice />
               <AllowNpcTotal />
