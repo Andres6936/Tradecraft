@@ -64,10 +64,10 @@ const SkeletonLoading = () => {
   return (
     <Root>
       <Quantity>
-        <InputGroupInput className="max-w-18" disabled={true} />
+        <InputGroupInput className="max-w-20" disabled={true} />
       </Quantity>
       <Price>
-        <Input className="max-w-18" disabled={true} />
+        <Input className="max-w-20" disabled={true} />
       </Price>
     </Root>
   );
@@ -93,7 +93,7 @@ const QuantityPrice = () => {
           type="number"
           value={isAllProductSelected ? 0 : quantity}
           onChange={(e) => onChangeQuantity(e.target.valueAsNumber)}
-          className="max-w-18"
+          className="max-w-20"
           min={1}
           disabled={isAllProductSelected}
         />
@@ -101,7 +101,7 @@ const QuantityPrice = () => {
       <Price>
         <Input
           type="number"
-          className="max-w-18"
+          className="max-w-20"
           value={isAllProductSelected ? 0 : price}
           onChange={(e) => onChangePrice(e.target.valueAsNumber)}
           min={0}
