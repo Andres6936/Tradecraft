@@ -14,7 +14,7 @@ import { useOrderContext } from "./context";
 import { cancelOrder } from "~/api";
 
 const Root = (props: React.ComponentPropsWithRef<"section">) => (
-  <section className="flex flex-col gap-0.5 border rounded py-2 px-3" {...props} />
+  <section className="flex flex-col gap-0.5 border rounded py-2 px-3 hover:bg-[#00000033]" {...props} />
 );
 
 const Flex = (props: React.PropsWithChildren<{}>) => (
