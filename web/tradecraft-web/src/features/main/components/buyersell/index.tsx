@@ -1,12 +1,12 @@
 import { Separator } from "~/components/ui/separator";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
-import { SelectProduct } from "~/features/main/components/select/product";
 
 import { Actions } from "./components/actions";
 import { ListOrders } from "./components/list-orders";
 import { InfoSelected } from "./components/info-selected";
 import { QuantityPrice } from "./components/quantity-price";
 import { AllowNpcTotal } from "./components/allow-npc-total";
+import { SelectProduct } from "./components/select/product";
 import { ActionsMineOnly } from "./components/action-mine-only";
 
 
