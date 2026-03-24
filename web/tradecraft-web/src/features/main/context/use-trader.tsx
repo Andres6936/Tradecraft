@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import type { ProductType } from "~/features/main/types/d";
-import { defaultValue } from "~/features/main/utils/setup";
+import { defaultValue, REFRESH_INTERVAL } from "~/features/main/utils/setup";
 import { getState } from "~/features/main/server/actions/get-state";
 import { ExternOrderType } from "~/types/d";
 
@@ -96,6 +96,7 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
         productId: selectedProduct ? selectedProduct.Id : null,
         ordersMineOnly: isOrdersMineOnly,
       }, { token }),
+      refetchInterval: REFRESH_INTERVAL,
   });
 
   if (query.error) {
