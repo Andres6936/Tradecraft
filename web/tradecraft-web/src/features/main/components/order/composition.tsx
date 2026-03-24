@@ -9,13 +9,28 @@ import { Button } from "~/components/ui/button";
 import { Spinner } from "~/components/ui/spinner";
 import { useDispatchAction } from "~/hooks/use-dispatch-action";
 import { useOrderContext } from "./context";
+import { useTraderContext } from "~/features/main/context/use-trader";
 
 // Actions
 import { cancelOrder } from "~/api";
 
-const Root = (props: React.ComponentPropsWithRef<"section">) => (
-  <section className="flex flex-col gap-0.5 border rounded py-2 px-3 hover:bg-[#00000033]" {...props} />
-);
+const Root = (props: React.ComponentPropsWithRef<"section">) => {
+  const context = useTraderContext();
+  const { order } = useOrderContext();
+
+  const onPress = () => {
+    if (context.isLoading || context.error) return;
+    context.onSelectProduct({
+      Id: order.productId,
+      Key: order.productKey,
+      Name: order.productName,
+    })
+  }
+
+  return (
+    <section onClick={onPress} className="flex flex-col gap-0.5 border rounded py-2 px-3 hover:bg-[#00000033]" {...props} />
+  );
+};
 
 const Flex = (props: React.PropsWithChildren<{}>) => (
   <div className="flex items-center justify-between" {...props} />
