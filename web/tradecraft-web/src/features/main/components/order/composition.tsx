@@ -25,6 +25,7 @@ const Root = (props: React.ComponentPropsWithRef<"section">) => {
       Key: order.productKey,
       Name: order.productName,
     })
+    context.onChangeQuantity(order.qty)
   }
 
   return (
