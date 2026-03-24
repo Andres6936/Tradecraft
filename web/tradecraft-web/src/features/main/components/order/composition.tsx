@@ -32,7 +32,7 @@ const Root = (props: React.ComponentPropsWithRef<"section">) => {
   }
 
   return (
-    <section onClick={onPress} className="flex flex-col gap-0.5 border rounded py-2 px-3 hover:bg-[#00000033]" {...props} />
+    <section onClick={onPress} className="flex flex-col gap-0.5 border rounded py-2 px-3 dark:hover:bg-[#00000033] light:hover:bg-[#00000011]" {...props} />
   );
 };
 
