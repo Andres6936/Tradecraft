@@ -1,5 +1,6 @@
 import { Skeleton } from "~/components/ui/skeleton";
 import { useTraderContext } from "../../../context/use-trader";
+import { numberLocale } from "~/features/main/utils/locales";
 
 const Root = (props: React.PropsWithChildren<{}>) => (
   <div className="flex gap-2 items-center justify-between" {...props} />
@@ -60,7 +61,10 @@ const InfoSelected = () => {
         <p className="text-end">
           {isAllProductSelected
             ? "All"
-            : (inventory[selectedProduct.Key] || 0).toFixed(1) + " units"}
+            : (inventory[selectedProduct.Key] || 0).toLocaleString(numberLocale, {
+              maximumFractionDigits: 1,
+              minimumFractionDigits: 1,
+            }) + " units"}
         </p>
       </Stock>
     </Root>

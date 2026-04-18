@@ -11,6 +11,7 @@ import { ExternOrderType } from "~/types/d";
 type OnChangeSideArgs = {
   side: "buy" | "sell",
   price: number,
+  amount: number,
   orderType: "limit" | "market",
   isMineOrder: boolean,
 }
@@ -72,6 +73,7 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
   const [isAllowNpc, setIsAllowNpc] = useState<boolean>(true);
   const [quantity, setQuantity] = useState<number>(100);
   const [price, setPrice] = useState<number>(0);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
   const [selectedProduct, setSelectedProduct] = useState<ProductType>(defaultValue);
 
   // Update the price based on the selected side, when the side is buy wannat the less price,
@@ -92,10 +94,12 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
 
     if (args.orderType === "limit") {
       setPrice(args.price);
+      setTotalPrice(args.amount * args.price);
     }
     else {
       // Set the price based on the selected side
       setPriceUsingSide(productGraph);
+      setTotalPrice(args.amount * (side === "buy" ? productGraph.Min : productGraph.Max));
     }
   });
 
@@ -152,7 +156,7 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
         onChangeSide,
         orderType,
         onChangeOrderType: setOrderType,
-        totalPrice: 0,
+        totalPrice,
         inventory,
         productGraph,
         isAllProductSelected: selectedProduct.Id === defaultValue.Id,

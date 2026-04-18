@@ -2,6 +2,8 @@ import { Checkbox } from "~/components/ui/checkbox";
 import { Label } from "~/components/ui/label";
 import { useTraderContext } from "../../../context/use-trader";
 import { Skeleton } from "~/components/ui/skeleton";
+import { numberLocale } from "~/features/main/utils/locales";
+
 
 const Root = (props: React.PropsWithChildren<{}>) => (
   <div className="flex gap-2 items-center justify-between" {...props} />
@@ -59,7 +61,10 @@ const AllowNpcTotal = () => {
       </AllowNpc>
 
       <Total>
-        <p>{isAllProductSelected ? "All" : "$" + totalPrice}</p>
+        <p>{isAllProductSelected ? "All" : "$" + totalPrice.toLocaleString(numberLocale, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}</p>
       </Total>
     </Root>
   );

@@ -10,6 +10,7 @@ import { Spinner } from "~/components/ui/spinner";
 import { useDispatchAction } from "~/hooks/use-dispatch-action";
 import { useOrderContext } from "./context";
 import { Flex, FlexEnd, Row } from "~/features/main/components/view";
+import { numberLocale } from "~/features/main/utils/locales";
 
 // Context
 import { useTraderContext } from "~/features/main/context/use-trader";
@@ -17,8 +18,6 @@ import { useLoginContext } from "~/features/login/context/use-login";
 
 // Actions
 import { cancelOrder } from "~/api";
-
-const numberLocale = window.Intl.NumberFormat().resolvedOptions().locale;
 
 const Root = (props: React.ComponentPropsWithRef<"section">) => {
   const context = useTraderContext();
@@ -36,6 +35,7 @@ const Root = (props: React.ComponentPropsWithRef<"section">) => {
     context.onChangeSide({
       side: order.side === "buy" ? "sell" : "buy",
       orderType: order.orderType,
+      amount: order.qty,
       price: order.orderType === "limit" ? order.price : 0,
       isMineOrder,
     })
