@@ -18,6 +18,8 @@ import { useLoginContext } from "~/features/login/context/use-login";
 // Actions
 import { cancelOrder } from "~/api";
 
+const numberLocale = window.Intl.NumberFormat().resolvedOptions().locale;
+
 const Root = (props: React.ComponentPropsWithRef<"section">) => {
   const context = useTraderContext();
   const { order, isMineOrder } = useOrderContext();
@@ -89,7 +91,7 @@ const QuantityRegion = () => {
 
   return (
     <p className="text-muted-foreground text-xs">
-      {order.qty.toLocaleString(navigator.language, {
+      {order.qty.toLocaleString(numberLocale, {
         minimumFractionDigits: 1,
         maximumFractionDigits: 1
       })} {order.unit} - {regionName}
