@@ -261,7 +261,8 @@ const login = async (args: LoginType, options: OptionsFetch) => {
       },
     },
   );
-  const stream = (await response.json()) as { ok: boolean };
+  const stream = (await response.json()) as { ok: boolean, code: 'invalid' };
+
   if (response.ok && stream.ok === true) {
     const cookies = response.headers.getSetCookie();
     // Parse all cookies into an object
@@ -276,7 +277,7 @@ const login = async (args: LoginType, options: OptionsFetch) => {
 
     if (!cookiesObject.token) {
       return {
-        statusCode: 401,
+        statusCode: 501,
         body: { message: "Login failed, no token received" }
       } as const;
     }
@@ -287,12 +288,9 @@ const login = async (args: LoginType, options: OptionsFetch) => {
     } as const;
   }
 
-  logger.error("Failed to login, caused by:", {
-    error: stream,
-  });
   return {
-    statusCode: 501,
-    body: { message: "Server error" }
+    statusCode: 401,
+    body: { message: "Unauthorized", code: stream.code }
   } as const;
 };
 

@@ -1,7 +1,7 @@
 "use client"
 
-import { useActionState, useState, startTransition, useEffect } from "react"
-import { useRouter } from 'waku'
+import { useState, useTransition } from "react"
+import { toast } from "sonner"
 
 import { cn } from "~/lib/utils"
 import { Button } from "~/components/ui/button"
@@ -34,28 +34,21 @@ const Login = ({
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const [isPending, startTransition] = useTransition()
   const { setToken } = useLoginContext()
-
-  const [state, dispatchAction, isPending] = useActionState(loginAction, {
-    email,
-    password,
-    token: '',
-    message: '',
-  });
-
-  useEffect(() => {
-    if (state.token && state.token.length > 0) {
-      setToken(state.token)
-      startTransition(() => {
-        window.location.href = '/'
-      })
-    }
-  }, [state]);
 
   const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault()
-    startTransition(() => {
-      dispatchAction({ email, password, token: '' })
+    startTransition(async () => {
+      const result = await loginAction({ email, password })
+      if (result.statusCode === 200) {
+        setToken(result.body.token)
+        window.location.href = '/'
+      } else if (result.statusCode === 401) {
+        toast.error('Invalid credentials')
+      } else {
+        toast.error('Internal server error')
+      }
     })
   }
 

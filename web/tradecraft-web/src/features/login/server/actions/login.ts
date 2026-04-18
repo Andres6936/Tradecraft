@@ -1,32 +1,32 @@
 "use server"
 
-import {login as withLogin} from "@trader/api"
+import {login as withLogin, toSuccess} from "@trader/api"
 
-const login = async (previosState: any, actionPayload: any) => {
+const login = async (args: {
+  email: string;
+  password: string;
+}) => {
   const result = await withLogin({
-    email: actionPayload.email,
-    password: actionPayload.password
+    email: args.email,
+    password: args.password
   }, {
     headers: {
       "User-Agent": process.env.USER_AGENT || "",
     }
   })
 
-  if (result.statusCode === 200) {
-    return {
-      email: actionPayload.email,
-      password: actionPayload.password,
-      token: result.body.token,
-      message: result.body.message,
-    }
+  if (result.statusCode === 401) {
+    return result;
   }
 
-  return {
-    email: actionPayload.email,
-    password: actionPayload.password,
-    token: "",
-    message: "Not authorized",
+  if (result.statusCode === 200) {
+    return toSuccess({
+      token: result.body.token,
+      message: result.body.message,
+    })
   }
+
+  return result;
 }
 
 export {login}
