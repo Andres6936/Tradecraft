@@ -91,12 +91,18 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
       "/server/action/getOrders",
       `?ProductId=${selectedProduct.Id}&MineOrdersOnly=${isOrdersMineOnly}`,
     ],
-    queryFn: () =>
-      getState({
+    queryFn: async () => {
+      const result = await getState({
         productId: selectedProduct ? selectedProduct.Id : null,
         ordersMineOnly: isOrdersMineOnly,
-      }, { token }),
-      refetchInterval: REFRESH_INTERVAL,
+      }, { token })
+      if (result.statusCode === 401) {
+        window.location.href = "/login";
+        throw new Error("Unauthorized");
+      }
+      return result.body;
+    },
+    refetchInterval: REFRESH_INTERVAL,
   });
 
   if (query.error) {
