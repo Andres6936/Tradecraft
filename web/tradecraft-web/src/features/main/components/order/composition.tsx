@@ -89,7 +89,10 @@ const QuantityRegion = () => {
 
   return (
     <p className="text-muted-foreground text-xs">
-      {order.qty} {order.unit} - {regionName}
+      {order.qty.toLocaleString(navigator.language, {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+      })} {order.unit} - {regionName}
     </p>
   );
 };
