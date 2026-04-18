@@ -11,7 +11,7 @@ const getPriceWithhistory = async (args: { productId: number }, options: {token:
         Avg: 0,
         Min: 0,
         Max: 0,
-        History: [],
+        History: [] as {t: number, p: number}[],
       }
     } as const;
   }
