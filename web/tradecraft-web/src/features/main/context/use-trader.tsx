@@ -87,6 +87,11 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
     }
   });
 
+  const onSelectProduct = React.useEffectEvent((product: ProductType) => {
+    setSelectedProduct(product);
+    setQuantity(0);
+  });
+
   // Update the price based on the selected side, when the side is buy wannat the less price,
   // when the side is sell want to get the max price
   const onChangeSide = React.useEffectEvent((args: OnChangeSideArgs) => {
@@ -165,7 +170,7 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
         price,
         onChangePrice: setPrice,
         selectedProduct,
-        onSelectProduct: setSelectedProduct,
+        onSelectProduct,
       }}
     >
       {children}
