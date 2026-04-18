@@ -7,8 +7,12 @@ import type { ExternOrderType, GetStateType } from "~/types/d";
 
 import {
   cancelOrder as cancelOrderExternal,
+  ExternalUnauthorizedError,
   getPriceRange as getPriceRangeExternal,
   sendOrder as sendOrderExternal,
+  isUnautorizedError,
+  toError,
+  toSuccess,
 } from "@trader/api";
 
 const logger = getLogger("trader");
@@ -35,6 +39,10 @@ const getPriceRange = async (args: FirstArgs<typeof getPriceRangeExternal>, opti
     headers: {...Headers, Cookie: `token=${options.token}`},
   });
 
+type GetStateWithResponse = GetStateType & {
+  orders: ExternOrderType[];
+}
+
 const getStateWith = async (
   args: {
     productId?: number | null;
@@ -58,10 +66,12 @@ const getStateWith = async (
     headers: {...Headers, Cookie: `token=${options.token}`},
   });
 
-  const result = (await stream.json()) as GetStateType & {
-    orders: ExternOrderType[];
-  };
-  return result;
+  const result = (await stream.json()) as GetStateWithResponse | ExternalUnauthorizedError;
+  if (isUnautorizedError(result)) {
+    return toError(result);
+  }
+
+  return toSuccess(result);
 };
 
 export { cancelOrder, sendOrder, getStateWith, getPriceRange };
