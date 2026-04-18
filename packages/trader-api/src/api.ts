@@ -1,11 +1,12 @@
 import { getLogger } from "@logtape/logtape";
 import type {
+    ExternalUnauthorizedError,
   ExternOrderType,
   GetPriceRangeResponseType,
   GetStateType,
   TransferWarehouseResponseType,
 } from "~/d";
-import { toTruncate } from "~/utility";
+import { isUnautorizedError, toError, toSuccess, toTruncate } from "~/utility";
 
 const logger = getLogger("trader");
 
@@ -31,18 +32,22 @@ const getPriceRange = async (
     },
   });
 
-  const result = (await stream.json()) as GetPriceRangeResponseType;
-  const average = result.product.averagePrice;
+  const result = (await stream.json()) as GetPriceRangeResponseType | ExternalUnauthorizedError;
+  if (isUnautorizedError(result)) {
+    return toError(result);
+  }
+
+    const average = result.product.averagePrice;
   const BAND_PCT = 0.15; // ±15%
   const DELTA = 0.01;
 
   const withPrecision = args.withPrecision;
-  return {
+  return toSuccess({
     Avg: toTruncate(average, withPrecision || 1),
     Min: toTruncate(average * (1 - BAND_PCT) + DELTA, withPrecision || 1),
     Max: toTruncate(average * (1 + BAND_PCT), withPrecision || 1),
     History: result.product.priceHistory,
-  };
+  })
 };
 
 const getOrders = async (productId: number,   options: OptionsFetch,) => {
@@ -57,8 +62,11 @@ const getOrders = async (productId: number,   options: OptionsFetch,) => {
 
   const result = (await stream.json()) as {
     orders: ExternOrderType[];
-  };
-  return result.orders;
+  } | ExternalUnauthorizedError;
+  if (isUnautorizedError(result)) {
+    return toError(result);
+  }
+  return toSuccess(result.orders);
 };
 
 const getBalance = (orders: ExternOrderType[],   ) => {
@@ -124,11 +132,17 @@ const transferWarehouse = async (args: {
       },
     },
   );
-  const stream = (await response.json()) as TransferWarehouseResponseType;
-  if (response.ok && stream.ok === true) return;
-  logger.error("Error transferring item, caused by: {error}", {
-    error: stream,
-  });
+  const stream = (await response.json()) as TransferWarehouseResponseType | ExternalUnauthorizedError;
+  if (isUnautorizedError(stream)) {
+    return toError(stream);
+  }
+
+  if (response.ok && stream.ok === true) {
+    return toSuccess({ message: 'Transfer successful' });
+  }
+
+  return toError({ error: 'Error to transfer warehouse' });
+
 };
 
 const getState = async (  options: OptionsFetch,) => {
@@ -139,16 +153,19 @@ const getState = async (  options: OptionsFetch,) => {
     },
   });
 
-  const stream = (await response.json()) as GetStateType;
+  const stream = (await response.json()) as GetStateType | ExternalUnauthorizedError;
+  if (isUnautorizedError(stream)) {
+    return toError(stream);
+  }
   const inventory = stream.gs.inventory;
   const me = stream.me;
   const metrics = stream.metrics;
 
-  return {
+  return toSuccess({
     Me: me,
     Metrics: metrics,
     Inventory: inventory,
-  };
+  });
 };
 
 type OrderBaseType = {
@@ -177,13 +194,17 @@ const sendOrder = async (args: OrderLimitType | OrderMarketType,   options: Opti
       ...options.headers,
     },
   });
-  const stream = (await response.json()) as { ok: boolean };
-  if (response.ok && stream.ok === true) {
-    return;
+  const stream = (await response.json()) as { ok: boolean } | ExternalUnauthorizedError;
+
+  if (isUnautorizedError(stream)) {
+    return toError(stream);
   }
-  logger.error("Failed to place order, caused by:", {
-    error: stream,
-  });
+
+  if (response.ok && stream.ok === true) {
+    return toSuccess({ message: 'Order placed successfully' });
+  }
+
+  return toError({ error: 'Failed to place order' });
 };
 
 const cancelOrder = async (orderId: string,   options: OptionsFetch ,) => {
@@ -215,8 +236,12 @@ const getMineOrders = async (  options: OptionsFetch,) => {
 
   const result = (await stream.json()) as {
     orders: ExternOrderType[];
-  };
-  return result.orders;
+  } | ExternalUnauthorizedError;
+
+  if (isUnautorizedError(result)) {
+    return toError(result);
+  }
+  return toSuccess({ orders: result.orders });
 };
 
 type LoginType = {

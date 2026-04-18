@@ -190,10 +190,17 @@ type RecordDailyType = {
   profitMargin: number;
 };
 
+// Errors
+
+type ExternalUnauthorizedError = {
+  error: "unauthorized"
+};
+
 export type {
   ExternOrderType,
   GetPriceRangeResponseType,
   TransferWarehouseResponseType,
   GetStateType,
   GetProductDailyPLTypes,
+  ExternalUnauthorizedError,
 };
