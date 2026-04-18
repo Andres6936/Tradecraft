@@ -20,7 +20,7 @@ import { cancelOrder } from "~/api";
 
 const Root = (props: React.ComponentPropsWithRef<"section">) => {
   const context = useTraderContext();
-  const { order } = useOrderContext();
+  const { order, isMineOrder } = useOrderContext();
 
   const onPress = () => {
     if (context.isLoading || context.error) return;
@@ -31,7 +31,12 @@ const Root = (props: React.ComponentPropsWithRef<"section">) => {
     })
     context.onChangeQuantity(order.qty)
     // Toggle side
-    context.onChangeSide(order.side === "buy" ? "sell" : "buy")
+    context.onChangeSide({
+      side: order.side === "buy" ? "sell" : "buy",
+      orderType: order.orderType,
+      price: order.orderType === "limit" ? order.price : 0,
+      isMineOrder,
+    })
   }
 
   return (

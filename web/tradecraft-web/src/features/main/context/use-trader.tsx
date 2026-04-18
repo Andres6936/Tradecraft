@@ -8,6 +8,13 @@ import { defaultValue, REFRESH_INTERVAL } from "~/features/main/utils/setup";
 import { getState } from "~/features/main/server/actions/get-state";
 import { ExternOrderType } from "~/types/d";
 
+type OnChangeSideArgs = {
+  side: "buy" | "sell",
+  price: number,
+  orderType: "limit" | "market",
+  isMineOrder: boolean,
+}
+
 type TraderContextProps =
   | {
       isLoading: true;
@@ -26,7 +33,7 @@ type TraderContextProps =
       isOrdersMineOnly: boolean;
       onChangeOrdersMineOnly: (isOrdersMineOnly: boolean) => void;
       side: "buy" | "sell";
-      onChangeSide: (side: "buy" | "sell") => void;
+      onChangeSide: (args: OnChangeSideArgs) => void;
       orderType: "limit" | "market";
       onChangeOrderType: (orderType: "limit" | "market") => void;
       totalPrice: number;
@@ -80,10 +87,16 @@ const TraderContextProvider = ({ children, token }: React.PropsWithChildren<{tok
 
   // Update the price based on the selected side, when the side is buy wannat the less price,
   // when the side is sell want to get the max price
-  const onChangeSide = React.useEffectEvent((side: "buy" | "sell") => {
-    setSide(side);
-    // Set the price based on the selected side
-    setPriceUsingSide(productGraph);
+  const onChangeSide = React.useEffectEvent((args: OnChangeSideArgs) => {
+    setSide(args.side);
+
+    if (args.orderType === "limit") {
+      setPrice(args.price);
+    }
+    else {
+      // Set the price based on the selected side
+      setPriceUsingSide(productGraph);
+    }
   });
 
   const query = useQuery({
