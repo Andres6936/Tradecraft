@@ -36,7 +36,17 @@ const AnalyticsProvider = ({
     await Bun.sleep(
       props.Priority === "High" ? 1 : props.Priority === "Medium" ? 1000 : 500,
     );
-    return await Promise.all([getPriceRange({productId: props.Id}), getOrders(props.Id)]);
+    const [resultRange, resultOrders] = await Promise.all([
+      getPriceRange({ productId: props.Id }),
+      getOrders(props.Id),
+    ]);
+    if (resultRange.statusCode === 401 || resultOrders.statusCode === 401) {
+      throw new Error("Unauthorized 401");
+    }
+    return {
+      ranges: resultRange.body,
+      orders: resultOrders.body,
+    };
   });
 
   if (isLoading || !data) {
@@ -53,7 +63,7 @@ const AnalyticsProvider = ({
     );
   }
 
-  const [ranges, orders] = data;
+  const {ranges, orders} = data;
 
   return (
     <ContextAnalytics.Provider
