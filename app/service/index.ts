@@ -8,6 +8,10 @@ import { seller } from "~/trader/seller";
 import { main as executeBuyerSupply } from "~/orders/buyer";
 import { main as executeSellerInterval } from "~/orders/seller";
 import { main as cancelOrdersOrphan } from "~/orders/cancel/orphans";
+import { TokenGuard } from "~/login/token";
+
+// Async main
+await TokenGuard.renewToken();
 
 // --- Hourly Queue and Worker ----
 
