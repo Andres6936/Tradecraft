@@ -2,6 +2,7 @@ import { getLogger } from "@logtape/logtape";
 import { parseISO, differenceInMinutes } from "date-fns";
 
 import { cancelOrder, getMineOrders } from "~/api";
+import { TokenGuard } from "~/login/token";
 import {
   MAXIMUM_AGE_IN_MINUTES,
   ProductsCancelOrphansOrderListKey,
@@ -25,7 +26,12 @@ const deleteOrphansOrders = async (orders: any[]) => {
 };
 
 const main = async () => {
-  const orders = (await getMineOrders())
+  const result = await getMineOrders();
+  if (result.statusCode === 401) {
+    return await TokenGuard.renewToken();
+  }
+
+  const orders = result.body.orders
     // Filter the orders where the product is important product
     .filter((order) =>
       ProductsCancelOrphansOrderListKey.includes(order.productKey),
