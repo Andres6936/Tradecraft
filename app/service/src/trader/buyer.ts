@@ -1,5 +1,6 @@
 import { getLogger } from "@logtape/logtape";
 import { getOrders, getPriceRange, getState, sendOrder } from "~/api";
+import { TokenGuard } from "~/login/token";
 import { getByCategory } from "~/server";
 
 const logger = getLogger(["trader", "buyer"]);
@@ -34,11 +35,20 @@ const buyIf = async (
     }
   }
 
-  const range = await getPriceRange({
-    productId: Id,
-    withPrecision: 2,
-  });
-  const orders = await getOrders(Id);
+  const [resultRange, resultOrders] = await Promise.all([
+    getPriceRange({
+      productId: Id,
+      withPrecision: 2,
+    }),
+    getOrders(Id),
+  ])
+
+  if (resultRange.statusCode === 401 || resultOrders.statusCode === 401) {
+    return await TokenGuard.renewToken();
+  }
+
+  const range = resultRange.body;
+  const orders = resultOrders.body;
 
   // Find the best offer to buy, where the price is market
   const sellOrders = orders.filter(
@@ -110,7 +120,12 @@ const buyIf = async (
 const MINIMUM_VALUE_IN_CASH_FOR_BUYER = 10_000;
 
 const buyer = async () => {
-  const { Inventory, Me, Metrics } = await getState();
+  const result = await getState();
+  if (result.statusCode === 401) {
+    return await TokenGuard.renewToken();
+  }
+  const { Inventory, Me, Metrics } = result.body;
+
   if (Metrics.cash < MINIMUM_VALUE_IN_CASH_FOR_BUYER) {
     logger.warn("Not enough cash for buy, the current cash is: ${cash}", {
       cash: Metrics.cash.toFixed(1),

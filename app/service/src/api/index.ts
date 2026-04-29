@@ -9,40 +9,45 @@ import {
   sendOrder as sendOrderExternal,
   cancelOrder as cancelOrderExternal,
 } from "@trader/api"
+import { TokenGuard } from "~/login/token"
 
 const Headers = {
-  Cookie: process.env.COOKIES || "",
   "User-Agent": process.env.USER_AGENT || "",
 }
+
+const getHeaders = () => ({
+  ...Headers,
+  Cookie: TokenGuard.getToken(),
+})
 
 type FirstArgs<T extends (...args: any) => any> = Parameters<T>[0]
 
 const getPriceRange = (args: FirstArgs<typeof getPriceRangeExternal>) => getPriceRangeExternal(args, {
-  headers: Headers,
+  headers: getHeaders(),
 })
 
 const getOrders = (args: FirstArgs<typeof getOrdersExternal>) => getOrdersExternal(args, {
-  headers: Headers,
+  headers: getHeaders(),
 })
 
 const sendOrder = (args: FirstArgs<typeof sendOrderExternal>) => sendOrderExternal(args, {
-  headers: Headers,
+  headers: getHeaders(),
 })
 
 const cancelOrder = (args: FirstArgs<typeof cancelOrderExternal>) => cancelOrderExternal(args, {
-  headers: Headers,
+  headers: getHeaders(),
 })
 
 const getMineOrders = () => getMineOrdersExternal({
-  headers: Headers,
+  headers: getHeaders(),
 })
 
 const getState = () => getStateExternal({
-  headers: Headers,
+  headers: getHeaders(),
 })
 
 const transferWarehouse = (args: FirstArgs<typeof transferWarehouseExternal>) => transferWarehouseExternal(args, {
-  headers: Headers,
+  headers: getHeaders(),
 })
 
 
