@@ -1,6 +1,11 @@
 import { getMineOrders } from "~/api";
 
-const orders = await getMineOrders();
+const result = await getMineOrders();
+if (result.statusCode === 401) {
+  throw new Error("Unauthorized 401");
+}
+
+const { orders } = result.body;
 
 for (const order of orders) {
   console.log(
