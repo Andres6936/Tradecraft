@@ -9,6 +9,7 @@ import {
 } from "~/api";
 import { ProductsSupplyBuyerList } from "./setup";
 import type { ExternOrderType } from "~/types/d";
+import { TokenGuard } from "~/login/token";
 
 const logger = getLogger(["buyer"]);
 
@@ -86,11 +87,16 @@ const sendBuyOrder = async (args: {
     return;
   }
 
-  // Get the minimum price of product
-  const { Min } = await getPriceRange({
+  const result = await getPriceRange({
     productId: args.product.Id,
     withPrecision: 2,
   });
+  if (result.statusCode === 401) {
+    return await TokenGuard.renewToken();
+  }
+
+  // Get the minimum price of product
+  const { Min } = result.body;
 
   const expectValue = Math.floor(amountToBuy * +Min);
   if (expectValue >= args.Metrics.cash) {
@@ -132,8 +138,16 @@ const sendBuyOrder = async (args: {
 };
 
 const main = async () => {
-  const { Inventory, Metrics } = await getState();
-  const orders = await getMineOrders();
+  const [resultState, resultOrders] = await Promise.all([
+    getState(),
+    getMineOrders()
+  ]);
+  if (resultState.statusCode === 401 || resultOrders.statusCode === 401) {
+    return await TokenGuard.renewToken();
+  }
+
+  const { Inventory, Metrics } = resultState.body;
+  const { orders } = resultOrders.body;
   for (const productSupply of ProductsSupplyBuyerList) {
     try {
       await buyIf({
