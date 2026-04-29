@@ -4,6 +4,7 @@ import { differenceInMinutes, parseISO } from "date-fns";
 import type { ExternOrderType } from "~/types/d";
 
 import { getMineOrders, getState, sendOrder } from "~/api";
+import { TokenGuard } from "~/login/token";
 import { ProductsSellerList, MAXIMUM_SELL_AMOUNT } from "./setup";
 
 const logger = getLogger("seller");
@@ -87,8 +88,16 @@ const sellerIf = async (args: {
 };
 
 const main = async () => {
-  const { Inventory, Me, Metrics } = await getState();
-  const orders = await getMineOrders();
+  const [resultState, resultOrders] = await Promise.all([
+    getState(),
+    getMineOrders(),
+  ])
+  if (resultState.statusCode === 401 || resultOrders.statusCode === 401) {
+    return await TokenGuard.renewToken();
+  }
+
+  const { Inventory, Me, Metrics } = resultState.body;
+  const { orders } = resultOrders.body;
 
   for (const productSeller of ProductsSellerList) {
     try {
