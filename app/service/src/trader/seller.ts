@@ -1,5 +1,6 @@
 import { getLogger } from "@logtape/logtape";
 import { getOrders, getPriceRange, getState, sendOrder } from "~/api";
+import { TokenGuard } from "~/login/token";
 import { getByCategory } from "~/server";
 
 const logger = getLogger(["trader", "seller"]);
@@ -22,8 +23,13 @@ const sellIf = async (
     productInventoryAmount &&
     productInventoryAmount > Seller.KeepMinInventory
   ) {
+    const resultOrder = await getOrders(Id);
+    if (resultOrder.statusCode === 401) {
+      return await TokenGuard.renewToken();
+    }
+
     // Implement logic to sell products to best offer
-    const orders = await getOrders(Id);
+    const orders = resultOrder.body;
 
     // Find all order where the price is of market
     const marketOrders = orders.filter(
@@ -54,10 +60,14 @@ const sellIf = async (
       return;
     }
 
-    const range = await getPriceRange({
+    const resultRange = await getPriceRange({
       productId: Id,
       withPrecision: 2,
     });
+    if (resultRange.statusCode === 401) {
+      return await TokenGuard.renewToken();
+    }
+    const range = resultRange.body;
 
     const expectedProfit = Math.floor(sellAmount * +range.Max);
     context.info(
@@ -87,7 +97,12 @@ const sellIf = async (
 };
 
 const seller = async () => {
-  const { Inventory, Me, Metrics } = await getState();
+  const result = await getState();
+  if (result.statusCode === 401) {
+    return await TokenGuard.renewToken();
+  }
+
+  const { Inventory, Me, Metrics } = result.body;
   for (const product of ProductsTradeList) {
     try {
       await sellIf(product, {
