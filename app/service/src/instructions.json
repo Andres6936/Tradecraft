@@ -237,7 +237,7 @@
       "Transfer",
       "CancelOrphans",
       "Analytics",
-      "-Seller"
+      "Seller"
     ],
     "Transfer": {
       "Kind": "factory",
@@ -248,7 +248,7 @@
       "StopWhenInventoryReach": -1
     },
     "Seller": {
-      "KeepMinInventory": 20000
+      "KeepMinInventory": 50000
     },
     "CancelOrphans": {
       "Sell": true,
