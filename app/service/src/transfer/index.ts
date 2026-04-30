@@ -2,9 +2,9 @@ import { getLogger } from "@logtape/logtape";
 
 import type { GetStateType } from "~/types/d";
 import { transferWarehouse } from "~/api";
+import { TokenGuard } from "~/login/token";
 import { QuestionIsFactoryInspectTransfer } from "./setup";
 
-const Cookies = process.env.COOKIES || "";
 const regions = [1, 2, 3, 4, 5, 6];
 
 const logger = getLogger(["transfer"]);
@@ -15,7 +15,7 @@ const processRegion = async (regionId: number) => {
     `https://playtradecraft.com/api/state?regionId=${regionId}`,
     {
       headers: {
-        Cookie: Cookies,
+        Cookie: TokenGuard.getToken(),
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
       },
