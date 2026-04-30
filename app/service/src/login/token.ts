@@ -23,8 +23,8 @@ class TokenGuard {
 
   public static async renewToken() {
     const response = await login({
-      email: process.env.USERNAME || "",
-      password: process.env.PASSWORD || "",
+      email: process.env.APP_USERNAME || "",
+      password: process.env.APP_PASSWORD || "",
     }, {
       headers: {
         "User-Agent": process.env.USER_AGENT || "",
