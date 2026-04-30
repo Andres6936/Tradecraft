@@ -420,9 +420,14 @@
     "Id": 91,
     "Key": "copper_wire",
     "Name": "Copper Wire",
-    "Categories": ["Supply"],
+    "Categories": ["Supply", "Transfer"],
     "Supply": {
       "StopWhenInventoryReach": 50000
+    },
+    "Transfer": {
+      "Kind": "factory",
+      "Tolerance": 10,
+      "Offset": 5
     }
   },
   {
