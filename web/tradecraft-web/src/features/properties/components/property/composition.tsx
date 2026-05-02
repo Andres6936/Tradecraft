@@ -15,6 +15,7 @@ import {
   Trash2,
   Trash2Icon,
 } from "lucide-react"
+import { sleep } from "radashi";
 import { upgrade } from "~/api";
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -98,6 +99,7 @@ const ActionUpgrade = () => {
     await dispatch(async () => {
       await upgrade({ tileId: property.id }, { token: context.token })
       queryClient.invalidateQueries({ queryKey: ["/server/action/getTiles"] })
+      await sleep(1000)
     })
   }
 
