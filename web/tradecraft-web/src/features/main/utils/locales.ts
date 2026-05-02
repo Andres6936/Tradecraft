@@ -1,3 +1,3 @@
-const numberLocale = window.Intl.NumberFormat().resolvedOptions().locale;
+const numberLocale = window ? window.Intl.NumberFormat().resolvedOptions().locale : "en";
 
 export { numberLocale };
