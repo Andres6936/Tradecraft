@@ -5,7 +5,7 @@ import { TilesType } from "@trader/api";
 
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
-import { Flex, FlexEnd, Row } from "~/features/main/components/view";
+import { Flex, FlexEnd, Row, Col } from "~/features/main/components/view";
 
 const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] }>) => {
   const model = useMemo(() => tiles[index]!, [index, tiles]);
@@ -21,22 +21,25 @@ const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] 
           <Badge className="bg-[var(--color-lime-500)]">{model.busy ? "Working" : "Stopped"}</Badge>
         </Row>
       </Flex>
-      <Flex>
-        <p className="text-muted-foreground text-xs">
-          Hourly Production: 166.6
-        </p>
-        <p className="text-muted-foreground text-xs">
-          Inventory: {model.localStorage.storedQty.toFixed(0)}/{model.localStorage.capacity.toFixed(0)}
-        </p>
-      </Flex>
-      <FlexEnd className="gap-2">
-        <Button size='xs'>
-          Upgrade
-        </Button>
-        <Button size='xs'>
-          Transfer
-        </Button>
-      </FlexEnd>
+
+      <Row className="justify-between">
+        <Col>
+          <p className="text-muted-foreground text-xs">
+            Inventory: {model.localStorage.storedQty.toFixed(0)}/{model.localStorage.capacity.toFixed(0)}
+          </p>
+          <p className="text-muted-foreground text-xs">
+            Hourly Production: 166.6
+          </p>
+        </Col>
+        <FlexEnd className="gap-2">
+          <Button size='xs'>
+            Upgrade
+          </Button>
+          <Button size='xs'>
+            Transfer
+          </Button>
+        </FlexEnd>
+      </Row>
     </section>
   );
 };
