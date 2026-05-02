@@ -127,33 +127,60 @@ type Gs = {
   depositTotalWithdrawn: number;
 };
 
-type TilesType = {
-  _id: string;
-  x: number;
-  regionId: number;
-  ownerUserId: string;
-  y: number;
-  alert: boolean;
+type TilesType = DepositTile | FactoryTile;
+
+type BaseTile = {
+  _id: string
+  id: number
+  x: number
+  y: number
+  regionId: number
+  ownerUserId: string
+  alert: boolean
+  busy: boolean
+  createdAt: string
+  retailRevenueToday: number;
+  retailRevenueTotal: number;
+  retailUnitsSoldToday: number;
+  retailUnitsSoldTotal: number;
+  localStorage: LocalStorage
+}
+
+type FactoryTile = BaseTile & {
+  disabledSaleProducts: any[]
+  kind: "factory"
+  perfPct: number
+  prodPartial: number
+  prodTotal: number
+  productKey: string
+  updatedAt: string
+  disabledConsumptionInputs: any[]
+  employees: Employee[]
+  isRented: boolean
+  maxEmployeeCapacity: number
+  level: number
+  upgrading: boolean
+  upgradeEndsAt: any
+  upgradeStartedAt: any
+  upgradeTargetLevel: any
+  hasActiveListing: boolean
+  beneficiaryUserId: any
+  currentRentalId: any
+}
+
+type DepositTile = BaseTile & {
   beneficiaryUserId: any;
-  busy: boolean;
-  createdAt: string;
   currentRentalId: any;
   disabledConsumptionInputs: any[];
   disabledSaleProducts: any[];
-  id: number;
   isRented: boolean;
-  kind: string;
+  kind: "depot";
   level: number;
-  localStorage: LocalStorage;
   maxEmployeeCapacity: number;
   perfPct: number;
   prodPartial: number;
   prodTotal: number;
   productKey: string;
-  retailRevenueToday: number;
-  retailRevenueTotal: number;
-  retailUnitsSoldToday: number;
-  retailUnitsSoldTotal: number;
   updatedAt: string;
   upgradeEndsAt: any;
   upgradeStartedAt: any;
@@ -161,6 +188,12 @@ type TilesType = {
   upgrading: boolean;
   hasActiveListing: boolean;
 };
+
+type Employee = {
+  instanceId: string
+  hiredAt: string
+  _id: string
+}
 
 type LocalStorage = {
   productKey: string;
