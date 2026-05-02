@@ -16,6 +16,7 @@ import {
   Trash2Icon,
 } from "lucide-react"
 import { upgrade } from "~/api";
+import { useQueryClient } from "@tanstack/react-query";
 
 import {
   ButtonGroup,
@@ -42,6 +43,7 @@ import { Flex, FlexEnd, Row, Col } from "~/features/main/components/view";
 
 import { usePropertyContext } from "./context";
 import { usePropertiesContext } from "../../context/properties-context";
+import { useDispatchAction } from "~/hooks/use-dispatch-action";
 
 const InventoryIndicator = () => {
   const { property } = usePropertyContext();
@@ -87,18 +89,26 @@ const Actions = () => {
 const ActionUpgrade = () => {
   const context = usePropertiesContext()
   const { property } = usePropertyContext();
+  const { isLoading, dispatch } = useDispatchAction();
+
+  const queryClient = useQueryClient();
 
   const onPress = async () => {
-    if (context.isLoading || context.error) return;
-    await upgrade({ tileId: property.id }, { token: context.token })
+    if (context.isLoading || context.error || isLoading) return;
+    await dispatch(async () => {
+      await upgrade({ tileId: property.id }, { token: context.token })
+      queryClient.invalidateQueries({ queryKey: ["/server/action/getTiles"] })
+    })
   }
 
   if (property.kind !== "factory") return null;
 
+  const isDisabled = isLoading || property.upgrading;
+
   return (
-    <Button size='xs' onClick={onPress} disabled={property.upgrading}>
-      {property.upgrading && <Spinner data-icon="inline-start"/> }
-      {property.upgrading ? "Upgrading" : "Upgrade"}
+    <Button size='xs' onClick={onPress} disabled={isDisabled}>
+      {isDisabled && <Spinner data-icon="inline-start"/> }
+      {isDisabled ? "Upgrading" : "Upgrade"}
     </Button>
   )
 }
