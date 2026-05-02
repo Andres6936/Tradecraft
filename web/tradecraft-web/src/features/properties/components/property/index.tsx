@@ -10,6 +10,8 @@ import {
   ListFilterIcon,
   MailCheckIcon,
   MoreHorizontalIcon,
+  Package,
+  ShelvingUnit,
   TagIcon,
   Trash2Icon,
 } from "lucide-react"
@@ -42,9 +44,17 @@ const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] 
   return (
     <section className="flex flex-col gap-0.5 border rounded py-2 px-3 dark:hover:bg-[#00000033] hover:bg-[#00000007]" style={style}>
       <Flex>
-        <p className="font-bold text-lg leading-none">
-          {model.productKey.replaceAll('_', ' ').split(' ').map(capitalize).join(' ')}
-        </p>
+        <Row className="gap-4">
+          <p className="font-bold text-lg leading-none">
+            {model.productKey.replaceAll('_', ' ').split(' ').map(capitalize).join(' ')}
+          </p>
+          <Row className="gap-1">
+            <Package className="h-4 w-4 text-muted-foreground" />
+            <p className="text-muted-foreground text-xs">
+              {model.localStorage.storedQty.toFixed(0)}/{model.localStorage.capacity.toFixed(0)}
+            </p>
+          </Row>
+        </Row>
         <Row>
           <Badge variant='outline'>Level: {model.level}</Badge>
           <Badge className="bg-[var(--color-lime-500)]">{model.busy ? "Working" : "Stopped"}</Badge>
@@ -54,7 +64,7 @@ const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] 
       <Row className="justify-between">
         <Col>
           <p className="text-muted-foreground text-xs">
-            Inventory: {model.localStorage.storedQty.toFixed(0)}/{model.localStorage.capacity.toFixed(0)}
+            Employees: 3/3
           </p>
           <p className="text-muted-foreground text-xs">
             Hourly Production: 166.6
@@ -88,11 +98,7 @@ const MoreActionButton = () => {
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <MailCheckIcon />
-            Mark as Read
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <ArchiveIcon />
-            Archive
+            Employees
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
@@ -101,20 +107,12 @@ const MoreActionButton = () => {
             <ClockIcon />
             Snooze
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <CalendarPlusIcon />
-            Add to Calendar
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <ListFilterIcon />
-            Add to List
-          </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem variant="destructive">
             <Trash2Icon />
-            Trash
+            Stop
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
