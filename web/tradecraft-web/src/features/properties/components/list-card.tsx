@@ -12,19 +12,19 @@ const ListCard = () => {
 
   if (context.isLoading) {
     return (
-      <Shimmer loading={true}>
-        <Root>
-          <Header />
-          <Content>
+      <Root>
+        <Header />
+         <Shimmer loading={true}>
+           <Content>
             <List
               rowComponent={Property}
               rowCount={previewTiles.length}
               rowHeight={77}
               rowProps={{ tiles: previewTiles }}
             />
-          </Content>
-        </Root>
-      </Shimmer>
+           </Content>
+         </Shimmer>
+      </Root>
     );
   }
 
