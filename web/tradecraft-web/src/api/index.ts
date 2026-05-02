@@ -79,4 +79,18 @@ const getStateWith = async (
   return toSuccess(result);
 };
 
-export { cancelOrder, sendOrder, getStateWith, getPriceRange };
+const upgrade = async (args: {tileId: number},  options: {token: string}) => {
+  const stream = await fetch(`https://playtradecraft.com/api/tile/${args.tileId}/upgrade`, {
+    method: "POST",
+    headers: {...Headers, Cookie: `token=${options.token}`},
+  });
+
+  const result = (await stream.json()) as {ok: boolean} | ExternalUnauthorizedError;
+  if (isUnautorizedError(result)) {
+    return toError(result);
+  }
+
+  return toSuccess(result);
+};
+
+export { cancelOrder, sendOrder, getStateWith, getPriceRange, upgrade };
