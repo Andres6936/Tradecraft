@@ -2,7 +2,36 @@ import React, { useMemo } from "react";
 import { capitalize } from "radashi";
 import { type RowComponentProps } from "react-window";
 import { TilesType } from "@trader/api";
+import {
+  ArchiveIcon,
+  ArrowLeftIcon,
+  CalendarPlusIcon,
+  ClockIcon,
+  ListFilterIcon,
+  MailCheckIcon,
+  MoreHorizontalIcon,
+  TagIcon,
+  Trash2Icon,
+} from "lucide-react"
 
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+} from "~/components/ui/button-group"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "~/components/ui/dropdown-menu"
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Flex, FlexEnd, Row, Col } from "~/features/main/components/view";
@@ -32,16 +61,65 @@ const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] 
           </p>
         </Col>
         <FlexEnd className="gap-2">
-          <Button size='xs'>
-            Upgrade
-          </Button>
-          <Button size='xs'>
-            Transfer
-          </Button>
+          <ButtonGroup>
+            <Button size='xs'>
+              Upgrade
+            </Button>
+            <Button size='xs'>
+              Transfer
+            </Button>
+            <MoreActionButton/>
+          </ButtonGroup>
         </FlexEnd>
       </Row>
     </section>
   );
 };
+
+const MoreActionButton = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button size="icon-xs" aria-label="More Options">
+          <MoreHorizontalIcon />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-40">
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <MailCheckIcon />
+            Mark as Read
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <ArchiveIcon />
+            Archive
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <ClockIcon />
+            Snooze
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <CalendarPlusIcon />
+            Add to Calendar
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <ListFilterIcon />
+            Add to List
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem variant="destructive">
+            <Trash2Icon />
+            Trash
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
 
 export {Property};
