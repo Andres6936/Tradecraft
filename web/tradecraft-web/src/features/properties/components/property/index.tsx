@@ -5,14 +5,18 @@ import { TilesType } from "@trader/api";
 import {
   ArchiveIcon,
   ArrowLeftIcon,
+  BookUp,
   CalendarPlusIcon,
+  CirclePause,
   ClockIcon,
+  IdCardLanyard,
   ListFilterIcon,
   MailCheckIcon,
   MoreHorizontalIcon,
   Package,
   ShelvingUnit,
   TagIcon,
+  Trash2,
   Trash2Icon,
 } from "lucide-react"
 
@@ -49,9 +53,11 @@ const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] 
             {model.productKey.replaceAll('_', ' ').split(' ').map(capitalize).join(' ')}
           </p>
           <Row className="gap-1">
-            <Package className="h-4 w-4 text-muted-foreground" />
+            <Package className="h-3 w-3 text-muted-foreground" />
             <p className="text-muted-foreground text-xs">
-              {model.localStorage.storedQty.toFixed(0)}/{model.localStorage.capacity.toFixed(0)}
+              <span className="text-[var(--color-lime-500)]">{model.localStorage.storedQty.toFixed(0)}</span>
+              {' '}/{' '}
+              <span className="text-[var(--color-orange-400)]">{model.localStorage.capacity.toFixed(0)}</span>
             </p>
           </Row>
         </Row>
@@ -97,22 +103,26 @@ const MoreActionButton = () => {
       <DropdownMenuContent align="end" className="w-40">
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <MailCheckIcon />
+            <IdCardLanyard />
             Employees
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <ClockIcon />
-            Snooze
+            <BookUp />
+            List for Rent
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem variant="destructive">
-            <Trash2Icon />
+            <CirclePause />
             Stop
+          </DropdownMenuItem>
+          <DropdownMenuItem variant="destructive">
+            <Trash2 />
+            Demolish
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
