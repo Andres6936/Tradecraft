@@ -203,4 +203,5 @@ export type {
   GetStateType,
   GetProductDailyPLTypes,
   ExternalUnauthorizedError,
+  TilesType,
 };

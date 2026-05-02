@@ -1,20 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { ListCard } from "~/features/properties/components/list-card";
 
 const Properties = () => {
   return (
     <main className="flex flex-row gap-2">
-      <Card className="w-full min-w-md max-w-md">
-        <CardHeader>
-          <CardTitle>Properties</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <section className="flex flex-col">
-            <div className="h-[42rem]">
-
-            </div>
-          </section>
-        </CardContent>
-      </Card>
+      <ListCard/>
 
       <section className="flex flex-col gap-2">
         <Card className="flex flex-1 flex-col w-full min-w-xl max-w-xl">
