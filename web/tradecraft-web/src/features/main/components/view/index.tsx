@@ -1,13 +1,15 @@
-const Flex = (props: React.PropsWithChildren<{}>) => (
-  <div className="flex items-center justify-between" {...props} />
+import { cn } from "~/lib/utils";
+
+const Flex = ({className, ...props}: React.PropsWithChildren<{className?: string}>) => (
+  <div className={cn("flex items-center justify-between", className)} {...props} />
 );
 
-const FlexEnd = (props: React.PropsWithChildren<{}>) => (
-  <div className="flex items-center justify-end" {...props} />
+const FlexEnd = ({className, ...props}: React.PropsWithChildren<{className?: string}>) => (
+  <div className={cn("flex items-center justify-end", className)} {...props} />
 );
 
-const Row = (props: React.PropsWithChildren<{}>) => (
-  <div className="flex flex-row items-center gap-2" {...props} />
+const Row = ({className, ...props}: React.PropsWithChildren<{className?: string}>) => (
+  <div className={cn("flex flex-row items-center gap-2", className)} {...props} />
 );
 
 export {Flex, FlexEnd, Row}
