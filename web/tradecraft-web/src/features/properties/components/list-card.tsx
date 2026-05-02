@@ -5,16 +5,28 @@ import { Shimmer } from 'shimmer-from-structure';
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { usePropertiesContext } from "../context/properties-context";
 import { Property } from "./property";
+import { previewTiles } from "./preview";
+import { defualtShimmerColor } from "~/lib/utils";
 
 const ListCard = () => {
   const context = usePropertiesContext();
 
   if (context.isLoading) {
     return (
-      <Shimmer loading={true}>
+      <Shimmer
+        loading={true}
+        shimmerColor={defualtShimmerColor}
+      >
         <Root>
           <Header />
-          <Content/>
+          <Content>
+            <List
+              rowComponent={Property}
+              rowCount={previewTiles.length}
+              rowHeight={77}
+              rowProps={{ tiles: previewTiles }}
+            />
+          </Content>
         </Root>
       </Shimmer>
     );
