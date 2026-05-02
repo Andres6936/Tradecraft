@@ -136,57 +136,40 @@ type BaseTile = {
   y: number
   regionId: number
   ownerUserId: string
+  beneficiaryUserId: any;
   alert: boolean
   busy: boolean
+  currentRentalId: any;
+  maxEmployeeCapacity: number;
+  hasActiveListing: boolean;
+  isRented: boolean
   createdAt: string
+  perfPct: number;
+  prodPartial: number;
+  prodTotal: number;
+  productKey: string;
   retailRevenueToday: number;
   retailRevenueTotal: number;
   retailUnitsSoldToday: number;
   retailUnitsSoldTotal: number;
   localStorage: LocalStorage
-}
-
-type FactoryTile = BaseTile & {
-  disabledSaleProducts: any[]
-  kind: "factory"
-  perfPct: number
-  prodPartial: number
-  prodTotal: number
-  productKey: string
-  updatedAt: string
-  disabledConsumptionInputs: any[]
-  employees: Employee[]
-  isRented: boolean
-  maxEmployeeCapacity: number
-  level: number
+  level: number;
   upgrading: boolean
+  updatedAt: string;
   upgradeEndsAt: any
   upgradeStartedAt: any
   upgradeTargetLevel: any
-  hasActiveListing: boolean
-  beneficiaryUserId: any
-  currentRentalId: any
+  disabledSaleProducts: any[]
+  disabledConsumptionInputs: any[]
+}
+
+type FactoryTile = BaseTile & {
+  kind: "factory"
+  employees: Employee[]
 }
 
 type DepositTile = BaseTile & {
-  beneficiaryUserId: any;
-  currentRentalId: any;
-  disabledConsumptionInputs: any[];
-  disabledSaleProducts: any[];
-  isRented: boolean;
   kind: "depot";
-  level: number;
-  maxEmployeeCapacity: number;
-  perfPct: number;
-  prodPartial: number;
-  prodTotal: number;
-  productKey: string;
-  updatedAt: string;
-  upgradeEndsAt: any;
-  upgradeStartedAt: any;
-  upgradeTargetLevel: any;
-  upgrading: boolean;
-  hasActiveListing: boolean;
 };
 
 type Employee = {
