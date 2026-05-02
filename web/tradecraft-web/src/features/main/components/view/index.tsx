@@ -12,4 +12,8 @@ const Row = ({className, ...props}: React.PropsWithChildren<{className?: string}
   <div className={cn("flex flex-row items-center gap-2", className)} {...props} />
 );
 
-export {Flex, FlexEnd, Row}
+const Col = ({className, ...props}: React.PropsWithChildren<{className?: string}>) => (
+  <div className={cn("flex flex-col", className)} {...props} />
+);
+
+export {Flex, FlexEnd, Row, Col}
