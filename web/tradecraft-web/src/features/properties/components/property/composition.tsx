@@ -76,6 +76,10 @@ const LevelIndicator = () => {
 }
 
 const Actions = () => {
+  const { property } = usePropertyContext();
+
+  if (property.kind !== "factory") return null;
+
   return (
     <ButtonGroup>
       <ActionUpgrade />
