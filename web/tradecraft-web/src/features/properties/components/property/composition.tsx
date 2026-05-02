@@ -35,7 +35,24 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu"
 import { Button } from "~/components/ui/button";
+import { Flex, FlexEnd, Row, Col } from "~/features/main/components/view";
 
+import { usePropertyContext } from "./context";
+
+const InventoryIndicator = () => {
+  const { property } = usePropertyContext();
+
+  return (
+    <Row className="gap-1">
+      <Package className="h-3 w-3 text-muted-foreground" />
+      <p className="text-muted-foreground text-xs">
+        <span className="text-[var(--color-lime-500)]">{property.localStorage.storedQty.toFixed(0)}</span>
+        {' '}/{' '}
+        <span className="text-[var(--color-orange-400)]">{property.localStorage.capacity.toFixed(0)}</span>
+      </p>
+    </Row>
+  )
+}
 
 const Actions = () => {
   return (
@@ -89,4 +106,4 @@ const MoreActionButton = () => {
   );
 }
 
-export { Actions, MoreActionButton };
+export { InventoryIndicator, Actions, MoreActionButton };

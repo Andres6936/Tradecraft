@@ -2,42 +2,6 @@ import React, { useMemo } from "react";
 import { capitalize } from "radashi";
 import { type RowComponentProps } from "react-window";
 import { TilesType } from "@trader/api";
-import {
-  ArchiveIcon,
-  ArrowLeftIcon,
-  BookUp,
-  CalendarPlusIcon,
-  CirclePause,
-  ClockIcon,
-  IdCardLanyard,
-  ListFilterIcon,
-  MailCheckIcon,
-  MoreHorizontalIcon,
-  Package,
-  ShelvingUnit,
-  TagIcon,
-  Trash2,
-  Trash2Icon,
-} from "lucide-react"
-
-import {
-  ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
-} from "~/components/ui/button-group"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu"
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Flex, FlexEnd, Row, Col } from "~/features/main/components/view";
@@ -58,14 +22,7 @@ const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] 
             <p className="font-bold text-lg leading-none">
               {model.productKey.replaceAll('_', ' ').split(' ').map(capitalize).join(' ')}
             </p>
-            <Row className="gap-1">
-              <Package className="h-3 w-3 text-muted-foreground" />
-              <p className="text-muted-foreground text-xs">
-                <span className="text-[var(--color-lime-500)]">{model.localStorage.storedQty.toFixed(0)}</span>
-                {' '}/{' '}
-                <span className="text-[var(--color-orange-400)]">{model.localStorage.capacity.toFixed(0)}</span>
-              </p>
-            </Row>
+            <Comp.InventoryIndicator/>
           </Row>
           <Row>
             <Badge variant='outline'>Level: {model.level}</Badge>
