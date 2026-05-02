@@ -8,7 +8,11 @@ const Properties = () => {
           <CardTitle>Properties</CardTitle>
         </CardHeader>
         <CardContent>
+          <section className="flex flex-col">
+            <div className="h-[42rem]">
 
+            </div>
+          </section>
         </CardContent>
       </Card>
 

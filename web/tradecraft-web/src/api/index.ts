@@ -45,6 +45,7 @@ type GetStateWithResponse = GetStateType & {
 
 const getStateWith = async (
   args: {
+    regionId?: 1 | 2 | 3 | 4 | 5 | 6,
     productId?: number | null;
     ordersMineOnly?: boolean;
   } = {},
@@ -60,6 +61,10 @@ const getStateWith = async (
 
   if (!isNullish(args.ordersMineOnly) && isBoolean(args.ordersMineOnly)) {
     searchParams.append("mineOrdersOnly", args.ordersMineOnly ? "1" : "0");
+  }
+
+  if (!isNullish(args.regionId) && isInt(args.regionId)) {
+    searchParams.append("regionId", args.regionId.toString());
   }
 
   const stream = await fetch(`https://playtradecraft.com/api/state?${searchParams.toString()}`, {
