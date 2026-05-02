@@ -40,10 +40,6 @@ const previewTile = {
     "currentRentalId": null
 } satisfies TilesType
 
-const previewTiles = [
-  previewTile,
-  previewTile,
-  previewTile,
-] satisfies TilesType[]
+const previewTiles = Array.from({ length: 3 }, () => previewTile) satisfies TilesType[]
 
 export { previewTiles }
