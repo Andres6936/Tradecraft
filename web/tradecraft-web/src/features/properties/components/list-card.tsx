@@ -6,17 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { usePropertiesContext } from "../context/properties-context";
 import { Property } from "./property";
 import { previewTiles } from "./preview";
-import { defualtShimmerColor } from "~/lib/utils";
 
 const ListCard = () => {
   const context = usePropertiesContext();
 
   if (context.isLoading) {
     return (
-      <Shimmer
-        loading={true}
-        shimmerColor={defualtShimmerColor}
-      >
+      <Shimmer loading={true}>
         <Root>
           <Header />
           <Content>
