@@ -53,9 +53,9 @@ const InventoryIndicator = () => {
     <Row className="gap-1">
       <Package className="h-3 w-3 text-muted-foreground" />
       <p className="text-muted-foreground text-xs">
-        <span className="text-[var(--color-lime-500)]">{property.localStorage.storedQty.toFixed(0)}</span>
+        <span className="text-[var(--color-lime-500)]">{Math.floor(property.localStorage.storedQty)}</span>
         {' '}/{' '}
-        <span className="text-[var(--color-orange-400)]">{property.localStorage.capacity.toFixed(0)}</span>
+        <span className="text-[var(--color-orange-400)]">{Math.floor(property.localStorage.capacity)}</span>
       </p>
     </Row>
   )
