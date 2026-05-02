@@ -37,6 +37,20 @@ import {
 import { Button } from "~/components/ui/button";
 
 
+const Actions = () => {
+  return (
+    <ButtonGroup>
+      <Button size='xs'>
+        Upgrade
+      </Button>
+      <Button size='xs'>
+        Transfer
+      </Button>
+      <MoreActionButton />
+    </ButtonGroup>
+  );
+}
+
 const MoreActionButton = () => {
   return (
     <DropdownMenu>
@@ -75,4 +89,4 @@ const MoreActionButton = () => {
   );
 }
 
-export { MoreActionButton };
+export { Actions, MoreActionButton };

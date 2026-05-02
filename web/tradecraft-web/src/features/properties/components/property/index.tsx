@@ -83,15 +83,7 @@ const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] 
             </p>
           </Col>
           <FlexEnd className="gap-2">
-            <ButtonGroup>
-              <Button size='xs'>
-                Upgrade
-              </Button>
-              <Button size='xs'>
-                Transfer
-              </Button>
-              <Comp.MoreActionButton/>
-            </ButtonGroup>
+            <Comp.Actions/>
           </FlexEnd>
         </Row>
       </section>
