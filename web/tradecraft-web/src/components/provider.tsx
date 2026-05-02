@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { NuqsAdapter } from 'nuqs/adapters/react'
 import { ShimmerProvider } from "shimmer-from-structure";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,13 +19,15 @@ const Providers = ({ children }: React.PropsWithChildren<{}>) => {
       <ShimmerProvider config={{
         shimmerColor: defualtShimmerColor
       }}>
-        <QueryClientProvider client={queryClient}>
-          <LoginContextProvider>
-            {children}
-          </LoginContextProvider>
-          <Toaster />
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
+        <NuqsAdapter>
+          <QueryClientProvider client={queryClient}>
+            <LoginContextProvider>
+              {children}
+            </LoginContextProvider>
+            <Toaster />
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </NuqsAdapter>
       </ShimmerProvider>
     </ThemeProvider>
   );
