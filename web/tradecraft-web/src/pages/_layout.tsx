@@ -23,11 +23,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         precedence="font"
       />
       <Providers>
-        <Header />
         <main className="m-6 flex items-center *:min-h-64 *:min-w-64 lg:m-0 lg:min-h-svh lg:justify-center">
           {children}
         </main>
-        <Footer />
       </Providers>
     </div>
   );
