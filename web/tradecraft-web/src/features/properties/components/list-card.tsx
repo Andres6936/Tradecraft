@@ -30,7 +30,7 @@ const ListCard = () => {
               <List
                 rowComponent={Property}
                 rowCount={tiles.length}
-                rowHeight={25}
+                rowHeight={77}
                 rowProps={{ tiles }}
               />
             </div>
