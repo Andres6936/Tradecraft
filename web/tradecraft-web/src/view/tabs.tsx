@@ -1,5 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
 import { Trader as ViewTrader } from "~/view/trader";
+import { Properties as ViewProperties } from "~/view/properties";
+
 
 const ViewTabs = () => {
   return (
@@ -11,7 +13,9 @@ const ViewTabs = () => {
       <TabsContent value="market">
         <ViewTrader />
       </TabsContent>
-      <TabsContent value="properties">Properties content here.</TabsContent>
+      <TabsContent value="properties">
+        <ViewProperties/>
+      </TabsContent>
     </Tabs>
   )
 }
