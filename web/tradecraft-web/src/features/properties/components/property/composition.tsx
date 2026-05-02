@@ -34,6 +34,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu"
+import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Flex, FlexEnd, Row, Col } from "~/features/main/components/view";
 
@@ -52,6 +53,20 @@ const InventoryIndicator = () => {
       </p>
     </Row>
   )
+}
+
+const LevelIndicator = () => {
+  const { property } = usePropertyContext();
+
+  const bonus = (property.level - 1) * 10;
+
+  if (property.kind === "factory") {
+    return (
+      <Badge variant='outline'>Level: {property.level} <span className="text-purple-500">+{bonus}%</span></Badge>
+    )
+  }
+
+  return null;
 }
 
 const Actions = () => {
@@ -106,4 +121,4 @@ const MoreActionButton = () => {
   );
 }
 
-export { InventoryIndicator, Actions, MoreActionButton };
+export { InventoryIndicator, LevelIndicator, Actions, MoreActionButton };
