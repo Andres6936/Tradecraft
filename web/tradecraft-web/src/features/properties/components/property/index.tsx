@@ -26,7 +26,7 @@ const Property = ({index, style, tiles}: RowComponentProps<{ tiles: TilesType[] 
           </Row>
           <Row>
             <Comp.LevelIndicator/>
-            <Badge className="bg-[var(--color-lime-500)]">{model.busy ? "Working" : "Stopped"}</Badge>
+            <Comp.WorkingIndicator/>
           </Row>
         </Flex>
 

@@ -61,6 +61,16 @@ const InventoryIndicator = () => {
   )
 }
 
+const WorkingIndicator = () => {
+  const { property } = usePropertyContext();
+
+  return (
+    <Badge className={property.busy ? "bg-lime-500" : "bg-orange-500"}>
+      {property.busy ? "Working" : "Stopped"}
+    </Badge>
+  )
+}
+
 const LevelIndicator = () => {
   const { property } = usePropertyContext();
 
@@ -187,4 +197,4 @@ const MoreActionButton = () => {
   );
 }
 
-export { InventoryIndicator, LevelIndicator, Actions, MoreActionButton };
+export { InventoryIndicator, WorkingIndicator, LevelIndicator, Actions, MoreActionButton };
