@@ -154,7 +154,6 @@ type BaseTile = {
   retailUnitsSoldTotal: number;
   localStorage: LocalStorage
   level: number;
-  upgrading: boolean
   updatedAt: string;
   upgradeEndsAt: any
   upgradeStartedAt: any
@@ -165,6 +164,7 @@ type BaseTile = {
 
 type FactoryTile = BaseTile & {
   kind: "factory"
+  upgrading: boolean
   employees: Employee[]
 }
 

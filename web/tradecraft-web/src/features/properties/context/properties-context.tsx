@@ -16,6 +16,7 @@ type PropertiesContextProps =
     isLoading: false;
     isFetching: boolean;
     error: null;
+    token: string,
     tiles: TilesType[],
   }
 
@@ -67,6 +68,7 @@ const PropertiesContextProvider = ({ children, token }: React.PropsWithChildren<
       isFetching: query.isFetching,
       isLoading: false,
       error: null,
+      token,
       tiles,
     }}>
       {children}

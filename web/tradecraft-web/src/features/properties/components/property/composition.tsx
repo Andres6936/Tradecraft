@@ -15,6 +15,7 @@ import {
   Trash2,
   Trash2Icon,
 } from "lucide-react"
+import { upgrade } from "~/api";
 
 import {
   ButtonGroup,
@@ -36,9 +37,11 @@ import {
 } from "~/components/ui/dropdown-menu"
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
+import { Spinner } from "~/components/ui/spinner";
 import { Flex, FlexEnd, Row, Col } from "~/features/main/components/view";
 
 import { usePropertyContext } from "./context";
+import { usePropertiesContext } from "../../context/properties-context";
 
 const InventoryIndicator = () => {
   const { property } = usePropertyContext();
@@ -72,15 +75,32 @@ const LevelIndicator = () => {
 const Actions = () => {
   return (
     <ButtonGroup>
-      <Button size='xs'>
-        Upgrade
-      </Button>
+      <ActionUpgrade />
       <Button size='xs'>
         Transfer
       </Button>
       <MoreActionButton />
     </ButtonGroup>
   );
+}
+
+const ActionUpgrade = () => {
+  const context = usePropertiesContext()
+  const { property } = usePropertyContext();
+
+  const onPress = async () => {
+    if (context.isLoading || context.error) return;
+    await upgrade({ tileId: property.id }, { token: context.token })
+  }
+
+  if (property.kind !== "factory") return null;
+
+  return (
+    <Button size='xs' onClick={onPress} disabled={property.upgrading}>
+      {property.upgrading && <Spinner data-icon="inline-start"/> }
+      {property.upgrading ? "Upgrading" : "Upgrade"}
+    </Button>
+  )
 }
 
 const MoreActionButton = () => {
