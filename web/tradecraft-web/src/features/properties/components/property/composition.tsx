@@ -101,7 +101,7 @@ const ActionTransfer = () => {
     await dispatch(async () => {
       await transferWarehouse({
         id: property.id,
-        amount: Math.ceil(property.localStorage.storedQty),
+        amount: Math.floor(property.localStorage.storedQty),
         regionId: property.regionId,
         x: property.x,
         y: property.y,
