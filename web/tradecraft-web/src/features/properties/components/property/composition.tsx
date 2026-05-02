@@ -16,7 +16,7 @@ import {
   Trash2Icon,
 } from "lucide-react"
 import { sleep } from "radashi";
-import { upgrade } from "~/api";
+import { transferWarehouse, upgrade } from "~/api";
 import { useQueryClient } from "@tanstack/react-query";
 
 import {
@@ -83,12 +83,42 @@ const Actions = () => {
   return (
     <ButtonGroup>
       <ActionUpgrade />
-      <Button size='xs'>
-        Transfer
-      </Button>
+      <ActionTransfer />
       <MoreActionButton />
     </ButtonGroup>
   );
+}
+
+const ActionTransfer = () => {
+  const context = usePropertiesContext()
+  const { property } = usePropertyContext();
+  const { isLoading, dispatch } = useDispatchAction();
+
+  const queryClient = useQueryClient();
+
+  const onPress = async () => {
+    if (context.isLoading || context.error || isLoading) return;
+    await dispatch(async () => {
+      await transferWarehouse({
+        id: property.id,
+        amount: Math.ceil(property.localStorage.storedQty),
+        regionId: property.regionId,
+        x: property.x,
+        y: property.y,
+      }, { token: context.token })
+      queryClient.invalidateQueries({ queryKey: ["/server/action/getTiles"] })
+      await sleep(1000)
+    })
+  }
+
+  if (property.kind !== "factory") return null;
+
+  return (
+    <Button size='xs' onClick={onPress} disabled={isLoading}>
+      {isLoading && <Spinner data-icon="inline-start"/> }
+      {isLoading ? "Transfering" : "Transfer"}
+    </Button>
+  )
 }
 
 const ActionUpgrade = () => {

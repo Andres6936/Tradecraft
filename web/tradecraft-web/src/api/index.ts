@@ -10,6 +10,7 @@ import {
   ExternalUnauthorizedError,
   getPriceRange as getPriceRangeExternal,
   sendOrder as sendOrderExternal,
+  transferWarehouse as transferWarehouseExternal,
   isUnautorizedError,
   toError,
   toSuccess,
@@ -36,6 +37,11 @@ const sendOrder = async (args: FirstArgs<typeof sendOrderExternal>, options: {to
 
 const getPriceRange = async (args: FirstArgs<typeof getPriceRangeExternal>, options: {token: string}) =>
   getPriceRangeExternal(args, {
+    headers: {...Headers, Cookie: `token=${options.token}`},
+  });
+
+const transferWarehouse = async (args: FirstArgs<typeof transferWarehouseExternal>, options: {token: string}) =>
+  transferWarehouseExternal(args, {
     headers: {...Headers, Cookie: `token=${options.token}`},
   });
 
@@ -93,4 +99,4 @@ const upgrade = async (args: {tileId: number},  options: {token: string}) => {
   return toSuccess(result);
 };
 
-export { cancelOrder, sendOrder, getStateWith, getPriceRange, upgrade };
+export { cancelOrder, sendOrder, getStateWith, getPriceRange, upgrade, transferWarehouse };
