@@ -1,10 +1,10 @@
-import { Trader as ViewTrader } from "~/view/trader";
+import { ViewTabs } from "~/view/tabs";
 
 export default async function HomePage() {
   return (
     <main>
       <title>Market</title>
-      <ViewTrader />
+      <ViewTabs />
     </main>
   );
 }
